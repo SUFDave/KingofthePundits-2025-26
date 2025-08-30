@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King of the Pundits - League Tables & Weekly Picks (Dark Mode)</title>
+    <title>King of the Pundits - Multi-Page App</title>
     <!-- Tailwind CSS CDN for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -11,30 +11,30 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #1a202c; /* Deep charcoal background */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 2.5rem;
-            box-sizing: border-box;
             color: #e2e8f0; /* Light text color for overall body */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .main-container-wrapper { /* New wrapper to hold both sections */
+        .main-container-wrapper {
             max-width: 1000px;
             width: 100%;
+            padding: 2.5rem;
+            box-sizing: border-box;
         }
-        .content-card { /* Reusing container styles as a card for sections */
-            background-color: #2d3748; /* Slightly lighter dark background for container */
+        .content-card {
+            background-color: #2d3748;
             border-radius: 1.25rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Stronger, dark-mode friendly shadow */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             padding: 3rem;
-            border: 1px solid #4a5568; /* Subtle outer border for definition */
-            margin-bottom: 3.5rem; /* Space between the two main content blocks */
+            border: 1px solid #4a5568;
+            margin-bottom: 3.5rem;
         }
         .main-title {
             font-size: 2.2rem;
             font-weight: 900;
-            color: #e2e8f0; /* Light color for main title */
+            color: #e2e8f0;
             text-align: center;
             margin-bottom: 2.5rem;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
@@ -43,7 +43,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             color: #e2e8f0;
-            margin-top: 3rem; /* Adjusted for within a section, not between main content blocks */
+            margin-top: 3rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #4a5568;
@@ -51,39 +51,25 @@
             align-items: center;
             gap: 0.5rem;
         }
-        /* Specific override for the first section title within each content card */
         .content-card > .section-title:first-of-type,
         .content-card > h1.main-title + .division-title {
-            margin-top: 0; /* No top margin if it's the very first heading in a content card */
+            margin-top: 0;
         }
-
-        /* League Table Specific Styles */
         .division-title {
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            margin-top: 3rem; /* Spacing between tables within the league table card */
+            margin-top: 3rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #4a5568; /* Subtle underline for division titles */
+            border-bottom: 2px solid #4a5568;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        /* Custom gold, silver, bronze, red, bright-yellow text colors for titles and player names */
-        .text-gold {
-            color: #FFD700; /* Standard Gold */
-        }
-        .text-silver {
-            color: #BDBDBD; /* A good silver for dark mode */
-        }
-        .text-bronze {
-            color: #CD7F32; /* Standard Bronze */
-        }
-        .text-bright-yellow { /* New custom bright yellow */
-            color: #FFEB3B; /* Brighter, more distinct yellow */
-        }
-        /* Using Tailwind's existing red-400 */
-
+        .text-gold { color: #FFD700; }
+        .text-silver { color: #BDBDBD; }
+        .text-bronze { color: #CD7F32; }
+        .text-bright-yellow { color: #FFEB3B; }
         .table-header-title {
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -105,16 +91,13 @@
             font-size: 0.92rem;
             line-height: 1.4;
         }
-        tbody tr:nth-child(even) {
-            background-color: #242c38;
-        }
+        tbody tr:nth-child(even) { background-color: #242c38; }
         tbody tr:hover {
             background-color: #3b4d66;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease-in-out;
         }
-        /* Weekly Picks Specific Styles */
         .sub-section-title {
             font-size: 1.1rem;
             font-weight: 700;
@@ -155,9 +138,7 @@
             padding: 0.6rem 0;
             border-bottom: 1px dashed #3b4d66;
         }
-        .pick-item:last-child {
-            border-bottom: none;
-        }
+        .pick-item:last-child { border-bottom: none; }
         .pick-details {
             color: #cbd5e0;
             font-size: 0.9rem;
@@ -178,26 +159,10 @@
             justify-content: space-between;
             align-items: center;
         }
-        .bet-description {
-            color: #e2e8f0;
-            font-size: 0.95rem;
-        }
-        .bet-returns {
-            font-weight: 700;
-            color: #f6ad55;
-            font-size: 1.05rem;
-        }
-        .note-item {
-            font-style: italic;
-            color: #a0aec0;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-        }
-        .picking-order-list {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 1rem;
-        }
+        .bet-description { color: #e2e8f0; font-size: 0.95rem; }
+        .bet-returns { font-weight: 700; color: #f6ad55; font-size: 1.05rem; }
+        .note-item { font-style: italic; color: #a0aec0; margin-bottom: 0.5rem; font-size: 0.85rem; }
+        .picking-order-list { list-style: none; padding-left: 0; margin-bottom: 1rem; }
         .picking-order-list li {
             background-color: #242c38;
             padding: 0.75rem 1rem;
@@ -208,39 +173,248 @@
             align-items: center;
             gap: 0.5rem;
         }
-        .picking-order-player {
+        .picking-order-player { font-weight: 600; color: #e2e8f0; }
+        .picking-order-sequence { font-size: 0.85rem; color: #a0aec0; font-style: italic; margin-left: 0.5rem; }
+        .overflow-x-auto::-webkit-scrollbar { height: 8px; }
+        .overflow-x-auto::-webkit-scrollbar-track { background: #2d3748; border-radius: 10px; }
+        .overflow-x-auto::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 10px; }
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        
+        .nav-bar {
+            background-color: #2d3748;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 9999px;
             font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid transparent;
             color: #e2e8f0;
         }
-        .picking-order-sequence {
-            font-size: 0.85rem;
-            color: #a0aec0;
-            font-style: italic;
-            margin-left: 0.5rem;
+        .nav-button:hover {
+            background-color: #3b4d66;
         }
-        /* Custom scrollbar for a cleaner look */
-        .overflow-x-auto::-webkit-scrollbar {
-            height: 8px;
+        .nav-button.active {
+            background-color: #63b3ed;
+            color: #1a202c;
+            border-color: #63b3ed;
         }
-        .overflow-x-auto::-webkit-scrollbar-track {
-            background: #2d3748;
-            border-radius: 10px;
-        }
-        .overflow-x-auto::-webkit-scrollbar-thumb {
-            background: #4a5568;
-            border-radius: 10px;
-        }
-        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
-        }
+        
     </style>
 </head>
 <body class="antialiased">
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <button class="nav-button active" onclick="showPage('home-page')">Home</button>
+        <button class="nav-button" onclick="showPage('league-tables-page')">League Tables</button>
+        <button class="nav-button" onclick="showPage('weekly-picks-page')">Weekly Picks</button>
+    </nav>
+    
     <div class="main-container-wrapper">
         <h1 class="main-title">King of the Pundits – Season 25/26 <span role="img" aria-label="trophy">🏆</span></h1>
 
+        <!-- Home Page -->
+        <div id="home-page" class="content-card">
+            <h2 class="section-title">Welcome to King of the Pundits! <span role="img" aria-label="waving hand">👋</span></h2>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                Welcome to the official app for the King of the Pundits football competition. This is your one-stop shop to track the league tables, check the latest weekly picks, and stay up-to-date with all the action.
+            </p>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                Use the navigation menu above to switch between the different sections of the app.
+            </p>
+            <div class="card">
+                <h3 class="sub-section-title !mt-0">Competition Overview</h3>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-gray-400">
+                    <li><strong>Season:</strong> 2025/26</li>
+                    <li><strong>Players:</strong> 7 players across two divisions</li>
+                    <li><strong>Total Weeks:</strong> 30</li>
+                    <li><strong>Points System:</strong> Home wins (1pt), Away wins (2pts), Draws (3pts)</li>
+                </ul>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 3.5rem;">Previous Week's Results: Week One <span role="img" aria-label="calendar">🗓️</span></h2>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                What a start to the new season! Week one saw a classic King of the Pundits comeback, with Davo taking an early lead in Division 1 with a brilliant performance, correctly picking a Home Win, Away Win, and Draw to bag a maximum 6 points. It was a tough week for the rest of the division, with Dylan and Mike each getting 1 point, and Mevsi unfortunately starting the season with 0.
+            </p>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                Over in Division 2, it's a tight race at the top with both Alex and Ben securing 3 points each. Alex correctly predicted a draw, while Ben got a home and away win correct. Unfortunately, Myles and Dave K will be looking to get on the board next week after starting the season with 0 points.
+            </p>
+
+            <h3 class="section-title text-gold" style="margin-top: 3rem;">Division 1 Player Picks - Week One <span role="img" aria-label="target">🎯</span></h3>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Davo</span>
+                    <span class="player-points">6pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Arsenal vs Leeds Utd : 5-0 Home Win</span>
+                        <span class="pick-points">1pt</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Newcastle vs Liverpool : 2-3 Away Win</span>
+                        <span class="pick-points">2pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Swansea City vs Watford : 1-1 Draw</span>
+                        <span class="pick-points">3pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Dylan</span>
+                    <span class="player-points">1pt</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Coventry City vs Queens Park Rangers : 7-1 Home Win</span>
+                        <span class="pick-points">1pt</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Everton vs Brighton : 2-0 Home Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Burnley vs Sunderland : 2-0 Burnley</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Mike</span>
+                    <span class="player-points">1pt</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Birmingham vs Oxford Utd : 1-0 Home Win</span>
+                        <span class="pick-points">1pt</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Brentford vs Aston Villa : 1-0 Home Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Sheffield Utd vs Millwall : 0-1 Away Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name text-red-400">Mevsi Bottled It 💩</span>
+                    <span class="player-points">0pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - (No Pick)</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - (No Pick)</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - (No Pick)</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+            <h3 class="section-title text-silver" style="margin-top: 2.5rem;">Division 2 Player Picks - Week One <span role="img" aria-label="target">🎯</span></h3>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Ben</span>
+                    <span class="player-points">3pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Arsenal vs Leeds Utd : 6-0 Home Win</span>
+                        <span class="pick-points">1pt</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Crawley vs Tranmere Rovers : 0-2 Away Win</span>
+                        <span class="pick-points">2pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Preston NE vs Ipswich Town : 1-0 Home Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Dave K</span>
+                    <span class="player-points">0pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Manchester City vs Tottenham : 0-2 Away Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Burnley vs Sunderland : 2-0 Home Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Bournemouth vs Wolves : 1-0 Home Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Alex</span>
+                    <span class="player-points">3pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Fulham vs Manchester United : 1-1 Draw</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Wrexham vs Sheffield Wednesday : 2-2 Draw</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Crystal Palace vs Nottingham Forest : 1-1 Draw</span>
+                        <span class="pick-points">3pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center mb-3">
+                    <span class="player-name">Myles</span>
+                    <span class="player-points">0pts</span>
+                </div>
+                <div>
+                    <div class="pick-item">
+                        <span class="pick-details">H - Southampton vs Stoke City : 1-2 Away Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">A - Fulham vs Manchester United : Void (Match Already Picked)</span>
+                        <span class="pick-points text-gray-400">0pts</span>
+                    </div>
+                    <div class="pick-item">
+                        <span class="pick-details">D - Hull City vs Blackburn Rovers : 0-3 Away Win</span>
+                        <span class="pick-points text-red-400">0pts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- League Tables Section -->
-        <div class="content-card">
+        <div id="league-tables-page" class="content-card hidden">
             <h2 class="division-title text-gold">Division One – League Table <span role="img" aria-label="football">⚽</span></h2>
             <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
                 <table class="min-w-full divide-y divide-gray-700">
@@ -248,7 +422,7 @@
                         <tr>
                             <th scope="col" class="px-6 py-3 table-header-title">Position</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Player</th>
-                            <th scope="col" class="px-6 py-3 table-header-title">Week Points</th>
+                            <th scope="col" class="px-6 py-3 table-header-title">Week 1 Points</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Total Points</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Recent Form</th>
                         </tr>
@@ -257,27 +431,27 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-gold">1</td>
                             <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold">Davo</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap">6pts</td>
+                            <td class="px-6 py-4 whitespace-nowrap">6pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-silver">2</td>
                             <td class="px-6 py-4 whitespace-nowrap font-medium text-silver">Dylan</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1pt</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-red-400">3</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Mike</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-bronze">3</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze">Mike</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1pt</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-bright-yellow">4</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bright-yellow">Mevsi Bottled It</td>
+                        <tr class="bg-red-900 bg-opacity-20">
+                            <td class="px-6 py-4 whitespace-nowrap text-red-400">4</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Mevsi Bottled It 💩</td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
@@ -286,14 +460,14 @@
                 </table>
             </div>
 
-            <h2 class="division-title text-silver">Division Two – League Table <span role="img" aria-label="football">⚽</span></h2>
+            <h2 class="division-title text-silver" style="margin-top: 3.5rem;">Division Two – League Table <span role="img" aria-label="football">⚽</span></h2>
             <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
                 <table class="min-w-full divide-y divide-gray-700">
                     <thead class="bg-gradient-to-r from-green-900 to-teal-900">
                         <tr>
                             <th scope="col" class="px-6 py-3 table-header-title">Position</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Player</th>
-                            <th scope="col" class="px-6 py-3 table-header-title">Week Points</th>
+                            <th scope="col" class="px-6 py-3 table-header-title">Week 1 Points</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Total Points</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Recent Form</th>
                         </tr>
@@ -301,37 +475,35 @@
                     <tbody class="divide-y divide-gray-800">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-gold">1</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold">Ben</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold">Alex</td>
+                            <td class="px-6 py-4 whitespace-nowrap">3pts</td>
+                            <td class="px-6 py-4 whitespace-nowrap">3pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-silver">2</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver">Alex</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver">Ben</td>
+                            <td class="px-6 py-4 whitespace-nowrap">3pts</td>
+                            <td class="px-6 py-4 whitespace-nowrap">3pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-bronze">3</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze">Myles</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze">Dave K</td>
+                            <td class="px-6 py-4 whitespace-nowrap">0pts</td>
+                            <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-red-400">4</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Dave K</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
-                            <td class="px-6 py-4 whitespace-nowrap">[]</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Myles</td>
+                            <td class="px-6 py-4 whitespace-nowrap">0pts</td>
+                            <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <!-- Match Notes Section -->
             <h2 class="section-title" style="margin-top: 3.5rem;">Match Notes <span role="img" aria-label="clipboard">📋</span></h2>
             <div class="card">
                 <p class="note-item"><span role="img" aria-label="star asterisk">⭐</span> (* Postponed Match)</p>
@@ -342,11 +514,9 @@
         </div>
 
         <!-- Weekly Picks Section -->
-        <div class="content-card">
-            <!-- Combined Picking Order Section -->
+        <div id="weekly-picks-page" class="content-card hidden">
             <h2 class="section-title">Picking Order Week Two <span role="img" aria-label="order">🔢</span></h2>
-            <div class="flex flex-col md:flex-row md:space-x-6"> <!-- Increased space-x for better separation -->
-                <!-- Division 1 Picking Order -->
+            <div class="flex flex-col md:flex-row md:space-x-6">
                 <div class="w-full md:w-1/2 md:border-r md:border-gray-700 md:pr-6 mb-4 md:mb-0">
                     <div class="card">
                         <h3 class="sub-section-title mt-0">Division 1 Week Two Picking Order:</h3>
@@ -362,8 +532,6 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- Division 2 Picking Order -->
                 <div class="w-full md:w-1/2">
                     <div class="card">
                         <h3 class="sub-section-title mt-0">Division 2 Week Two Picking Order:</h3>
@@ -380,15 +548,11 @@
                     </div>
                 </div>
             </div>
-
-
-            <h2 class="section-title text-gold">Division 1 Player Picks - Week Two <span role="img" aria-label="target">🎯</span></h2>
-
-            <!-- Mike's Picks (Updated for Week Two) -->
+            <h2 class="section-title text-gold" style="margin-top: 3rem;">Division 1 Player Picks - Week Two <span role="img" aria-label="target">🎯</span></h2>
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Mike</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -405,12 +569,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Dylan's Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Dylan</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -427,19 +589,16 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Davo's Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Davo</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
                         <span class="pick-details">H - Cardiff City vs Plymouth</span>
                         <span class="pick-points text-gray-400">?pts</span>
-                    </div
-                            >
+                    </div>
                     <div class="pick-item">
                         <span class="pick-details">A - Leeds Utd vs Newcastle Utd</span>
                         <span class="pick-points text-gray-400">?pts</span>
@@ -450,16 +609,11 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Mevsi Bottled It's Picks (Removed for Week Two as no picks provided) -->
-            <!-- Division 2 Player Picks Header -->
             <h2 class="section-title text-silver" style="margin-top: 2.5rem;">Division 2 Player Picks - Week Two <span role="img" aria-label="target">🎯</span></h2>
-
-            <!-- Dave K's Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Dave K</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -476,12 +630,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Alex's Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Alex</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -498,12 +650,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Myles' Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Myles</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -520,12 +670,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Ben's Picks (Updated for Week Two) -->
             <div class="card">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Ben</span>
-                    <span class="player-points">?pts</span> <!-- Points placeholder for Week Two -->
+                    <span class="player-points">?pts</span>
                 </div>
                 <div>
                     <div class="pick-item">
@@ -542,94 +690,68 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Bet Placements Section -->
             <h2 class="section-title" style="margin-top: 3rem;">Bet Placements <span role="img" aria-label="money bag">💰</span></h2>
             <div class="card">
+                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Division 1 Week Two Betting:</h3>
                 <div class="bet-item">
-                    <span class="bet-description">One Five Team Accumulator, Draws</span>
-                    <span class="bet-returns">£1,714.61</span>
+                    <span class="bet-description">Div 1 : One Six Team Accumulator : 3 Homes & 3 Aways</span>
+                    <span class="bet-returns">£34.86</span>
                 </div>
                 <div class="bet-item">
-                    <span class="bet-description">One Ten Team Accumulator, 5 Homes & 5 Aways</span>
-                    <span class="bet-returns">£584.68</span>
+                    <span class="bet-description">Div 1 : One Three Team Accumulator : 3 Draws</span>
+                    <span class="bet-returns">£60.98</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- Rules & Information Section -->
-        <div class="content-card">
-            <h2 class="section-title">Rules & Information <span role="img" aria-label="rules book">📖</span></h2>
-            <div class="text-gray-300 text-sm leading-relaxed space-y-4">
-                <p><strong>Season:</strong> 2025/26</p>
-                <p><strong>Players:</strong> 7 players split into two divisions.</p>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li><strong>Division One:</strong> Davo, Dylan, Mike</li>
-                    <li><strong>Division Two:</strong> Ben, Alex, Myles, Dave K</li>
-                </ul>
-
-                <p><strong>Total Weeks:</strong> 30</p>
-                <p><strong>Matches Allowed:</strong> Friday–Monday only (Premier League, Championship, League One & League Two).</p>
-
-                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Points System:</h3>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>Home win correct = 1 point</li>
-                    <li>Away win correct = 2 points</li>
-                    <li>Draw correct = 3 points</li>
-                </ul>
-
-                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Picking Order:</h3>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li><strong>Division 1 (3 players):</strong> 1-2-3 &rarr; 2-3-1 &rarr; 3-1-2</li>
-                    <li><strong>Division 2 (4 players):</strong> 1-2-3-4 &rarr; 2-3-4-1 &rarr; 3-4-1-2 &rarr; 4-1-2-3</li>
-                </ul>
-
-                <p><strong>Missed Picks:</strong> If a player fails to pick on their day, they must wait until all others have picked before choosing.</p>
-
-                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Financials:</h3>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li><strong>Entry Fee:</strong> £60 per player (30 weeks &times; £2).</li>
-                    <li><strong>Total Collected:</strong> £420.00</li>
-                    <li><strong>Funds Split:</strong>
-                        <ul class="list-circle list-inside ml-4">
-                            <li>Betting Fund: £210.00</li>
-                            <li>Prize Fund: £210.00</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Prizes (whole pounds):</h3>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>Overall Champion (most points across both divisions): £50</li>
-                    <li>Division 1 Winner: £50</li>
-                    <li>Division 1 Runner-Up: £30</li>
-                    <li>Division 2 Winner: £50</li>
-                    <li>Division 2 Runner-Up: £30</li>
-                </ul>
-
-                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Promotion & Relegation:</h3>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>Top 1 in Division 2 promoted to Division 1 next season.</li>
-                    <li>Bottom 1 in Division 1 relegated to Division 2 next season.</li>
-                </ul>
-
-                <h2 class="section-title !mt-6 !mb-3">Weekly Betting <span role="img" aria-label="dart board">🎯</span></h2>
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li><strong>Division 1 Betting:</strong>
-                        <ul class="list-circle list-inside ml-4">
-                            <li>1 &times; 3 Draws Accumulator</li>
-                            <li>1 &times; 3 Homes & 3 Aways Accumulator</li>
-                        </ul>
-                    </li>
-                    <li><strong>Division 2 Betting:</strong>
-                        <ul class="list-circle list-inside ml-4">
-                            <li>1 &times; 4 Draws Accumulator</li>
-                            <li>1 &times; 4 Homes & 4 Aways Accumulator</li>
-                        </ul>
-                    </li>
-                </ul>
+                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Division 2 Week Two Betting:</h3>
+                <div class="bet-item">
+                    <span class="bet-description">Div 2 : One Eight Team Accumulator : 4 Homes & 4 Aways</span>
+                    <span class="bet-returns">£256.82</span>
+                </div>
+                <div class="bet-item">
+                    <span class="bet-description">Div 2 : One Four Team Accumulator : 4 Draws</span>
+                    <span class="bet-returns">£278.46</span>
+                </div>
+                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Division 1 Week One Betting:</h3>
+                <div class="bet-item">
+                    <span class="bet-description">Div 1 : One Six Team Accumulator : 3 Homes & 3 Aways</span>
+                    <span class="bet-returns">£31.55</span>
+                </div>
+                <div class="bet-item">
+                    <span class="bet-description">Div 1 : One Three Team Accumulator : 3 Draws</span>
+                    <span class="bet-returns">£58.20</span>
+                </div>
+                <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Division 2 Week One Betting:</h3>
+                <div class="bet-item">
+                    <span class="bet-description">Div 2 : One Eight Team Accumulator : 4 Homes & 4 Aways</span>
+                    <span class="bet-returns">£245.10</span>
+                </div>
+                <div class="bet-item">
+                    <span class="bet-description">Div 2 : One Four Team Accumulator : 4 Draws</span>
+                    <span class="bet-returns">£265.90</span>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.content-card').forEach(page => {
+                page.classList.add('hidden');
+            });
+            // Show the selected page
+            document.getElementById(pageId).classList.remove('hidden');
+
+            // Update active state of navigation buttons
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
+        }
+
+        // Initially show the home page
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home-page');
+        });
+    </script>
 </body>
 </html>
