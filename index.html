@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King of the Pundits - Multi-Page App</title>
-    <!-- Tailwind CSS CDN for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -305,7 +304,6 @@
     </style>
 </head>
 <body class="antialiased">
-    <!-- Navigation Bar -->
     <nav class="nav-bar">
         <button class="nav-button active" onclick="showPage('home-page')">Home</button>
         <button class="nav-button" onclick="showPage('league-tables-page')">League Tables</button>
@@ -313,9 +311,10 @@
     </nav>
     
     <div class="main-container-wrapper">
+        <img src="Gemini_Generated_Image_t80bzmt80bzmt80b (1).jpg" alt="King of the Pundits Banner" class="w-full h-auto rounded-xl mb-8 shadow-lg">
+
         <h1 class="main-title">King of the Pundits – Season 25/26 <span role="img" aria-label="trophy">🏆</span></h1>
 
-        <!-- Home Page -->
         <div id="home-page" class="content-card">
             <h2 class="section-title">Welcome to King of the Pundits! <span role="img" aria-label="waving hand">👋</span></h2>
             <p class="text-gray-300 text-base leading-relaxed mb-4">
@@ -506,7 +505,6 @@
             </div>
         </div>
 
-        <!-- League Tables Section -->
         <div id="league-tables-page" class="content-card hidden">
             <h2 class="division-title text-gold">Division One – League Table <span role="img" aria-label="football">⚽</span></h2>
             <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
@@ -606,7 +604,6 @@
             </div>
         </div>
 
-        <!-- Weekly Picks Section -->
         <div id="weekly-picks-page" class="content-card hidden">
             <h2 class="section-title">Picking Order Week Two <span role="img" aria-label="order">🔢</span></h2>
             <div class="flex flex-col md:flex-row md:space-x-6">
