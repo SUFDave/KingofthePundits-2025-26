@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Deep charcoal background */
+            background-color: #000000; /* Main black background */
             color: #e2e8f0; /* Light text color for overall body */
             min-height: 100vh;
             display: flex;
@@ -28,11 +28,11 @@
             }
         }
         .content-card {
-            background-color: #2d3748;
+            background-color: #121212; /* Section background is now a slightly lighter black */
             border-radius: 1.25rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             padding: 2rem; /* Responsive padding for mobile */
-            border: 1px solid #4a5568;
+            border: 1px solid #e2e8f0; /* Small white border for separation */
             margin-bottom: 2.5rem; /* Responsive margin for mobile */
         }
         @media (min-width: 768px) {
@@ -65,10 +65,13 @@
             margin-top: 2rem; /* Responsive margin */
             margin-bottom: 1rem; /* Responsive margin */
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #4a5568;
+            border-bottom: 2px solid #63b3ed;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+        .content-card .section-title:first-of-type {
+            margin-top: 0;
         }
         @media (min-width: 768px) {
             .section-title, .division-title {
@@ -263,30 +266,41 @@
         .overflow-x-auto::-webkit-scrollbar-thumb:hover { background: #6b7280; }
         
         .nav-bar {
-            background-color: #2d3748;
+            background-color: #000000;
             width: 100%;
             display: flex;
             justify-content: center;
-            padding: 1rem; /* Responsive padding */
+            padding: 1rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 50;
         }
-        @media (min-width: 768px) {
-            .nav-button {
-                padding: 0.75rem 1.5rem;
-                margin: 0 0.5rem;
-                font-size: 1rem;
-            }
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            transition: all 0.3s ease-in-out;
+            position: relative;
         }
         .nav-button:hover {
-            background-color: #3b4d66;
+            color: #63b3ed;
         }
         .nav-button.active {
+            color: #63b3ed;
+        }
+        .nav-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
             background-color: #63b3ed;
-            color: #1a202c;
-            border-color: #63b3ed;
+            border-radius: 2px;
         }
         
     </style>
@@ -299,122 +313,156 @@
     </nav>
     
     <div class="main-container-wrapper">
-        <img src="https://kingofthe-pundits-2025-26.vercel.app/kotp-banner-header.webp" alt="King of the Pundits Banner" class="w-full h-auto rounded-xl mb-8 shadow-lg">
+        <img src="https://kingofthe-pundits-2025-26.vercel.app/kotp-banner-header.webp" alt="King of the Pundits Banner" class="w-full h-auto rounded-xl mb-8 shadow-lg border-2 border-white">
 
-        <h1 class="main-title">King of the Pundits – Season 25/26 <span role="img" aria-label="trophy">🏆</span></h1>
-
-        <div id="home-page" class="content-card">
-            <h2 class="section-title">Welcome to King of the Pundits! <span role="img" aria-label="waving hand">👋</span></h2>
-            <p class="text-gray-300 text-base leading-relaxed mb-4">
-                Welcome to the official app for the King of the Pundits football competition. This is your one-stop shop to track the league tables, check the latest weekly picks, and stay up-to-date with all the action.
-            </p>
-            <p class="text-gray-300 text-base leading-relaxed mb-4">
-                Use the navigation menu above to switch between the different sections of the app.
-            </p>
+        <div id="home-page">
+            <h1 class="main-title">King of the Pundits - Season 2025/26 <span role="img" aria-label="trophy">🏆</span></h1>
+            <div class="content-card">
+                <h2 class="section-title">Welcome to King of the Pundits! <span role="img" aria-label="waving hand">👋</span></h2>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    Welcome to the official app for the King of the Pundits football competition. This is your one-stop shop to track the league tables, check the latest weekly picks, and stay up-to-date with all the action.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    Use the navigation menu above to switch between the different sections of the app.
+                </p>
+            </div>
             
-            <h2 class="section-title" style="margin-top: 3.5rem;">Previous Week's Results: Week One <span role="img" aria-label="calendar">🗓️</span></h2>
-            <p class="text-gray-300 text-base leading-relaxed mb-4">
-                What a start to the new season! Week one saw a classic King of the Pundits comeback, with Davo taking an early lead in Division 1 with a brilliant performance, correctly picking a Home Win, Away Win, and Draw to bag a maximum 6 points. It was a tough week for the rest of the division, with Dylan and Mike each getting one point, and Mevsi unfortunately starting the season with zero.
-            </p>
-            <p class="text-gray-300 text-base leading-relaxed mb-4">
-                Over in Division 2, it's a tight race at the top with both Alex and Ben securing three points each. Alex correctly predicted a draw, while Ben got a home and away win correct. Unfortunately, Myles and Dave K will be looking to get on the board next week after starting the season with zero points.
-            </p>
-            <h2 class="section-title" style="margin-top: 3.5rem;">Latest Results: Week Two <span role="img" aria-label="calendar">🗓️</span></h2>
-            <p class="text-gray-300 text-base leading-relaxed mb-2">
-                Week Two delivered some exciting results! In Division 1, Davo added a crucial one point to his total with a correct Home pick, keeping his lead. Dylan also saw an improved week, earning two points from a correct Away pick, moving up the table. Mike secured a single point with a correct Home pick but missed out on his other two chances. Mevsi, unfortunately, remains at the bottom of the table without a pick.
-            </p>
-            <p class="text-gray-300 text-base leading-relaxed mb-4">
-                In Division 2, the competition is heating up. Dave K made a significant move by earning a huge three points with a perfectly predicted draw, giving him his first points of the season. Myles also got on the board for the first time with a correct Home pick. Ben managed to secure another point, but he has fallen from the top spot. Meanwhile, Alex had a tough week, missing all three of his picks and earning zero points.
-            </p>
+            <div class="content-card">
+                <h2 class="section-title">Previous Week's Results: Week One <span role="img" aria-label="calendar">🗓️</span></h2>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    What a start to the new season! Week one saw a classic King of the Pundits comeback, with Davo taking an early lead in Division 1 with a brilliant performance, correctly picking a Home Win, Away Win, and Draw to bag a maximum 6 points. It was a tough week for the rest of the division, with Dylan and Mike each getting one point, and Mevsi unfortunately starting the season with zero.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    Over in Division 2, it's a tight race at the top with both Alex and Ben securing three points each. Alex correctly predicted a draw, while Ben got a home and away win correct. Unfortunately, Myles and Dave K will be looking to get on the board next week after starting the season with zero points.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h2 class="section-title">Latest Results: Week Two <span role="img" aria-label="calendar">🗓️</span></h2>
+                <p class="text-gray-300 text-base leading-relaxed mb-2">
+                    Week Two delivered some exciting results! In Division 1, Davo added a crucial one point to his total with a correct Home pick, keeping his lead. Dylan also saw an improved week, earning two points from a correct Away pick, moving up the table. Mike secured a single point with a correct Home pick but missed out on his other two chances. Mevsi, unfortunately, remains at the bottom of the table without a pick.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    In Division 2, the competition is heating up. Dave K made a significant move by earning a huge three points with a perfectly predicted draw, giving him his first points of the season. Myles also got on the board for the first time with a correct Home pick. Ben managed to secure another point, but he has fallen from the top spot. Meanwhile, Alex had a tough week, missing all three of his picks and earning zero points.
+                </p>
+            </div>
             
             ---
-
-            <h2 class="section-title">Featured Match Highlights <span role="img" aria-label="video camera">🎥</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div>
-                    <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-gray-900">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/cqhUffcFqGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- Featured Match Highlights Section -->
+            <div class="content-card">
+                <h2 class="section-title !mt-0 !mb-4">Featured Match Highlights <span role="img" aria-label="video camera">🎥</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-white">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/cqhUffcFqGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="bg-black p-3 mt-2 rounded-xl text-sm text-center text-white border border-white">
+                            <p class="mb-1">
+                                **Manchester United 3-2 Burnley**
+                            </p>
+                            Mike earned a crucial one point with a correct home pick on this thrilling game. Myles, however, missed out on a point as his draw pick was incorrect.
+                        </div>
                     </div>
-                    <div class="bg-gray-900 p-3 mt-2 rounded-xl text-sm text-center text-white">
-                        <p class="mb-1">
-                            **Manchester United 3-2 Burnley**
-                        </p>
-                        Mike earned a crucial one point with a correct home pick on this thrilling game. Myles, however, missed out on a point as his draw pick was incorrect.
+                    <div>
+                        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-white">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="bg-black p-3 mt-2 rounded-xl text-sm text-center text-white border border-white">
+                            <p class="mb-1">
+                                **Brighton 2-1 Manchester City**
+                            </p>
+                            Dylan and Ben both had away picks for this match, but with Brighton winning 2-1 they both came away with zero points.
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-gray-900">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div>
+                        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-white">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/J6xazz0eVcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="bg-black p-3 mt-2 rounded-xl text-sm text-center text-white border border-white">
+                            <p class="mb-1">
+                                **Chelsea 2-0 Fulham**
+                            </p>
+                            Ben earned one point from this London derby with a correct home pick.
+                        </div>
                     </div>
-                    <div class="bg-gray-900 p-3 mt-2 rounded-xl text-sm text-center text-white">
-                        <p class="mb-1">
-                            **Brighton 2-1 Manchester City**
-                        </p>
-                        Dylan and Ben both had away picks for this match, but with Brighton winning 2-1 they both came away with zero points.
-                    </div>
-                </div>
-                <div>
-                    <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-gray-900">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/J6xazz0eVcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="bg-gray-900 p-3 mt-2 rounded-xl text-sm text-center text-white">
-                        <p class="mb-1">
-                            **Chelsea 2-0 Fulham**
-                        </p>
-                        Ben earned one point from this London derby with a correct home pick.
-                    </div>
-                </div>
-                <div>
-                    <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-gray-900">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/NB5pe157reo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="bg-gray-900 p-3 mt-2 rounded-xl text-sm text-center text-white">
-                        <p class="mb-1">
-                            **Liverpool 1-0 Arsenal**
-                        </p>
-                        Mike, Dave K, and Alex all came away with zero points from this match.
+                    <div>
+                        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg border-2 border-white">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/NB5pe157reo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="bg-black p-3 mt-2 rounded-xl text-sm text-center text-white border border-white">
+                            <p class="mb-1">
+                                **Liverpool 1-0 Arsenal**
+                            </p>
+                            Mike, Dave K, and Alex all came away with zero points from this match.
+                        </div>
                     </div>
                 </div>
             </div>
 
             ---
             
-            <h2 class="section-title text-center" style="margin-top: 3.5rem;">The Season At A Glance <span role="img" aria-label="waving hand">👋</span></h2>
-            <div class="card p-6 mt-4">
-                <ul class="space-y-4 text-gray-400 text-sm">
+            <!-- Season At A Glance Section -->
+            <div class="content-card">
+                <h2 class="section-title text-center !mt-0 !mb-4">The Season At A Glance <span role="img" aria-label="binoculars">🔭</span></h2>
+                <ul class="space-y-4 text-sm">
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        A Thrilling 30-Week Season With 7 Players Going Head To Head For The Overall Title.
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">A Thrilling 30-Week Season.</span>
                     </li>
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        Non-Stop Excitement And Strategic Matchplay Choices Each & Every Week.
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">7 Players Going Head-To-Head In Two Leagues, Division One And Division Two.</span>
                     </li>
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        Who Will Come Out On Top & Be Victorious In This Season's KingofthePundits 2025/26.
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Matches Consist of Premiership, Championship, League One & League Two (Friday To Monday Games Only).</span>
                     </li>
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        The Competition Is Split Into Two Divisions For A More Balanced Playing Field.
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">League Match Picks Points Allocation: Home Win Correct (1 Point), Away Win Correct (2 Points), Draw Correct (3 Points).</span>
                     </li>
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        Unique Scoring Rewards Home Wins (1pt), Away Wins (2pts), And Draws (A Valuable 3pts).
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Players Must Pick Their Matches On Time. If A Player Forgets To Pick Their Match On Their Pick Day, They Must Wait Until All Picks Have Been Submitted Before They Can Choose Their Picks.</span>
                     </li>
                     <li class="flex items-center">
-                        <span class="text-blue-400 mr-2">➡️</span>
-                        Follow The Action In Real-Time With Our Updated League Tables And Weekly Pick Summaries.
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Total Entry Fees Collected: 7 Players Pay £2 Per Week X 30 Weeks = £420.00.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">The Total Monies Collected Will Be Split Into Two: A Betting Fund Allocation Of £210.00 And A Prize Fund Allocation Of £210.00.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Prize Fund Allocations: Overall Champion (Most Points From Div 1 & 2) 24% = £50.40, Div 1 Winner 24% = £50.40, Div 1 Runner Up 14% = £29.40, Div 2 Winner 24% = £50.40, Div 2 Runner Up 14% = £29.40.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Division One Players Are Davo, Mike, & Dylan.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">Division Two Players Are David K, Ben, Myles, & Alex.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">The Top Player From Division Two Will Be Promoted To Division One For Next Season.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-2 text-white">⚽</span>
+                        <span class="text-white">The Bottom Player From Division One Will Be Relegated To Division Two For Next Season.</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div id="league-tables-page" class="content-card hidden">
+            <h1 class="main-title">League Tables - Season 2025/26 <span role="img" aria-label="trophy">🏆</span></h1>
             <h2 class="division-title text-gold">Division One – League Table <span role="img" aria-label="football">⚽</span></h2>
-            <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
-                <table class="min-w-full divide-y divide-gray-700">
-                    <thead class="bg-gradient-to-r from-green-900 to-teal-900">
+            <div class="overflow-x-auto rounded-xl border border-white shadow-lg">
+                <table class="min-w-full divide-y divide-gray-700 bg-black">
+                    <thead class="bg-black">
                         <tr>
                             <th scope="col" class="px-6 py-3 table-header-title">Position</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Player</th>
@@ -426,38 +474,78 @@
                     <tbody class="divide-y divide-gray-800">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-gold">1</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold">Davo</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold cursor-pointer" onclick="toggleStats('davo-stats')">Davo <span id="davo-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">7pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬇️</span>
+                                <span class="text-xl text-red-400">📉</span>
+                            </td>
+                        </tr>
+                        <tr id="davo-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 2</li>
+                                    <li>Away Wins Picked: 2 | Correct: 1</li>
+                                    <li>Draws Picked: 2 | Correct: 1</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-silver">2</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver">Dylan</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver cursor-pointer" onclick="toggleStats('dylan-stats')">Dylan <span id="dylan-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬇️</span>
+                                <span class="text-xl text-red-400">📉</span>
+                            </td>
+                        </tr>
+                        <tr id="dylan-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 0</li>
+                                    <li>Away Wins Picked: 2 | Correct: 0</li>
+                                    <li>Draws Picked: 2 | Correct: 1</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-bronze">3</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze">Mike</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze cursor-pointer" onclick="toggleStats('mike-stats')">Mike <span id="mike-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">2pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">➡️</span>
+                                <span class="text-xl text-white">↔️</span>
+                            </td>
+                        </tr>
+                        <tr id="mike-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 1</li>
+                                    <li>Away Wins Picked: 2 | Correct: 0</li>
+                                    <li>Draws Picked: 2 | Correct: 1</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr class="bg-red-900 bg-opacity-20">
                             <td class="px-6 py-4 whitespace-nowrap text-red-400">4</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Mevsi Bottled It 💩</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400 cursor-pointer" onclick="toggleStats('mevsi-stats')">Mevsi Bottled It 💩 <span id="mevsi-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">➡️</span>
+                                <span class="text-xl text-white">↔️</span>
+                            </td>
+                        </tr>
+                        <tr id="mevsi-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 1 | Correct: 0</li>
+                                    <li>Away Wins Picked: 1 | Correct: 0</li>
+                                    <li>Draws Picked: 1 | Correct: 0</li>
+                                </ul>
                             </td>
                         </tr>
                     </tbody>
@@ -465,9 +553,9 @@
             </div>
 
             <h2 class="division-title text-silver" style="margin-top: 3.5rem;">Division Two – League Table <span role="img" aria-label="football">⚽</span></h2>
-            <div class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
-                <table class="min-w-full divide-y divide-gray-700">
-                    <thead class="bg-gradient-to-r from-green-900 to-teal-900">
+            <div class="overflow-x-auto rounded-xl border border-white shadow-lg">
+                <table class="min-w-full divide-y divide-gray-700 bg-black">
+                    <thead class="bg-black">
                         <tr>
                             <th scope="col" class="px-6 py-3 table-header-title">Position</th>
                             <th scope="col" class="px-6 py-3 table-header-title">Player</th>
@@ -479,45 +567,86 @@
                     <tbody class="divide-y divide-gray-800">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-gold">1</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold">Ben</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-semibold text-gold cursor-pointer" onclick="toggleStats('ben-stats')">Ben <span id="ben-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">4pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬇️</span>
+                                <span class="text-xl text-red-400">📉</span>
+                            </td>
+                        </tr>
+                        <tr id="ben-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 2</li>
+                                    <li>Away Wins Picked: 3 | Correct: 1</li>
+                                    <li>Draws Picked: 1 | Correct: 0</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-silver">2</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver">Dave K</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-silver cursor-pointer" onclick="toggleStats('davek-stats')">Dave K <span id="davek-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">3pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">3pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬆️</span>
+                                <span class="text-xl text-green-400">📈</span>
+                            </td>
+                        </tr>
+                        <tr id="davek-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 0</li>
+                                    <li>Away Wins Picked: 2 | Correct: 0</li>
+                                    <li>Draws Picked: 2 | Correct: 1</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-bronze">3</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze">Alex</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-bronze cursor-pointer" onclick="toggleStats('alex-stats')">Alex <span id="alex-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">0pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">3pts</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬇️</span>
+                                <span class="text-xl text-red-400">📉</span>
+                            </td>
+                        </tr>
+                        <tr id="alex-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 1</li>
+                                    <li>Away Wins Picked: 2 | Correct: 0</li>
+                                    <li>Draws Picked: 2 | Correct: 1</li>
+                                </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-red-400">4</td>
-                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400">Myles</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-red-400 cursor-pointer" onclick="toggleStats('myles-stats')">Myles <span id="myles-icon" class="text-xl inline-block transition-transform duration-300 transform">▼</span></td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">1pt</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-xl">⬆️</span>
+                                <span class="text-xl text-green-400">📈</span>
+                            </td>
+                        </tr>
+                        <tr id="myles-stats" class="hidden">
+                            <td colspan="5" class="p-4 border-t border-gray-700">
+                                <p class="text-sm font-semibold text-gray-300">Detailed Stats (Combined from Week 1 & 2):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1 mt-2">
+                                    <li>Home Wins Picked: 2 | Correct: 1</li>
+                                    <li>Away Wins Picked: 2 | Correct: 0</li>
+                                    <li>Draws Picked: 2 | Correct: 0</li>
+                                </ul>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
             <h2 class="section-title" style="margin-top: 3.5rem;">Match Notes <span role="img" aria-label="clipboard">📋</span></h2>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <p class="note-item"><span role="img" aria-label="star asterisk">⭐</span> (* Postponed Match)</p>
                 <p class="note-item"><span role="img" aria-label="double asterisk">✳️</span> (** Match Not Played Yet or Abandoned)</p>
                 <p class="note-item"><span role="img" aria-label="info">ℹ️</span> (Dave G Blackburn vs Portsmouth - H) Won 3-0</p>
@@ -526,10 +655,11 @@
         </div>
 
         <div id="weekly-picks-page" class="content-card hidden">
+            <h1 class="main-title">Weekly Picks - Season 2025/26 <span role="img" aria-label="trophy">🏆</span></h1>
             <h2 class="section-title" style="margin-top: 3rem;">Picking Order Week Three <span role="img" aria-label="order">🔢</span></h2>
             <div class="flex flex-col md:flex-row md:space-x-6">
                 <div class="w-full md:w-1/2 md:border-r md:border-gray-700 md:pr-6 mb-4 md:mb-0">
-                    <div class="card">
+                    <div class="card bg-black border-2 border-white">
                         <h3 class="sub-section-title mt-0">Division 1 Week Three Picking Order:</h3>
                         <ul class="picking-order-list">
                             <li><span class="picking-order-player">Dylan</span></li>
@@ -540,7 +670,7 @@
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <div class="card">
+                    <div class="card bg-black border-2 border-white">
                         <h3 class="sub-section-title mt-0">Division 2 Week Three Picking Order:</h3>
                         <ul class="picking-order-list">
                             <li><span class="picking-order-player">Alex</span></li>
@@ -551,9 +681,9 @@
                     </div>
                 </div>
             </div>
-
+            
             <h2 class="section-title text-gold" style="margin-top: 3rem;">Division 1 Player Picks - Week Two <span role="img" aria-label="target">🎯</span></h2>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Mike</span>
                     <span class="player-points">1pt</span>
@@ -573,7 +703,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Dylan</span>
                     <span class="player-points">0pts</span>
@@ -593,7 +723,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Davo</span>
                     <span class="player-points">1pt</span>
@@ -614,7 +744,7 @@
                 </div>
             </div>
             <h2 class="section-title text-silver" style="margin-top: 2.5rem;">Division 2 Player Picks - Week Two <span role="img" aria-label="target">🎯</span></h2>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Dave K</span>
                     <span class="player-points">3pts</span>
@@ -634,7 +764,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Alex</span>
                     <span class="player-points">0pts</span>
@@ -654,7 +784,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Myles</span>
                     <span class="player-points">1pt</span>
@@ -674,7 +804,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <div class="flex items-center mb-3">
                     <span class="player-name">Ben</span>
                     <span class="player-points">1pt</span>
@@ -695,7 +825,7 @@
                 </div>
             </div>
             <h2 class="section-title" style="margin-top: 3rem;">Bet Placements <span role="img" aria-label="money bag">💰</span></h2>
-            <div class="card">
+            <div class="card bg-black border-2 border-white">
                 <h3 class="sub-section-title !mt-4 !mb-2 !text-base">Division 1 Week Two Betting:</h3>
                 <div class="bet-item">
                     <span class="bet-description">Div 1 : One Six Team Accumulator : 3 Homes & 3 Aways</span>
@@ -739,7 +869,7 @@
     <script>
         function showPage(pageId) {
             // Hide all pages
-            document.querySelectorAll('.content-card').forEach(page => {
+            document.querySelectorAll('#home-page, #league-tables-page, #weekly-picks-page').forEach(page => {
                 page.classList.add('hidden');
             });
             // Show the selected page
@@ -750,6 +880,18 @@
                 button.classList.remove('active');
             });
             document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('active');
+        }
+
+        function toggleStats(playerId) {
+            const statsRow = document.getElementById(playerId);
+            const icon = document.getElementById(playerId.replace('-stats', '-icon'));
+            if (statsRow.classList.contains('hidden')) {
+                statsRow.classList.remove('hidden');
+                icon.textContent = '▲';
+            } else {
+                statsRow.classList.add('hidden');
+                icon.textContent = '▼';
+            }
         }
 
         // Initially show the home page
