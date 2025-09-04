@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>King of the Pundits — Season 2025/26</title>
+  <meta name="description" content="Official app for the King of the Pundits football competition — league tables, weekly picks and highlights." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="site-dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="#" data-page="home">Home</a></li>
+          <li><a href="#" data-page="league-tables">League Tables</a></li>
+          <li><a href="#" data-page="weekly-picks">Weekly Picks</a></li>
+          <li><a href="pages/picks.html" target="_blank">Picks (Page)</a></li>
+          <li><a href="pages/results.html" target="_blank">Results (Page)</a></li>
+          <li><a href="pages/about.html" target="_blank">About</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero-placeholder">
+      <!-- Responsive hero area (banner to be added into /images later) -->
+      <div class="hero-content container">
+        <h2 class="hero-title">Track the league. Check the picks. Celebrate the winners.</h2>
+        <p class="hero-sub">Fresh modern redesign — responsive, fast, and built to shine.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Home / Intro -->
+    <section id="home" class="page">
+      <article class="card">
+        <h2 class="card-title">Welcome to King of the Pundits <span aria-hidden>👋</span></h2>
+        <p class="muted">This is your one-stop app to track the league tables, check the latest weekly picks, and stay up-to-date with all the action.</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Previous Week's Results: Week One</h3>
+        <p>What a start to the season! Davo took an early lead in Division 1 with a full-house performance (6pts). Tough starts for others — full recap below.</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Latest Results: Week Two</h3>
+        <p>Week Two delivered exciting moves: Davo extended his lead, Dave K scored a full 3-pointer in Division 2, and the competition tightened up.</p>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Featured Match Highlights</h3>
+        <div class="video-grid">
+          <div class="video-item">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/cqhUffcFqGY" title="Manchester United 3-2 Burnley" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong> — Mike earned a crucial point.</p>
+          </div>
+          <div class="video-item">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="Brighton 2-1 Manchester City" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> — tough week for Dylan and Ben.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">The Season At A Glance</h3>
+        <ul class="glance-list">
+          <li>30-week season, 7 players split across Division 1 and Division 2.</li>
+          <li>Points: Home win = 1, Away win = 2, Draw = 3.</li>
+          <li>Entry: £2 per player per week — prize fund and betting fund allocation explained.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- League Tables Page -->
+    <section id="league-tables" class="page hidden">
+      <h2 class="page-title">League Tables</h2>
+
+      <div class="card table-card">
+        <h3 class="division-title">Division One</h3>
+        <div class="table-wrap">
+          <table class="league-table" aria-describedby="div1-desc">
+            <caption id="div1-desc" class="sr-only">Division One league table</caption>
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Player</th>
+                <th>Week 2</th>
+                <th>Total</th>
+                <th>Form</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pos">1</td>
+                <td class="player"><button class="stat-toggle" data-target="davo-stats">Davo <span class="toggle-icon">+</span></button></td>
+                <td>1pt</td>
+                <td>7pts</td>
+                <td class="form">📉</td>
+              </tr>
+              <tr class="expanded hidden" id="davo-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 2)</li>
+                    <li>Away Wins: 2 (correct: 1)</li>
+                    <li>Draws: 2 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">2</td>
+                <td class="player"><button class="stat-toggle" data-target="dylan-stats">Dylan <span class="toggle-icon">+</span></button></td>
+                <td>0pt</td>
+                <td>1pt</td>
+                <td class="form">📉</td>
+              </tr>
+              <tr class="expanded hidden" id="dylan-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 0)</li>
+                    <li>Away Wins: 2 (correct: 0)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">3</td>
+                <td class="player">Mike</td>
+                <td>1pt</td>
+                <td>2pts</td>
+                <td class="form">↔️</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <h3 class="division-title">Division Two</h3>
+        <div class="table-wrap">
+          <table class="league-table" aria-describedby="div2-desc">
+            <caption id="div2-desc" class="sr-only">Division Two league table</caption>
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Player</th>
+                <th>Week 2</th>
+                <th>Total</th>
+                <th>Form</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pos">1</td>
+                <td class="player"><button class="stat-toggle" data-target="ben-stats">Ben <span class="toggle-icon">+</span></button></td>
+                <td>1pt</td>
+                <td>4pts</td>
+                <td class="form">📉</td>
+              </tr>
+              <tr class="expanded hidden" id="ben-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 2)</li>
+                    <li>Away Wins: 3 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">2</td>
+                <td class="player"><button class="stat-toggle" data-target="davek-stats">Dave K <span class="toggle-icon">+</span></button></td>
+                <td>3pts</td>
+                <td>3pts</td>
+                <td class="form">📈</td>
+              </tr>
+              <tr class="expanded hidden" id="davek-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Draws: 1 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Weekly Picks Page -->
+    <section id="weekly-picks" class="page hidden">
+      <h2 class="page-title">Weekly Picks</h2>
+
+      <div class="card picks-split">
+        <div>
+          <h3 class="sub-title">Division 1 Picking Order — Week Three</h3>
+          <ol class="picking-order">
+            <li>Dylan</li>
+            <li>Davo</li>
+            <li>Mike</li>
+            <li class="muted">Mevsi Bottled It 💩</li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="sub-title">Division 2 Picking Order — Week Three</h3>
+          <ol class="picking-order">
+            <li>Alex</li>
+            <li>Myles</li>
+            <li>Ben</li>
+            <li>Dave K</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="sub-title">Division 1 — Week Two Picks</h3>
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Mike</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> — Manchester Utd vs Burnley : 3-2 — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> — Oxford Utd vs Coventry : 2-2 — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> — Liverpool vs Arsenal : 1-0 — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Dylan</span>
+            <span class="player-score">0pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> — Nottingham Forest vs West Ham : 0-3 — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 King of the Pundits. Built for the league. Designed to shine.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
