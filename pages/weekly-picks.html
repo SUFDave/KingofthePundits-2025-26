@@ -7,8 +7,7 @@
   <meta name="description" content="View current and previous weekly picks for all players in the King of the Pundits football prediction competition." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Added version number to bust cache -->
-  <link rel="stylesheet" href="../css/style.css?v=1.1">
+  <link rel="stylesheet" href="../css/style.css?v=1.2">
 </head>
 <body class="site-dark">
   <header class="site-header">
@@ -60,33 +59,108 @@
             <span class="player-name">Davo</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Cardiff City vs Plymouth (4-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Leeds Utd vs Newcastle Utd (0-0) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Blackburn Rovers vs Norwich City (0-2) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Cardiff City vs Plymouth</td>
+                <td>4-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Leeds Utd vs Newcastle Utd</td>
+                <td>0-0</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Blackburn Rovers vs Norwich City</td>
+                <td>0-2</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Mike</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Manchester Utd vs Burnley (3-2) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Oxford Utd vs Coventry (2-2) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Liverpool vs Arsenal (1-0) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Manchester Utd vs Burnley</td>
+                <td>3-2</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Oxford Utd vs Coventry</td>
+                <td>2-2</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Liverpool vs Arsenal</td>
+                <td>1-0</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Dylan</span>
             <span class="player-score">0pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Nottingham Forest vs West Ham (0-3) <span class="muted">— 0pt</span></li>
-            <li><strong>A</strong> - Brighton vs Manchester City (2-1) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Bristol City vs Hull City (4-1) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Nottingham Forest vs West Ham</td>
+                <td>0-3</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Brighton vs Manchester City</td>
+                <td>2-1</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Bristol City vs Hull City</td>
+                <td>4-1</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="card">
@@ -96,44 +170,144 @@
             <span class="player-name">Ben</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Chelsea vs Fulham (2-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Brighton vs Manchester City (2-1) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Aston Villa vs Crystal Palace (0-3) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Chelsea vs Fulham</td>
+                <td>2-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Brighton vs Manchester City</td>
+                <td>2-1</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Aston Villa vs Crystal Palace</td>
+                <td>0-3</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Alex</span>
             <span class="player-score">0pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Tottenham Hotspur vs Bournemouth (0-1) <span class="muted">— 0pt</span></li>
-            <li><strong>A</strong> - Oxford Utd vs Coventry City (2-2) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Wolves vs Everton (2-3) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Tottenham Hotspur vs Bournemouth</td>
+                <td>0-1</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Oxford Utd vs Coventry City</td>
+                <td>2-2</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Wolves vs Everton</td>
+                <td>2-3</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Dave K</span>
             <span class="player-score">3pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Nottingham Forest vs West Ham Utd (0-3) <span class="muted">— 0pt</span></li>
-            <li><strong>A</strong> - Liverpool vs Arsenal (1-0) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Leeds Utd vs Newcastle Utd (0-0) <span class="muted">— 3pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Nottingham Forest vs West Ham Utd</td>
+                <td>0-3</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Liverpool vs Arsenal</td>
+                <td>1-0</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Leeds Utd vs Newcastle Utd</td>
+                <td>0-0</td>
+                <td class="points-won">3pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Myles</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Leicester City vs Birmingham City (2-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Watford vs Southampton (2-2) <span class="muted">— 0pt</span></li>
-            <li><strong>D</strong> - Manchester Utd vs Burnley (3-2) <span class="muted">— 0pt</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Leicester City vs Birmingham City</td>
+                <td>2-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Watford vs Southampton</td>
+                <td>2-2</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Manchester Utd vs Burnley</td>
+                <td>3-2</td>
+                <td class="points-lost">0pt</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -147,33 +321,108 @@
             <span class="player-name">Davo</span>
             <span class="player-score">6pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Arsenal vs Leeds Utd (5-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Newcastle vs Liverpool (2-3) <span class="muted">— 2pts</span></li>
-            <li><strong>D</strong> - Swansea City vs Watford (1-1) <span class="muted">— 3pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Arsenal vs Leeds Utd</td>
+                <td>5-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Newcastle vs Liverpool</td>
+                <td>2-3</td>
+                <td class="points-won">2pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Swansea City vs Watford</td>
+                <td>1-1</td>
+                <td class="points-won">3pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Dylan</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Coventry City vs Queens Park Rangers (7-1) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Everton vs Brighton (2-0) <span class="muted">— 0pts</span></li>
-            <li><strong>D</strong> - Burnley vs Sunderland (2-0) <span class="muted">— 0pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Coventry City vs Queens Park Rangers</td>
+                <td>7-1</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Everton vs Brighton</td>
+                <td>2-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Burnley vs Sunderland</td>
+                <td>2-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Mike</span>
             <span class="player-score">1pt</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Birmingham vs Oxford Utd (1-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Brentford vs Aston Villa (1-0) <span class="muted">— 0pts</span></li>
-            <li><strong>D</strong> - Sheffield Utd vs Millwall (0-1) <span class="muted">— 0pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Birmingham vs Oxford Utd</td>
+                <td>1-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Brentford vs Aston Villa</td>
+                <td>1-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Sheffield Utd vs Millwall</td>
+                <td>0-1</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="card">
@@ -183,44 +432,144 @@
             <span class="player-name">Ben</span>
             <span class="player-score">3pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Arsenal vs Leeds Utd (6-0) <span class="muted">— 1pt</span></li>
-            <li><strong>A</strong> - Crawley vs Tranmere Rovers (0-2) <span class="muted">— 2pts</span></li>
-            <li><strong>D</strong> - Preston NE vs Ipswich Town (1-0) <span class="muted">— 0pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Arsenal vs Leeds Utd</td>
+                <td>6-0</td>
+                <td class="points-won">1pt</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Crawley vs Tranmere Rovers</td>
+                <td>0-2</td>
+                <td class="points-won">2pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Preston NE vs Ipswich Town</td>
+                <td>1-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Alex</span>
             <span class="player-score">3pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Fulham vs Manchester United (1-1) <span class="muted">— 0pts</span></li>
-            <li><strong>A</strong> - Wrexham vs Sheffield Wednesday (2-2) <span class="muted">— 0pts</span></li>
-            <li><strong>D</strong> - Crystal Palace vs Nottingham Forest (1-1) <span class="muted">— 3pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Fulham vs Manchester United</td>
+                <td>1-1</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Wrexham vs Sheffield Wednesday</td>
+                <td>2-2</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Crystal Palace vs Nottingham Forest</td>
+                <td>1-1</td>
+                <td class="points-won">3pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Dave K</span>
             <span class="player-score">0pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Manchester City vs Tottenham (0-2) <span class="muted">— 0pts</span></li>
-            <li><strong>A</strong> - Burnley vs Sunderland (2-0) <span class="muted">— 0pts</span></li>
-            <li><strong>D</strong> - Bournemouth vs Wolves (1-0) <span class="muted">— 0pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Manchester City vs Tottenham</td>
+                <td>0-2</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Burnley vs Sunderland</td>
+                <td>2-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Bournemouth vs Wolves</td>
+                <td>1-0</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Myles</span>
             <span class="player-score">0pts</span>
           </div>
-          <ul class="pick-list">
-            <li><strong>H</strong> - Southampton vs Stoke City (1-2) <span class="muted">— 0pts</span></li>
-            <li><strong>A</strong> - Fulham vs Manchester United (Void) <span class="muted">— 0pts</span></li>
-            <li><strong>D</strong> - Hull City vs Blackburn Rovers (0-3) <span class="muted">— 0pts</span></li>
-          </ul>
+          <table class="pick-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Match</th>
+                <th>Prediction</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pick-type home">H</span></td>
+                <td>Southampton vs Stoke City</td>
+                <td>1-2</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type away">A</span></td>
+                <td>Fulham vs Manchester United</td>
+                <td>Void</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+              <tr>
+                <td><span class="pick-type draw">D</span></td>
+                <td>Hull City vs Blackburn Rovers</td>
+                <td>0-3</td>
+                <td class="points-lost">0pts</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
