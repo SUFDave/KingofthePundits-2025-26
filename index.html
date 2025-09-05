@@ -89,9 +89,26 @@
       <article class="card">
         <h3 class="card-title">The Season At A Glance</h3>
         <ul class="glance-list">
-          <li>30-week season, 7 players split across Division 1 and Division 2.</li>
-          <li>Points: Home win = 1, Away win = 2, Draw = 3.</li>
-          <li>Entry: £2 per player per week — prize fund and betting fund allocation explained.</li>
+          <li>The season lasts for 30 weeks.</li>
+          <li>7 players compete in two leagues: Division One and Division Two.</li>
+          <li>Matches for picks are from the Premiership, Championship, League One & League Two (Friday to Monday games only).</li>
+          <li><strong>Points Allocation:</strong> Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
+          <li>Players must submit picks on time. Missed picks wait until all others have submitted.</li>
+          <li><strong>Total Entry Fees:</strong> 7 players × £2/week × 30 weeks = £420.00.</li>
+          <li>Collected money is split: £210.00 Betting Fund, £210.00 Prize Fund.</li>
+          <li><strong>Prize Fund Distribution:</strong>
+            <ul class="glance-list">
+              <li>Overall Champion: 24% (£50.40)</li>
+              <li>Division 1 Winner: 24% (£50.40)</li>
+              <li>Division 1 Runner Up: 14% (£29.40)</li>
+              <li>Division 2 Winner: 24% (£50.40)</li>
+              <li>Division 2 Runner Up: 14% (£29.40)</li>
+            </ul>
+          </li>
+          <li><strong>Division One Players:</strong> Davo, Mike, Dylan.</li>
+          <li><strong>Division Two Players:</strong> Dave K, Ben, Myles, Alex.</li>
+          <li>Top player from Division Two will be promoted to Division One next season.</li>
+          <li>Bottom player from Division One will be relegated to Division Two next season.</li>
         </ul>
       </article>
     </section>
@@ -524,5 +541,16 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script>
+    // Force cache refresh on page load
+    window.addEventListener('load', function() {
+      // Check if this is a fresh visit (not a refresh)
+      if (!sessionStorage.getItem('pageRefreshed')) {
+        sessionStorage.setItem('pageRefreshed', 'true');
+        // Force a hard refresh
+        window.location.reload(true);
+      }
+    });
+  </script>
 </body>
 </html>
