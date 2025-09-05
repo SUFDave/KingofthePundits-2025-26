@@ -933,3 +933,33 @@ a:focus {
     color: black;
   }
 }
+/* ===================================
+   ADDITIONAL STYLES FOR NEW CLASSES
+   =================================== */
+
+/* Main content spacing */
+.main-content {
+  padding-top: 4rem;
+}
+
+/* Underlined headings */
+.underlined {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 2px;
+}
+
+/* News section titles */
+.news-title {
+  position: relative;
+}
+
+/* Ensure proper paragraph spacing in cards */
+.card p {
+  margin-bottom: var(--space-4);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
