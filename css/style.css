@@ -334,13 +334,20 @@ body {
 .table-card {
   overflow: hidden;
   padding: 0;
-  margin-bottom: var(--space-6);
+  margin-bottom: 0; /* Removed margin for grid layout */
+}
+
+/* NEW: Grid for side-by-side tables */
+.tables-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
 }
 
 .division-title {
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
   color: var(--color-primary);
-  padding: var(--space-6);
+  padding: var(--space-5);
   margin: 0;
   font-size: var(--font-size-xl);
   font-weight: 800;
@@ -355,7 +362,7 @@ body {
 .league-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;
+  min-width: 500px;
   font-size: var(--font-size-sm);
 }
 
@@ -363,7 +370,7 @@ body {
   background: var(--color-primary-light);
   color: var(--color-neutral-300);
   text-align: left;
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-3) var(--space-4); /* Reduced padding */
   font-weight: 600;
   font-size: var(--font-size-xs);
   text-transform: uppercase;
@@ -372,7 +379,7 @@ body {
 }
 
 .league-table tbody td {
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-3) var(--space-4); /* Reduced padding */
   border-bottom: 1px solid var(--border-secondary);
   transition: all var(--transition-base);
 }
@@ -389,7 +396,7 @@ body {
 .pos {
   font-weight: 800;
   font-size: var(--font-size-lg);
-  width: 60px;
+  width: 50px;
   text-align: center;
   color: var(--color-accent);
 }
@@ -768,6 +775,11 @@ body {
 
 /* Medium screens (1024px+) */
 @media (min-width: 1024px) {
+  /* NEW: Apply grid layout for tables on larger screens */
+  .tables-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
   .hero-title {
     font-size: var(--font-size-4xl);
   }
