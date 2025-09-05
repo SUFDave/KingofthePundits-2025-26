@@ -334,15 +334,14 @@ body {
 .table-card {
   overflow: hidden;
   padding: 0;
-  margin-bottom: 0; /* Removed margin for grid layout */
+  margin-bottom: 0;
 }
 
-/* NEW: Grid for side-by-side tables */
 .tables-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
-  margin-bottom: var(--space-8); /* Add space between grids */
+  margin-bottom: var(--space-8);
 }
 
 .division-title {
@@ -357,7 +356,6 @@ body {
 
 .table-wrap {
   overflow-x: auto;
-  border-radius: var(--radius-base);
 }
 
 .league-table {
@@ -371,7 +369,7 @@ body {
   background: var(--color-primary-light);
   color: var(--color-neutral-300);
   text-align: left;
-  padding: var(--space-3) var(--space-4); /* Reduced padding */
+  padding: var(--space-3) var(--space-4);
   font-weight: 600;
   font-size: var(--font-size-xs);
   text-transform: uppercase;
@@ -380,7 +378,7 @@ body {
 }
 
 .league-table tbody td {
-  padding: var(--space-3) var(--space-4); /* Reduced padding */
+  padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border-secondary);
   transition: all var(--transition-base);
 }
@@ -393,7 +391,6 @@ body {
   background: linear-gradient(90deg, rgba(34, 197, 94, 0.05), var(--glass-primary));
 }
 
-/* Position Styling */
 .pos {
   font-weight: 800;
   font-size: var(--font-size-lg);
@@ -402,25 +399,16 @@ body {
   color: var(--color-accent);
 }
 
-.league-table tbody tr:nth-child(1) .pos {
-  color: #ffd700; /* Gold */
-}
+.league-table tbody tr:nth-child(1) .pos { color: #ffd700; }
+.league-table tbody tr:nth-child(2) .pos { color: #c0c0c0; }
+.league-table tbody tr:nth-child(3) .pos { color: #cd7f32; }
 
-.league-table tbody tr:nth-child(2) .pos {
-  color: #c0c0c0; /* Silver */
-}
-
-.league-table tbody tr:nth-child(3) .pos {
-  color: #cd7f32; /* Bronze */
-}
-
-/* Player Statistics Toggle */
 .player button,
 .stat-toggle {
   background: none;
   border: none;
   color: var(--color-neutral-100);
-  font-weight: 600;
+  font-weight: 700; /* Bolder */
   cursor: pointer;
   padding: var(--space-2) 0;
   display: flex;
@@ -432,8 +420,9 @@ body {
 }
 
 .player button:hover,
-.stat-toggle:hover {
-  color: var(--color-accent);
+.stat-toggle:hover,
+.stat-toggle[aria-expanded="true"] {
+  color: var(--color-accent-light); /* Highlight when hovered or active */
 }
 
 .toggle-icon {
@@ -441,22 +430,27 @@ body {
   margin-left: var(--space-2);
   font-size: var(--font-size-sm);
   color: var(--color-neutral-400);
-  transition: transform var(--transition-base);
+  transition: all var(--transition-base);
 }
 
-.expanded .toggle-icon {
-  transform: rotate(45deg);
+.stat-toggle:hover .toggle-icon,
+.stat-toggle[aria-expanded="true"] .toggle-icon {
+  color: var(--color-accent-light);
+  transform: rotate(180deg);
 }
 
-.expanded {
+.expanded td {
   background: rgba(34, 197, 94, 0.05);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
   border-top: 1px solid rgba(34, 197, 94, 0.2);
+  box-shadow: inset 0 4px 6px -1px rgba(0,0,0,0.2);
 }
 
 .small-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 var(--space-4);
 }
 
 .small-list li {
@@ -564,7 +558,6 @@ body {
   font-size: var(--font-size-sm);
 }
 
-/* NEW: Picks Table Styling */
 .pick-table {
   width: 100%;
   border-collapse: collapse;
