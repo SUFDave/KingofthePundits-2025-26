@@ -342,6 +342,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
+  margin-bottom: var(--space-8); /* Add space between grids */
 }
 
 .division-title {
@@ -477,7 +478,6 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-6);
-  padding: var(--space-6);
 }
 
 .picking-order {
@@ -530,6 +530,10 @@ body {
   transition: all var(--transition-base);
 }
 
+.player-card:last-of-type {
+  margin-bottom: 0;
+}
+
 .player-card:hover {
   border-color: rgba(34, 197, 94, 0.3);
   transform: translateY(-1px);
@@ -560,36 +564,63 @@ body {
   font-size: var(--font-size-sm);
 }
 
-.pick-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* NEW: Picks Table Styling */
+.pick-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-3);
+  font-size: var(--font-size-sm);
 }
 
-.pick-list li {
-  padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--border-secondary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
+.pick-table thead {
+  background: rgba(34, 197, 94, 0.05);
 }
 
-.pick-list li:last-child {
-  border-bottom: none;
-}
-
-.pick-list strong {
-  background: var(--color-accent);
-  color: var(--color-primary);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+.pick-table th {
+  color: var(--color-accent-light);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: 600;
   font-size: var(--font-size-xs);
-  font-weight: 700;
-  margin-right: var(--space-3);
-  min-width: 20px;
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-secondary);
 }
+
+.pick-table td {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border-secondary);
+}
+
+.pick-type {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+}
+
+.pick-type.home { background-color: var(--color-success); }
+.pick-type.away { background-color: var(--color-warning); }
+.pick-type.draw { background-color: var(--color-neutral-400); }
+
+.pick-table td:last-child {
+  text-align: right;
+  font-weight: 700;
+}
+
+.points-won {
+  color: var(--color-accent-light);
+}
+
+.points-lost {
+  color: var(--color-neutral-500);
+}
+
 
 /* ===================================
    VIDEO GRID
@@ -975,3 +1006,4 @@ a:focus {
 .card p:last-child {
   margin-bottom: 0;
 }
+
