@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <!-- Corrected path to include the 'css' folder -->
-  <link rel="stylesheet" href="css/style.css"
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="site-dark">
   <header class="site-header">
@@ -17,14 +17,15 @@
         <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
-  <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
-  <ul id="primary-menu" class="nav-list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="pages/league-tables.html">League Tables</a></li>
-    <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
-    <li><a href="pages/about.html">About</a></li>
-  </ul>
-</nav>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <!-- Corrected paths to include the 'pages' folder -->
+          <li><a href="pages/league-tables.html">League Tables</a></li>
+          <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
+          <li><a href="pages/about.html">About</a></li>
+        </ul>
+      </nav>
     </div>
     <div class="hero-placeholder">
       <div class="hero-content container">
@@ -122,31 +123,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
-  <script>
-    // Back to Top functionality
-    const backToTopButton = document.getElementById('backToTop');
-    
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'block';
-        backToTopButton.style.opacity = '1';
-      } else {
-        backToTopButton.style.display = 'none';
-        backToTopButton.style.opacity = '0';
-      }
-    });
-    
-    // Smooth scroll to top when clicked
-    backToTopButton.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  </script>
   <!-- Corrected path to include the 'js' folder -->
   <script src="js/main.js" defer></script>
 </body>
 </html>
+
