@@ -28,7 +28,6 @@
       </nav>
     </div>
     <div class="hero-placeholder">
-      <!-- Responsive hero area (banner to be added into /images later) -->
       <div class="hero-content container">
         <h2 class="hero-title">Track the league. Check the picks. Celebrate the winners.</h2>
         <p class="hero-sub">Fresh modern redesign — responsive, fast, and built to shine.</p>
@@ -68,6 +67,18 @@
               <iframe src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="Brighton 2-1 Manchester City" frameborder="0" allowfullscreen></iframe>
             </div>
             <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> — tough week for Dylan and Ben.</p>
+          </div>
+          <div class="video-item">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/J6xazz0eVcA" title="Chelsea 2-0 Fulham" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong> — Ben earned a point.</p>
+          </div>
+          <div class="video-item">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/NB5pe157reo" title="Liverpool 1-0 Arsenal" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — Mike, Dave K, and Alex missed out here.</p>
           </div>
         </div>
       </article>
@@ -114,6 +125,7 @@
                     <li>Home Wins: 2 (correct: 2)</li>
                     <li>Away Wins: 2 (correct: 1)</li>
                     <li>Draws: 2 (correct: 1)</li>
+                    <li>Full House Six Pointers: 1</li>
                   </ul>
                 </td>
               </tr>
@@ -130,16 +142,44 @@
                   <ul class="small-list">
                     <li>Home Wins: 2 (correct: 0)</li>
                     <li>Away Wins: 2 (correct: 0)</li>
+                    <li>Draws: 2 (correct: 1)</li>
+                    <li>Full House Six Pointers: 0</li>
                   </ul>
                 </td>
               </tr>
 
               <tr>
                 <td class="pos">3</td>
-                <td class="player">Mike</td>
+                <td class="player"><button class="stat-toggle" data-target="mike-stats">Mike <span class="toggle-icon">+</span></button></td>
                 <td>1pt</td>
                 <td>2pts</td>
                 <td class="form">↔️</td>
+              </tr>
+              <tr class="expanded hidden" id="mike-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 1)</li>
+                    <li>Away Wins: 2 (correct: 0)</li>
+                    <li>Draws: 2 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">4</td>
+                <td class="player"><button class="stat-toggle" data-target="mevsi-stats">Mevsi Bottled It 💩 <span class="toggle-icon">+</span></button></td>
+                <td>0pt</td>
+                <td>0pts</td>
+                <td class="form">↔️</td>
+              </tr>
+              <tr class="expanded hidden" id="mevsi-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 0 (correct: 0)</li>
+                    <li>Away Wins: 0 (correct: 0)</li>
+                    <li>Draws: 0 (correct: 0)</li>
+                  </ul>
+                </td>
               </tr>
 
             </tbody>
@@ -188,7 +228,43 @@
               <tr class="expanded hidden" id="davek-stats">
                 <td colspan="5">
                   <ul class="small-list">
-                    <li>Draws: 1 (correct: 1)</li>
+                    <li>Home Wins: 2 (correct: 0)</li>
+                    <li>Away Wins: 2 (correct: 0)</li>
+                    <li>Draws: 2 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">3</td>
+                <td class="player"><button class="stat-toggle" data-target="alex-stats">Alex <span class="toggle-icon">+</span></button></td>
+                <td>0pt</td>
+                <td>3pts</td>
+                <td class="form">📉</td>
+              </tr>
+              <tr class="expanded hidden" id="alex-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 1)</li>
+                    <li>Away Wins: 2 (correct: 0)</li>
+                    <li>Draws: 2 (correct: 1)</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="pos">4</td>
+                <td class="player"><button class="stat-toggle" data-target="myles-stats">Myles <span class="toggle-icon">+</span></button></td>
+                <td>1pt</td>
+                <td>1pt</td>
+                <td class="form">📈</td>
+              </tr>
+              <tr class="expanded hidden" id="myles-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 2 (correct: 1)</li>
+                    <li>Away Wins: 2 (correct: 0)</li>
+                    <li>Draws: 2 (correct: 0)</li>
                   </ul>
                 </td>
               </tr>
@@ -227,26 +303,202 @@
 
       <div class="card">
         <h3 class="sub-title">Division 1 — Week Two Picks</h3>
+
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Mike</span>
             <span class="player-score">1pt</span>
           </div>
           <ul class="pick-list">
-            <li><strong>H</strong> — Manchester Utd vs Burnley : 3-2 — <span class="muted">1pt</span></li>
-            <li><strong>A</strong> — Oxford Utd vs Coventry : 2-2 — <span class="muted">0pt</span></li>
-            <li><strong>D</strong> — Liverpool vs Arsenal : 1-0 — <span class="muted">0pt</span></li>
+            <li><strong>H</strong> - Manchester Utd vs Burnley : 3-2 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Oxford Utd vs Coventry : 2-2 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Liverpool vs Arsenal : 1-0 Home Win — <span class="muted">0pt</span></li>
           </ul>
         </div>
+
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Dylan</span>
             <span class="player-score">0pt</span>
           </div>
           <ul class="pick-list">
-            <li><strong>H</strong> — Nottingham Forest vs West Ham : 0-3 — <span class="muted">0pt</span></li>
+            <li><strong>H</strong> - Nottingham Forest vs West Ham : 0-3 Away Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Brighton vs Manchester City : 2-1 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Bristol City vs Hull City : 4-1 Home Win — <span class="muted">0pt</span></li>
           </ul>
         </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Davo</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Cardiff City vs Plymouth : 4-0 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Leeds Utd vs Newcastle Utd : 0-0 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Blackburn Rovers vs Norwich City : 0-2 Away Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Mevsi Bottled It 💩</span>
+            <span class="player-score">0pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Crystal Palace vs Norwich City : 1-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Chelsea vs Leicester City : 1-1 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Brentford vs Sheffield United : 1-0 Home Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h3 class="sub-title">Division 2 — Week Two Picks</h3>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Dave K</span>
+            <span class="player-score">3pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Nottingham Forest vs West Ham Utd : 0-3 Away Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Liverpool vs Arsenal : 1-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Leeds Utd vs Newcastle Utd : 0-0 Draw — <span class="muted">3pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Alex</span>
+            <span class="player-score">0pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Tottenham Hotspur vs Bournemouth : 0-1 Away Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Oxford Utd vs Coventry City : 2-2 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Wolves vs Everton : 2-3 Away Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Myles</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Leicester City vs Birmingham City : 2-0 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Watford vs Southampton : 2-2 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Manchester Utd vs Burnley : 3-2 Home Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Ben</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Chelsea vs Fulham : 2-0 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Brighton vs Manchester City : 2-1 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Aston Villa vs Crystal Palace : 0-3 Away Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Davo</span>
+            <span class="player-score">6pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Bournemouth vs Leeds Utd : 2-1 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Bristol Rovers vs Walsall : 1-2 Away Win — <span class="muted">2pt</span></li>
+            <li><strong>D</strong> - Barnsley vs Chelsea : 1-1 Draw — <span class="muted">3pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Mike</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Manchester City vs Wolves : 2-0 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Aston Villa vs Southampton : 1-2 Away Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Everton vs Liverpool : 0-0 Draw — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Dylan</span>
+            <span class="player-score">1pt</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Tottenham Hotspur vs Arsenal : 2-1 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - West Ham vs Burnley : 2-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Man Utd vs Fulham : 2-1 Home Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Mevsi Bottled It 💩</span>
+            <span class="player-score">0pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Crystal Palace vs Norwich City : 1-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Chelsea vs Leicester City : 1-1 Draw — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Brentford vs Sheffield United : 1-0 Home Win — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h3 class="sub-title">Division 2 — Week One Picks (Recap)</h3>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Alex</span>
+            <span class="player-score">3pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Blackburn Rovers vs Norwich City : 1-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Sheffield United vs Burnley : 0-2 Away Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - Everton vs Liverpool : 0-0 Draw — <span class="muted">3pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Ben</span>
+            <span class="player-score">3pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Portsmouth vs Tottenham Hotspur : 2-1 Home Win — <span class="muted">1pt</span></li>
+            <li><strong>A</strong> - Aston Villa vs Chelsea : 1-2 Away Win — <span class="muted">2pt</span></li>
+            <li><strong>D</strong> - Manchester City vs Man Utd : 0-0 Draw — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Myles</span>
+            <span class="player-score">0pts</span>
+          </div>
+          <ul class="pick-list">
+            <li><strong>H</strong> - Hull City vs Arsenal : 2-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>A</strong> - Crystal Palace vs Norwich City : 1-0 Home Win — <span class="muted">0pt</span></li>
+            <li><strong>D</strong> - (no third pick listed) — <span class="muted">0pt</span></li>
+          </ul>
+        </div>
+
       </div>
 
     </section>
