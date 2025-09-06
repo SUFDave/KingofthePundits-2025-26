@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Inlined and updated styles for a self-contained page -->
+  <!-- Embedded styles to restore original design and add mobile menu functionality -->
   <style>
-    /* Reset and Base Styles */
+    /* Reset and Base Styles from original design */
     :root {
-      --color-background: #111827; /* Dark Gray */
-      --color-surface: #1f2937; /* Lighter Dark Gray */
-      --color-primary: #4f46e5; /* Indigo */
-      --color-text: #d1d5db; /* Light Gray */
+      --color-background: #111827;
+      --color-surface: #1f2937;
+      --color-primary: #4f46e5;
+      --color-text: #d1d5db;
       --color-heading: #ffffff;
       --font-family-base: 'Inter', sans-serif;
     }
@@ -49,7 +49,7 @@
       display: inline-block;
     }
 
-    /* Header and Navigation */
+    /* Original Header and Hero Section Styles */
     .site-header { padding-top: 1rem; padding-bottom: 1rem; }
     .header-inner {
       display: flex;
@@ -68,7 +68,7 @@
     }
     .hero-title { font-size: 2rem; }
 
-    /* Main Content & Cards */
+    /* Original Main Content & Card Styles */
     .main-content { padding-top: 2rem; padding-bottom: 2rem; }
     .card {
       background-color: var(--color-surface);
@@ -81,7 +81,7 @@
     .glance-list { list-style: none; padding-left: 1rem; }
     .glance-list li { margin-bottom: 0.5rem; }
 
-    /* Video Grid */
+    /* Original Video Grid Styles */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,7 +103,7 @@
     }
     .video-caption { margin-top: 0.5rem; text-align: center; }
 
-    /* Footer */
+    /* Original Footer Styles */
     .site-footer {
       background-color: var(--color-surface);
       text-align: center;
@@ -130,87 +130,53 @@
     }
     .back-to-top:hover { opacity: 1; }
 
-    /* --- Mobile Navigation Styles --- */
-    .nav-toggle {
-      display: block;
-      width: 44px;
-      height: 44px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      z-index: 1001; /* Above the menu */
-    }
-    .hamburger {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--color-heading);
-      position: relative;
-      transition: transform 0.3s, background-color 0.3s;
-    }
-    .hamburger::before, .hamburger::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--color-heading);
-      transition: transform 0.3s;
-    }
-    .hamburger::before { top: -8px; }
-    .hamburger::after { bottom: -8px; }
-
-    /* Animate to "X" when open */
-    .nav-open .hamburger { background-color: transparent; }
-    .nav-open .hamburger::before { transform: translateY(8px) rotate(45deg); }
-    .nav-open .hamburger::after { transform: translateY(-8px) rotate(-45deg); }
-
-    .nav-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 80%;
-      max-width: 300px;
-      height: 100vh;
-      background: var(--color-surface);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      display: flex; /* Always flex for alignment */
-      z-index: 1000;
-    }
-    .nav-open .nav-list {
-      transform: translateX(0);
-      box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    }
-    .nav-list li {
-      margin: 1.5rem 0;
-    }
-    .nav-list a {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    /* Desktop Navigation (styles apply on larger screens) */
+    /* --- MOBILE MENU FUNCTIONALITY --- */
+    /* Hide menu toggle on desktop */
     @media (min-width: 768px) {
-      .nav-toggle { display: none; }
-      .nav-list {
-        position: static;
-        flex-direction: row;
-        height: auto;
-        width: auto;
-        background: transparent;
-        transform: translateX(0);
-        display: flex;
+      .nav-toggle {
+        display: none;
       }
-      .nav-list li { margin: 0 0 0 1.5rem; }
-      .nav-list a { font-size: 1rem; }
+      .nav-list {
+        display: flex;
+        align-items: center;
+      }
+      .nav-list li {
+        margin-left: 1.5rem;
+      }
+    }
+
+    /* Styles for mobile screen */
+    @media (max-width: 767px) {
+      .nav-toggle {
+        display: block; /* Show the menu button */
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .nav-list {
+        display: none; /* Hide the menu by default */
+        position: absolute;
+        top: 70px; /* Position below header */
+        right: 1rem;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        width: calc(100% - 2rem);
+        max-width: 250px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+      .nav-list.nav-open {
+        display: flex; /* Show the menu when .nav-open is present */
+      }
+      .nav-list li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -221,10 +187,7 @@
         <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
-        <!-- Replaced button text with a CSS hamburger icon -->
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
-          <span class="hamburger"></span>
-        </button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
         <ul id="primary-menu" class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="pages/league-tables.html">League Tables</a></li>
@@ -329,7 +292,7 @@
     </div>
   </footer>
 
-  <!-- Self-contained JavaScript for all page interactions -->
+  <!-- Embedded JavaScript for page interactions -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navToggle = document.getElementById('nav-toggle');
@@ -341,7 +304,7 @@
         navToggle.addEventListener('click', function() {
           const isExpanded = this.getAttribute('aria-expanded') === 'true';
           this.setAttribute('aria-expanded', !isExpanded);
-          document.body.classList.toggle('nav-open');
+          primaryMenu.classList.toggle('nav-open');
         });
       }
 
