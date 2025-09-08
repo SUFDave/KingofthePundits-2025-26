@@ -7,8 +7,181 @@
   <meta name="description" content="Learn more about the King of the Pundits football prediction competition, its rules, and how to participate." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Corrected path to go UP and into the 'css' folder -->
-  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Updated embedded styles with GREEN color scheme -->
+  <style>
+    /* Reset and Base Styles */
+    :root {
+      --color-background: #111827;
+      --color-surface: #1f2937;
+      --color-primary: #10b981; /* GREEN */
+      --color-text: #d1d5db;
+      --color-heading: #ffffff;
+      --font-family-base: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    h1, h2, h3 { 
+      color: var(--color-heading);
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .underlined {
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    /* Header Styles */
+    .site-header { padding-top: 1rem; padding-bottom: 1rem; }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title { font-size: 1.5rem; margin: 0; }
+    .season { font-weight: 300; opacity: 0.8; }
+
+    /* Main Content & Card Styles */
+    .main-content { padding-top: 2rem; padding-bottom: 2rem; }
+    .page-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+    .card {
+      background-color: var(--color-surface);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .card-title { font-size: 1.75rem; margin-bottom: 1rem; }
+    .glance-list { list-style: none; padding-left: 1rem; }
+    .glance-list li { margin-bottom: 0.5rem; }
+
+    /* Footer Styles */
+    .site-footer {
+      background-color: var(--color-surface);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 1; }
+
+    /* Mobile Menu Styles */
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (min-width: 768px) {
+      .nav-toggle {
+        display: none;
+      }
+      .nav-list {
+        display: flex;
+        align-items: center;
+      }
+      .nav-list li {
+        margin-left: 1.5rem;
+      }
+      .nav-list a {
+        color: var(--color-text);
+        transition: color 0.3s;
+      }
+      .nav-list a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .nav-toggle {
+        display: block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .nav-toggle:hover {
+        background-color: #059669;
+      }
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        width: calc(100% - 2rem);
+        max-width: 250px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+      }
+      .nav-list.nav-open {
+        display: flex;
+      }
+      .nav-list li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-list a {
+        display: block;
+        padding: 0.5rem;
+        color: var(--color-text);
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .nav-list a:hover {
+        background-color: var(--color-primary);
+        color: white;
+        text-decoration: none;
+      }
+    }
+  </style>
 </head>
 <body class="site-dark">
   <header class="site-header">
@@ -19,7 +192,6 @@
       <nav class="main-nav" aria-label="Main navigation">
         <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
         <ul id="primary-menu" class="nav-list">
-          <!-- Corrected path to go UP for the index page -->
           <li><a href="../index.html">Home</a></li>
           <li><a href="league-tables.html">League Tables</a></li>
           <li><a href="weekly-picks.html">Weekly Picks</a></li>
@@ -34,7 +206,7 @@
 
     <article class="card">
       <h3 class="card-title underlined">Competition Overview</h3>
-      <p>King of the Pundits is a competitive football prediction league where six skilled predictors battle across two divisions over a 30-week season. Each participant makes weekly predictions across multiple football leagues, earning points based on the accuracy and difficulty of their picks.</p>
+      <p>King of the Pundits is a competitive football prediction league where seven skilled predictors battle across two divisions over a 30-week season. Each participant makes weekly predictions across multiple football leagues, earning points based on the accuracy and difficulty of their picks.</p>
       <p>The competition spans matches from the Premier League, Championship, League One, and League Two, focusing exclusively on Friday through Monday fixtures to maintain competitive balance and ensure all participants have equal access to team news and information.</p>
     </article>
 
@@ -47,22 +219,22 @@
 
     <article class="card">
       <h3 class="card-title underlined">Competition Structure</h3>
-      <p><strong>Division One:</strong> Currently features Davo, Mike, and Dylan competing for the top prizes and ultimate bragging rights.</p>
+      <p><strong>Division One:</strong> Currently features Davo, Mike, Dylan, and Rob competing for the top prizes and ultimate bragging rights.</p>
       <p><strong>Division Two:</strong> Ben, Dave K, Alex, and Myles battle for division supremacy and the coveted promotion spot to Division One.</p>
       <p><strong>Promotion & Relegation:</strong> At season's end, the top Division Two performer earns promotion to Division One, while the bottom Division One player faces relegation, ensuring competitive integrity across both divisions.</p>
     </article>
 
     <article class="card">
       <h3 class="card-title underlined">Prize Structure</h3>
-      <p>The competition operates on a £2 per player per week entry fee, generating a total prize fund of £180 over the 30-week season. Prize distribution rewards both divisional success and overall excellence:</p>
+      <p>The competition operates on a £2 per player per week entry fee, generating a total prize fund of £210 over the 30-week season (7 players × £2 × 30 weeks = £420, split between £210 betting fund and £210 prize fund). Prize distribution rewards both divisional success and overall excellence:</p>
       <ul class="glance-list">
-        <li><strong>Overall Champion:</strong> 28% (£50.40)</li>
-        <li><strong>Division 1 Winner:</strong> 28% (£50.40)</li>
-        <li><strong>Division 1 Runner-up:</strong> 17% (£30.60)</li>
-        <li><strong>Division 2 Winner:</strong> 17% (£30.60)</li>
-        <li><strong>Division 2 Runner-up:</strong> 10% (£18.00)</li>
+        <li><strong>Overall Champion:</strong> 28% (£58.80)</li>
+        <li><strong>Division 1 Winner:</strong> 28% (£58.80)</li>
+        <li><strong>Division 1 Runner-up:</strong> 17% (£35.70)</li>
+        <li><strong>Division 2 Winner:</strong> 17% (£35.70)</li>
+        <li><strong>Division 2 Runner-up:</strong> 10% (£21.00)</li>
       </ul>
-      <p>An additional £180 is allocated to a betting fund, adding an extra layer of excitement to the weekly fixtures.</p>
+      <p>An additional £210 is allocated to a betting fund, adding an extra layer of excitement to the weekly fixtures.</p>
     </article>
 
     <article class="card">
@@ -76,7 +248,7 @@
     <article class="card">
       <h3 class="card-title underlined">Season History</h3>
       <p>Defending champion <strong>Davo</strong> enters the 2025/26 season looking to maintain his dominance after a commanding previous campaign. His tactical approach and consistent performance set the standard for competitive excellence in the league.</p>
-      <p>The competition has evolved into a sophisticated prediction league that combines statistical analysis, football knowledge, and strategic thinking. Each season brings new challenges as participants adapt their approaches and learn from previous campaigns.</p>
+      <p>New addition <strong>Rob</strong> joins Division One, bringing fresh competition and strategic thinking to the top division. The competition has evolved into a sophisticated prediction league that combines statistical analysis, football knowledge, and strategic thinking.</p>
     </article>
 
     <article class="card">
@@ -96,8 +268,55 @@
     </div>
   </footer>
 
-  <!-- Corrected path to go UP and into the 'js' folder -->
-  <script src="../js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      const backToTopButton = document.getElementById('backToTop');
+
+      // Mobile Navigation Toggle
+      if (navToggle && primaryMenu) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          primaryMenu.classList.toggle('nav-open');
+        });
+
+        // Close menu when clicking on a link
+        primaryMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!navToggle.contains(event.target) && !primaryMenu.contains(event.target)) {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Back to Top Button Logic
+      if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+          if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
-
