@@ -7,7 +7,329 @@
   <meta name="description" content="Current league standings for both divisions in the King of the Pundits football prediction competition." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=1.3">
+  
+  <!-- Updated embedded styles with GREEN color scheme -->
+  <style>
+    /* Reset and Base Styles */
+    :root {
+      --color-background: #111827;
+      --color-surface: #1f2937;
+      --color-primary: #10b981; /* GREEN */
+      --color-text: #d1d5db;
+      --color-heading: #ffffff;
+      --font-family-base: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family-base);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    h1, h2, h3 { 
+      color: var(--color-heading);
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header Styles */
+    .site-header { padding-top: 1rem; padding-bottom: 1rem; }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title { font-size: 1.5rem; margin: 0; }
+    .season { font-weight: 300; opacity: 0.8; }
+
+    /* Main Content Styles */
+    .main-content { padding-top: 2rem; padding-bottom: 2rem; }
+    .page-title { 
+      font-size: 2.5rem; 
+      margin-bottom: 2rem; 
+      text-align: center;
+      color: var(--color-heading);
+    }
+    .card {
+      background-color: var(--color-surface);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Tables Grid Layout */
+    .tables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) {
+      .tables-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    /* Table Styles */
+    .division-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+      text-align: center;
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.5rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+    }
+    .league-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      background-color: var(--color-background);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .league-table th {
+      background-color: #374151;
+      padding: 1rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--color-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .league-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #374151;
+      vertical-align: middle;
+    }
+    .league-table tbody tr:hover {
+      background-color: rgba(16, 185, 129, 0.1);
+    }
+    .league-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Position styling */
+    .pos {
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      text-align: center;
+      width: 60px;
+    }
+    
+    /* Player name styling */
+    .player {
+      font-weight: 600;
+      color: var(--color-heading);
+      min-width: 120px;
+    }
+    .player button {
+      background: none;
+      border: none;
+      color: var(--color-heading);
+      cursor: pointer;
+      padding: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .player button:hover {
+      color: var(--color-primary);
+    }
+    .toggle-icon {
+      font-weight: bold;
+      color: var(--color-primary);
+      margin-left: 0.5rem;
+    }
+
+    /* Points and form styling */
+    .points {
+      text-align: center;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .total-points {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+    .form {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    /* Expandable stats */
+    .expanded {
+      background-color: rgba(16, 185, 129, 0.05);
+    }
+    .expanded.hidden {
+      display: none;
+    }
+    .expanded td {
+      padding: 1rem;
+      border-bottom: 1px solid #374151;
+    }
+    .small-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .small-list li {
+      background-color: var(--color-surface);
+      padding: 0.5rem;
+      border-radius: 4px;
+      border-left: 3px solid var(--color-primary);
+    }
+
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Footer Styles */
+    .site-footer {
+      background-color: var(--color-surface);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 1; }
+
+    /* Mobile Menu Styles */
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (min-width: 768px) {
+      .nav-toggle {
+        display: none;
+      }
+      .nav-list {
+        display: flex;
+        align-items: center;
+      }
+      .nav-list li {
+        margin-left: 1.5rem;
+      }
+      .nav-list a {
+        color: var(--color-text);
+        transition: color 0.3s;
+      }
+      .nav-list a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .nav-toggle {
+        display: block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .nav-toggle:hover {
+        background-color: #059669;
+      }
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        width: calc(100% - 2rem);
+        max-width: 250px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+      }
+      .nav-list.nav-open {
+        display: flex;
+      }
+      .nav-list li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-list a {
+        display: block;
+        padding: 0.5rem;
+        color: var(--color-text);
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .nav-list a:hover {
+        background-color: var(--color-primary);
+        color: white;
+        text-decoration: none;
+      }
+    }
+  </style>
 </head>
 <body class="site-dark">
   <header class="site-header">
@@ -30,16 +352,15 @@
   <main class="container main-content">
     <h2 class="page-title">League Tables</h2>
 
-    <!-- NEW: Grid wrapper for side-by-side layout -->
     <div class="tables-grid">
-      <div class="card table-card">
+      <div class="card">
         <h3 class="division-title">Division One</h3>
         <div class="table-wrap">
           <table class="league-table" aria-describedby="div1-desc">
             <caption id="div1-desc" class="sr-only">Division One league table</caption>
             <thead>
               <tr>
-                <th>Position</th>
+                <th>Pos</th>
                 <th>Player</th>
                 <th>Week 2</th>
                 <th>Total</th>
@@ -49,9 +370,14 @@
             <tbody>
               <tr>
                 <td class="pos">1</td>
-                <td class="player"><button class="stat-toggle" data-target="davo-stats" aria-expanded="false">Davo <span class="toggle-icon">+</span></button></td>
-                <td>1pt</td>
-                <td>7pts</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="davo-stats" aria-expanded="false">
+                    Davo
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">1pt</td>
+                <td class="total-points">7pts</td>
                 <td class="form">📉</td>
               </tr>
               <tr class="expanded hidden" id="davo-stats">
@@ -67,9 +393,14 @@
 
               <tr>
                 <td class="pos">2</td>
-                <td class="player"><button class="stat-toggle" data-target="mike-stats" aria-expanded="false">Mike <span class="toggle-icon">+</span></button></td>
-                <td>1pt</td>
-                <td>2pts</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="mike-stats" aria-expanded="false">
+                    Mike
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">1pt</td>
+                <td class="total-points">2pts</td>
                 <td class="form">↔️</td>
               </tr>
               <tr class="expanded hidden" id="mike-stats">
@@ -84,9 +415,14 @@
 
               <tr>
                 <td class="pos">3</td>
-                <td class="player"><button class="stat-toggle" data-target="dylan-stats" aria-expanded="false">Dylan <span class="toggle-icon">+</span></button></td>
-                <td>0pt</td>
-                <td>1pt</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="dylan-stats" aria-expanded="false">
+                    Dylan
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">0pt</td>
+                <td class="total-points">1pt</td>
                 <td class="form">📉</td>
               </tr>
               <tr class="expanded hidden" id="dylan-stats">
@@ -95,24 +431,45 @@
                     <li>Home Wins: 2 (correct: 1)</li>
                     <li>Away Wins: 2 (correct: 0)</li>
                     <li>Draws: 2 (correct: 0)</li>
-                    <li>Full House Six Pointers: 0</li>
                   </ul>
                 </td>
               </tr>
 
+              <tr>
+                <td class="pos">4</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="rob-stats" aria-expanded="false">
+                    Rob
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">-</td>
+                <td class="total-points">0pts</td>
+                <td class="form">🆕</td>
+              </tr>
+              <tr class="expanded hidden" id="rob-stats">
+                <td colspan="5">
+                  <ul class="small-list">
+                    <li>Home Wins: 0 (correct: 0)</li>
+                    <li>Away Wins: 0 (correct: 0)</li>
+                    <li>Draws: 0 (correct: 0)</li>
+                    <li>New player joining from Week 3</li>
+                  </ul>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="card table-card">
+      <div class="card">
         <h3 class="division-title">Division Two</h3>
         <div class="table-wrap">
           <table class="league-table" aria-describedby="div2-desc">
             <caption id="div2-desc" class="sr-only">Division Two league table</caption>
             <thead>
               <tr>
-                <th>Position</th>
+                <th>Pos</th>
                 <th>Player</th>
                 <th>Week 2</th>
                 <th>Total</th>
@@ -122,9 +479,14 @@
             <tbody>
               <tr>
                 <td class="pos">1</td>
-                <td class="player"><button class="stat-toggle" data-target="ben-stats" aria-expanded="false">Ben <span class="toggle-icon">+</span></button></td>
-                <td>1pt</td>
-                <td>4pts</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="ben-stats" aria-expanded="false">
+                    Ben
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">1pt</td>
+                <td class="total-points">4pts</td>
                 <td class="form">📉</td>
               </tr>
               <tr class="expanded hidden" id="ben-stats">
@@ -139,9 +501,14 @@
 
               <tr>
                 <td class="pos">2</td>
-                <td class="player"><button class="stat-toggle" data-target="davek-stats" aria-expanded="false">Dave K <span class="toggle-icon">+</span></button></td>
-                <td>3pts</td>
-                <td>3pts</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="davek-stats" aria-expanded="false">
+                    Dave K
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">3pts</td>
+                <td class="total-points">3pts</td>
                 <td class="form">📈</td>
               </tr>
               <tr class="expanded hidden" id="davek-stats">
@@ -156,9 +523,14 @@
 
               <tr>
                 <td class="pos">3</td>
-                <td class="player"><button class="stat-toggle" data-target="alex-stats" aria-expanded="false">Alex <span class="toggle-icon">+</span></button></td>
-                <td>0pt</td>
-                <td>3pts</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="alex-stats" aria-expanded="false">
+                    Alex
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">0pt</td>
+                <td class="total-points">3pts</td>
                 <td class="form">📉</td>
               </tr>
               <tr class="expanded hidden" id="alex-stats">
@@ -173,9 +545,14 @@
 
               <tr>
                 <td class="pos">4</td>
-                <td class="player"><button class="stat-toggle" data-target="myles-stats" aria-expanded="false">Myles <span class="toggle-icon">+</span></button></td>
-                <td>1pt</td>
-                <td>1pt</td>
+                <td class="player">
+                  <button class="stat-toggle" data-target="myles-stats" aria-expanded="false">
+                    Myles
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </td>
+                <td class="points">1pt</td>
+                <td class="total-points">1pt</td>
                 <td class="form">📈</td>
               </tr>
               <tr class="expanded hidden" id="myles-stats">
@@ -187,13 +564,11 @@
                   </ul>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </div>
     </div>
-
   </main>
 
   <button id="backToTop" class="back-to-top" title="Back to top">↑</button>
@@ -204,7 +579,72 @@
     </div>
   </footer>
 
-  <script src="../js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      const backToTopButton = document.getElementById('backToTop');
+
+      // Mobile Navigation Toggle
+      if (navToggle && primaryMenu) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          primaryMenu.classList.toggle('nav-open');
+        });
+
+        primaryMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        document.addEventListener('click', function(event) {
+          if (!navToggle.contains(event.target) && !primaryMenu.contains(event.target)) {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Back to Top Button Logic
+      if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+          if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // Table expansion toggle
+      document.querySelectorAll('.stat-toggle').forEach(button => {
+        button.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          const targetRow = document.getElementById(targetId);
+          const icon = this.querySelector('.toggle-icon');
+          
+          if (targetRow.classList.contains('hidden')) {
+            targetRow.classList.remove('hidden');
+            icon.textContent = '-';
+            this.setAttribute('aria-expanded', 'true');
+          } else {
+            targetRow.classList.add('hidden');
+            icon.textContent = '+';
+            this.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-
