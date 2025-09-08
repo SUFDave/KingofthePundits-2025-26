@@ -121,9 +121,65 @@
     .back-to-top{position:fixed;right:20px;bottom:20px;background:var(--color-primary);color:white;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;display:none;cursor:pointer;opacity:.95}
     .back-to-top:hover{opacity:1}
 
-    /* nav */
+    /* NAVIGATION - FIXED */
     .nav-list{list-style:none;padding:0;margin:0}
-    @media (min-width:768px){ .nav-toggle{display:none} }
+    @media (min-width:768px){
+      .nav-toggle{display:none !important}
+      .nav-list{
+        display:flex !important;
+        align-items:center;
+      }
+      .nav-list li{
+        margin-left:1.5rem;
+      }
+      .nav-list a{
+        color:var(--color-text);
+        font-weight:500;
+        transition:color 0.3s ease;
+      }
+      .nav-list a:hover{
+        color:var(--color-primary);
+        text-decoration:none;
+      }
+    }
+    @media (max-width:767px){
+      .nav-toggle{
+        display:block;
+        background-color:var(--color-primary);
+        color:white;
+        border:none;
+        padding:0.5rem 1rem;
+        border-radius:5px;
+        cursor:pointer;
+        font-size:14px;
+      }
+      .nav-list{
+        display:none;
+        position:absolute;
+        top:100%;
+        right:1rem;
+        background-color:var(--color-surface);
+        flex-direction:column;
+        width:calc(100% - 2rem);
+        max-width:250px;
+        padding:1rem;
+        border-radius:8px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        z-index:1000;
+      }
+      .nav-list.nav-open{
+        display:flex;
+      }
+      .nav-list li{
+        margin:0.25rem 0;
+      }
+      .nav-list a{
+        display:block;
+        padding:0.75rem;
+        color:var(--color-text);
+        text-align:center;
+      }
+    }
   </style>
 </head>
 <body class="site-dark">
@@ -179,7 +235,6 @@
             <span class="player-score">1pt</span>
           </div>
           <table class="pick-table" aria-describedby="mike-desc">
-            <!-- colgroup controls the widths (badge, match, score, points) -->
             <colgroup>
               <col style="width:48px">
               <col>
@@ -462,7 +517,7 @@
       </div>
     </div>
 
-    <!-- RECAPS (Week 1) - same colgroup usage to keep alignment -->
+    <!-- RECAPS (Week 1) -->
     <div class="tables-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
       <div class="card">
         <h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
@@ -502,7 +557,6 @@
           </table>
         </div>
 
-        <!-- other recaps (Mike, Dylan, Rob) -->
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Mike</span>
