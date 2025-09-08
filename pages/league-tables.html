@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Updated embedded styles with GREEN color scheme -->
+  <!-- Updated embedded styles with GREEN color scheme and professional spacing -->
   <style>
     /* Reset and Base Styles */
     :root {
@@ -28,7 +28,7 @@
       line-height: 1.6;
     }
     .container {
-      max-width: 960px;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
       padding-left: 1rem;
@@ -46,6 +46,11 @@
     a:hover {
       text-decoration: underline;
     }
+    .underlined {
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
 
     /* Header Styles */
     .site-header { padding-top: 1rem; padding-bottom: 1rem; }
@@ -58,98 +63,118 @@
     .season { font-weight: 300; opacity: 0.8; }
 
     /* Main Content Styles */
-    .main-content { padding-top: 2rem; padding-bottom: 2rem; }
+    .main-content { padding-top: 3rem; padding-bottom: 3rem; }
     .page-title { 
-      font-size: 2.5rem; 
-      margin-bottom: 2rem; 
+      font-size: 3rem; 
+      margin-bottom: 3rem; 
       text-align: center;
       color: var(--color-heading);
     }
     .card {
       background-color: var(--color-surface);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     /* Tables Grid Layout */
     .tables-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 3rem;
+      margin-bottom: 3rem;
     }
     @media (max-width: 768px) {
       .tables-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 2rem;
       }
     }
 
-    /* Table Styles */
+    /* Division Title */
     .division-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-primary);
+      font-size: 2rem;
+      margin-bottom: 2rem;
       text-align: center;
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.5rem;
+      color: var(--color-heading);
+      position: relative;
     }
+    .division-title.underlined {
+      color: var(--color-primary);
+    }
+
+    /* Table Styles */
     .table-wrap {
       overflow-x: auto;
+      border-radius: 8px;
+      background-color: var(--color-background);
     }
     .league-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 1rem;
-      background-color: var(--color-background);
-      border-radius: 8px;
-      overflow: hidden;
+      font-size: 1rem;
     }
     .league-table th {
       background-color: #374151;
-      padding: 1rem 0.75rem;
+      padding: 1.25rem 1rem;
       text-align: left;
       font-weight: 600;
       color: var(--color-heading);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      border: none;
+    }
+    .league-table th:first-child {
+      border-top-left-radius: 8px;
+    }
+    .league-table th:last-child {
+      border-top-right-radius: 8px;
     }
     .league-table td {
-      padding: 0.75rem;
+      padding: 1.25rem 1rem;
       border-bottom: 1px solid #374151;
       vertical-align: middle;
     }
+    .league-table tbody tr {
+      transition: background-color 0.2s ease;
+    }
     .league-table tbody tr:hover {
-      background-color: rgba(16, 185, 129, 0.1);
+      background-color: rgba(16, 185, 129, 0.08);
     }
     .league-table tbody tr:last-child td {
       border-bottom: none;
     }
+    .league-table tbody tr:last-child td:first-child {
+      border-bottom-left-radius: 8px;
+    }
+    .league-table tbody tr:last-child td:last-child {
+      border-bottom-right-radius: 8px;
+    }
 
-    /* Position styling */
+    /* Position Column */
     .pos {
       font-weight: 700;
       color: var(--color-primary);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-align: center;
-      width: 60px;
+      width: 80px;
     }
     
-    /* Player name styling */
+    /* Player Column */
     .player {
       font-weight: 600;
       color: var(--color-heading);
-      min-width: 120px;
+      min-width: 140px;
+      font-size: 1.1rem;
     }
     .player button {
       background: none;
       border: none;
       color: var(--color-heading);
       cursor: pointer;
-      padding: 0;
+      padding: 0.5rem 0;
       font-size: inherit;
       font-weight: inherit;
       width: 100%;
@@ -157,34 +182,43 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-radius: 4px;
+      transition: all 0.2s ease;
     }
     .player button:hover {
       color: var(--color-primary);
+      background-color: rgba(16, 185, 129, 0.1);
+      padding-left: 0.5rem;
     }
     .toggle-icon {
       font-weight: bold;
       color: var(--color-primary);
-      margin-left: 0.5rem;
+      margin-left: 1rem;
+      font-size: 1rem;
     }
 
-    /* Points and form styling */
-    .points {
+    /* Points Columns */
+    .week-points {
       text-align: center;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--color-text);
+      font-size: 1rem;
+      min-width: 80px;
     }
     .total-points {
       text-align: center;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--color-primary);
+      min-width: 80px;
     }
     .form {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      min-width: 60px;
     }
 
-    /* Expandable stats */
+    /* Expandable Stats */
     .expanded {
       background-color: rgba(16, 185, 129, 0.05);
     }
@@ -192,23 +226,24 @@
       display: none;
     }
     .expanded td {
-      padding: 1rem;
+      padding: 2rem;
       border-bottom: 1px solid #374151;
     }
     .small-list {
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: 0.9rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
     .small-list li {
       background-color: var(--color-surface);
-      padding: 0.5rem;
-      border-radius: 4px;
-      border-left: 3px solid var(--color-primary);
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 4px solid var(--color-primary);
+      font-size: 0.95rem;
+      color: var(--color-text);
     }
 
     /* Screen reader only */
@@ -354,13 +389,13 @@
 
     <div class="tables-grid">
       <div class="card">
-        <h3 class="division-title">Division One</h3>
+        <h3 class="division-title underlined">Division One</h3>
         <div class="table-wrap">
           <table class="league-table" aria-describedby="div1-desc">
             <caption id="div1-desc" class="sr-only">Division One league table</caption>
             <thead>
               <tr>
-                <th>Pos</th>
+                <th>Position</th>
                 <th>Player</th>
                 <th>Week 2</th>
                 <th>Total</th>
@@ -376,7 +411,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">1pt</td>
+                <td class="week-points">1pt</td>
                 <td class="total-points">7pts</td>
                 <td class="form">📉</td>
               </tr>
@@ -399,7 +434,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">1pt</td>
+                <td class="week-points">1pt</td>
                 <td class="total-points">2pts</td>
                 <td class="form">↔️</td>
               </tr>
@@ -421,7 +456,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">0pt</td>
+                <td class="week-points">0pt</td>
                 <td class="total-points">1pt</td>
                 <td class="form">📉</td>
               </tr>
@@ -443,7 +478,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">-</td>
+                <td class="week-points">-</td>
                 <td class="total-points">0pts</td>
                 <td class="form">🆕</td>
               </tr>
@@ -463,13 +498,13 @@
       </div>
 
       <div class="card">
-        <h3 class="division-title">Division Two</h3>
+        <h3 class="division-title underlined">Division Two</h3>
         <div class="table-wrap">
           <table class="league-table" aria-describedby="div2-desc">
             <caption id="div2-desc" class="sr-only">Division Two league table</caption>
             <thead>
               <tr>
-                <th>Pos</th>
+                <th>Position</th>
                 <th>Player</th>
                 <th>Week 2</th>
                 <th>Total</th>
@@ -485,7 +520,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">1pt</td>
+                <td class="week-points">1pt</td>
                 <td class="total-points">4pts</td>
                 <td class="form">📉</td>
               </tr>
@@ -507,7 +542,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">3pts</td>
+                <td class="week-points">3pts</td>
                 <td class="total-points">3pts</td>
                 <td class="form">📈</td>
               </tr>
@@ -529,7 +564,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">0pt</td>
+                <td class="week-points">0pt</td>
                 <td class="total-points">3pts</td>
                 <td class="form">📉</td>
               </tr>
@@ -551,7 +586,7 @@
                     <span class="toggle-icon">+</span>
                   </button>
                 </td>
-                <td class="points">1pt</td>
+                <td class="week-points">1pt</td>
                 <td class="total-points">1pt</td>
                 <td class="form">📈</td>
               </tr>
