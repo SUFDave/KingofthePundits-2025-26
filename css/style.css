@@ -1058,3 +1058,31 @@ a:focus {
 .points-lost { 
   color: #9ca3af; 
 }
+/* Responsive Picks Layout */
+@media (max-width: 768px) {
+  .tables-grid {
+    grid-template-columns: 1fr; /* stack divisions instead of side by side */
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .pick-table td {
+    padding: 0.5rem; /* reduce padding for smaller screens */
+    font-size: 0.9rem;
+  }
+
+  .pick-type {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+
+  .points-won,
+  .points-lost {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
