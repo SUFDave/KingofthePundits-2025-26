@@ -272,10 +272,17 @@ body {
 
 .hero-sub {
   color: var(--color-neutral-400);
-  margin: 0;
+  margin: 0 auto;
   font-size: var(--font-size-lg);
   max-width: 600px;
-  margin: 0 auto;
+}
+
+/* ===================================
+   MAIN CONTENT
+   =================================== */
+
+.main-content {
+  padding-top: var(--space-16);
 }
 
 /* ===================================
@@ -309,6 +316,14 @@ body {
   gap: var(--space-2);
 }
 
+.card p {
+  margin-bottom: var(--space-4);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
 .page-title {
   font-size: var(--font-size-3xl);
   text-align: center;
@@ -325,6 +340,17 @@ body {
   margin-bottom: var(--space-4);
   font-weight: 600;
   font-size: var(--font-size-lg);
+}
+
+.underlined {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 2px;
+}
+
+.news-title {
+  position: relative;
 }
 
 /* ===================================
@@ -399,16 +425,24 @@ body {
   color: var(--color-accent);
 }
 
-.league-table tbody tr:nth-child(1) .pos { color: #ffd700; }
-.league-table tbody tr:nth-child(2) .pos { color: #c0c0c0; }
-.league-table tbody tr:nth-child(3) .pos { color: #cd7f32; }
+.league-table tbody tr:nth-child(1) .pos { 
+  color: #ffd700; 
+}
+
+.league-table tbody tr:nth-child(2) .pos { 
+  color: #c0c0c0; 
+}
+
+.league-table tbody tr:nth-child(3) .pos { 
+  color: #cd7f32; 
+}
 
 .player button,
 .stat-toggle {
   background: none;
   border: none;
   color: var(--color-neutral-100);
-  font-weight: 700; /* Bolder */
+  font-weight: 700;
   cursor: pointer;
   padding: var(--space-2) 0;
   display: flex;
@@ -422,7 +456,7 @@ body {
 .player button:hover,
 .stat-toggle:hover,
 .stat-toggle[aria-expanded="true"] {
-  color: var(--color-accent-light); /* Highlight when hovered or active */
+  color: var(--color-accent-light);
 }
 
 .toggle-icon {
@@ -444,7 +478,7 @@ body {
   padding-top: var(--space-4);
   padding-bottom: var(--space-4);
   border-top: 1px solid rgba(34, 197, 94, 0.2);
-  box-shadow: inset 0 4px 6px -1px rgba(0,0,0,0.2);
+  box-shadow: inset 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 .small-list {
@@ -563,6 +597,7 @@ body {
   border-collapse: collapse;
   margin-top: var(--space-3);
   font-size: var(--font-size-sm);
+  table-layout: fixed;
 }
 
 .pick-table thead {
@@ -581,39 +616,68 @@ body {
 }
 
 .pick-table td {
-  padding: var(--space-3) var(--space-4);
-  border-top: 1px solid var(--border-secondary);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-secondary);
+  vertical-align: middle;
+}
+
+.pick-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column widths for pick table */
+.pick-table td:nth-child(1) {
+  width: 40px; 
+  text-align: center;
+}
+
+.pick-table td:nth-child(2) {
+  width: auto; /* flexible for match name */
+}
+
+.pick-table td:nth-child(3) {
+  width: 60px; 
+  text-align: center;
+}
+
+.pick-table td:nth-child(4) {
+  width: 60px; 
+  text-align: right;
+  white-space: nowrap;
 }
 
 .pick-type {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
-  line-height: 24px;
-  text-align: center;
   border-radius: 50%;
-  font-weight: 700;
-  color: var(--color-primary);
-  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: white;
 }
 
-.pick-type.home { background-color: var(--color-success); }
-.pick-type.away { background-color: var(--color-warning); }
-.pick-type.draw { background-color: var(--color-neutral-400); }
+.pick-type.home { 
+  background-color: #3b82f6; 
+}
 
-.pick-table td:last-child {
-  text-align: right;
-  font-weight: 700;
+.pick-type.away { 
+  background-color: #ef4444; 
+}
+
+.pick-type.draw { 
+  background-color: #f59e0b; 
 }
 
 .points-won {
   color: var(--color-accent-light);
+  font-weight: 600;
 }
 
 .points-lost {
   color: var(--color-neutral-500);
 }
-
 
 /* ===================================
    VIDEO GRID
@@ -659,35 +723,6 @@ body {
   font-size: var(--font-size-sm);
   color: var(--color-neutral-300);
   margin: 0;
-}
-
-/* ===================================
-   BACK TO TOP BUTTON
-   =================================== */
-
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--color-accent);
-  color: var(--color-primary);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  display: none;
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  box-shadow: var(--shadow-lg);
-}
-
-.back-to-top:hover {
-  background: var(--color-accent-dark);
-  transform: translateY(-2px);
 }
 
 /* ===================================
@@ -745,6 +780,35 @@ body {
 }
 
 /* ===================================
+   BACK TO TOP BUTTON
+   =================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+}
+
+.back-to-top:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+/* ===================================
    FOOTER
    =================================== */
 
@@ -760,6 +824,44 @@ body {
   color: var(--color-neutral-400);
   font-size: var(--font-size-sm);
   margin: 0;
+}
+
+/* ===================================
+   ANIMATIONS & INTERACTIONS
+   =================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card:nth-child(2) { 
+  animation-delay: 0.1s; 
+}
+
+.card:nth-child(3) { 
+  animation-delay: 0.2s; 
+}
+
+.card:nth-child(4) { 
+  animation-delay: 0.3s; 
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* ===================================
@@ -799,7 +901,6 @@ body {
 
 /* Medium screens (1024px+) */
 @media (min-width: 1024px) {
-  /* NEW: Apply grid layout for tables on larger screens */
   .tables-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -868,6 +969,35 @@ body {
   }
 }
 
+/* Mobile-specific responsive fixes */
+@media (max-width: 768px) {
+  .tables-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .pick-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .pick-type {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+
+  .points-won,
+  .points-lost {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
 /* Extra small screens (480px and below) */
 @media (max-width: 480px) {
   .container {
@@ -897,34 +1027,8 @@ body {
 }
 
 /* ===================================
-   ANIMATIONS & INTERACTIONS
+   ACCESSIBILITY & SPECIAL STATES
    =================================== */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.2s; }
-.card:nth-child(4) { animation-delay: 0.3s; }
-
-/* Focus states for accessibility */
-button:focus,
-a:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
@@ -967,122 +1071,5 @@ a:focus {
   body {
     background: white;
     color: black;
-  }
-}
-/* ===================================
-   ADDITIONAL STYLES FOR NEW CLASSES
-   =================================== */
-
-/* Main content spacing */
-.main-content {
-  padding-top: 4rem;
-}
-
-/* Underlined headings */
-.underlined {
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent);
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 2px;
-}
-
-/* News section titles */
-.news-title {
-  position: relative;
-}
-
-/* Ensure proper paragraph spacing in cards */
-.card p {
-  margin-bottom: var(--space-4);
-}
-
-.card p:last-child {
-  margin-bottom: 0;
-}
-/* Pick Table Styles - Improved Alignment */
-.pick-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.pick-table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #374151;
-  vertical-align: middle;
-}
-
-.pick-table tr:last-child td {
-  border-bottom: none;
-}
-
-/* Column widths */
-.pick-table td:nth-child(1) {
-  width: 40px; 
-  text-align: center;
-}
-.pick-table td:nth-child(2) {
-  width: auto; /* flexible for match name */
-}
-.pick-table td:nth-child(3) {
-  width: 60px; 
-  text-align: center;
-}
-.pick-table td:nth-child(4) {
-  width: 60px; 
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* Pick type badges */
-.pick-type {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: white;
-}
-.pick-type.home { background-color: #3b82f6; }
-.pick-type.away { background-color: #ef4444; }
-.pick-type.draw { background-color: #f59e0b; }
-
-/* Points */
-.points-won { 
-  color: var(--color-primary); 
-  font-weight: 600; 
-}
-.points-lost { 
-  color: #9ca3af; 
-}
-/* Responsive Picks Layout */
-@media (max-width: 768px) {
-  .tables-grid {
-    grid-template-columns: 1fr; /* stack divisions instead of side by side */
-    gap: 1.5rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .pick-table td {
-    padding: 0.5rem; /* reduce padding for smaller screens */
-    font-size: 0.9rem;
-  }
-
-  .pick-type {
-    width: 20px;
-    height: 20px;
-    font-size: 0.7rem;
-  }
-
-  .points-won,
-  .points-lost {
-    font-size: 0.85rem;
-    white-space: nowrap;
   }
 }
