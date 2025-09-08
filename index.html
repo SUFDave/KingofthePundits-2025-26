@@ -8,14 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Embedded styles to restore original design and add mobile menu functionality -->
+  <!-- Embedded styles with GREEN color scheme -->
   <style>
-    /* Reset and Base Styles from original design */
+    /* Reset and Base Styles */
     :root {
       --color-background: #111827;
       --color-surface: #1f2937;
-      /* Corrected primary color to light blue */
-      --color-primary: #0ea5e9; /* Light Blue */
+      --color-primary: #10b981; /* GREEN */
       --color-text: #d1d5db;
       --color-heading: #ffffff;
       --font-family-base: 'Inter', sans-serif;
@@ -43,6 +42,9 @@
     a {
       color: var(--color-primary);
       text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     .underlined {
       border-bottom: 2px solid var(--color-primary);
@@ -132,7 +134,13 @@
     .back-to-top:hover { opacity: 1; }
 
     /* --- MOBILE MENU FUNCTIONALITY --- */
-    /* Hide menu toggle on desktop */
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation styles for desktop */
     @media (min-width: 768px) {
       .nav-toggle {
         display: none;
@@ -143,6 +151,14 @@
       }
       .nav-list li {
         margin-left: 1.5rem;
+      }
+      .nav-list a {
+        color: var(--color-text);
+        transition: color 0.3s;
+      }
+      .nav-list a:hover {
+        color: var(--color-primary);
+        text-decoration: none;
       }
     }
 
@@ -156,6 +172,11 @@
         padding: 0.5rem 1rem;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .nav-toggle:hover {
+        background-color: #059669; /* Darker green on hover */
       }
       .nav-list {
         display: none; /* Hide the menu by default */
@@ -169,6 +190,7 @@
         padding: 1rem;
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
       }
       .nav-list.nav-open {
         display: flex; /* Show the menu when .nav-open is present */
@@ -177,6 +199,18 @@
         margin: 0.5rem 0;
         width: 100%;
         text-align: center;
+      }
+      .nav-list a {
+        display: block;
+        padding: 0.5rem;
+        color: var(--color-text);
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .nav-list a:hover {
+        background-color: var(--color-primary);
+        color: white;
+        text-decoration: none;
       }
     }
   </style>
@@ -293,7 +327,7 @@
     </div>
   </footer>
 
-  <!-- Embedded JavaScript for page interactions -->
+  <!-- JavaScript for page interactions -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navToggle = document.getElementById('nav-toggle');
@@ -307,359 +341,44 @@
           this.setAttribute('aria-expanded', !isExpanded);
           primaryMenu.classList.toggle('nav-open');
         });
-      }
 
-      // --- Back to Top Button Logic ---
-      if (backToTopButton) {
-        // Show button when user scrolls down 200px
-        window.onscroll = function() {
-          if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            backToTopButton.style.display = "block";
-          } else {
-            backToTopButton.style.display = "none";
-          }
-        };
-
-        // Scroll to top when button is clicked
-        backToTopButton.addEventListener('click', function() {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        // Close menu when clicking on a link
+        primaryMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
         });
-      }
-    });
-  </script>
-</body>
-</html>
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>King of the Pundits — Season 2025/26</title>
-  <meta name="description" content="Official app for the King of the Pundits football competition — league tables, weekly picks and highlights." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Embedded styles to restore original design and add mobile menu functionality -->
-  <style>
-    /* Reset and Base Styles from original design */
-    :root {
-      --color-background: #111827;
-      --color-surface: #1f2937;
-      --color-primary: #4f46e5;
-      --color-text: #d1d5db;
-      --color-heading: #ffffff;
-      --font-family-base: 'Inter', sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: var(--font-family-base);
-      background-color: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    h1, h2, h3 { 
-      color: var(--color-heading);
-      line-height: 1.2;
-      margin-top: 0;
-    }
-    a {
-      color: var(--color-primary);
-      text-decoration: none;
-    }
-    .underlined {
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    /* Original Header and Hero Section Styles */
-    .site-header { padding-top: 1rem; padding-bottom: 1rem; }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand-title { font-size: 1.5rem; margin: 0; }
-    .season { font-weight: 300; opacity: 0.8; }
-    .hero-placeholder {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://placehold.co/1200x300/1f2937/d1d5db?text=KOTP) no-repeat center center;
-      background-size: cover;
-      padding: 4rem 1rem;
-      text-align: center;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    .hero-title { font-size: 2rem; }
-
-    /* Original Main Content & Card Styles */
-    .main-content { padding-top: 2rem; padding-bottom: 2rem; }
-    .card {
-      background-color: var(--color-surface);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .card-title { font-size: 1.75rem; margin-bottom: 1rem; }
-    .glance-list { list-style: none; padding-left: 1rem; }
-    .glance-list li { margin-bottom: 0.5rem; }
-
-    /* Original Video Grid Styles */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .video-wrap {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .video-wrap iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .video-caption { margin-top: 0.5rem; text-align: center; }
-
-    /* Original Footer Styles */
-    .site-footer {
-      background-color: var(--color-surface);
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--color-primary);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-      cursor: pointer;
-      display: none; /* Hidden by default */
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-    .back-to-top:hover { opacity: 1; }
-
-    /* --- MOBILE MENU FUNCTIONALITY --- */
-    /* Hide menu toggle on desktop */
-    @media (min-width: 768px) {
-      .nav-toggle {
-        display: none;
-      }
-      .nav-list {
-        display: flex;
-        align-items: center;
-      }
-      .nav-list li {
-        margin-left: 1.5rem;
-      }
-    }
-
-    /* Styles for mobile screen */
-    @media (max-width: 767px) {
-      .nav-toggle {
-        display: block; /* Show the menu button */
-        background-color: var(--color-primary);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .nav-list {
-        display: none; /* Hide the menu by default */
-        position: absolute;
-        top: 70px; /* Position below header */
-        right: 1rem;
-        background-color: var(--color-surface);
-        flex-direction: column;
-        width: calc(100% - 2rem);
-        max-width: 250px;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      }
-      .nav-list.nav-open {
-        display: flex; /* Show the menu when .nav-open is present */
-      }
-      .nav-list li {
-        margin: 0.5rem 0;
-        width: 100%;
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body class="site-dark">
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
-      </div>
-      <nav class="main-nav" aria-label="Main navigation">
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
-        <ul id="primary-menu" class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pages/league-tables.html">League Tables</a></li>
-          <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
-          <li><a href="pages/about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="hero-placeholder">
-      <div class="hero-content container">
-        <h2 class="hero-title">Track the league. Check the picks. Celebrate the winners.</h2>
-      </div>
-    </div>
-  </header>
-
-  <main class="container main-content">
-    <article class="card">
-      <h2 class="card-title underlined">Welcome to King of the Pundits</h2>
-      <p>Welcome to the ultimate football prediction competition! Six fierce competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything.</p>
-      <p>Reigning champion <strong>Davo</strong> returns to defend his crown, but the hunger for glory runs deep in every player. From Premiership clashes to Championship showdowns, League One battles to League Two surprises - these warriors dissect every weekend's action with surgical precision.</p>
-      <p>Track every twist in the league tables, analyze the weekly picks that separate champions from pretenders, and immerse yourself in the relentless pursuit of football forecasting supremacy.</p>
-    </article>
-
-    <article class="card">
-      <h3 class="card-title news-title underlined">📰 Latest Results: Week Two</h3>
-      <p>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results.</p>
-      <p><strong>Division One:</strong> Davo maintained his lead with 1 point from Cardiff's 4-0 home victory over Plymouth, bringing his total to 7 points. Mike also secured 1 point with Manchester United's 3-2 home win against Burnley, maintaining second place with 2 points total. Dylan was unable to add to his Week One score, remaining at 1 point.</p>
-      <p><strong>Division Two:</strong> Dave K achieved the week's best performance with 3 points from the Leeds United vs Newcastle United draw, moving him to 3 points total. Ben added 1 point with Chelsea's 2-0 home win over Fulham, extending his division lead to 4 points. Myles secured his first point of the season with Leicester City's 2-0 home victory over Birmingham City. Alex was unable to score this week, remaining at 3 points.</p>
-      <p>Current standings show Davo with a commanding lead in Division One, while Division Two remains competitive with only 3 points separating first and fourth place.</p>
-    </article>
-
-    <article class="card">
-      <h3 class="card-title news-title underlined">📰 Previous Results: Week One</h3>
-      <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week.</p>
-      <p><strong>Division One:</strong> Davo's selections included Arsenal's 5-0 home victory over Leeds United (1pt), Newcastle's 2-3 away loss to Liverpool (2pts), and Swansea City's 1-1 draw with Watford (3pts). Mike and Dylan each earned 1 point, with Mike correctly predicting Birmingham's 1-0 home win over Oxford United, and Dylan successfully calling Coventry City's 7-1 home victory against Queens Park Rangers.</p>
-      <p><strong>Division Two:</strong> Ben and Alex both scored 3 points each. Ben achieved this through Arsenal's 6-0 home win over Leeds United (1pt) and Crawley's 0-2 away victory at Tranmere Rovers (2pts). Alex earned his 3 points from the Crystal Palace vs Nottingham Forest 1-1 draw. Dave K and Myles were unable to score in the opening week.</p>
-    </article>
-
-    <article class="card">
-      <h3 class="card-title underlined">Featured Match Highlights</h3>
-      <div class="video-grid">
-        <div class="video-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/cqhUffcFqGY" title="Manchester United 3-2 Burnley" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong> — Mike earned a crucial point.</p>
-        </div>
-        <div class="video-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="Brighton 2-1 Manchester City" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> — tough week for Dylan and Ben.</p>
-        </div>
-        <div class="video-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/J6xazz0eVcA" title="Chelsea 2-0 Fulham" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong> — Ben earned a point.</p>
-        </div>
-        <div class="video-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/NB5pe157reo" title="Liverpool 1-0 Arsenal" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — Mike, Dave K, and Alex missed out here.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="card">
-      <h3 class="card-title underlined">The Season At A Glance</h3>
-      <ul class="glance-list">
-        <li>The season lasts for 30 weeks.</li>
-        <li>6 players compete in two leagues: Division One and Division Two.</li>
-        <li>Matches for picks are from the Premiership, Championship, League One & League Two (Friday to Monday games only).</li>
-        <li><strong>Points Allocation:</strong> Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
-        <li>Players must submit picks on time. Missed picks wait until all others have submitted.</li>
-        <li><strong>Total Entry Fees:</strong> 6 players × £2/week × 30 weeks = £360.00.</li>
-        <li>Collected money is split: £180.00 Betting Fund, £180.00 Prize Fund.</li>
-        <li><strong>Prize Fund Distribution:</strong>
-          <ul class="glance-list">
-            <li>Overall Champion: 28% (£50.40)</li>
-            <li>Division 1 Winner: 28% (£50.40)</li>
-            <li>Division 1 Runner Up: 17% (£30.60)</li>
-            <li>Division 2 Winner: 17% (£30.60)</li>
-            <li>Division 2 Runner Up: 10% (£18.00)</li>
-          </ul>
-        </li>
-        <li><strong>Division One Players:</strong> Davo, Mike, Dylan.</li>
-        <li><strong>Division Two Players:</strong> Dave K, Ben, Myles, Alex.</li>
-        <li>Top player from Division Two will be promoted to Division One next season.</li>
-        <li>Bottom player from Division One will be relegated to Division Two next season.</li>
-      </ul>
-    </article>
-  </main>
-
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" title="Back to top">↑</button>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 King of the Pundits. Built for the league. Designed to shine.</p>
-    </div>
-  </footer>
-
-  <!-- Embedded JavaScript for page interactions -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navToggle = document.getElementById('nav-toggle');
-      const primaryMenu = document.getElementById('primary-menu');
-      const backToTopButton = document.getElementById('backToTop');
-
-      // --- Mobile Navigation Toggle ---
-      if (navToggle && primaryMenu) {
-        navToggle.addEventListener('click', function() {
-          const isExpanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !isExpanded);
-          primaryMenu.classList.toggle('nav-open');
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!navToggle.contains(event.target) && !primaryMenu.contains(event.target)) {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
         });
       }
 
       // --- Back to Top Button Logic ---
       if (backToTopButton) {
         // Show button when user scrolls down 200px
-        window.onscroll = function() {
+        window.addEventListener('scroll', function() {
           if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             backToTopButton.style.display = "block";
           } else {
             backToTopButton.style.display = "none";
           }
-        };
+        });
 
         // Scroll to top when button is clicked
         backToTopButton.addEventListener('click', function() {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
       }
     });
   </script>
 </body>
 </html>
-
