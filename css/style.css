@@ -999,4 +999,62 @@ a:focus {
 .card p:last-child {
   margin-bottom: 0;
 }
+/* Pick Table Styles - Improved Alignment */
+.pick-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
 
+.pick-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #374151;
+  vertical-align: middle;
+}
+
+.pick-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column widths */
+.pick-table td:nth-child(1) {
+  width: 40px; 
+  text-align: center;
+}
+.pick-table td:nth-child(2) {
+  width: auto; /* flexible for match name */
+}
+.pick-table td:nth-child(3) {
+  width: 60px; 
+  text-align: center;
+}
+.pick-table td:nth-child(4) {
+  width: 60px; 
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Pick type badges */
+.pick-type {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: white;
+}
+.pick-type.home { background-color: #3b82f6; }
+.pick-type.away { background-color: #ef4444; }
+.pick-type.draw { background-color: #f59e0b; }
+
+/* Points */
+.points-won { 
+  color: var(--color-primary); 
+  font-weight: 600; 
+}
+.points-lost { 
+  color: #9ca3af; 
+}
