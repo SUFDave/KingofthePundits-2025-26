@@ -1073,3 +1073,87 @@ a:focus {
     color: black;
   }
 }
+/* Hero Banner CSS - Add this to your main stylesheet */
+
+.hero-banner {
+  width: 100%;
+  height: 300px; /* Adjust height as needed */
+  background-image: url('images/kingofthepundits-logo.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay for better text readability if needed */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+  z-index: 1;
+}
+
+/* Ensure content appears above overlay */
+.hero-banner > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 200px; /* Smaller height on mobile */
+    background-position: center top; /* Focus on the title area */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 150px; /* Even smaller on small phones */
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-banner {
+    height: 250px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .hero-banner {
+    height: 350px;
+  }
+}
+
+/* Alternative: Fixed aspect ratio approach */
+.hero-banner-responsive {
+  width: 100%;
+  aspect-ratio: 16/9; /* Maintains the original 16:9 ratio */
+  max-height: 400px; /* Prevents it from getting too tall */
+  background-image: url('path/to/your/kingofthepundits-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* For very small screens, limit the aspect ratio */
+@media (max-width: 480px) {
+  .hero-banner-responsive {
+    aspect-ratio: 2/1; /* Wider ratio on mobile for better text visibility */
+    max-height: 200px;
+  }
+}
