@@ -62,18 +62,17 @@
     .brand-title { font-size: 1.5rem; margin: 0; }
     .season { font-weight: 300; opacity: 0.8; }
     
-    /* NEW Hero Banner Styles */
+    /* NEW Hero Banner Styles - Maintains aspect ratio */
     .hero-banner {
       width: 100%;
-      height: 300px;
+      aspect-ratio: 16 / 9; /* Maintains original banner proportions */
+      max-height: 400px; /* Prevents it getting too large */
       background-image: url('images/kingofthepundits-logo.webp');
-      background-size: cover;
+      background-size: contain; /* Shows full image without cropping */
       background-position: center;
       background-repeat: no-repeat;
+      background-color: #111827; /* Matches your site background */
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       margin-top: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -82,27 +81,14 @@
     /* Mobile Responsive Design for Hero Banner */
     @media (max-width: 768px) {
       .hero-banner {
-        height: 200px;
-        background-position: center top;
+        max-height: 250px;
       }
     }
 
     @media (max-width: 480px) {
       .hero-banner {
-        height: 150px;
-        margin-bottom: 1rem;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .hero-banner {
-        height: 250px;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .hero-banner {
-        height: 350px;
+        max-height: 180px;
+        aspect-ratio: 2 / 1; /* Slightly wider on very small screens */
       }
     }
 
