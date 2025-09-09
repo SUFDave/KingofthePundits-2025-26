@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>King of the Pundits — Season 2025/26</title>
-  <meta name="description" content="Official app for the King of the Pundits football competition — league tables, weekly picks and highlights." />
+  <title>King of the Pundits â€" Season 2025/26</title>
+  <meta name="description" content="Official app for the King of the Pundits football competition â€" league tables, weekly picks and highlights." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
@@ -52,7 +52,7 @@
       display: inline-block;
     }
 
-    /* Original Header and Hero Section Styles */
+    /* Original Header Styles */
     .site-header { padding-top: 1rem; padding-bottom: 1rem; }
     .header-inner {
       display: flex;
@@ -61,15 +61,50 @@
     }
     .brand-title { font-size: 1.5rem; margin: 0; }
     .season { font-weight: 300; opacity: 0.8; }
-    .hero-placeholder {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://placehold.co/1200x300/1f2937/d1d5db?text=KOTP) no-repeat center center;
+    
+    /* NEW Hero Banner Styles */
+    .hero-banner {
+      width: 100%;
+      height: 300px;
+      background-image: url('images/kingofthepundits-logo.webp');
       background-size: cover;
-      padding: 4rem 1rem;
-      text-align: center;
-      border-radius: 8px;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .hero-title { font-size: 2rem; }
+
+    /* Mobile Responsive Design for Hero Banner */
+    @media (max-width: 768px) {
+      .hero-banner {
+        height: 200px;
+        background-position: center top;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 150px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-banner {
+        height: 250px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-banner {
+        height: 350px;
+      }
+    }
 
     /* Original Main Content & Card Styles */
     .main-content { padding-top: 2rem; padding-bottom: 2rem; }
@@ -231,11 +266,8 @@
         </ul>
       </nav>
     </div>
-    <div class="hero-placeholder">
-      <div class="hero-content container">
-        <h2 class="hero-title">Track the league. Check the picks. Celebrate the winners.</h2>
-      </div>
-    </div>
+    <!-- HERO BANNER - Replaced the old hero-placeholder -->
+    <div class="hero-banner" role="banner" aria-label="King of the Pundits Hero Banner"></div>
   </header>
 
   <main class="container main-content">
@@ -247,7 +279,7 @@
     </article>
 
     <article class="card">
-      <h3 class="card-title news-title underlined">📰 Latest Results: Week Two</h3>
+      <h3 class="card-title news-title underlined">ðŸ"° Latest Results: Week Two</h3>
       <p>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results.</p>
       <p><strong>Division One:</strong> Davo maintained his lead with 1 point from Cardiff's 4-0 home victory over Plymouth, bringing his total to 7 points. Mike also secured 1 point with Manchester United's 3-2 home win against Burnley, maintaining second place with 2 points total. Dylan was unable to add to his Week One score, remaining at 1 point.</p>
       <p><strong>Division Two:</strong> Dave K achieved the week's best performance with 3 points from the Leeds United vs Newcastle United draw, moving him to 3 points total. Ben added 1 point with Chelsea's 2-0 home win over Fulham, extending his division lead to 4 points. Myles secured his first point of the season with Leicester City's 2-0 home victory over Birmingham City. Alex was unable to score this week, remaining at 3 points.</p>
@@ -255,7 +287,7 @@
     </article>
 
     <article class="card">
-      <h3 class="card-title news-title underlined">📰 Previous Results: Week One</h3>
+      <h3 class="card-title news-title underlined">ðŸ"° Previous Results: Week One</h3>
       <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week.</p>
       <p><strong>Division One:</strong> Davo's selections included Arsenal's 5-0 home victory over Leeds United (1pt), Newcastle's 2-3 away loss to Liverpool (2pts), and Swansea City's 1-1 draw with Watford (3pts). Mike and Dylan each earned 1 point, with Mike correctly predicting Birmingham's 1-0 home win over Oxford United, and Dylan successfully calling Coventry City's 7-1 home victory against Queens Park Rangers.</p>
       <p><strong>Division Two:</strong> Ben and Alex both scored 3 points each. Ben achieved this through Arsenal's 6-0 home win over Leeds United (1pt) and Crawley's 0-2 away victory at Tranmere Rovers (2pts). Alex earned his 3 points from the Crystal Palace vs Nottingham Forest 1-1 draw. Dave K and Myles were unable to score in the opening week.</p>
@@ -268,25 +300,25 @@
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/cqhUffcFqGY" title="Manchester United 3-2 Burnley" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong> — Mike earned a crucial point.</p>
+          <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong> â€" Mike earned a crucial point.</p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="Brighton 2-1 Manchester City" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> — tough week for Dylan and Ben.</p>
+          <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> â€" tough week for Dylan and Ben.</p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/J6xazz0eVcA" title="Chelsea 2-0 Fulham" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong> — Ben earned a point.</p>
+          <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong> â€" Ben earned a point.</p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/NB5pe157reo" title="Liverpool 1-0 Arsenal" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — Mike, Dave K, and Alex missed out here.</p>
+          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> â€" Mike, Dave K, and Alex missed out here.</p>
         </div>
       </div>
     </article>
@@ -299,15 +331,15 @@
         <li>Matches for picks are from the Premiership, Championship, League One & League Two (Friday to Monday games only).</li>
         <li><strong>Points Allocation:</strong> Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
         <li>Players must submit picks on time. Missed picks wait until all others have submitted.</li>
-        <li><strong>Total Entry Fees:</strong> 6 players × £2/week × 30 weeks = £360.00.</li>
-        <li>Collected money is split: £180.00 Betting Fund, £180.00 Prize Fund.</li>
+        <li><strong>Total Entry Fees:</strong> 6 players Ã— Â£2/week Ã— 30 weeks = Â£360.00.</li>
+        <li>Collected money is split: Â£180.00 Betting Fund, Â£180.00 Prize Fund.</li>
         <li><strong>Prize Fund Distribution:</strong>
           <ul class="glance-list">
-            <li>Overall Champion: 28% (£50.40)</li>
-            <li>Division 1 Winner: 28% (£50.40)</li>
-            <li>Division 1 Runner Up: 17% (£30.60)</li>
-            <li>Division 2 Winner: 17% (£30.60)</li>
-            <li>Division 2 Runner Up: 10% (£18.00)</li>
+            <li>Overall Champion: 28% (Â£50.40)</li>
+            <li>Division 1 Winner: 28% (Â£50.40)</li>
+            <li>Division 1 Runner Up: 17% (Â£30.60)</li>
+            <li>Division 2 Winner: 17% (Â£30.60)</li>
+            <li>Division 2 Runner Up: 10% (Â£18.00)</li>
           </ul>
         </li>
         <li><strong>Division One Players:</strong> Davo, Mike, Dylan.</li>
@@ -319,11 +351,11 @@
   </main>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top" title="Back to top">↑</button>
+  <button id="backToTop" class="back-to-top" title="Back to top">â†'</button>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2025 King of the Pundits. Built for the league. Designed to shine.</p>
+      <p>Â© 2025 King of the Pundits. Built for the league. Designed to shine.</p>
     </div>
   </footer>
 
