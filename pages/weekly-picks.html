@@ -9,78 +9,209 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Theme / Base */
+    /* Base Variables */
     :root{
       --color-background:#111827;
       --color-surface:#1f2937;
       --color-primary:#10b981;
       --color-text:#d1d5db;
       --color-heading:#ffffff;
+      --color-muted:#9ca3af;
       --font-family-base:'Inter',sans-serif;
-      --card-radius:8px;
+      --card-radius:12px;
+      --space-1:0.25rem;
+      --space-2:0.5rem;
+      --space-3:0.75rem;
+      --space-4:1rem;
+      --space-5:1.25rem;
+      --space-6:1.5rem;
+      --space-8:2rem;
     }
+
+    /* Reset */
     *,*::before,*::after{box-sizing:border-box}
     body{
       margin:0;
       font-family:var(--font-family-base);
       background-color:var(--color-background);
       color:var(--color-text);
-      line-height:1.6;
+      line-height:1.5;
+      font-size:16px;
     }
     .container{max-width:1200px;margin:0 auto;padding:0 1rem;}
     a{color:var(--color-primary);text-decoration:none}
     a:hover{text-decoration:underline}
 
     /* Header */
-    .site-header{padding:1rem 0}
+    .site-header{
+      padding:1rem 0;
+      background:rgba(26,29,41,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
     .header-inner{display:flex;justify-content:space-between;align-items:center}
-    .brand-title{font-size:1.5rem;margin:0}
+    .brand-title{
+      font-size:1.5rem;
+      margin:0;
+      background:linear-gradient(135deg,var(--color-primary),#34d572);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
     .season{font-weight:300;opacity:.85}
 
-    /* Page */
+    /* Navigation */
+    .nav-toggle{
+      background:var(--color-primary);
+      color:white;
+      border:none;
+      padding:0.5rem 1rem;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:14px;
+      display:none;
+    }
+    .nav-list{
+      display:flex;
+      list-style:none;
+      margin:0;
+      padding:0;
+      gap:1.5rem;
+    }
+    .nav-list a{
+      color:var(--color-text);
+      font-weight:500;
+      padding:0.5rem 1rem;
+      border-radius:6px;
+      transition:all 0.2s ease;
+    }
+    .nav-list a:hover{
+      color:var(--color-primary);
+      background:rgba(16,185,129,0.1);
+      text-decoration:none;
+    }
+
+    /* Main Content */
     .main-content{padding:2rem 0 3rem}
-    .page-title{font-size:2.5rem;margin:0 0 1.5rem;text-align:center;color:var(--color-heading)}
+    .page-title{
+      font-size:2.5rem;
+      margin:0 0 2rem;
+      text-align:center;
+      color:var(--color-heading);
+      font-weight:800;
+    }
 
-    .card{background-color:var(--color-surface);border-radius:var(--card-radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+    /* Cards */
+    .card{
+      background:var(--color-surface);
+      border-radius:var(--card-radius);
+      padding:1.5rem;
+      margin-bottom:1.5rem;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      border:1px solid rgba(255,255,255,0.1);
+    }
 
-    .sub-title{color:var(--color-primary);font-size:1.15rem;margin:0 0 1rem}
+    .sub-title{
+      color:var(--color-primary);
+      font-size:1.2rem;
+      margin:0 0 1rem;
+      font-weight:600;
+    }
 
-    /* Picks split */
-    .picks-split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
-    @media (max-width:768px){.picks-split{grid-template-columns:1fr}}
+    /* Picks Layout */
+    .picks-split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin-bottom:1.5rem;
+    }
 
-    .picking-order{list-style:none;padding-left:1rem;margin:0}
-    .picking-order li{padding:.5rem 1rem;margin-bottom:.5rem;background:var(--color-background);border-radius:6px;border-left:4px solid var(--color-primary)}
+    .picking-order{
+      list-style:none;
+      padding:0;
+      margin:0;
+      counter-reset:pick-counter;
+    }
+    .picking-order li{
+      counter-increment:pick-counter;
+      padding:0.75rem 1rem;
+      margin-bottom:0.5rem;
+      background:var(--color-background);
+      border-radius:8px;
+      border-left:4px solid var(--color-primary);
+      position:relative;
+      padding-left:3rem;
+    }
+    .picking-order li::before{
+      content:counter(pick-counter);
+      position:absolute;
+      left:1rem;
+      top:50%;
+      transform:translateY(-50%);
+      background:var(--color-primary);
+      color:var(--color-background);
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:0.8rem;
+    }
 
-    /* Player card */
-    .player-card{background:var(--color-background);border-radius:6px;margin-bottom:1rem;overflow:hidden}
-    .player-header{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1rem;background:#374151}
-    .player-name{font-weight:600;color:var(--color-heading)}
-    .player-score{font-weight:700;color:var(--color-primary)}
+    /* Tables Grid */
+    .tables-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin-bottom:2rem;
+    }
 
-    /* PICK TABLE - core layout improvements */
+    /* Player Cards */
+    .player-card{
+      background:var(--color-background);
+      border-radius:8px;
+      margin-bottom:1rem;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+    .player-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1rem;
+      background:#374151;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    .player-name{
+      font-weight:700;
+      color:var(--color-heading);
+      font-size:1.1rem;
+    }
+    .player-score{
+      background:linear-gradient(135deg,var(--color-primary),#34d572);
+      color:var(--color-background);
+      padding:0.4rem 0.8rem;
+      border-radius:6px;
+      font-weight:700;
+      font-size:0.9rem;
+    }
+
+    /* Pick Table - Mobile First */
     .pick-table{
       width:100%;
       border-collapse:collapse;
-      table-layout:fixed; /* fixed layout -> controlled column widths */
     }
-
-    /* Column control via colgroup (works with the col elements below) */
     .pick-table td{
-      padding:0.75rem 1rem;
+      padding:0.75rem 0.5rem;
       border-bottom:1px solid #374151;
-      vertical-align:middle; /* centre content vertically */
-      font-size:0.95rem;
+      vertical-align:middle;
+      font-size:0.9rem;
     }
     .pick-table tr:last-child td{border-bottom:none}
 
-    /* Prevent score & points wrapping; keep them tidy */
-    .pick-table td:nth-child(3),
-    .pick-table td:nth-child(4){
-      white-space:nowrap;
-    }
-
-    /* badge / pick type */
+    /* Pick Type Badges */
     .pick-type{
       display:inline-flex;
       justify-content:center;
@@ -90,75 +221,85 @@
       border-radius:50%;
       color:white;
       font-weight:700;
-      font-size:0.85rem;
+      font-size:0.8rem;
+      flex-shrink:0;
     }
     .pick-type.home{background:#3b82f6}
     .pick-type.away{background:#ef4444}
     .pick-type.draw{background:#f59e0b}
 
-    /* alignments for each column */
-    /* first column: badge */
-    .pick-table td:first-child{ text-align:center; padding-left:0.75rem; padding-right:0.5rem; width:48px; }
-    /* second column: match info - flexible */
-    .pick-table td:nth-child(2){ text-align:left; padding-right:0.75rem; word-break:break-word; }
-    /* third column: score - centered */
-    .pick-table td:nth-child(3){ text-align:center; padding-left:0.5rem; padding-right:0.5rem; width:72px; }
-    /* fourth column: points - right */
-    .pick-table td:nth-child(4){ text-align:right; width:72px; padding-left:0.5rem; }
-
-    /* points colours */
-    .points-won{ color:var(--color-primary); font-weight:700; }
-    .points-lost{ color:#9ca3af; }
-
-    /* responsive fallback: let the table breathe on narrow screens */
-    @media (max-width:520px){
-      .pick-table{ table-layout:auto }
-      .pick-table td{ padding:0.6rem; }
+    /* Table Column Layout */
+    .pick-table td:nth-child(1){
+      width:50px;
+      text-align:center;
+    }
+    .pick-table td:nth-child(2){
+      width:auto;
+      min-width:0;
+      word-wrap:break-word;
+      overflow-wrap:break-word;
+    }
+    .pick-table td:nth-child(3){
+      width:60px;
+      text-align:center;
+      white-space:nowrap;
+    }
+    .pick-table td:nth-child(4){
+      width:60px;
+      text-align:right;
+      white-space:nowrap;
     }
 
-    /* Footer + back-to-top */
-    .site-footer{background:var(--color-surface);text-align:center;padding:1.5rem 1rem;margin-top:1.5rem}
-    .back-to-top{position:fixed;right:20px;bottom:20px;background:var(--color-primary);color:white;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;display:none;cursor:pointer;opacity:.95}
-    .back-to-top:hover{opacity:1}
-
-    /* NAVIGATION - FIXED */
-    .nav-list{list-style:none;padding:0;margin:0}
-    @media (min-width:768px){
-      .nav-toggle{display:none !important}
-      .nav-list{
-        display:flex !important;
-        align-items:center;
-      }
-      .nav-list li{
-        margin-left:1.5rem;
-      }
-      .nav-list a{
-        color:var(--color-text);
-        font-weight:500;
-        transition:color 0.3s ease;
-      }
-      .nav-list a:hover{
-        color:var(--color-primary);
-        text-decoration:none;
-      }
+    /* Points Styling */
+    .points-won{
+      color:var(--color-primary);
+      font-weight:700;
     }
-    @media (max-width:767px){
-      .nav-toggle{
-        display:block;
-        background-color:var(--color-primary);
-        color:white;
-        border:none;
-        padding:0.5rem 1rem;
-        border-radius:5px;
-        cursor:pointer;
-        font-size:14px;
-      }
+    .points-lost{
+      color:var(--color-muted);
+    }
+
+    /* Footer */
+    .site-footer{
+      background:var(--color-surface);
+      text-align:center;
+      padding:1.5rem 1rem;
+      margin-top:2rem;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Back to Top */
+    .back-to-top{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:var(--color-primary);
+      color:white;
+      border:none;
+      border-radius:50%;
+      width:50px;
+      height:50px;
+      font-size:20px;
+      display:none;
+      cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      transition:all 0.3s ease;
+    }
+    .back-to-top:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    /* MOBILE RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+      /* Navigation */
+      .nav-toggle{display:block}
       .nav-list{
         display:none;
         position:absolute;
         top:100%;
         right:1rem;
-        background-color:var(--color-surface);
+        background:var(--color-surface);
         flex-direction:column;
         width:calc(100% - 2rem);
         max-width:250px;
@@ -166,23 +307,105 @@
         border-radius:8px;
         box-shadow:0 10px 25px rgba(0,0,0,0.3);
         z-index:1000;
+        border:1px solid rgba(255,255,255,0.1);
+        gap:0;
       }
-      .nav-list.nav-open{
-        display:flex;
-      }
-      .nav-list li{
-        margin:0.25rem 0;
-      }
+      .nav-list.nav-open{display:flex}
+      .nav-list li{margin:0.25rem 0}
       .nav-list a{
         display:block;
         padding:0.75rem;
-        color:var(--color-text);
         text-align:center;
+        border-radius:6px;
+      }
+
+      /* Typography */
+      .page-title{font-size:2rem;margin-bottom:1.5rem}
+      .brand-title{font-size:1.2rem}
+
+      /* Layout */
+      .container{padding:0 0.75rem}
+      .card{padding:1rem;margin-bottom:1rem}
+      
+      /* Picks Layout */
+      .picks-split{
+        grid-template-columns:1fr;
+        gap:1rem;
+      }
+      
+      /* Tables Grid */
+      .tables-grid{
+        grid-template-columns:1fr;
+        gap:1rem;
+      }
+
+      /* Player Cards */
+      .player-header{
+        padding:0.75rem 1rem;
+        flex-wrap:wrap;
+        gap:0.5rem;
+      }
+      .player-name{font-size:1rem}
+      .player-score{font-size:0.85rem}
+
+      /* Pick Table Mobile Optimization */
+      .pick-table{
+        font-size:0.85rem;
+        table-layout:fixed;
+      }
+      .pick-table td{
+        padding:0.6rem 0.4rem;
+      }
+      
+      /* Adjusted column widths for mobile */
+      .pick-table td:nth-child(1){width:40px}
+      .pick-table td:nth-child(2){width:auto}
+      .pick-table td:nth-child(3){width:50px}
+      .pick-table td:nth-child(4){width:50px}
+
+      .pick-type{
+        width:24px;
+        height:24px;
+        font-size:0.7rem;
+      }
+
+      /* Back to Top Mobile */
+      .back-to-top{
+        right:15px;
+        bottom:15px;
+        width:45px;
+        height:45px;
+        font-size:18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container{padding:0 0.5rem}
+      .card{padding:0.75rem}
+      .page-title{font-size:1.75rem}
+      
+      .pick-table{font-size:0.8rem}
+      .pick-table td{padding:0.5rem 0.3rem}
+      
+      .pick-table td:nth-child(1){width:35px}
+      .pick-table td:nth-child(3){width:45px}
+      .pick-table td:nth-child(4){width:45px}
+      
+      .pick-type{
+        width:22px;
+        height:22px;
+        font-size:0.65rem;
+      }
+      
+      .player-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0.5rem;
       }
     }
   </style>
 </head>
-<body class="site-dark">
+<body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
@@ -224,7 +447,7 @@
       </div>
     </div>
 
-    <div class="tables-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+    <div class="tables-grid">
       <div class="card">
         <h3 class="sub-title">Division 1 — Week Two Picks</h3>
 
@@ -234,14 +457,7 @@
             <span class="player-name">Mike</span>
             <span class="player-score">1pt</span>
           </div>
-          <table class="pick-table" aria-describedby="mike-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="mike-desc" class="sr-only">Mike's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -271,14 +487,7 @@
             <span class="player-name">Dylan</span>
             <span class="player-score">0pt</span>
           </div>
-          <table class="pick-table" aria-describedby="dylan-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="dylan-desc" class="sr-only">Dylan's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -308,14 +517,7 @@
             <span class="player-name">Davo</span>
             <span class="player-score">1pt</span>
           </div>
-          <table class="pick-table" aria-describedby="davo-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="davo-desc" class="sr-only">Davo's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -339,30 +541,23 @@
           </table>
         </div>
 
-        <!-- Rob - not active -->
+        <!-- Rob -->
         <div class="player-card">
           <div class="player-header">
             <span class="player-name">Rob</span>
             <span class="player-score">Not yet active</span>
           </div>
-          <table class="pick-table" aria-describedby="rob-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="rob-desc" class="sr-only">Rob's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
-                <td colspan="4" style="text-align:center;padding:1.75rem;color:#9ca3af">Rob joins from Week 3 onwards</td>
+                <td colspan="4" style="text-align:center;padding:1.5rem;color:#9ca3af">Rob joins from Week 3 onwards</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- DIVISION 2 -->
+      <!-- DIVISION 2 WEEK TWO -->
       <div class="card">
         <h3 class="sub-title">Division 2 — Week Two Picks</h3>
 
@@ -372,14 +567,7 @@
             <span class="player-name">Dave K</span>
             <span class="player-score">3pts</span>
           </div>
-          <table class="pick-table" aria-describedby="davek-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="davek-desc" class="sr-only">Dave K's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -409,14 +597,7 @@
             <span class="player-name">Alex</span>
             <span class="player-score">0pts</span>
           </div>
-          <table class="pick-table" aria-describedby="alex-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="alex-desc" class="sr-only">Alex's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -446,14 +627,7 @@
             <span class="player-name">Myles</span>
             <span class="player-score">1pt</span>
           </div>
-          <table class="pick-table" aria-describedby="myles-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="myles-desc" class="sr-only">Myles' picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -483,14 +657,7 @@
             <span class="player-name">Ben</span>
             <span class="player-score">1pt</span>
           </div>
-          <table class="pick-table" aria-describedby="ben-desc">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
-            <caption id="ben-desc" class="sr-only">Ben's picks</caption>
+          <table class="pick-table">
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -513,12 +680,11 @@
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
 
-    <!-- RECAPS (Week 1) -->
-    <div class="tables-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+    <!-- WEEK ONE RECAPS -->
+    <div class="tables-grid">
       <div class="card">
         <h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
 
@@ -528,12 +694,6 @@
             <span class="player-score">6pts</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -563,12 +723,6 @@
             <span class="player-score">1pt</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -598,12 +752,6 @@
             <span class="player-score">1pt</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -633,21 +781,16 @@
             <span class="player-score">Not yet active</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
-                <td colspan="4" style="text-align:center;padding:1.75rem;color:#9ca3af">Rob joins from Week 3 onwards</td>
+                <td colspan="4" style="text-align:center;padding:1.5rem;color:#9ca3af">Rob joins from Week 3 onwards</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      <!-- DIVISION 2 WEEK ONE - ALL FOUR PLAYERS -->
       <div class="card">
         <h3 class="sub-title">Division 2 — Week One Picks (Recap)</h3>
 
@@ -657,12 +800,6 @@
             <span class="player-score">3pts</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -692,12 +829,6 @@
             <span class="player-score">0pts</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -727,12 +858,6 @@
             <span class="player-score">3pts</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -762,12 +887,6 @@
             <span class="player-score">0pts</span>
           </div>
           <table class="pick-table">
-            <colgroup>
-              <col style="width:48px">
-              <col>
-              <col style="width:72px">
-              <col style="width:72px">
-            </colgroup>
             <tbody>
               <tr>
                 <td><span class="pick-type home">H</span></td>
@@ -805,25 +924,104 @@
   </footer>
 
   <script>
-    // simple interactions
+    // Enhanced mobile interactions
     document.addEventListener('DOMContentLoaded', function(){
-      // mobile nav toggle
+      // Mobile nav toggle with improved accessibility
       const navToggle = document.getElementById('nav-toggle');
       const primaryMenu = document.getElementById('primary-menu');
+      
       if(navToggle && primaryMenu){
         navToggle.addEventListener('click', function(){
-          const open = primaryMenu.classList.toggle('nav-open');
-          navToggle.setAttribute('aria-expanded', String(open));
+          const isOpen = primaryMenu.classList.toggle('nav-open');
+          navToggle.setAttribute('aria-expanded', String(isOpen));
+          navToggle.textContent = isOpen ? 'Close' : 'Menu';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!navToggle.contains(e.target) && !primaryMenu.contains(e.target)) {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.textContent = 'Menu';
+          }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && primaryMenu.classList.contains('nav-open')) {
+            primaryMenu.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.textContent = 'Menu';
+            navToggle.focus();
+          }
         });
       }
 
-      // back to top button
-      const back = document.getElementById('backToTop');
-      window.addEventListener('scroll', () => {
-        if(window.scrollY > 240) back.style.display = 'block';
-        else back.style.display = 'none';
-      });
-      back.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+      // Enhanced back to top button
+      const backButton = document.getElementById('backToTop');
+      if(backButton) {
+        let isVisible = false;
+        
+        const toggleVisibility = () => {
+          const shouldShow = window.scrollY > 300;
+          if (shouldShow !== isVisible) {
+            isVisible = shouldShow;
+            backButton.style.display = shouldShow ? 'block' : 'none';
+            backButton.style.opacity = shouldShow ? '1' : '0';
+          }
+        };
+
+        // Throttled scroll listener for better performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              toggleVisibility();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+
+        backButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // Touch-friendly interactions for mobile
+      if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+        
+        // Add touch feedback to interactive elements
+        const interactiveElements = document.querySelectorAll('button, .player-card, .nav-list a');
+        interactiveElements.forEach(element => {
+          element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          element.addEventListener('touchend', function() {
+            this.style.transform = '';
+          });
+        });
+      }
+
+      // Performance optimization: lazy load content below the fold
+      if ('IntersectionObserver' in window) {
+        const lazyElements = document.querySelectorAll('.player-card');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('loaded');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '50px' });
+
+        lazyElements.forEach(element => observer.observe(element));
+      }
     });
   </script>
 </body>
