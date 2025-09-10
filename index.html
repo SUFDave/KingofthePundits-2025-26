@@ -8,64 +8,91 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
     :root {
       --color-background: #111827; --color-surface: #1f2937;
       --color-primary: #10b981; --color-primary-dark: #059669;
       --color-text: #d1d5db; --color-heading: #ffffff;
-      --color-muted: #9ca3af; --color-border: #374151;
-      --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-      --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
-      --transition-base: 0.2s ease-in-out;
+      --font-family-base: 'Inter', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0; font-family: var(--font-family-base);
       background-color: var(--color-background); color: var(--color-text);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
-    .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: var(--space-4); padding-right: var(--space-4); }
+    .container { max-width: 1200px; margin: auto; padding: 0 1rem; }
     h1, h2, h3 { color: var(--color-heading); line-height: 1.2; margin-top: 0; }
-    a { color: var(--color-primary); text-decoration: none; transition: text-decoration var(--transition-base); }
+    a { color: var(--color-primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .underlined { border-bottom: 2px solid var(--color-primary); padding-bottom: var(--space-2); display: inline-block; }
-    .site-header { padding-top: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border); }
+    .underlined { border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; display: inline-block; }
+    .site-header { padding: 1rem 0; background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(10px); }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .brand-title { font-size: 1.5rem; margin: 0; color: var(--color-heading); }
     .season { font-weight: 300; opacity: 0.8; color: var(--color-primary); }
-    .nav-toggle { display: none; background-color: var(--color-primary); color: white; border: none; padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; transition: background-color var(--transition-base); }
-    .nav-toggle:hover { background-color: var(--color-primary-dark); }
-    .nav-list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: var(--space-6); }
-    .nav-list a { color: var(--color-text); transition: color var(--transition-base); padding-bottom: var(--space-1); border-bottom: 2px solid transparent; }
-    .nav-list a:hover, .nav-list a.current-page { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
-    .hero-banner { width: 100%; aspect-ratio: 16 / 7; max-height: 350px; background-color: var(--color-background); position: relative; margin-top: var(--space-4); border-radius: var(--radius-md); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; padding: var(--space-4); }
-    .hero-logo { width: 100%; max-width: 500px; height: auto; }
-    .main-content { padding: var(--space-8) 0; }
-    .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-8); text-align: center; }
-    .card { background-color: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-8); box-shadow: 0 4px 12px rgba(0,0,0,0.2); border: 1px solid var(--color-border); }
-    .card-title { font-size: 1.75rem; margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-3); }
-    .glance-list { list-style: none; padding-left: var(--space-4); }
-    .glance-list li { margin-bottom: var(--space-2); }
-    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
-    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); }
-    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
-    .video-caption { margin-top: var(--space-2); text-align: center; }
-    .site-footer { background-color: var(--color-surface); text-align: center; padding: var(--space-8) var(--space-4); margin-top: var(--space-8); }
-    .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--color-primary); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; display: none; opacity: 0; transition: opacity var(--transition-base), transform var(--transition-base); z-index: 1000; }
-    .back-to-top:hover { transform: scale(1.1); }
-    .back-to-top.visible { display: block; opacity: 0.8; }
+    .hero-banner {
+        width: 100%; aspect-ratio: 16 / 7; max-height: 350px;
+        background-color: #000; border-radius: 8px;
+        margin-top: 1rem; overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    .hero-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .main-content { padding: 2rem 0; }
+    .card {
+      background-color: var(--color-surface); border-radius: 8px;
+      padding: 1.5rem; margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .card-title { font-size: 1.75rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .video-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-item { border-radius: 8px; overflow: hidden; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-caption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; }
+    .glance-list { list-style: none; padding-left: 1rem; }
+    .glance-list li { margin-bottom: 0.5rem; position: relative; padding-left: 1.2rem; }
+    .glance-list li::before { content: '•'; color: var(--color-primary); position: absolute; left: 0; }
+    .site-footer {
+      background-color: var(--color-surface); text-align: center;
+      padding: 2rem 1rem; margin-top: 2rem;
+    }
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px;
+      background-color: var(--color-primary); color: white; border: none;
+      border-radius: 50%; width: 50px; height: 50px;
+      font-size: 24px; cursor: pointer; display: none;
+      opacity: 0.8; transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 1; }
+    .nav-list { list-style: none; margin: 0; padding: 0; }
+    .nav-toggle { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); }
+    @media (min-width: 768px) {
+      .nav-list { display: flex; align-items: center; }
+      .nav-list li { margin-left: 1.5rem; }
+      .nav-list a { color: var(--color-text); transition: color 0.3s; }
+      .nav-list a:hover, .nav-list a.current-page { color: var(--color-primary); text-decoration: none; }
+    }
     @media (max-width: 767px) {
-      .nav-toggle { display: block; }
-      .nav-list { display: none; position: absolute; top: 80px; right: var(--space-4); background-color: var(--color-surface); flex-direction: column; width: calc(100% - 2 * var(--space-4)); max-width: 280px; padding: var(--space-4); border-radius: var(--radius-md); box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; gap: var(--space-2); }
-      .nav-list.nav-open { display: flex; }
-      .nav-list li { width: 100%; text-align: center; }
-      .nav-list a { display: block; padding: var(--space-3); border-bottom: none; }
-      .nav-list a:hover, .nav-list a.current-page { background-color: var(--color-primary); color: white; border-radius: var(--radius-sm); }
-      .page-title { font-size: 2rem; }
-      .video-grid { grid-template-columns: 1fr; }
+      .nav-toggle {
+        display: block; background-color: var(--color-primary); color: white;
+        border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;
+        font-size: 14px; z-index: 1001;
+      }
+      .nav-list {
+        display: none; position: fixed; top: 0; right: 0;
+        background-color: var(--color-surface); flex-direction: column;
+        width: 250px; height: 100%; padding: 4rem 1rem 1rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
+        transform: translateX(100%); transition: transform 0.3s ease-in-out;
+      }
+      .nav-list.nav-open { display: flex; transform: translateX(0); }
+      .nav-list li { margin: 0.5rem 0; width: 100%; text-align: center; }
+      .nav-list a { display: block; padding: 0.75rem; color: var(--color-text); }
     }
   </style>
 </head>
@@ -89,42 +116,27 @@
       </nav>
     </div>
     <div class="container">
-        <div class="hero-banner" role="banner" aria-label="King of the Pundits Hero Banner">
-            <svg class="hero-logo" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-                <defs>
-                    <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#10b981;"/>
-                        <stop offset="100%" style="stop-color:#34d572;"/>
-                    </linearGradient>
-                </defs>
-                <path d="M50 10 L10 40 L10 90 L50 60 L90 90 L90 40 Z" stroke="url(#logo-gradient)" stroke-width="4" />
-                <path d="M50 10 L25 25 L50 40 L75 25 Z" fill="url(#logo-gradient)"/>
-                <text x="110" y="65" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">KING OF THE</text>
-                <text x="110" y="90" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">PUNDITS</text>
-            </svg>
+        <div class="hero-banner" role="banner">
+            <img src="images/kingofthepundits-banner.jpg" alt="King of the Pundits stadium banner with a football and a crown">
         </div>
     </div>
   </header>
 
   <main class="container main-content">
     <article class="card">
-      <h2 class="card-title underlined"><i class="fa-solid fa-trophy"></i> Welcome to King of the Pundits</h2>
+      <h2 class="card-title"><i class="fa-solid fa-trophy"></i> Welcome to King of the Pundits</h2>
       <p>Welcome to the ultimate football prediction competition! Seven skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything.</p>
       <p>Reigning champion <strong>Davo</strong> returns to defend his crown, but the hunger for glory runs deep in every player. From Premiership clashes to Championship showdowns, League One battles to League Two surprises - these warriors dissect every weekend's action with surgical precision.</p>
     </article>
 
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-newspaper"></i> Latest Results: Week Two</h3>
-      <p>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results.</p>
-      <p><strong>Division One:</strong> Davo maintained his lead with 1 point from Cardiff's 4-0 home victory over Plymouth, bringing his total to 7 points. Mike also secured 1 point with Manchester United's 3-2 home win against Burnley, maintaining second place with 2 points total. Dylan was unable to add to his Week One score, remaining at 1 point.</p>
-      <p><strong>Division Two:</strong> Dave K achieved the week's best performance with 3 points from the Leeds United vs Newcastle United draw, moving him to 3 points total. Ben added 1 point with Chelsea's 2-0 home win over Fulham, extending his division lead to 4 points. Myles secured his first point of the season with Leicester City's 2-0 home victory over Birmingham City. Alex was unable to score this week, remaining at 3 points.</p>
+      <p>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results. Davo maintained his lead with 1 point, while Dave K had the week's best performance with 3 points.</p>
     </article>
-
+    
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Previous Results: Week One</h3>
-      <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week.</p>
-      <p><strong>Division One:</strong> Davo's selections included Arsenal's 5-0 home victory over Leeds United (1pt), Newcastle's 2-3 away loss to Liverpool (2pts), and Swansea City's 1-1 draw with Watford (3pts).</p>
-      <p><strong>Division Two:</strong> Ben and Alex both scored 3 points each. Ben achieved this through Arsenal's 6-0 home win over Leeds United (1pt) and Crawley's 0-2 away victory at Tranmere Rovers (2pts). Alex earned his 3 points from the Crystal Palace vs Nottingham Forest 1-1 draw.</p>
+      <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week. Ben and Alex also started strong with 3 points each in Division Two.</p>
     </article>
 
     <article class="card">
@@ -134,91 +146,72 @@
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/cqhUffcFqGY" title="Manchester United 3-2 Burnley" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong> — Mike earned a crucial point.</p>
+          <p class="video-caption"><strong>Manchester United 3-2 Burnley</strong></p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/Tg_1DRcEVBM" title="Brighton 2-1 Manchester City" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong> — a tough week for Dylan and Ben.</p>
+          <p class="video-caption"><strong>Brighton 2-1 Manchester City</strong></p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/J6xazz0eVcA" title="Chelsea 2-0 Fulham" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong> — Ben earned a point.</p>
+          <p class="video-caption"><strong>Chelsea 2-0 Fulham</strong></p>
         </div>
         <div class="video-item">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/NB5pe157reo" title="Liverpool 1-0 Arsenal" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — A key match-up with missed points.</p>
+          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong></p>
         </div>
       </div>
     </article>
-      
+
     <article class="card">
-        <h3 class="card-title"><i class="fa-solid fa-ruler-combined"></i> The Season At A Glance</h3>
-        <ul class="glance-list">
-            <li>The season lasts for 30 weeks.</li>
-            <li>Players compete in two leagues: Division One and Division Two.</li>
-            <li><strong>Points:</strong> Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
-            <li><strong>Prize Fund:</strong> A total of £360.00 is collected, split between a Betting Fund and a Prize Fund.</li>
-            <li>Top player from Division Two is promoted; bottom player from Division One is relegated.</li>
-        </ul>
+      <h3 class="card-title"><i class="fa-solid fa-circle-info"></i> The Season At A Glance</h3>
+      <ul class="glance-list">
+        <li>The season lasts for 30 weeks.</li>
+        <li>Players compete in two divisions.</li>
+        <li>Points: Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
+        <li>Total prize fund of £180 to be won.</li>
+      </ul>
     </article>
   </main>
 
   <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 King of the Pundits. Built for the league. Designed to shine.</p>
-    </div>
+    <p>&copy; 2025 King of the Pundits. Built for the league.</p>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const navToggle = document.getElementById('nav-toggle');
-        const primaryMenu = document.getElementById('primary-menu');
-        if (navToggle && primaryMenu) {
-            navToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', String(!isExpanded));
-                primaryMenu.classList.toggle('nav-open');
-            });
-            document.addEventListener('click', (e) => {
-                if (primaryMenu.classList.contains('nav-open') && !primaryMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                    primaryMenu.classList.remove('nav-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-        const backToTopButton = document.getElementById('backToTop');
-        if (backToTopButton) {
-            const toggleVisibility = () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            };
-            window.addEventListener('scroll', toggleVisibility);
-            toggleVisibility();
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-list a');
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href').split('/').pop();
-            if (linkHref === currentPage) {
-                link.classList.add('current-page');
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      const backToTopButton = document.getElementById('backToTop');
+
+      if (navToggle && primaryMenu) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          primaryMenu.classList.toggle('nav-open');
         });
-        console.log('🏆 King of the Pundits 2025/26 - Website loaded successfully!');
+      }
+
+      if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
     });
   </script>
 </body>
