@@ -8,93 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root {
-      --color-background: #111827; --color-surface: #1f2937;
-      --color-primary: #10b981; --color-primary-dark: #059669;
-      --color-text: #d1d5db; --color-heading: #ffffff;
-      --color-muted: #9ca3af; --color-border: #374151;
-      --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-      --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
-      --transition-base: 0.2s ease-in-out;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0; font-family: var(--font-family-base);
-      background-color: var(--color-background); color: var(--color-text);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: var(--space-4); padding-right: var(--space-4); }
-    h1, h2, h3 { color: var(--color-heading); line-height: 1.2; margin-top: 0; }
-    a { color: var(--color-primary); text-decoration: none; transition: text-decoration var(--transition-base); }
-    a:hover { text-decoration: underline; }
-    .underlined { border-bottom: 2px solid var(--color-primary); padding-bottom: var(--space-2); display: inline-block; }
-    .site-header { padding-top: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border); }
-    .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .brand-title { font-size: 1.5rem; margin: 0; color: var(--color-heading); }
-    .season { font-weight: 300; opacity: 0.8; color: var(--color-primary); }
-    .nav-toggle { display: none; background-color: var(--color-primary); color: white; border: none; padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; transition: background-color var(--transition-base); }
-    .nav-toggle:hover { background-color: var(--color-primary-dark); }
-    .nav-list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: var(--space-6); }
-    .nav-list a { color: var(--color-text); transition: color var(--transition-base); padding-bottom: var(--space-1); border-bottom: 2px solid transparent; }
-    .nav-list a:hover, .nav-list a.current-page { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
-    .hero-banner { width: 100%; aspect-ratio: 16 / 7; max-height: 350px; background-color: var(--color-background); position: relative; margin-top: var(--space-4); border-radius: var(--radius-md); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; padding: var(--space-4); }
-    .hero-logo { width: 100%; max-width: 500px; height: auto; }
-    .main-content { padding: var(--space-8) 0; }
-    .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-8); text-align: center; }
-    .card { background-color: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-8); box-shadow: 0 4px 12px rgba(0,0,0,0.2); border: 1px solid var(--color-border); }
-    .card-title { font-size: 1.75rem; margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-3); }
-    .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8); }
-    .table-wrap { overflow-x: auto; }
-    .league-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
-    .league-table th { background-color: #374151; padding: var(--space-3) var(--space-4); text-align: left; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
-    .league-table td { padding: var(--space-4) var(--space-4); border-bottom: 1px solid var(--color-border); vertical-align: middle; }
-    .league-table tbody tr:hover { background-color: rgba(16, 185, 129, 0.05); }
-    .pos { font-weight: 700; color: var(--color-primary); font-size: 1.2rem; text-align: center; width: 60px; }
-    .player button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; padding: 0; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; }
-    .player button:hover { color: var(--color-primary); }
-    .toggle-icon { font-weight: bold; transition: transform var(--transition-base); }
-    .stat-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }
-    .total-points { font-weight: 700; font-size: 1.2rem; color: var(--color-primary); }
-    .form { font-size: 1.4rem; }
-    .expanded.hidden { display: none; }
-    .expanded td { background-color: rgba(16, 185, 129, 0.05); }
-    .picks-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6); }
-    .picking-order { list-style: none; padding: 0; counter-reset: pick-counter; }
-    .picking-order li { counter-increment: pick-counter; padding: var(--space-3); margin-bottom: var(--space-2); background: var(--color-background); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary); position: relative; padding-left: 2.5rem; }
-    .picking-order li::before { content: counter(pick-counter); position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); background: var(--color-primary); color: var(--color-background); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; }
-    .player-card { background: var(--color-background); border-radius: var(--radius-md); margin-bottom: var(--space-4); overflow: hidden; border: 1px solid var(--color-border); }
-    .player-header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-3) var(--space-4); background: #374151; }
-    .player-name { font-weight: 700; font-size: 1.1rem; }
-    .player-score { background: var(--color-primary); color: var(--color-background); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; }
-    .pick-table { width: 100%; border-collapse: collapse; }
-    .pick-table td { padding: var(--space-3); border-bottom: 1px solid var(--color-border); }
-    .pick-table tr:last-child td { border-bottom: none; }
-    .pick-type { display: inline-flex; justify-content: center; align-items: center; width: 28px; height: 28px; border-radius: 50%; color: white; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
-    .pick-type.home { background: #3b82f6; } .pick-type.away { background: #ef4444; } .pick-type.draw { background: #f59e0b; }
-    .points-won { color: var(--color-primary); font-weight: 700; }
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
-    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); }
-    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .video-caption { margin-top: var(--space-2); text-align: center; }
-    .site-footer { background-color: var(--color-surface); text-align: center; padding: var(--space-8) var(--space-4); margin-top: var(--space-8); }
-    .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--color-primary); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; display: none; opacity: 0; transition: opacity var(--transition-base), transform var(--transition-base); z-index: 1000; }
-    .back-to-top:hover { transform: scale(1.1); }
-    .back-to-top.visible { display: block; opacity: 0.8; }
-    @media (max-width: 767px) {
-      .nav-toggle { display: block; }
-      .nav-list { display: none; position: absolute; top: 80px; right: var(--space-4); background-color: var(--color-surface); flex-direction: column; width: calc(100% - 2 * var(--space-4)); max-width: 280px; padding: var(--space-4); border-radius: var(--radius-md); box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; gap: var(--space-2); }
-      .nav-list.nav-open { display: flex; }
-      .nav-list li { width: 100%; text-align: center; }
-      .nav-list a { display: block; padding: var(--space-3); border-bottom: none; }
-      .nav-list a:hover, .nav-list a.current-page { background-color: var(--color-primary); color: white; border-radius: var(--radius-sm); }
-      .page-title { font-size: 2rem; }
-      .tables-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
@@ -103,9 +17,12 @@
         <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+            <i class="fa-solid fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
         <ul id="primary-menu" class="nav-list">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="current-page">Home</a></li>
           <li><a href="pages/league-tables.html">League Tables</a></li>
           <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
           <li><a href="pages/about.html">About</a></li>
@@ -132,10 +49,9 @@
 
   <main class="container main-content">
     <article class="card">
-      <h2 class="card-title underlined">Welcome to King of the Pundits</h2>
+      <h2 class="card-title underlined"><i class="fa-solid fa-trophy"></i> Welcome to King of the Pundits</h2>
       <p>Welcome to the ultimate football prediction competition! Seven skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything.</p>
       <p>Reigning champion <strong>Davo</strong> returns to defend his crown, but the hunger for glory runs deep in every player. From Premiership clashes to Championship showdowns, League One battles to League Two surprises - these warriors dissect every weekend's action with surgical precision.</p>
-      <p>Track every twist in the league tables, analyze the weekly picks that separate champions from pretenders, and immerse yourself in the relentless pursuit of football forecasting supremacy.</p>
     </article>
 
     <article class="card">
@@ -146,10 +62,10 @@
     </article>
 
     <article class="card">
-      <h3 class="card-title underlined"><i class="fa-solid fa-clock-rotate-left"></i> Previous Results: Week One</h3>
-      <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week.</p>
-      <p><strong>Division One:</strong> Davo's selections included Arsenal's 5-0 home victory over Leeds United (1pt), Newcastle's 2-3 away loss to Liverpool (2pts), and Swansea City's 1-1 draw with Watford (3pts). Mike and Dylan each earned 1 point, with Mike correctly predicting Birmingham's 1-0 home win over Oxford United, and Dylan successfully calling Coventry City's 7-1 home victory against Queens Park Rangers.</p>
-      <p><strong>Division Two:</strong> Ben and Alex both scored 3 points each. Ben achieved this through Arsenal's 6-0 home win over Leeds United (1pt) and Crawley's 0-2 away victory at Tranmere Rovers (2pts). Alex earned his 3 points from the Crystal Palace vs Nottingham Forest 1-1 draw. Dave K and Myles were unable to score in the opening week.</p>
+        <h3 class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Previous Results: Week One</h3>
+        <p>The season opened with Davo delivering an exceptional performance, achieving maximum points across all three categories for a perfect 6-point week.</p>
+        <p><strong>Division One:</strong> Davo's selections included Arsenal's 5-0 home victory over Leeds United (1pt), Newcastle's 2-3 away loss to Liverpool (2pts), and Swansea City's 1-1 draw with Watford (3pts).</p>
+        <p><strong>Division Two:</strong> Ben and Alex both scored 3 points each. Ben achieved this through Arsenal's 6-0 home win over Leeds United (1pt) and Crawley's 0-2 away victory at Tranmere Rovers (2pts). Alex earned his 3 points from the Crystal Palace vs Nottingham Forest 1-1 draw.</p>
     </article>
 
     <article class="card">
@@ -177,9 +93,20 @@
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/NB5pe157reo" title="Liverpool 1-0 Arsenal" frameborder="0" allowfullscreen></iframe>
           </div>
-          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — Mike, Dave K, and Alex missed out here.</p>
+          <p class="video-caption"><strong>Liverpool 1-0 Arsenal</strong> — A key match-up with missed points.</p>
         </div>
       </div>
+    </article>
+      
+    <article class="card">
+        <h3 class="card-title underlined"><i class="fa-solid fa-ruler-combined"></i> The Season At A Glance</h3>
+        <ul class="glance-list">
+            <li>The season lasts for 30 weeks.</li>
+            <li>Players compete in two leagues: Division One and Division Two.</li>
+            <li><strong>Points:</strong> Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
+            <li><strong>Prize Fund:</strong> A total of £360.00 is collected, split between a Betting Fund and a Prize Fund.</li>
+            <li>Top player from Division Two is promoted; bottom player from Division One is relegated.</li>
+        </ul>
     </article>
   </main>
 
@@ -191,60 +118,7 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const navToggle = document.getElementById('nav-toggle');
-        const primaryMenu = document.getElementById('primary-menu');
-        if (navToggle && primaryMenu) {
-            navToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', String(!isExpanded));
-                primaryMenu.classList.toggle('nav-open');
-            });
-            document.addEventListener('click', (e) => {
-                if (primaryMenu.classList.contains('nav-open') && !primaryMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                    primaryMenu.classList.remove('nav-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-        const statToggles = document.querySelectorAll('.stat-toggle');
-        statToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const targetId = toggle.getAttribute('data-target');
-                const targetRow = document.getElementById(targetId);
-                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-                if (targetRow) {
-                    toggle.setAttribute('aria-expanded', String(!isExpanded));
-                    targetRow.classList.toggle('hidden');
-                }
-            });
-        });
-        const backToTopButton = document.getElementById('backToTop');
-        if (backToTopButton) {
-            const toggleVisibility = () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            };
-            window.addEventListener('scroll', toggleVisibility);
-            toggleVisibility();
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-list a');
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('current-page');
-            }
-        });
-        console.log('🏆 King of the Pundits 2025/26 - Website loaded successfully!');
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
+
