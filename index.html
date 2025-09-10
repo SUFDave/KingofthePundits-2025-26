@@ -49,7 +49,7 @@
     .card-title { font-size: 1.75rem; margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-3); }
     .glance-list { list-style: none; padding-left: var(--space-4); }
     .glance-list li { margin-bottom: var(--space-2); }
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
     .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); }
     .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
     .video-caption { margin-top: var(--space-2); text-align: center; }
@@ -65,6 +65,7 @@
       .nav-list a { display: block; padding: var(--space-3); border-bottom: none; }
       .nav-list a:hover, .nav-list a.current-page { background-color: var(--color-primary); color: white; border-radius: var(--radius-sm); }
       .page-title { font-size: 2rem; }
+      .video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
