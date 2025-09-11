@@ -1,1 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of the Pundits - Sign In</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <h1 class="brand-title">
+                    👑 King of the Pundits <span class="season">2025/26</span>
+                </h1>
+                <button class="nav-toggle" id="navToggle">Menu</button>
+                <nav>
+                    <ul class="nav-list" id="navList">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/league-tables">League Tables</a></li>
+                        <li><a href="/weekly-picks">Weekly Picks</a></li>
+                        <li><a href="/results">Results</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Banner -->
+    <div class="container">
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>👑 KING OF THE PUNDITS</h1>
+                <p>The Ultimate Football Prediction Battleground</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="auth-container" style="max-width: 480px; margin: 0 auto;">
+                <div class="card">
+                    <!-- Tab Navigation -->
+                    <div class="tab-nav" style="display: flex; margin-bottom: var(--space-6); background-color: var(--color-background); border-radius: var(--radius-md); padding: var(--space-1); gap: var(--space-1);">
+                        <button class="tab-button active" onclick="switchTab('login')" style="flex: 1; padding: var(--space-3) var(--space-4); border: none; background: var(--color-primary); color: var(--color-background); font-family: var(--font-family-base); font-size: 1rem; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-base);">
+                            Sign In
+                        </button>
+                        <button class="tab-button" onclick="switchTab('register')" style="flex: 1; padding: var(--space-3) var(--space-4); border: none; background: transparent; color: var(--color-muted); font-family: var(--font-family-base); font-size: 1rem; font-weight: 500; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-base);">
+                            Register
+                        </button>
+                        <button class="tab-button" onclick="switchTab('reset')" style="flex: 1; padding: var(--space-3) var(--space-4); border: none; background: transparent; color: var(--color-muted); font-family: var(--font-family-base); font-size: 1rem; font-weight: 500; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-base);">
+                            Reset Password
+                        </button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form" style="display: block;">
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="loginEmail" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Email Address</label>
+                            <input type="email" id="loginEmail" class="form-input" placeholder="your@email.com" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="loginPassword" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Password</label>
+                            <div class="password-field" style="position: relative;">
+                                <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required style="width: 100%; padding: var(--space-3) var(--space-4); padding-right: 3rem; background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')" style="position: absolute; right: var(--space-3); top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--color-muted); cursor: pointer; padding: var(--space-2);">
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-group" style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5);">
+                            <input type="checkbox" id="rememberMe" style="width: 18px; height: 18px; accent-color: var(--color-primary); cursor: pointer;">
+                            <label for="rememberMe" style="color: var(--color-text); font-size: 0.9rem; cursor: pointer;">Remember me</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: var(--space-3) var(--space-4); border: none; border-radius: var(--radius-md); background-color: var(--color-primary); color: var(--color-background); font-family: var(--font-family-base); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base);">
+                            Sign In
+                        </button>
+
+                        <div style="text-align: center; margin-top: var(--space-4);">
+                            <a href="#" class="form-link" onclick="switchTab('reset'); return false;" style="color: var(--color-primary); text-decoration: none; font-size: 0.9rem;">
+                                Forgot password?
+                            </a>
+                        </div>
+
+                        <div class="divider" style="position: relative; margin: var(--space-6) 0; text-align: center;">
+                            <span style="position: relative; display: inline-block; padding: 0 var(--space-4); background-color: var(--color-surface); color: var(--color-muted); font-size: 0.85rem;">
+                                Or continue with
+                            </span>
+                        </div>
+
+                        <button type="button" class="btn btn-google" style="width: 100%; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background-color: var(--color-background); color: var(--color-text); font-family: var(--font-family-base); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: var(--space-3);">
+                            Sign in with Google
+                        </button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="registerForm" class="auth-form" style="display: none;">
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="registerUsername" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Username</label>
+                            <input type="text" id="registerUsername" class="form-input" placeholder="Choose a username" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="registerEmail" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Email Address</label>
+                            <input type="email" id="registerEmail" class="form-input" placeholder="your@email.com" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="registerPassword" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Password</label>
+                            <div class="password-field" style="position: relative;">
+                                <input type="password" id="registerPassword" class="form-input" placeholder="Minimum 8 characters" minlength="8" required style="width: 100%; padding: var(--space-3) var(--space-4); padding-right: 3rem; background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                                <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')" style="position: absolute; right: var(--space-3); top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--color-muted); cursor: pointer; padding: var(--space-2);">
+                                    👁️
+                                </button>
+                            </div>
+                            <div id="passwordStrength" class="password-strength" style="margin-top: var(--space-2); font-size: 0.85rem;"></div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="registerConfirmPassword" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Confirm Password</label>
+                            <input type="password" id="registerConfirmPassword" class="form-input" placeholder="Confirm your password" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="division" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Select Division</label>
+                            <select id="division" class="form-input" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                                <option value="">Choose your division</option>
+                                <option value="1">Division One</option>
+                                <option value="2">Division Two</option>
+                            </select>
+                        </div>
+
+                        <div class="checkbox-group" style="display: flex; align-items: flex-start; gap: var(--space-2); margin-bottom: var(--space-5);">
+                            <input type="checkbox" id="terms" required style="width: 18px; height: 18px; accent-color: var(--color-primary); cursor: pointer; margin-top: 2px;">
+                            <label for="terms" style="color: var(--color-text); font-size: 0.9rem; cursor: pointer;">
+                                I agree to the <a href="#" style="color: var(--color-primary); text-decoration: none;">Terms and Conditions</a> and
+                                <a href="#" style="color: var(--color-primary); text-decoration: none;">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: var(--space-3) var(--space-4); border: none; border-radius: var(--radius-md); background-color: var(--color-primary); color: var(--color-background); font-family: var(--font-family-base); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base);">
+                            Create Account
+                        </button>
+
+                        <div style="text-align: center; margin-top: var(--space-4);">
+                            <span style="color: var(--color-muted);">Already have an account?</span>
+                            <a href="#" class="form-link" onclick="switchTab('login'); return false;" style="color: var(--color-primary); text-decoration: none; font-size: 0.9rem;">
+                                Sign In
+                            </a>
+                        </div>
+                    </form>
+
+                    <!-- Reset Password Form -->
+                    <form id="resetForm" class="auth-form" style="display: none;">
+                        <p style="color: var(--color-text); margin-bottom: var(--space-5);">
+                            Enter your email address and we'll send you a link to reset your password.
+                        </p>
+
+                        <div class="form-group" style="margin-bottom: var(--space-5);">
+                            <label class="form-label" for="resetEmail" style="display: block; margin-bottom: var(--space-2); color: var(--color-text); font-size: 0.9rem; font-weight: 500;">Email Address</label>
+                            <input type="email" id="resetEmail" class="form-input" placeholder="your@email.com" required style="width: 100%; padding: var(--space-3) var(--space-4); background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-heading); font-family: var(--font-family-base); font-size: 1rem;">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: var(--space-3) var(--space-4); border: none; border-radius: var(--radius-md); background-color: var(--color-primary); color: var(--color-background); font-family: var(--font-family-base); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base);">
+                            Send Reset Link
+                        </button>
+
+                        <div style="text-align: center; margin-top: var(--space-4);">
+                            <a href="#" class="form-link" onclick="switchTab('login'); return false;" style="color: var(--color-primary); text-decoration: none; font-size: 0.9rem;">
+                                Back to Sign In
+                            </a>
+                        </div>
+                    </form>
+
+                    <!-- Message Container -->
+                    <div id="message" class="message" style="display: none; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-4); font-size: 0.9rem;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p class="footer-text">© 2025 King of the Pundits. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Reset all tabs and forms
+            const tabs = document.querySelectorAll('.tab-button');
+            const forms = document.querySelectorAll('.auth-form');
+            
+            // Hide all forms
+            forms.forEach(form => form.style.display = 'none');
+            
+            // Reset all tab styles
+            tabs.forEach(tab => {
+                tab.style.background = 'transparent';
+                tab.style.color = 'var(--color-muted)';
+                tab.style.fontWeight = '500';
+            });
+            
+            // Activate selected tab and form
+            if (tabName === 'login') {
+                tabs[0].style.background = 'var(--color-primary)';
+                tabs[0].style.color = 'var(--color-background)';
+                tabs[0].style.fontWeight = '600';
+                document.getElementById('loginForm').style.display = 'block';
+            } else if (tabName === 'register') {
+                tabs[1].style.background = 'var(--color-primary)';
+                tabs[1].style.color = 'var(--color-background)';
+                tabs[1].style.fontWeight = '600';
+                document.getElementById('registerForm').style.display = 'block';
+            } else if (tabName === 'reset') {
+                tabs[2].style.background = 'var(--color-primary)';
+                tabs[2].style.color = 'var(--color-background)';
+                tabs[2].style.fontWeight = '600';
+                document.getElementById('resetForm').style.display = 'block';
+            }
+            
+            // Clear any messages
+            hideMessage();
+        }
+
+        // Password visibility toggle
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const type = input.type === 'password' ? 'text' : 'password';
+            input.type = type;
+        }
+
+        // Password strength checker
+        document.getElementById('registerPassword').addEventListener('input', function(e) {
+            const password = e.target.value;
+            const strengthDiv = document.getElementById('passwordStrength');
+            
+            if (password.length === 0) {
+                strengthDiv.innerHTML = '';
+                return;
+            }
+            
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]+/)) strength++;
+            if (password.match(/[A-Z]+/)) strength++;
+            if (password.match(/[0-9]+/)) strength++;
+            if (password.match(/[$@#&!]+/)) strength++;
+
+            let message = '';
+            let color = '';
+            
+            switch(strength) {
+                case 0:
+                case 1:
+                    message = '⚠️ Weak password';
+                    color = '#ef4444';
+                    break;
+                case 2:
+                    message = '🔶 Fair password';
+                    color = '#f59e0b';
+                    break;
+                case 3:
+                    message = '✓ Good password';
+                    color = '#eab308';
+                    break;
+                case 4:
+                case 5:
+                    message = '✓✓ Strong password';
+                    color = '#10b981';
+                    break;
+            }
+            
+            strengthDiv.innerHTML = `<span style="color: ${color};">${message}</span>`;
+        });
+
+        // Message display functions
+        function showMessage(text, isError = false) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+            
+            if (isError) {
+                messageDiv.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                messageDiv.style.border = '1px solid #ef4444';
+                messageDiv.style.color = '#ef4444';
+            } else {
+                messageDiv.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                messageDiv.style.border = '1px solid #10b981';
+                messageDiv.style.color = '#10b981';
+            }
+            
+            // Auto-hide after 5 seconds
+            setTimeout(hideMessage, 5000);
+        }
+
+        function hideMessage() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.style.display = 'none';
+        }
+
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // For now, just show success message
+            console.log('Login attempt:', { email, password, rememberMe });
+            showMessage('Login successful! Redirecting to dashboard...');
+            
+            // In production, you would make an API call here
+            setTimeout(() => {
+                // window.location.href = '/dashboard';
+                console.log('Would redirect to dashboard');
+            }, 2000);
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            const division = document.getElementById('division').value;
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match!', true);
+                return;
+            }
+            
+            // For now, just show success message
+            console.log('Registration:', { username, email, password, division });
+            showMessage('Registration successful! Please check your email to verify your account.');
+            
+            // Clear form and switch to login
+            setTimeout(() => {
+                this.reset();
+                switchTab('login');
+            }, 3000);
+        });
+
+        document.getElementById('resetForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('resetEmail').value;
+            
+            // For now, just show success message
+            console.log('Password reset request:', { email });
+            showMessage('Password reset link sent! Please check your email.');
+            
+            // Clear form and switch to login
+            setTimeout(() => {
+                this.reset();
+                switchTab('login');
+            }, 3000);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const navList = document.getElementById('navList');
+            navList.classList.toggle('nav-open');
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
