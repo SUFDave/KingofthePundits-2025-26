@@ -637,3 +637,82 @@ a:hover { text-decoration: underline; }
     padding: var(--space-2) var(--space-3);
   }
 }
+/* ===================================
+   MOBILE NAVIGATION FIX
+   Add this to the END of your style.css file
+   =================================== */
+
+/* Force fix for mobile navigation */
+@media (max-width: 767px) {
+  .nav-list {
+    display: none !important;
+    position: absolute !important;
+    top: 80px !important;
+    right: 1rem !important;
+    background-color: #1f2937 !important;
+    flex-direction: column !important;
+    width: 280px !important;
+    max-width: calc(100% - 2rem) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+    z-index: 1000 !important;
+    gap: 0 !important; /* Critical fix */
+    align-items: stretch !important; /* Ensure all items stretch to full width */
+    overflow: hidden !important; /* Prevent any overflow */
+  }
+  
+  .nav-list.nav-open { 
+    display: flex !important; 
+  }
+  
+  /* Reset all list items to be contained */
+  .nav-list li { 
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0.25rem 0 !important;
+    padding: 0 !important;
+    position: relative !important; /* Reset any absolute positioning */
+    transform: none !important; /* Reset any transforms */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    display: list-item !important;
+  }
+  
+  /* Ensure links fill their container */
+  .nav-list a { 
+    display: block !important;
+    padding: 0.75rem !important;
+    width: 100% !important;
+    color: #d1d5db !important;
+    border: none !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+  }
+  
+  .nav-list a:hover,
+  .nav-list a.current-page {
+    background-color: #10b981 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+  
+  /* Specific fix for the About link if it has unique styling */
+  .nav-list li:last-child {
+    margin-bottom: 0 !important;
+    position: relative !important;
+    transform: none !important;
+  }
+  
+  .nav-list li:last-child a {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+  }
+}
