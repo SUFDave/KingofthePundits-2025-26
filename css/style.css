@@ -1,4 +1,4 @@
-/* King of the Pundits - Redesign v3 (Complete) */
+/* King of the Pundits - Redesign v3 (COMPLETE) */
 
 /* 1. VARIABLES & THEME */
 :root {
@@ -22,9 +22,12 @@ body {
   margin: 0;
   font-family: var(--font-family-base);
   background-color: var(--color-background);
-  background-image: radial-gradient(circle at top, rgba(31, 41, 55, 0.8) 0%, transparent, 40%);
+  background-image: radial-gradient(circle at top, rgba(31, 41, 55, 0.8) 0%, transparent 40%);
   color: var(--color-text);
   line-height: 1.6;
+}
+body.no-scroll {
+  overflow: hidden;
 }
 
 .container {
@@ -92,13 +95,18 @@ img {
   color: var(--color-primary);
 }
 
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .nav-toggle {
     display: none;
 }
 
 /* Desktop Navigation */
 @media (min-width: 768px) {
-    .nav-list { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-list { display: flex; align-items: center; }
     .nav-list li { margin-left: 1.5rem; }
     .nav-list a { color: var(--color-text); padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.2s ease-in-out; }
     .nav-list a:hover { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
@@ -107,11 +115,45 @@ img {
 
 /* Mobile Navigation */
 @media (max-width: 767px) {
-    .nav-toggle { display: block; background-color: var(--color-primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 16px; z-index: 1001; }
-    .nav-list { display: none; position: fixed; top: 0; right: 0; background-color: var(--color-surface); flex-direction: column; width: 250px; height: 100%; padding: 4rem 1rem 1rem; box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000; transform: translateX(100%); transition: transform 0.3s ease-in-out; }
-    .nav-list.nav-open { display: flex; transform: translateX(0); }
-    .nav-list li { margin: 0.5rem 0; width: 100%; text-align: center; }
-    .nav-list a { display: block; padding: 0.75rem; }
+    .nav-toggle {
+        display: block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1001;
+    }
+    .nav-list {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        width: 250px;
+        height: 100%;
+        padding: 4rem 1rem 1rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .nav-list.nav-open {
+        display: flex;
+        transform: translateX(0);
+    }
+    .nav-list li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-list a {
+        display: block;
+        padding: 0.75rem;
+    }
 }
 
 /* 4. HERO BANNER */
@@ -219,7 +261,7 @@ img {
   background: var(--color-primary);
   color: var(--color-background);
   padding: 1rem;
-  margin: -1.5rem -1.5rem 1.5rem -1.5rem; /* Full bleed effect */
+  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
   font-weight: 700;
 }
 
@@ -250,7 +292,9 @@ img {
 .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .video-item .video-caption { margin-top: 0.75rem; text-align: center; font-weight: 600; }
 @media (max-width: 767px) {
-  .video-grid { grid-template-columns: 1fr; }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 8. WEEKLY PICKS PAGE */
@@ -274,6 +318,7 @@ img {
 .points-won::before { content: '✔ '; color: var(--color-primary); }
 .points-lost::before { content: '✖ '; color: #9ca3af; }
 
+
 /* 9. FOOTER & UTILITIES */
 .site-footer {
   background-color: var(--color-surface);
@@ -289,18 +334,23 @@ img {
   opacity: 0.8; transition: opacity 0.3s;
 }
 .back-to-top:hover { opacity: 1; }
-/* Mobile Typography Adjustments */
+
+/* 10. Mobile Typography Adjustments */
 @media (max-width: 767px) {
   body {
-    font-size: 15px; /* Reduces base font size slightly */
-    line-height: 1.5; /* Adjusts line spacing for smaller text */
+    font-size: 15px;
+    line-height: 1.5;
   }
-
   .page-title {
-    font-size: 2rem; /* Makes the main page titles smaller */
+    font-size: 2rem;
   }
-
   .card-title {
-    font-size: 1.5rem; /* Makes the card titles smaller */
+    font-size: 1.5rem;
+  }
+  .brand-title {
+    font-size: 1.5rem;
+  }
+  .picks-split { 
+    grid-template-columns: 1fr;
   }
 }
