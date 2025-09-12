@@ -134,14 +134,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when navigation links are clicked
+    // Handle navigation links - FIXED VERSION
     const navLinks = navList.querySelectorAll('a:not(.nav-close)');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Small delay to allow page navigation to start
+        link.addEventListener('click', function(e) {
+            // Don't prevent default - let the link work normally
+            // Just close the menu after a very short delay
             setTimeout(() => {
                 closeMenu();
-            }, 100);
+            }, 50);
         });
     });
     
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('touchstart', function(e) {
         touchStartY = e.touches[0].clientY;
-    });
+    }, { passive: true });
     
     document.addEventListener('touchmove', function(e) {
         if (body.classList.contains('no-scroll')) {
