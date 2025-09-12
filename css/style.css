@@ -250,7 +250,7 @@ a:hover { text-decoration: underline; }
 .expanded td { background-color: rgba(16, 185, 129, 0.05); }
 
 /* --- Weekly Picks Page --- */
-.picks-split, .tables-grid {
+.picks-split {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--space-6);
