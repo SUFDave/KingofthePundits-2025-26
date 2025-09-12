@@ -12,15 +12,14 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
- <!-- GREEN VERSION - Working Mobile Menu -->
-<header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+  <!-- WORKING Mobile Navigation -->
+  <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
         <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
             King of the Pundits 
             <span style="color: #10b981; font-weight: 300; opacity: 0.8;">2025/26</span>
         </h1>
         
-        <!-- GREEN WORKING BUTTON -->
         <nav>
             <button onclick="document.getElementById('menu').style.display='block'; document.body.style.overflow='hidden';" 
                     style="display: block; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 16px; font-family: inherit;"
@@ -38,22 +37,20 @@
                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'">×</button>
                     
                     <div style="padding:4rem 1rem 1rem;">
-                        <a href="index.html" 
+                        <a href="../index.html" 
                            style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
                            onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
                            onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Home</a>
                         
-                        <a href="pages/league-tables.html" 
+                        <a href="league-tables.html" 
                            style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
                            onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
                            onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">League Tables</a>
                         
-                        <a href="pages/weekly-picks.html" 
-                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
-                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Weekly Picks</a>
+                        <a href="weekly-picks.html" 
+                           style="color:#10b981; background-color:rgba(16,185,129,0.2); border-color:#10b981; font-weight:600; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid; margin-bottom:0.75rem;">Weekly Picks</a>
                         
-                        <a href="pages/about.html" 
+                        <a href="about.html" 
                            style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
                            onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
                            onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">About</a>
@@ -62,7 +59,7 @@
             </div>
         </nav>
     </div>
-</header>
+  </header>
 
   <div class="container">
       <div class="hero-banner" role="banner">
@@ -294,8 +291,8 @@
   <footer class="site-footer">
       <p>&copy; 2025 King of the Pundits. All rights reserved.</p>
   </footer>
-  
-  <!-- Back to top functionality -->
+
+  <!-- Back to top functionality only -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backToTopButton = document.getElementById('backToTop');
