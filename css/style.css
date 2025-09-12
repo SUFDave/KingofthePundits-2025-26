@@ -716,3 +716,88 @@ a:hover { text-decoration: underline; }
     width: 100% !important;
   }
 }
+/* ===================================
+   DEFINITIVE MOBILE NAVIGATION FIX
+   Add this to the very END of your style.css file
+   This will force the About link back into the container
+   =================================== */
+
+@media (max-width: 767px) {
+  /* Fix the container to properly contain all items */
+  .nav-list {
+    display: none !important;
+    position: absolute !important;
+    top: 80px !important;
+    right: 1rem !important;
+    background-color: #1f2937 !important;
+    flex-direction: column !important;
+    width: 280px !important;
+    max-width: calc(100% - 2rem) !important;
+    min-height: auto !important;
+    height: auto !important; /* Let height adjust to content */
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+    z-index: 1000 !important;
+    gap: 0 !important;
+    overflow: visible !important; /* Change from hidden to visible temporarily to see all items */
+    align-items: stretch !important;
+  }
+  
+  .nav-list.nav-open { 
+    display: flex !important;
+  }
+  
+  /* Force ALL list items to behave the same */
+  .nav-list li { 
+    position: static !important; /* Force position static */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.5rem 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: auto !important;
+    float: none !important;
+    clear: both !important;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* Specifically target the fourth child (About) */
+  .nav-list li:nth-child(4) {
+    position: static !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Ensure ALL links are styled the same */
+  .nav-list li a { 
+    display: block !important;
+    padding: 0.75rem !important;
+    width: 100% !important;
+    color: #d1d5db !important;
+    border: none !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    background-color: transparent !important;
+    position: static !important;
+  }
+  
+  .nav-list li a:hover {
+    background-color: #10b981 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+  }
+
+  /* Nuclear option - if About is still outside, this will force it in */
+  .nav-list li:last-of-type {
+    position: static !important;
+    margin-bottom: 0 !important;
+    transform: translateY(0) !important;
+  }
+}
