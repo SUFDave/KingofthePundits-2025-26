@@ -1,355 +1,543 @@
-/* King of the Pundits - Redesign v3 (COMPLETE) */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of the Pundits - Mobile Menu Fix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* King of the Pundits - Redesign v3 (COMPLETE) */
 
-/* 1. VARIABLES & THEME */
-:root {
-  --color-background: #111827;
-  --color-surface: #1f2937;
-  --color-primary: #10b981;
-  --color-primary-dark: #059669;
-  --color-text: #e5e7eb;
-  --color-heading: #ffffff;
-  --font-family-base: 'Inter', sans-serif;
-  --font-family-display: 'Oswald', sans-serif;
-  --border-radius: 8px;
-}
+        /* 1. VARIABLES & THEME */
+        :root {
+          --color-background: #111827;
+          --color-surface: #1f2937;
+          --color-primary: #10b981;
+          --color-primary-dark: #059669;
+          --color-text: #e5e7eb;
+          --color-heading: #ffffff;
+          --font-family-base: 'Inter', sans-serif;
+          --font-family-display: 'Oswald', sans-serif;
+          --border-radius: 8px;
+        }
 
-/* 2. GLOBAL STYLES & RESETS */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+        /* 2. GLOBAL STYLES & RESETS */
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
 
-body {
-  margin: 0;
-  font-family: var(--font-family-base);
-  background-color: var(--color-background);
-  background-image: radial-gradient(circle at top, rgba(31, 41, 55, 0.8) 0%, transparent 40%);
-  color: var(--color-text);
-  line-height: 1.6;
-}
-body.no-scroll {
-  overflow: hidden;
-}
+        body {
+          margin: 0;
+          font-family: var(--font-family-base);
+          background-color: var(--color-background);
+          background-image: radial-gradient(circle at top, rgba(31, 41, 55, 0.8) 0%, transparent 40%);
+          color: var(--color-text);
+          line-height: 1.6;
+        }
+        body.no-scroll {
+          overflow: hidden;
+        }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
 
-h1, h2, h3, h4 {
-  color: var(--color-heading);
-  line-height: 1.2;
-  margin-top: 0;
-}
+        h1, h2, h3, h4 {
+          color: var(--color-heading);
+          line-height: 1.2;
+          margin-top: 0;
+        }
 
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
+        a {
+          color: var(--color-primary);
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+        }
 
-a:hover {
-  color: var(--color-primary-dark);
-}
+        a:hover {
+          color: var(--color-primary-dark);
+        }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
 
-.sr-only { 
-  position: absolute; width: 1px; height: 1px; 
-  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
-}
+        .sr-only { 
+          position: absolute; width: 1px; height: 1px; 
+          margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+        }
 
-/* 3. HEADER & NAVIGATION */
-.site-header {
-  padding: 1rem 0;
-  background: rgba(17, 24, 39, 0.8);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        /* 3. HEADER & NAVIGATION */
+        .site-header {
+          padding: 1rem 0;
+          background: rgba(17, 24, 39, 0.8);
+          backdrop-filter: blur(10px);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        .header-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-.brand-title {
-  font-family: var(--font-family-display);
-  text-transform: uppercase;
-  font-size: 1.8rem;
-  margin: 0;
-  color: var(--color-heading);
-  letter-spacing: 1px;
-}
+        .brand-title {
+          font-family: var(--font-family-display);
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          margin: 0;
+          color: var(--color-heading);
+          letter-spacing: 1px;
+        }
 
-.season {
-  font-weight: 300;
-  opacity: 0.8;
-  color: var(--color-primary);
-}
+        .season {
+          font-weight: 300;
+          opacity: 0.8;
+          color: var(--color-primary);
+        }
 
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.nav-toggle {
-    display: none;
-}
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-toggle {
+            display: none;
+        }
 
-/* Desktop Navigation */
-@media (min-width: 768px) {
-    .nav-list { display: flex; align-items: center; }
-    .nav-list li { margin-left: 1.5rem; }
-    .nav-list a { color: var(--color-text); padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.2s ease-in-out; }
-    .nav-list a:hover { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
-    .nav-list a.current-page { color: var(--color-heading); border-bottom-color: var(--color-primary); font-weight: 600; }
-}
+        /* Desktop Navigation */
+        @media (min-width: 768px) {
+            .nav-list { display: flex; align-items: center; }
+            .nav-list li { margin-left: 1.5rem; }
+            .nav-list a { color: var(--color-text); padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.2s ease-in-out; }
+            .nav-list a:hover { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
+            .nav-list a.current-page { color: var(--color-heading); border-bottom-color: var(--color-primary); font-weight: 600; }
+        }
 
-/* Mobile Navigation */
-@media (max-width: 767px) {
-    .nav-toggle {
-        display: block;
-        background-color: var(--color-primary);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        z-index: 1001;
-    }
-    .nav-list {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        background-color: var(--color-surface);
-        flex-direction: column;
-        width: 250px;
-        height: 100%;
-        padding: 4rem 1rem 1rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    .nav-list.nav-open {
-        display: flex;
-        transform: translateX(0);
-    }
-    .nav-list li {
-        margin: 0.5rem 0;
-        width: 100%;
-        text-align: center;
-    }
-    .nav-list a {
-        display: block;
-        padding: 0.75rem;
-    }
-}
+        /* Mobile Navigation */
+        @media (max-width: 767px) {
+            .nav-toggle {
+                display: block;
+                background-color: var(--color-primary);
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                z-index: 1001;
+            }
+            .nav-list {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: var(--color-surface);
+                flex-direction: column;
+                width: 250px;
+                height: 100%;
+                padding: 4rem 1rem 1rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .nav-list.nav-open {
+                display: flex;
+                transform: translateX(0);
+            }
+            .nav-list li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-list a {
+                display: block;
+                padding: 0.75rem;
+            }
+            .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: var(--color-text);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
 
-/* 4. HERO BANNER */
-.hero-banner {
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  max-height: 350px;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  position: sticky;
-  top: 90px;
-  z-index: 99;
-}
+        /* 4. HERO BANNER */
+        .hero-banner {
+          width: 100%;
+          aspect-ratio: 16 / 7;
+          max-height: 350px;
+          border-radius: var(--border-radius);
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          position: sticky;
+          top: 90px;
+          z-index: 99;
+        }
 
-.hero-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+        .hero-banner img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
-/* 5. MAIN CONTENT & CARDS (REDESIGNED) */
-.main-content {
-  padding: 2rem 0;
-}
+        /* 5. MAIN CONTENT & CARDS (REDESIGNED) */
+        .main-content {
+          padding: 2rem 0;
+        }
 
-.page-title {
-  font-family: var(--font-family-display);
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  text-align: left;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        .page-title {
+          font-family: var(--font-family-display);
+          font-size: 3rem;
+          margin-bottom: 2rem;
+          text-align: left;
+          color: var(--color-primary);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
 
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--border-radius);
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 6px 6px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
+        .card {
+          background-color: var(--color-surface);
+          border-radius: var(--border-radius);
+          margin-bottom: 2rem;
+          padding: 1.5rem;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 6px 6px rgba(0,0,0,0.25);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 10px 10px rgba(0,0,0,0.3);
-}
+        .card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(16, 185, 129, 0.5);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 10px 10px rgba(0,0,0,0.3);
+        }
 
-.card-title {
-  font-family: var(--font-family-display);
-  font-size: 1.75rem;
-  margin: 0 0 1.5rem 0;
-  padding-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+        .card-title {
+          font-family: var(--font-family-display);
+          font-size: 1.75rem;
+          margin: 0 0 1.5rem 0;
+          padding-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          border-bottom: 2px solid var(--color-primary);
+          color: var(--color-primary);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
 
-.card-title .fa-solid {
-  color: var(--color-primary);
-}
+        .card-title .fa-solid {
+          color: var(--color-primary);
+        }
 
-.card h4 {
-  font-weight: 700;
-  color: var(--color-heading);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+        .card h4 {
+          font-weight: 700;
+          color: var(--color-heading);
+          margin-top: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
 
-.card ul, .card ol {
-  padding-left: 1.5rem;
-}
-.card li {
-  margin-bottom: 0.75rem;
-}
-.glance-list li {
-  padding-left: 1rem;
-}
+        .card ul, .card ol {
+          padding-left: 1.5rem;
+        }
+        .card li {
+          margin-bottom: 0.75rem;
+        }
+        .glance-list li {
+          padding-left: 1rem;
+        }
 
-/* 6. TABLES */
-.tables-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-@media (max-width: 992px) {
-  .tables-grid { grid-template-columns: 1fr; }
-}
+        /* 6. TABLES */
+        .tables-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+        @media (max-width: 992px) {
+          .tables-grid { grid-template-columns: 1fr; }
+        }
 
-.division-title {
-  font-family: var(--font-family-display);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  text-align: center;
-  background: var(--color-primary);
-  color: var(--color-background);
-  padding: 1rem;
-  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-  font-weight: 700;
-}
+        .division-title {
+          font-family: var(--font-family-display);
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          text-align: center;
+          background: var(--color-primary);
+          color: var(--color-background);
+          padding: 1rem;
+          margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+          font-weight: 700;
+        }
 
-.table-wrap { overflow-x: auto; }
-.league-table { width: 100%; border-collapse: collapse; }
-.league-table th { background-color: #374151; padding: 0.75rem 1rem; text-align: left; font-weight: 600; color: var(--color-heading); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.league-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #374151; vertical-align: middle; }
-.league-table tbody tr:last-child td { border-bottom: 0; }
-.league-table tbody tr:hover:not(.expanded) { background-color: rgba(16, 185, 129, 0.08); }
+        .table-wrap { overflow-x: auto; }
+        .league-table { width: 100%; border-collapse: collapse; }
+        .league-table th { background-color: #374151; padding: 0.75rem 1rem; text-align: left; font-weight: 600; color: var(--color-heading); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .league-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #374151; vertical-align: middle; }
+        .league-table tbody tr:last-child td { border-bottom: 0; }
+        .league-table tbody tr:hover:not(.expanded) { background-color: rgba(16, 185, 129, 0.08); }
 
-.pos { font-weight: 700; font-size: 1.1rem; text-align: center; width: 60px; }
-.player { font-weight: 600; color: var(--color-primary); }
-.stat-toggle { background: none; border: none; color: inherit; cursor: pointer; padding: 0; font: inherit; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; }
-.toggle-icon { transition: transform 0.2s; color: var(--color-primary); }
-.stat-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }
-.expanded.hidden { display: none; }
-.expanded td { background-color: rgba(0,0,0,0.2); padding: 1rem 1.5rem; }
-.small-list { list-style: none; padding: 0; margin: 0; }
-.small-list li { margin-bottom: 0.25rem; }
+        .pos { font-weight: 700; font-size: 1.1rem; text-align: center; width: 60px; }
+        .player { font-weight: 600; color: var(--color-primary); }
+        .stat-toggle { background: none; border: none; color: inherit; cursor: pointer; padding: 0; font: inherit; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+        .toggle-icon { transition: transform 0.2s; color: var(--color-primary); }
+        .stat-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }
+        .expanded.hidden { display: none; }
+        .expanded td { background-color: rgba(0,0,0,0.2); padding: 1rem 1.5rem; }
+        .small-list { list-style: none; padding: 0; margin: 0; }
+        .small-list li { margin-bottom: 0.25rem; }
 
-/* 7. VIDEO SECTION */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-.video-item .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.1); }
-.video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.video-item .video-caption { margin-top: 0.75rem; text-align: center; font-weight: 600; }
-@media (max-width: 767px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-}
+        /* 7. VIDEO SECTION */
+        .video-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .video-item .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-item .video-caption { margin-top: 0.75rem; text-align: center; font-weight: 600; }
+        @media (max-width: 767px) {
+          .video-grid {
+            grid-template-columns: 1fr;
+          }
+        }
 
-/* 8. WEEKLY PICKS PAGE */
-.picks-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.sub-title { margin: 0 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-primary); color: var(--color-heading); font-size: 1.25rem; font-family: var(--font-family-display); text-transform: uppercase; }
-.picking-order { padding-left: 1.5rem; margin: 0; }
-.picking-order li { margin-bottom: 0.5rem; font-size: 1.1rem; }
-.player-card { border-bottom: 1px solid #374151; padding: 1rem 0; }
-.card > .player-card:last-of-type { border-bottom: none; padding-bottom: 0; }
-.player-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; margin-bottom: 0.5rem; }
-.player-name { font-size: 1.2rem; color: var(--color-heading); }
-.player-score { font-size: 1rem; color: var(--color-primary); }
-.pick-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-.pick-table td { padding: 0.4rem; border: none; }
-.pick-type { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; font-weight: 700; color: var(--color-background); }
-.pick-type.home { background-color: #3b82f6; }
-.pick-type.away { background-color: #ef4444; }
-.pick-type.draw { background-color: #eab308; }
-.points-won, .points-lost { text-align: right; font-weight: 700; width: 80px; }
-.points-won { color: #ffffff; background-color: rgba(16, 185, 129, 0.3); text-shadow: 0 0 5px var(--color-primary); }
-.points-won::before { content: '✔ '; color: var(--color-primary); }
-.points-lost::before { content: '✖ '; color: #9ca3af; }
+        /* 8. WEEKLY PICKS PAGE */
+        .picks-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .sub-title { margin: 0 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-primary); color: var(--color-heading); font-size: 1.25rem; font-family: var(--font-family-display); text-transform: uppercase; }
+        .picking-order { padding-left: 1.5rem; margin: 0; }
+        .picking-order li { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .player-card { border-bottom: 1px solid #374151; padding: 1rem 0; }
+        .card > .player-card:last-of-type { border-bottom: none; padding-bottom: 0; }
+        .player-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; margin-bottom: 0.5rem; }
+        .player-name { font-size: 1.2rem; color: var(--color-heading); }
+        .player-score { font-size: 1rem; color: var(--color-primary); }
+        .pick-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        .pick-table td { padding: 0.4rem; border: none; }
+        .pick-type { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; font-weight: 700; color: var(--color-background); }
+        .pick-type.home { background-color: #3b82f6; }
+        .pick-type.away { background-color: #ef4444; }
+        .pick-type.draw { background-color: #eab308; }
+        .points-won, .points-lost { text-align: right; font-weight: 700; width: 80px; }
+        .points-won { color: #ffffff; background-color: rgba(16, 185, 129, 0.3); text-shadow: 0 0 5px var(--color-primary); }
+        .points-won::before { content: '✔ '; color: var(--color-primary); }
+        .points-lost::before { content: '✖ '; color: #9ca3af; }
 
-/* 9. FOOTER & UTILITIES */
-.site-footer {
-  background-color: var(--color-surface);
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
-}
-.back-to-top {
-  position: fixed; bottom: 20px; right: 20px;
-  background-color: var(--color-primary); color: white; border: none;
-  border-radius: 50%; width: 50px; height: 50px;
-  font-size: 24px; cursor: pointer; display: none;
-  opacity: 0.8; transition: opacity 0.3s;
-}
-.back-to-top:hover { opacity: 1; }
+        /* 9. FOOTER & UTILITIES */
+        .site-footer {
+          background-color: var(--color-surface);
+          text-align: center;
+          padding: 2rem 1rem;
+          margin-top: 2rem;
+        }
+        .back-to-top {
+          position: fixed; bottom: 20px; right: 20px;
+          background-color: var(--color-primary); color: white; border: none;
+          border-radius: 50%; width: 50px; height: 50px;
+          font-size: 24px; cursor: pointer; display: none;
+          opacity: 0.8; transition: opacity 0.3s;
+        }
+        .back-to-top:hover { opacity: 1; }
 
-/* 10. Mobile Typography Adjustments */
-@media (max-width: 767px) {
-  body {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  .page-title {
-    font-size: 2rem;
-  }
-  .card-title {
-    font-size: 1.5rem;
-  }
-  .brand-title {
-    font-size: 1.5rem;
-  }
-  .picks-split { 
-    grid-template-columns: 1fr;
-  }
-}
+        /* 10. Mobile Typography Adjustments */
+        @media (max-width: 767px) {
+          body {
+            font-size: 15px;
+            line-height: 1.5;
+          }
+          .page-title {
+            font-size: 2rem;
+          }
+          .card-title {
+            font-size: 1.5rem;
+          }
+          .brand-title {
+            font-size: 1.5rem;
+          }
+          .picks-split { 
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <h1 class="brand-title">KINGOFTHEPUNDITS<br><span class="season">SEASON 2025/26</span></h1>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+                
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#" class="current-page">Home</a></li>
+                        <li><a href="#">Weekly Picks</a></li>
+                        <li><a href="#">Leaderboard</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">Hall of Fame</a></li>
+                        <li><a href="#">About</a></li>
+                        <button class="close-menu" aria-label="Close navigation">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <div class="container">
+        <div class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1560272564-c83b6647c1be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" alt="Football stadium">
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="page-title">Weekly Picks</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fa-solid fa-trophy"></i> WELCOME TO KING OF THE PUNDITS</h3>
+                <p>Welcome to the ultimate football prediction competition! Seven skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything.</p>
+                <p>Reigning champion <strong>Davo</strong> returns to defend his title against fierce competition.</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fa-solid fa-star"></i> This Week's Matchups</h3>
+                <div class="tables-grid">
+                    <div>
+                        <h4 class="division-title">Premier Division</h4>
+                        <div class="table-wrap">
+                            <table class="league-table">
+                                <thead>
+                                    <tr>
+                                        <th class="pos">Pos</th>
+                                        <th>Player</th>
+                                        <th>Pts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pos">1</td>
+                                        <td class="player">Davo</td>
+                                        <td>42</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pos">2</td>
+                                        <td class="player">Mike</td>
+                                        <td>38</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="division-title">Championship</h4>
+                        <div class="table-wrap">
+                            <table class="league-table">
+                                <thead>
+                                    <tr>
+                                        <th class="pos">Pos</th>
+                                        <th>Player</th>
+                                        <th>Pts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pos">1</td>
+                                        <td class="player">Chris</td>
+                                        <td>36</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pos">2</td>
+                                        <td class="player">Tom</td>
+                                        <td>34</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 King of the Pundits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const closeMenu = document.querySelector('.close-menu');
+            const navList = document.querySelector('.nav-list');
+            const body = document.body;
+            
+            // Toggle menu when button is clicked
+            navToggle.addEventListener('click', function() {
+                navList.classList.toggle('nav-open');
+                body.classList.toggle('no-scroll');
+            });
+            
+            // Close menu when close button is clicked
+            closeMenu.addEventListener('click', function() {
+                navList.classList.remove('nav-open');
+                body.classList.remove('no-scroll');
+            });
+            
+            // Close menu when a nav link is clicked
+            const navLinks = document.querySelectorAll('.nav-list a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navList.classList.remove('nav-open');
+                    body.classList.remove('no-scroll');
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
