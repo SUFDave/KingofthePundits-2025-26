@@ -472,7 +472,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="site-header">
         <div class="container">
             <div class="header-inner">
@@ -485,13 +484,13 @@
                         <li><a href="/league-tables">League Tables</a></li>
                         <li><a href="/weekly-picks">Weekly Picks</a></li>
                         <li><a href="/results">Results</a></li>
+                        <li><a href="/about">About</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Banner -->
     <div class="container">
         <div class="hero-banner">
             <div class="hero-content">
@@ -501,19 +500,16 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <div class="auth-container">
                 <div class="card">
-                    <!-- Tab Navigation -->
                     <div class="tab-nav">
                         <button class="tab-button active" onclick="switchTab('login')">Sign In</button>
                         <button class="tab-button" onclick="switchTab('register')">Register</button>
                         <button class="tab-button" onclick="switchTab('reset')">Reset Password</button>
                     </div>
 
-                    <!-- Login Form -->
                     <form id="loginForm" class="auth-form active">
                         <div class="form-group">
                             <label class="form-label" for="loginEmail">Email Address</label>
@@ -559,7 +555,6 @@
                         </button>
                     </form>
 
-                    <!-- Register Form -->
                     <form id="registerForm" class="auth-form">
                         <div class="form-group">
                             <label class="form-label" for="registerUsername">Username</label>
@@ -615,7 +610,6 @@
                         </div>
                     </form>
 
-                    <!-- Reset Password Form -->
                     <form id="resetForm" class="auth-form">
                         <p style="color: var(--color-text); margin-bottom: var(--space-5);">
                             Enter your email address and we'll send you a link to reset your password.
@@ -633,14 +627,12 @@
                         </div>
                     </form>
 
-                    <!-- Message Container -->
                     <div id="message" class="message"></div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <p class="footer-text">© 2025 King of the Pundits. All rights reserved.</p>
     </footer>
