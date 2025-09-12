@@ -12,26 +12,207 @@
   <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
-  <!-- REPLACE your header with this version - WHITE BUTTON -->
-<header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-        <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif;">King of the Pundits <span style="color: #10b981;">2025/26</span></h1>
+<!-- REPLACE your header with this improved version -->
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
+        </div>
         
-        <!-- Simple Mobile Menu - WHITE BUTTON -->
-        <nav class="simple-nav">
-            <button onclick="document.getElementById('menu').style.display='block'" style="display: block; background: white; color: black; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">☰ Menu</button>
-            <div id="menu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;">
-                <button onclick="document.getElementById('menu').style.display='none'" style="color:white; background:none; border:none; font-size:30px; position:absolute; top:10px; right:20px; cursor: pointer;">×</button>
-                <div style="padding:60px 20px;">
-                    <a href="index.html" style="color:white; display:block; padding:15px; text-decoration:none; border-bottom: 1px solid #333;">Home</a>
-                    <a href="pages/league-tables.html" style="color:white; display:block; padding:15px; text-decoration:none; border-bottom: 1px solid #333;">League Tables</a>
-                    <a href="pages/weekly-picks.html" style="color:white; display:block; padding:15px; text-decoration:none; border-bottom: 1px solid #333;">Weekly Picks</a>
-                    <a href="pages/about.html" style="color:white; display:block; padding:15px; text-decoration:none; border-bottom: 1px solid #333;">About</a>
-                </div>
+        <!-- Working Mobile Navigation -->
+        <nav class="main-nav" aria-label="Main navigation">
+            <!-- Green styled button with working onclick -->
+            <button onclick="openMobileMenu()" class="nav-toggle" type="button">
+                <i class="fa-solid fa-bars"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <!-- Styled menu overlay -->
+            <div id="mobile-menu-overlay" class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+            
+            <!-- Styled slide-in menu -->
+            <div id="mobile-menu" class="mobile-menu">
+                <button onclick="closeMobileMenu()" class="mobile-close-btn">&times;</button>
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/league-tables.html">League Tables</a></li>
+                    <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                </ul>
             </div>
+            
+            <!-- Desktop menu (unchanged) -->
+            <ul class="nav-list desktop-only">
+                <li><a href="index.html" class="current-page">Home</a></li>
+                <li><a href="pages/league-tables.html">League Tables</a></li>
+                <li><a href="pages/weekly-picks.html">Weekly Picks</a></li>
+                <li><a href="pages/about.html">About</a></li>
+            </ul>
         </nav>
     </div>
 </header>
+
+<!-- Working JavaScript -->
+<script>
+function openMobileMenu() {
+    document.getElementById('mobile-menu').classList.add('open');
+    document.getElementById('mobile-menu-overlay').classList.add('open');
+    document.body.classList.add('no-scroll');
+}
+
+function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('mobile-menu-overlay').classList.remove('open');
+    document.body.classList.remove('no-scroll');
+}
+
+// Close menu on window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 768) {
+        closeMobileMenu();
+    }
+});
+</script>
+
+<style>
+/* Mobile Navigation Styles */
+@media (max-width: 767px) {
+    .desktop-only { display: none; }
+    
+    .nav-toggle {
+        display: block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1002;
+        position: relative;
+        transition: background-color 0.2s ease;
+    }
+    
+    .nav-toggle:hover {
+        background-color: var(--color-primary-dark);
+    }
+    
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--color-surface);
+        z-index: 1001;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+    }
+    
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+    
+    .mobile-close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: var(--color-text);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        line-height: 1;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-close-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-primary);
+    }
+    
+    .mobile-nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 4rem 1rem 1rem;
+        height: 100%;
+    }
+    
+    .mobile-nav-list li {
+        margin: 0.75rem 0;
+    }
+    
+    .mobile-nav-list a {
+        display: block;
+        padding: 1rem;
+        color: var(--color-text);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-nav-list a:hover {
+        background-color: rgba(16, 185, 129, 0.1);
+        border-color: var(--color-primary);
+    }
+    
+    .mobile-nav-list a.current-page {
+        background-color: rgba(16, 185, 129, 0.2);
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-toggle, .mobile-menu, .mobile-menu-overlay { display: none; }
+    .nav-list { display: flex; align-items: center; }
+    .nav-list li { margin-left: 1.5rem; }
+    .nav-list a { 
+        color: var(--color-text); 
+        padding-bottom: 5px; 
+        border-bottom: 2px solid transparent; 
+        transition: all 0.2s ease; 
+    }
+    .nav-list a:hover { 
+        color: var(--color-primary); 
+        border-bottom-color: var(--color-primary); 
+    }
+    .nav-list a.current-page { 
+        color: var(--color-heading); 
+        border-bottom-color: var(--color-primary); 
+        font-weight: 600; 
+    }
+}
+</style>
    <div class="container">
       <div class="hero-banner" role="banner">
           <img src="images/kingofthepundits-banner.jpg" alt="King of the Pundits stadium banner with a football and a crown">
