@@ -38,7 +38,7 @@
     }
     .hero-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .main-content { padding: 2rem 0; }
-    .page-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+    .page-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: var(--color-primary); }
     .tables-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
     }
@@ -59,18 +59,25 @@
     .league-table tbody tr:last-child td { border-bottom: 0; }
     .league-table tbody tr:hover:not(.expanded) { background-color: rgba(16, 185, 129, 0.08); }
     .pos { font-weight: 700; font-size: 1.1rem; text-align: center; width: 60px; }
-    .player { font-weight: 600; color: var(--color-heading); }
+    .player { font-weight: 600; color: var(--color-primary); }
     .stat-toggle {
         background: none; border: none; color: inherit; cursor: pointer;
         padding: 0; font: inherit; width: 100%; text-align: left;
         display: flex; justify-content: space-between; align-items: center;
     }
-    .toggle-icon { transition: transform 0.2s; }
+    .toggle-icon { transition: transform 0.2s; color: var(--color-primary); }
     .stat-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }
     .expanded.hidden { display: none; }
     .expanded td { background-color: rgba(0,0,0,0.2); padding: 1rem 1.5rem; }
     .small-list { list-style: none; padding: 0; margin: 0; }
     .small-list li { margin-bottom: 0.25rem; }
+    .card-title {
+      font-size: 1.75rem; margin-bottom: 1rem; display: flex;
+      align-items: center; gap: 0.75rem; padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary); 
+      color: var(--color-primary); 
+    }
+    .card-title .fa-solid { color: var(--color-primary); }
     .site-footer {
       background-color: var(--color-surface); text-align: center;
       padding: 2rem 1rem; margin-top: 2rem;
@@ -253,6 +260,20 @@
         </div>
       </div>
     </div>
+    
+    <article class="card" style="margin-top: 2rem;">
+      <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
+      <p>The first two weeks have set the stage for an intense season of punditry! With a mix of early successes and fierce competition, the league tables are already beginning to take shape.</p>
+      
+      <h4>Division 1: The Race for Supremacy</h4>
+      <p>In Division One, **Davo** has established an early lead with a formidable 7 points. His Week One performance, which included an incredible "Full House Six Pointer," has given him a significant advantage. The race for second place is wide open, with **Mike** currently holding the spot with 2 points, but **Dylan** is hot on his heels. Meanwhile, **Rob** is just starting his journey this season, having joined in Week 3, and is eager to make his mark.</p>
+      
+      <h4>Division 2: A Tightly Contested Battle</h4>
+      <p>The battle in Division Two is proving to be a tight one! **Ben** holds the top spot with 4 points, but the real drama lies just behind him. **Dave K** and **Alex** are tied for second place with 3 points each, and every pick from here on out will be crucial in breaking that tie. With **Myles** and his single point not far behind, this division is poised for a thrilling contest.</p>
+      
+      <h4>The Power of a "Full House"</h4>
+      <p>In our competition, a "Full House Six Pointer" is the holy grail of predictions. It's not just about getting the most points; it's about correctly picking a Home Win, an Away Win, AND a Draw in a single week. This monumental achievement awards a total of six points and a huge boost to a player's standing. So far, only **Davo** has managed to achieve this feat in Week One, demonstrating the kind of strategic genius that could win him the title!</p>
+    </article>
   </main>
 
   <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
@@ -301,4 +322,3 @@
   </script>
 </body>
 </html>
-
