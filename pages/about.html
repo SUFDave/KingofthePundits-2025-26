@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
- <!-- PROPER Responsive Navigation - Works on Desktop AND Mobile -->
-<header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+  <!-- RESPONSIVE Navigation - Works on Desktop AND Mobile -->
+  <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
         <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
             King of the Pundits 
@@ -24,22 +24,22 @@
         <nav style="display: none;" class="desktop-nav">
             <ul style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center;">
                 <li style="margin-left: 1.5rem;">
-                    <a href="index.html" style="color: #ffffff; padding-bottom: 5px; border-bottom: 2px solid #10b981; font-weight: 600; text-decoration: none;">Home</a>
+                    <a href="../index.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Home</a>
                 </li>
                 <li style="margin-left: 1.5rem;">
-                    <a href="pages/league-tables.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                    <a href="league-tables.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
                        onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
                        onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">League Tables</a>
                 </li>
                 <li style="margin-left: 1.5rem;">
-                    <a href="pages/weekly-picks.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                    <a href="weekly-picks.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
                        onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
                        onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Weekly Picks</a>
                 </li>
                 <li style="margin-left: 1.5rem;">
-                    <a href="pages/about.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
-                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
-                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">About</a>
+                    <a href="about.html" style="color: #ffffff; padding-bottom: 5px; border-bottom: 2px solid #10b981; font-weight: 600; text-decoration: none;">About</a>
                 </li>
             </ul>
         </nav>
@@ -62,31 +62,44 @@
                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'">×</button>
                     
                     <div style="padding:4rem 1rem 1rem;">
-                        <a href="../index.html" style="...">Home</a>
-<a href="league-tables.html" style="...">League Tables</a>
-<a href="weekly-picks.html" style="...">Weekly Picks</a>
-<a href="about.html" style="...">About</a>
+                        <a href="../index.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Home</a>
+                        
+                        <a href="league-tables.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">League Tables</a>
+                        
+                        <a href="weekly-picks.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Weekly Picks</a>
+                        
+                        <a href="about.html" 
+                           style="color:#10b981; background-color:rgba(16,185,129,0.2); border-color:#10b981; font-weight:600; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid; margin-bottom:0.75rem;">About</a>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
-</header>
+  </header>
 
-<!-- CSS to show/hide appropriate navigation -->
-<style>
-/* Desktop: Show desktop nav, hide mobile nav */
-@media (min-width: 768px) {
-    .desktop-nav { display: block !important; }
-    .mobile-nav { display: none !important; }
-}
+  <!-- CSS to show/hide appropriate navigation -->
+  <style>
+  /* Desktop: Show desktop nav, hide mobile nav */
+  @media (min-width: 768px) {
+      .desktop-nav { display: block !important; }
+      .mobile-nav { display: none !important; }
+  }
 
-/* Mobile: Show mobile nav, hide desktop nav */
-@media (max-width: 767px) {
-    .desktop-nav { display: none !important; }
-    .mobile-nav { display: block !important; }
-}
-</style>
+  /* Mobile: Show mobile nav, hide desktop nav */
+  @media (max-width: 767px) {
+      .desktop-nav { display: none !important; }
+      .mobile-nav { display: block !important; }
+  }
+  </style>
 
   <div class="container">
       <div class="hero-banner" role="banner">
@@ -154,7 +167,6 @@
       <p>&copy; 2025 King of the Pundits. Built for the league.</p>
   </footer>
 
-  <!-- Back to top functionality only -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backToTopButton = document.getElementById('backToTop');
