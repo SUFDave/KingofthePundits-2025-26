@@ -39,6 +39,11 @@ img { max-width: 100%; height: auto; display: block; }
     .nav-list a { color: var(--color-text); padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.2s ease-in-out; }
     .nav-list a:hover { color: var(--color-primary); text-decoration: none; border-bottom-color: var(--color-primary); }
     .nav-list a.current-page { color: var(--color-heading); border-bottom-color: var(--color-primary); font-weight: 600; }
+    
+    /* Hide mobile-only elements on desktop */
+    .nav-close {
+        display: none !important;
+    }
 }
 
 /* FIXED Mobile Navigation */
