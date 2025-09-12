@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Weekly Picks — King of the Pundits 2025/26</title>
-  <meta name="description" content="View current and previous weekly picks for all players in the King of the Pundits football prediction competition." />
+  <title>League Tables — King of the Pundits 2025/26</title>
+  <meta name="description" content="Current league standings for both divisions in the King of the Pundits football prediction competition." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- WORKING Mobile Navigation -->
+  <!-- RESPONSIVE Navigation - Works on Desktop AND Mobile -->
   <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
         <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
@@ -20,7 +20,32 @@
             <span style="color: #10b981; font-weight: 300; opacity: 0.8;">2025/26</span>
         </h1>
         
-        <nav>
+        <!-- DESKTOP Navigation (hidden on mobile) -->
+        <nav style="display: none;" class="desktop-nav">
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center;">
+                <li style="margin-left: 1.5rem;">
+                    <a href="../index.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Home</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="league-tables.html" style="color: #ffffff; padding-bottom: 5px; border-bottom: 2px solid #10b981; font-weight: 600; text-decoration: none;">League Tables</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="weekly-picks.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Weekly Picks</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="about.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">About</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- MOBILE Navigation (hidden on desktop) -->
+        <nav style="display: none;" class="mobile-nav">
             <button onclick="document.getElementById('menu').style.display='block'; document.body.style.overflow='hidden';" 
                     style="display: block; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 16px; font-family: inherit;"
                     onmouseover="this.style.backgroundColor='#059669'" 
@@ -43,12 +68,12 @@
                            onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Home</a>
                         
                         <a href="league-tables.html" 
-                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
-                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
-                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">League Tables</a>
+                           style="color:#10b981; background-color:rgba(16,185,129,0.2); border-color:#10b981; font-weight:600; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid; margin-bottom:0.75rem;">League Tables</a>
                         
                         <a href="weekly-picks.html" 
-                           style="color:#10b981; background-color:rgba(16,185,129,0.2); border-color:#10b981; font-weight:600; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid; margin-bottom:0.75rem;">Weekly Picks</a>
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Weekly Picks</a>
                         
                         <a href="about.html" 
                            style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
@@ -61,6 +86,21 @@
     </div>
   </header>
 
+  <!-- CSS to show/hide appropriate navigation -->
+  <style>
+  /* Desktop: Show desktop nav, hide mobile nav */
+  @media (min-width: 768px) {
+      .desktop-nav { display: block !important; }
+      .mobile-nav { display: none !important; }
+  }
+
+  /* Mobile: Show mobile nav, hide desktop nav */
+  @media (max-width: 767px) {
+      .desktop-nav { display: none !important; }
+      .mobile-nav { display: block !important; }
+  }
+  </style>
+
   <div class="container">
       <div class="hero-banner" role="banner">
           <img src="../images/kingofthepundits-banner.jpg" alt="King of the Pundits stadium banner with a football and a crown">
@@ -68,235 +108,156 @@
   </div>
 
   <main class="container main-content">
-    <h2 class="page-title">Weekly Picks</h2>
-
-    <div class="card picks-split">
-      <div>
-        <h3 class="sub-title">Division 1 Picking Order — Wk 3</h3>
-        <ol class="picking-order">
-          <li>Dylan</li>
-          <li>Rob</li>
-          <li>Davo</li>
-          <li>Mike</li>
-        </ol>
-      </div>
-      <div>
-        <h3 class="sub-title">Division 2 Picking Order — Wk 3</h3>
-        <ol class="picking-order">
-          <li>Alex</li>
-          <li>Myles</li>
-          <li>Ben</li>
-          <li>Dave K</li>
-        </ol>
-      </div>
-    </div>
+    <h2 class="page-title">League Tables</h2>
 
     <div class="tables-grid">
       <div class="card">
-        <h3 class="sub-title">Division 1 — Week Three Picks</h3>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Dylan</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>West Brom vs Derby County</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Burnley vs Liverpool</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Ipswich vs Sheffield Wednesday</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Rob</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Gillingham vs Notts County</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Oxford vs Leicester City</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Leyton Orient vs Bolton</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Davo</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Nottingham Forest</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Brentford vs Chelsea</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Sheffield Wednesday vs Bristol City</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-      </div>
-      
-      <div class="card">
-        <h3 class="sub-title">Division 2 — Week Three Picks</h3>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Alex</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Nottingham Forest</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Burnley vs Liverpool</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Wrexham vs Queens Park Rangers</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Myles</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Crystal Palace vs Sunderland</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Ipswich vs Sheffield United</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Leyton Orient vs Bolton</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Ben</span><span class="player-score">Not yet scored</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Newcastle Utd vs Wolves</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Leicester City</td><td></td><td class="points-lost"></td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Charlton vs Millwall</td><td></td><td class="points-lost"></td></tr>
-          </tbody></table>
-        </div>
-      </div>
-    </div>
-
-    <div class="tables-grid">
-      <div class="card">
-        <h3 class="sub-title">Division 1 — Week Two Picks</h3>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Mike</span><span class="player-score">1pt</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Manchester Utd vs Burnley</td><td>3-2</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Coventry</td><td>2-2</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Liverpool vs Arsenal</td><td>1-0</td><td class="points-lost">0pt</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Dylan</span><span class="player-score">0pt</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Nottingham Forest vs West Ham</td><td>0-3</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Brighton vs Manchester City</td><td>2-1</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Bristol City vs Hull City</td><td>4-1</td><td class="points-lost">0pt</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-            <div class="player-header"><span class="player-name">Davo</span><span class="player-score">1pt</span></div>
-            <table class="pick-table"><tbody>
-              <tr><td><span class="pick-type home">H</span></td><td>Cardiff City vs Plymouth</td><td>4-0</td><td class="points-won">1pt</td></tr>
-              <tr><td><span class="pick-type away">A</span></td><td>Leeds Utd vs Newcastle Utd</td><td>0-0</td><td class="points-lost">0pt</td></tr>
-              <tr><td><span class="pick-type draw">D</span></td><td>Blackburn Rovers vs Norwich City</td><td>0-2</td><td class="points-lost">0pt</td></tr>
-            </tbody></table>
-        </div>
-         <div class="player-card">
-          <div class="player-header"><span class="player-name">Rob</span><span class="player-score">Not yet active</span></div>
-          <table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#9ca3af">Rob joins from Week 3 onwards</td></tr></tbody></table>
+        <h3 class="division-title">Division One</h3>
+        <div class="table-wrap">
+          <table class="league-table">
+            <thead>
+              <tr>
+                <th>Pos</th> <th>Player</th> <th>Wk 2</th> <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pos">1</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="davo-stats" aria-expanded="false">
+                        Davo <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>1pt</td> <td>7pts</td>
+              </tr>
+              <tr class="expanded hidden" id="davo-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 2)</li><li>Away Wins: 2 (correct: 1)</li><li>Draws: 2 (correct: 1)</li><li>Full House Six Pointers: 1</li></ul></td></tr>
+              <tr>
+                <td class="pos">2</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="mike-stats" aria-expanded="false">
+                        Mike <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>1pt</td> <td>2pts</td>
+              </tr>
+              <tr class="expanded hidden" id="mike-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 2)</li><li>Away Wins: 2 (correct: 0)</li><li>Draws: 2 (correct: 0)</li></ul></td></tr>
+              <tr>
+                <td class="pos">3</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="dylan-stats" aria-expanded="false">
+                        Dylan <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>0pt</td> <td>1pt</td>
+              </tr>
+               <tr class="expanded hidden" id="dylan-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 1)</li><li>Away Wins: 2 (correct: 0)</li><li>Draws: 2 (correct: 0)</li></ul></td></tr>
+              <tr>
+                <td class="pos">4</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="rob-stats" aria-expanded="false">
+                        Rob <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>-</td> <td>0pts</td>
+              </tr>
+               <tr class="expanded hidden" id="rob-stats"><td colspan="4"><ul class="small-list"><li>New player joining from Week 3</li></ul></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <div class="card">
-        <h3 class="sub-title">Division 2 — Week Two Picks</h3>
-         <div class="player-card">
-            <div class="player-header"><span class="player-name">Dave K</span><span class="player-score">3pts</span></div>
-            <table class="pick-table"><tbody>
-              <tr><td><span class="pick-type home">H</span></td><td>Nottingham Forest vs West Ham Utd</td><td>0-3</td><td class="points-lost">0pt</td></tr>
-              <tr><td><span class="pick-type away">A</span></td><td>Liverpool vs Arsenal</td><td>1-0</td><td class="points-lost">0pt</td></tr>
-              <tr><td><span class="pick-type draw">D</span></td><td>Leeds Utd vs Newcastle Utd</td><td>0-0</td><td class="points-won">3pt</td></tr>
-            </tbody></table>
-        </div>
-         <div class="player-card">
-          <div class="player-header"><span class="player-name">Alex</span><span class="player-score">0pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Tottenham Hotspur vs Bournemouth</td><td>0-1</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Coventry City</td><td>2-2</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Wolves vs Everton</td><td>2-3</td><td class="points-lost">0pt</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Myles</span><span class="player-score">1pt</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Leicester City vs Birmingham City</td><td>2-0</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Watford vs Southampton</td><td>2-2</td><td class="points-lost">0pt</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Manchester Utd vs Burnley</td><td>3-2</td><td class="points-lost">0pt</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-            <div class="player-header"><span class="player-name">Ben</span><span class="player-score">1pt</span></div>
-            <table class="pick-table"><tbody>
-              <tr><td><span class="pick-type home">H</span></td><td>Chelsea vs Fulham</td><td>2-0</td><td class="points-won">1pt</td></tr>
-              <tr><td><span class="pick-type away">A</span></td><td>Brighton vs Manchester City</td><td>2-1</td><td class="points-lost">0pt</td></tr>
-              <tr><td><span class="pick-type draw">D</span></td><td>Aston Villa vs Crystal Palace</td><td>0-3</td><td class="points-lost">0pt</td></tr>
-            </tbody></table>
+        <h3 class="division-title">Division Two</h3>
+        <div class="table-wrap">
+          <table class="league-table">
+            <thead>
+                <tr>
+                    <th>Pos</th> <th>Player</th> <th>Wk 2</th> <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pos">1</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="ben-stats" aria-expanded="false">
+                        Ben <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>1pt</td> <td>4pts</td>
+              </tr>
+              <tr class="expanded hidden" id="ben-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 2)</li><li>Away Wins: 2 (correct: 1)</li><li>Draws: 1 (correct: 0)</li></ul></td></tr>
+               <tr>
+                <td class="pos">2</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="davek-stats" aria-expanded="false">
+                        Dave K <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>3pts</td> <td>3pts</td>
+              </tr>
+              <tr class="expanded hidden" id="davek-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 0)</li><li>Away Wins: 2 (correct: 0)</li><li>Draws: 2 (correct: 1)</li></ul></td></tr>
+              <tr>
+                <td class="pos">3</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="alex-stats" aria-expanded="false">
+                        Alex <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>0pt</td> <td>3pts</td>
+              </tr>
+               <tr class="expanded hidden" id="alex-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 0)</li><li>Away Wins: 2 (correct: 0)</li><li>Draws: 2 (correct: 1)</li></ul></td></tr>
+              <tr>
+                <td class="pos">4</td>
+                <td class="player">
+                    <button class="stat-toggle" data-target="myles-stats" aria-expanded="false">
+                        Myles <i class="fa-solid fa-plus toggle-icon"></i>
+                    </button>
+                </td>
+                <td>1pt</td> <td>1pt</td>
+              </tr>
+              <tr class="expanded hidden" id="myles-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 2 (correct: 1)</li><li>Away Wins: 2 (correct: 0)</li><li>Draws: 2 (correct: 0)</li></ul></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
     
-    <div class="tables-grid">
-      <div class="card">
-        <h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Davo</span><span class="player-score">6pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Leeds Utd</td><td>5-0</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Newcastle vs Liverpool</td><td>2-3</td><td class="points-won">2pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Swansea City vs Watford</td><td>1-1</td><td class="points-won">3pts</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Mike</span><span class="player-score">1pt</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Birmingham vs Oxford Utd</td><td>1-0</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Brentford vs Aston Villa</td><td>1-0</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Sheffield Utd vs Millwall</td><td>0-1</td><td class="points-lost">0pts</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Dylan</span><span class="player-score">1pt</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Coventry City vs QPR</td><td>7-1</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Everton vs Brighton</td><td>2-0</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Burnley vs Sunderland</td><td>2-0</td><td class="points-lost">0pts</td></tr>
-          </tbody></table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 class="sub-title">Division 2 — Week One Picks (Recap)</h3>
-         <div class="player-card">
-          <div class="player-header"><span class="player-name">Ben</span><span class="player-score">3pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Leeds Utd</td><td>6-0</td><td class="points-won">1pt</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Crawley vs Tranmere Rovers</td><td>0-2</td><td class="points-won">2pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Preston NE vs Ipswich Town</td><td>1-0</td><td class="points-lost">0pts</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Dave K</span><span class="player-score">0pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Manchester City vs Tottenham</td><td>0-2</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Burnley vs Sunderland</td><td>2-0</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Bournemouth vs Wolves</td><td>1-0</td><td class="points-lost">0pts</td></tr>
-          </tbody></table>
-        </div>
-        <div class="player-card">
-          <div class="player-header"><span class="player-name">Alex</span><span class="player-score">3pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Fulham vs Manchester United</td><td>1-1</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Wrexham vs Sheffield Wednesday</td><td>2-2</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Crystal Palace vs Nottm Forest</td><td>1-1</td><td class="points-won">3pts</td></tr>
-          </tbody></table>
-        </div>
-         <div class="player-card">
-          <div class="player-header"><span class="player-name">Myles</span><span class="player-score">0pts</span></div>
-          <table class="pick-table"><tbody>
-            <tr><td><span class="pick-type home">H</span></td><td>Southampton vs Stoke City</td><td>1-2</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type away">A</span></td><td>Fulham vs Manchester United</td><td>Void</td><td class="points-lost">0pts</td></tr>
-            <tr><td><span class="pick-type draw">D</span></td><td>Hull City vs Blackburn Rovers</td><td>0-3</td><td class="points-lost">0pts</td></tr>
-          </tbody></table>
-        </div>
-      </div>
-    </div>
+    <article class="card">
+      <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
+      
+      <h4>Division 1: The Race for Supremacy</h4>
+      <p>In Division One, <strong>Davo</strong> has established an early lead with a formidable 7 points. His Week One performance, which included an incredible "Full House Six Pointer," has given him a significant advantage. The race for second place is wide open, with <strong>Mike</strong> currently holding the spot with 2 points, but <strong>Dylan</strong> is hot on his heels. Meanwhile, <strong>Rob</strong> is just starting his journey this season, having joined in Week 3, and is eager to make his mark.</p>
+      
+      <h4>Division 2: A Tightly Contested Battle</h4>
+      <p>The battle in Division Two is proving to be a tight one! <strong>Ben</strong> holds the top spot with 4 points, but the real drama lies just behind him. <strong>Dave K</strong> and <strong>Alex</strong> are tied for second place with 3 points each, and every pick from here on out will be crucial in breaking that tie. With <strong>Myles</strong> and his single point not far behind, this division is poised for a thrilling contest.</p>
+      
+      <h4>The Power of a "Full House"</h4>
+      <p>In our competition, a "Full House Six Pointer" is the holy grail of predictions. It's not just about getting the most points; it's about correctly picking a Home Win, an Away Win, AND a Draw in a single week. This monumental achievement awards a total of six points and a huge boost to a player's standing. So far, only <strong>Davo</strong> has managed to achieve this feat in Week One, demonstrating the kind of strategic genius that could win him the title!</p>
+    </article>
   </main>
 
   <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <footer class="site-footer">
-      <p>&copy; 2025 King of the Pundits. All rights reserved.</p>
+    <p>&copy; 2025 King of the Pundits. All rights reserved.</p>
   </footer>
 
-  <!-- Back to top functionality only -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backToTopButton = document.getElementById('backToTop');
 
+      // Stat toggle functionality (existing functionality preserved)
+      document.querySelectorAll('.stat-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const targetId = button.getAttribute('data-target');
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          const targetRow = document.getElementById(targetId);
+          button.setAttribute('aria-expanded', String(!isExpanded));
+          targetRow.classList.toggle('hidden');
+        });
+      });
+
+      // Back to top functionality
       if (backToTopButton) {
         window.addEventListener('scroll', function() {
           if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
