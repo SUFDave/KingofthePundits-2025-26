@@ -457,7 +457,7 @@
             }
 
             .nav-list {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 position: fixed;
                 top: 0;
@@ -472,6 +472,7 @@
                 transition: transform 0.3s ease-in-out;
             }
             .nav-list.nav-open {
+                display: flex;
                 transform: translateX(0);
             }
             .nav-list li {
