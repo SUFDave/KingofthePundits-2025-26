@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>King of the Pundits – Season 2025/26</title>
-  <meta name="description" content="Official app for the King of the Pundits football competition – league tables, weekly picks and highlights." />
+  <title>King of the Pundits — Season 2025/26</title>
+  <meta name="description" content="Official app for the King of the Pundits football competition — league tables, weekly picks and highlights." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -90,35 +90,48 @@
         font-size: 14px; z-index: 1001;
       }
       .nav-list {
-        display: none; position: fixed; top: 0; right: 0;
-        background-color: var(--color-surface); flex-direction: column;
-        width: 250px; 
-        height: auto; /* FIXED: Changed from 100% to auto */
-        max-height: 100vh; /* Added max-height for safety */
-        padding: 4rem 1rem 1rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
-        transform: translateX(100%); transition: transform 0.3s ease-in-out;
-        overflow-y: auto; /* Allow scrolling if menu gets too long */
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 1rem;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        width: 280px;
+        max-width: calc(100% - 2rem);
+        height: auto;
+        max-height: 100vh;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+        gap: 0;
+        align-items: stretch;
+        overflow-y: auto;
       }
-      .nav-list.nav-open { 
-        display: flex; 
-        transform: translateX(0); 
+      .nav-list.nav-open {
+        display: flex;
       }
-      .nav-list li { 
-        margin: 0.5rem 0; 
-        width: 100%; 
-        text-align: center; 
-        display: block; /* Ensure all items are block level */
+      .nav-list li {
+        width: 100%;
+        text-align: center;
+        margin: 0.25rem 0;
+        padding: 0;
+        position: static;
+        transform: none;
+        display: block;
       }
-      .nav-list a { 
-        display: block; 
-        padding: 0.75rem; 
-        color: var(--color-text); 
+      .nav-list a {
+        display: block;
+        padding: 0.75rem;
+        border-bottom: none;
+        color: var(--color-text);
       }
-      .nav-list a:hover {
+      .nav-list a:hover,
+      .nav-list a.current-page {
         background-color: var(--color-primary);
         color: white;
         border-radius: 5px;
+        border-bottom: none;
         text-decoration: none;
       }
     }
