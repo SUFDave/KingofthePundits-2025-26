@@ -96,7 +96,13 @@
         box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
         transform: translateX(100%); transition: transform 0.3s ease-in-out;
       }
-      .nav-list.nav-open { display: flex; transform: translateX(0); }
+      .nav-list.nav-open { 
+        display: flex; 
+        transform: translateX(0); 
+      }
+      .nav-list.nav-open li {
+        display: block;
+      }
       .nav-list li { margin: 0.5rem 0; width: 100%; text-align: center; }
       .nav-list a { display: block; padding: 0.75rem; color: var(--color-text); }
     }
@@ -188,7 +194,7 @@
       <ul class="glance-list">
         <li>The season lasts for 30 weeks, where eight pundits will compete in two divisions.</li>
         <li>The scoring system is designed to reward bold predictions. A correct Home Win guess is worth 1pt, while an Away Win is a more valuable 2pts. The biggest payoff comes from correctly predicting a Draw, which awards a massive 3pts.</li>
-        <li>The competition operates on a £2 per player per week entry fee, with a total of <strong>£476.00</strong> collected so far this season. This fund is split equally between the Betting Fund and the End of Season Prize Fund.</li>
+        <li>The competition operates on a £2 per player per week entry fee, with a total of **£476.00** collected so far this season. This fund is split equally between the Betting Fund and the End of Season Prize Fund.</li>
         <li>The total prize fund of <strong>£238.00</strong> is up for grabs! At the end of the season, the top pundits will take home a share of the winnings based on their final league positions.</li>
       </ul>
     </article>
