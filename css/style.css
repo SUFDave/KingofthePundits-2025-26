@@ -55,10 +55,13 @@ img { max-width: 100%; height: auto; display: block; }
         z-index: 1002;
         position: relative;
         transition: background-color 0.2s ease-in-out;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .nav-toggle:hover {
+    .nav-toggle:hover,
+    .nav-toggle:focus {
         background-color: var(--color-primary-dark);
+        outline: none;
     }
     
     .nav-list { 
@@ -72,17 +75,19 @@ img { max-width: 100%; height: auto; display: block; }
         padding: 4rem 1rem 1rem; 
         box-shadow: -5px 0 25px rgba(0,0,0,0.3); 
         z-index: 1001; 
-        transform: translateX(100%); 
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translate3d(100%, 0, 0); 
+        transition: transform 0.3s ease-out;
         display: flex;
-        will-change: transform;
-        -webkit-transform: translateX(100%);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
+        /* Optimization for crisp rendering */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        backface-visibility: hidden;
+        perspective: 1000px;
     }
     
     .nav-list.nav-open { 
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     
     .nav-list li { 
@@ -97,11 +102,14 @@ img { max-width: 100%; height: auto; display: block; }
         border-radius: var(--border-radius);
         transition: all 0.2s ease-in-out;
         border: 1px solid transparent;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .nav-list a:hover {
+    .nav-list a:hover,
+    .nav-list a:focus {
         background-color: rgba(16, 185, 129, 0.1);
         border-color: var(--color-primary);
+        outline: none;
     }
     
     .nav-list a.current-page {
@@ -131,26 +139,29 @@ img { max-width: 100%; height: auto; display: block; }
         justify-content: center;
         border-radius: 50%;
         transition: all 0.2s ease-in-out;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .nav-close:hover {
+    .nav-close:hover,
+    .nav-close:focus {
         background-color: rgba(255, 255, 255, 0.1);
         color: var(--color-primary);
+        outline: none;
     }
     
-    /* Menu overlay */
+    /* Menu overlay - removed blur effect */
     .nav-overlay {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(2px);
+        transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        /* No backdrop-filter to prevent blurriness */
     }
     
     .nav-overlay.nav-open {
