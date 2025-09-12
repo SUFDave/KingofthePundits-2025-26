@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- RESPONSIVE Navigation - Works on Desktop AND Mobile -->
   <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
         <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
@@ -20,7 +19,6 @@
             <span style="color: #10b981; font-weight: 300; opacity: 0.8;">2025/26</span>
         </h1>
         
-        <!-- DESKTOP Navigation (hidden on mobile) -->
         <nav style="display: none;" class="desktop-nav">
             <ul style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center;">
                 <li style="margin-left: 1.5rem;">
@@ -44,7 +42,6 @@
             </ul>
         </nav>
         
-        <!-- MOBILE Navigation (hidden on desktop) -->
         <nav style="display: none;" class="mobile-nav">
             <button onclick="document.getElementById('menu').style.display='block'; document.body.style.overflow='hidden';" 
                     style="display: block; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 16px; font-family: inherit;"
@@ -86,7 +83,6 @@
     </div>
   </header>
 
-  <!-- CSS to show/hide appropriate navigation -->
   <style>
   /* Desktop: Show desktop nav, hide mobile nav */
   @media (min-width: 768px) {
@@ -158,6 +154,14 @@
             <tr><td><span class="pick-type draw">D</span></td><td>Sheffield Wednesday vs Bristol City</td><td></td><td class="points-lost"></td></tr>
           </tbody></table>
         </div>
+        <div class="player-card">
+          <div class="player-header"><span class="player-name">Mike</span><span class="player-score">Not yet scored</span></div>
+          <table class="pick-table"><tbody>
+            <tr><td><span class="pick-type home">H</span></td><td>Crystal Palace vs Sunderland</td><td></td><td class="points-lost"></td></tr>
+            <tr><td><span class="pick-type away">A</span></td><td>West Ham vs Tottenham</td><td></td><td class="points-lost"></td></tr>
+            <tr><td><span class="pick-type draw">D</span></td><td>Wrexham vs Queens Park Rangers</td><td></td><td class="points-lost"></td></tr>
+          </tbody></table>
+        </div>
       </div>
       
       <div class="card">
@@ -184,6 +188,14 @@
             <tr><td><span class="pick-type home">H</span></td><td>Newcastle Utd vs Wolves</td><td></td><td class="points-lost"></td></tr>
             <tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Leicester City</td><td></td><td class="points-lost"></td></tr>
             <tr><td><span class="pick-type draw">D</span></td><td>Charlton vs Millwall</td><td></td><td class="points-lost"></td></tr>
+          </tbody></table>
+        </div>
+        <div class="player-card">
+          <div class="player-header"><span class="player-name">Dave K</span><span class="player-score">Not yet scored</span></div>
+          <table class="pick-table"><tbody>
+            <tr><td><span class="pick-type home">H</span></td><td>Swindon vs Harrogate</td><td></td><td class="points-lost"></td></tr>
+            <tr><td><span class="pick-type away">A</span></td><td>Brentford vs Chelsea</td><td></td><td class="points-lost"></td></tr>
+            <tr><td><span class="pick-type draw">D</span></td><td>Man City vs Man Utd</td><td></td><td class="points-lost"></td></tr>
           </tbody></table>
         </div>
       </div>
