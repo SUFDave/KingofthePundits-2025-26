@@ -207,6 +207,7 @@ img {
   margin-bottom: 2rem;
   text-align: left;
   color: var(--color-primary);
+  letter-spacing: -1px; /* <-- Added this */
 }
 
 .card {
@@ -233,7 +234,15 @@ img {
 }
 
 .card p, .card ul, .card h4 {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 1rem; /* <-- Modified this */
+}
+
+/* Added this new rule for better hierarchy */
+.card h4 {
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0;
 }
 
 /* 6. TABLES */
