@@ -318,7 +318,6 @@ img {
 .points-won::before { content: '✔ '; color: var(--color-primary); }
 .points-lost::before { content: '✖ '; color: #9ca3af; }
 
-
 /* 9. FOOTER & UTILITIES */
 .site-footer {
   background-color: var(--color-surface);
