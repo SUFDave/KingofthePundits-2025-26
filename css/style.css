@@ -1,3 +1,14 @@
+@media (max-width: 767px) {
+  body {
+    background-color: red !important; /* Diagnostic test */
+  }
+}
+
+/* King of the Pundits - Redesign v3 (COMPLETE) */
+
+/* 1. VARIABLES & THEME */
+:root {
+/* ... the rest of your file continues below ... */
 /* King of the Pundits - Redesign v3 (COMPLETE) */
 
 /* 1. VARIABLES & THEME */
