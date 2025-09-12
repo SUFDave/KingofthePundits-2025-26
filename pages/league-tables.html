@@ -19,6 +19,10 @@
         <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+            <i class="fa-solid fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
         <ul id="primary-menu" class="nav-list">
           <li><a href="../index.html">Home</a></li>
           <li><a href="league-tables.html" class="current-page">League Tables</a></li>
@@ -27,12 +31,13 @@
         </ul>
       </nav>
     </div>
-    <div class="container">
-        <div class="hero-banner" role="banner">
-            <img src="../images/kingofthepundits-banner.jpg" alt="King of the Pundits stadium banner with a football and a crown">
-        </div>
-    </div>
   </header>
+
+  <div class="container">
+      <div class="hero-banner" role="banner">
+          <img src="../images/kingofthepundits-banner.jpg" alt="King of the Pundits stadium banner with a football and a crown">
+      </div>
+  </div>
 
   <main class="container main-content">
     <h2 class="page-title">League Tables</h2>
@@ -149,18 +154,18 @@
       </div>
     </div>
     
-    <article class="card">
+    <article class="card" style="padding-bottom: 1.5rem;">
       <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
       <p>The first two weeks have set the stage for an intense season of punditry! With a mix of early successes and fierce competition, the league tables are already beginning to take shape.</p>
       
       <h4>Division 1: The Race for Supremacy</h4>
-      <p>In Division One, **Davo** has established an early lead with a formidable 7 points...</p>
+      <p>In Division One, **Davo** has established an early lead with a formidable 7 points.</p>
       
       <h4>Division 2: A Tightly Contested Battle</h4>
-      <p>The battle in Division Two is proving to be a tight one! **Ben** holds the top spot with 4 points...</p>
+      <p>The battle in Division Two is proving to be a tight one! **Ben** holds the top spot with 4 points.</p>
       
       <h4>The Power of a "Full House"</h4>
-      <p>In our competition, a "Full House Six Pointer" is the holy grail of predictions...</p>
+      <p>In our competition, a "Full House Six Pointer" is the holy grail of predictions.</p>
     </article>
   </main>
 
@@ -169,8 +174,10 @@
   </footer>
 
   <script>
-    // Your JavaScript can remain as is
     document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+
       document.querySelectorAll('.stat-toggle').forEach(button => {
         button.addEventListener('click', () => {
           const targetId = button.getAttribute('data-target');
@@ -180,7 +187,14 @@
           targetRow.classList.toggle('hidden');
         });
       });
-      // ... rest of your script ...
+
+      if (navToggle && primaryMenu) {
+        navToggle.addEventListener('click', function() {.
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          primaryMenu.classList.toggle('nav-open');
+        });
+      }
     });
   </script>
 </body>
