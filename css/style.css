@@ -363,3 +363,22 @@ img {
   padding: 2rem 1rem;
   margin-top: 2rem;
 }
+/* 9. CARD CONTENT REFINEMENTS */
+
+/* Resets default list padding to align with other card content */
+.card ul, .card ol {
+  padding-left: 1.5rem;
+}
+
+/* Adds a bit more space between list items */
+.card li {
+  margin-bottom: 0.75rem;
+}
+
+/* A specific class for lists on the About/Home page to add more space */
+.glance-list {
+  padding-left: 1.5rem; /* Ensures alignment */
+}
+.glance-list li {
+  padding-left: 1rem; /* Adds space between bullet and text */
+}
