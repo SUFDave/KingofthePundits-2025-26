@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>King of the Pundits — Season 2025/26</title>
   <meta name="description" content="Official app for the King of the Pundits football competition — league tables, weekly picks and highlights." />
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -98,7 +98,7 @@
       <ul class="glance-list">
         <li>The season lasts for 30 weeks, where eight pundits will compete in two divisions.</li>
         <li>The scoring system is designed to reward bold predictions. A correct Home Win guess is worth 1pt, while an Away Win is a more valuable 2pts. The biggest payoff comes from correctly predicting a Draw, which awards a massive 3pts.</li>
-        <li>The competition operates on a £2 per player per week entry fee, with a total of **£476.00** collected so far this season. This fund is split equally between the Betting Fund and the End of Season Prize Fund.</li>
+        <li>The competition operates on a £2 per player per week entry fee, with a total of <strong>£476.00</strong> collected so far this season. This fund is split equally between the Betting Fund and the End of Season Prize Fund.</li>
         <li>The total prize fund of <strong>£238.00</strong> is up for grabs! At the end of the season, the top pundits will take home a share of the winnings based on their final league positions.</li>
       </ul>
     </article>
@@ -121,6 +121,7 @@
           const isExpanded = this.getAttribute('aria-expanded') === 'true';
           this.setAttribute('aria-expanded', !isExpanded);
           primaryMenu.classList.toggle('nav-open');
+          document.body.classList.toggle('no-scroll');
         });
       }
 
