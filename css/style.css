@@ -456,13 +456,24 @@
                 font-size: 1rem;
             }
 
+            .nav-toggle {
+                display: block;
+                background-color: var(--color-primary);
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+                z-index: 1001;
+            }
             .nav-list {
                 display: none;
-                flex-direction: column;
                 position: fixed;
                 top: 0;
                 right: 0;
                 background-color: var(--color-surface);
+                flex-direction: column;
                 width: 250px;
                 height: 100%;
                 padding: 4rem 1rem 1rem;
@@ -479,6 +490,7 @@
                 margin: 0.5rem 0;
                 width: 100%;
                 text-align: center;
+                display: block; /* This is the key change */
             }
             .nav-list a {
                 display: block;
@@ -497,11 +509,10 @@
                 </h1>
                 <nav>
                     <ul class="nav-list">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/league-tables">League Tables</a></li>
-                        <li><a href="/weekly-picks">Weekly Picks</a></li>
-                        <li><a href="/results">Results</a></li>
-                        <li><a href="/about">About</a></li>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/pages/league-tables.html">League Tables</a></li>
+                        <li><a href="/pages/weekly-picks.html">Weekly Picks</a></li>
+                        <li><a href="/pages/about.html">About</a></li>
                     </ul>
                 </nav>
             </div>
