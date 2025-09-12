@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -18,7 +18,7 @@
         <h1 class="brand-title">King of the Pundits <span class="season">2025/26</span></h1>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
             <i class="fa-solid fa-bars"></i>
             <span class="sr-only">Menu</span>
         </button>
@@ -110,20 +110,13 @@
     <p>&copy; 2025 King of the Pundits. Built for the league.</p>
   </footer>
 
+  <!-- Fixed Mobile Navigation JavaScript -->
+  <script src="js/mobile-nav.js"></script>
+  
+  <!-- Back to top functionality -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const navToggle = document.getElementById('nav-toggle');
-      const primaryMenu = document.getElementById('primary-menu');
       const backToTopButton = document.getElementById('backToTop');
-
-      if (navToggle && primaryMenu) {
-        navToggle.addEventListener('click', function() {
-          const isExpanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !isExpanded);
-          primaryMenu.classList.toggle('nav-open');
-          document.body.classList.toggle('no-scroll');
-        });
-      }
 
       if (backToTopButton) {
         window.addEventListener('scroll', function() {
