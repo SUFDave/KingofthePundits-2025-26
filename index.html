@@ -44,7 +44,13 @@
       padding: 1.5rem; margin-bottom: 2rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
-    .card-title { font-size: 1.75rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .card-title {
+      font-size: 1.75rem; margin-bottom: 1rem; display: flex;
+      align-items: center; gap: 0.75rem; padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      color: var(--color-primary); 
+    }
+    .card-title .fa-solid { color: var(--color-primary); } 
     .video-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
     }
@@ -53,7 +59,7 @@
     .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; }
     .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     .video-caption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; }
-    .glance-list { list-style: none; padding-left: 1rem; }
+    .glance-list { list-style: none; padding-left: 1rem; margin-top: 1rem; }
     .glance-list li { margin-bottom: 0.5rem; position: relative; padding-left: 1.2rem; }
     .glance-list li::before { content: '•'; color: var(--color-primary); position: absolute; left: 0; }
     .site-footer {
@@ -131,7 +137,14 @@
 
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-newspaper"></i> Latest Results: Week Two</h3>
-      <p>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results. Davo maintained his lead with 1 point, while Dave K had the week's best performance with 3 points.</p>
+      <ul class="glance-list">
+        <li>Week Two saw more conservative scoring across both divisions as players adjusted their strategies following the opening week's mixed results.</li>
+        <li><strong>Davo</strong> maintained his lead at the top of Division One with 1 point, and is now the clear overall leader with 7 points!</li>
+        <li><strong>Dave K</strong> had his best week so far, securing a big 3 points which saw him move up the Division Two league table to second place, just 1 point behind Ben.</li>
+        <li><strong>Mike</strong> earned a valuable point, bringing his overall total to 2.</li>
+        <li>In Division Two, **Myles** also picked up a point, moving his total to 1.</li>
+        <li>A tough week for **Dylan** and **Alex** as they both failed to score any points.</li>
+      </ul>
     </article>
     
     <article class="card">
@@ -171,11 +184,12 @@
 
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-circle-info"></i> The Season At A Glance</h3>
+      <p>Welcome to the 2025/26 season of King of the Pundits! With 30 action-packed weeks ahead, our competitors are locked in a fierce battle for bragging rights and the ultimate prize. Here's what you need to know:</p>
       <ul class="glance-list">
-        <li>The season lasts for 30 weeks.</li>
-        <li>Players compete in two divisions.</li>
-        <li>Points: Home Win = 1pt, Away Win = 2pts, Draw = 3pts.</li>
-        <li>Total prize fund of £180 to be won.</li>
+        <li>The season lasts for 30 weeks, where eight pundits will compete in two divisions.</li>
+        <li>The scoring system is designed to reward bold predictions. A correct Home Win guess is worth 1pt, while an Away Win is a more valuable 2pts. The biggest payoff comes from correctly predicting a Draw, which awards a massive 3pts.</li>
+        <li>A total prize fund of £180 is up for grabs! At the end of the season, the top pundits will take home a share of the winnings based on their final league positions.</li>
+        <li>Make sure to follow our weekly updates to see who is climbing the leaderboards and who is at risk of relegation. Every point counts as the battle for promotion and to avoid the drop heats up!</li>
       </ul>
     </article>
   </main>
