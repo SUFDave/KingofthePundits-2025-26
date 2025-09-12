@@ -289,3 +289,18 @@ img {
   opacity: 0.8; transition: opacity 0.3s;
 }
 .back-to-top:hover { opacity: 1; }
+/* Mobile Typography Adjustments */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px; /* Reduces base font size slightly */
+    line-height: 1.5; /* Adjusts line spacing for smaller text */
+  }
+
+  .page-title {
+    font-size: 2rem; /* Makes the main page titles smaller */
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Makes the card titles smaller */
+  }
+}
