@@ -235,12 +235,12 @@
       </div>
     </div>
 
-    <!-- NEW ANALYTICS CARDS - Added between Week 3 and Week 2 -->
+    <!-- ANALYTICS CARDS -->
     <div class="tables-grid">
       <div class="card">
         <h3 class="sub-title">Week Three Team Selection Analytics</h3>
         <div class="chart-container">
-          <canvas id="teamPicksChart"></canvas>
+          <canvas id="teamPicksChart" width="400" height="200"></canvas>
         </div>
       </div>
       
@@ -250,15 +250,15 @@
         <ul class="bankers-list">
           <li>
             <span>Liverpool</span>
-            <span class="banker-rank">Champions</span>
-          </li>
-          <li>
-            <span>Arsenal</span>
-            <span class="banker-rank">2nd Place</span>
+            <span class="banker-rank">Away Win</span>
           </li>
           <li>
             <span>Chelsea</span>
-            <span class="banker-rank">Trophy Winners</span>
+            <span class="banker-rank">Away Win</span>
+          </li>
+          <li>
+            <span>Arsenal</span>
+            <span class="banker-rank">Home Win</span>
           </li>
         </ul>
       </div>
@@ -407,7 +407,6 @@
       <p>&copy; 2025 King of the Pundits. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backToTopButton = document.getElementById('backToTop');
@@ -425,76 +424,76 @@
         });
       }
 
-      // Wait for Chart.js to load
-      if (typeof Chart !== 'undefined') {
-        // Team Picks Chart
-        const ctx = document.getElementById('teamPicksChart');
-        if (ctx) {
-          const chartData = {
-            labels: ['Arsenal', 'Crystal Palace', 'West Brom', 'Gillingham', 'Newcastle', 'Swindon', 'Liverpool', 'Leicester', 'Chelsea', 'Tottenham', 'Sheffield Utd'],
-            datasets: [
-              {
-                label: 'Home Wins',
-                data: [2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-                backgroundColor: '#10b981',
-                borderColor: '#059669',
-                borderWidth: 1
-              },
-              {
-                label: 'Away Wins',
-                data: [0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1],
-                backgroundColor: '#3b82f6',
-                borderColor: '#2563eb',
-                borderWidth: 1
-              },
-              {
-                label: 'Draws',
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                backgroundColor: '#f59e0b',
-                borderColor: '#d97706',
-                borderWidth: 1
-              }
-            ]
-          };
-
-          new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  labels: {
-                    color: '#e5e7eb'
-                  }
-                }
-              },
-              scales: {
-                x: {
-                  ticks: {
-                    color: '#9ca3af',
-                    maxRotation: 45,
-                    minRotation: 45
-                  },
-                  grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
-                  }
-                },
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    color: '#9ca3af',
-                    stepSize: 1
-                  },
-                  grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
-                  }
-                }
-              }
-            }
-          });
-        }
+      // Create chart using vanilla JavaScript instead of Chart.js
+      const canvas = document.getElementById('teamPicksChart');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width = 800;
+        const height = canvas.height = 400;
+        
+        // Chart data
+        const teams = ['Arsenal', 'Crystal Palace', 'West Brom', 'Gillingham', 'Newcastle', 'Swindon', 'Liverpool', 'Leicester', 'Chelsea', 'Tottenham'];
+        const homeWins = [2, 2, 1, 1, 1, 1, 0, 0, 0, 0];
+        const awayWins = [0, 0, 0, 0, 0, 0, 2, 2, 2, 1];
+        const draws = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        
+        // Chart dimensions
+        const padding = 60;
+        const chartWidth = width - (padding * 2);
+        const chartHeight = height - (padding * 2);
+        const barWidth = chartWidth / teams.length;
+        const maxValue = 3;
+        
+        // Clear canvas
+        ctx.fillStyle = '#374151';
+        ctx.fillRect(0, 0, width, height);
+        
+        // Draw bars
+        teams.forEach((team, i) => {
+          const x = padding + (i * barWidth);
+          const homeHeight = (homeWins[i] / maxValue) * chartHeight;
+          const awayHeight = (awayWins[i] / maxValue) * chartHeight;
+          const drawHeight = (draws[i] / maxValue) * chartHeight;
+          
+          // Home wins (green)
+          ctx.fillStyle = '#10b981';
+          ctx.fillRect(x + 5, padding + chartHeight - homeHeight, barWidth/3 - 2, homeHeight);
+          
+          // Away wins (blue)
+          ctx.fillStyle = '#3b82f6';
+          ctx.fillRect(x + barWidth/3 + 3, padding + chartHeight - awayHeight, barWidth/3 - 2, awayHeight);
+          
+          // Draws (orange)
+          ctx.fillStyle = '#f59e0b';
+          ctx.fillRect(x + 2*barWidth/3 + 1, padding + chartHeight - drawHeight, barWidth/3 - 2, drawHeight);
+          
+          // Team labels
+          ctx.fillStyle = '#e5e7eb';
+          ctx.font = '10px Inter';
+          ctx.save();
+          ctx.translate(x + barWidth/2, height - 20);
+          ctx.rotate(-Math.PI/4);
+          ctx.textAlign = 'right';
+          ctx.fillText(team, 0, 0);
+          ctx.restore();
+        });
+        
+        // Legend
+        ctx.fillStyle = '#10b981';
+        ctx.fillRect(padding, 20, 15, 15);
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '12px Inter';
+        ctx.fillText('Home Wins', padding + 20, 32);
+        
+        ctx.fillStyle = '#3b82f6';
+        ctx.fillRect(padding + 100, 20, 15, 15);
+        ctx.fillStyle = '#e5e7eb';
+        ctx.fillText('Away Wins', padding + 120, 32);
+        
+        ctx.fillStyle = '#f59e0b';
+        ctx.fillRect(padding + 200, 20, 15, 15);
+        ctx.fillStyle = '#e5e7eb';
+        ctx.fillText('Draws', padding + 220, 32);
       }
     });
   </script>
