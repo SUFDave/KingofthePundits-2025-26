@@ -103,22 +103,52 @@
   <main class="container main-content">
     <h2 class="page-title">Weekly Picks</h2>
 
-    <!-- Week Three Picks (already in file) -->
+    <!-- Division 1 & 2 Week Three Picks -->
+    <div class="tables-grid">
+      <div class="card">
+        <h3 class="sub-title">Division 1 — Week Three Picks</h3>
+        <!-- Player cards -->
+      </div>
+      <div class="card">
+        <h3 class="sub-title">Division 2 — Week Three Picks</h3>
+        <!-- Player cards -->
+      </div>
+    </div>
 
-    <!-- New Week Three Bankers card placed right after Week Three Picks -->
+    <!-- Week Three Bankers -->
     <div class="tables-grid">
       <div class="card">
         <h3 class="sub-title">Week Three Bankers</h3>
         <div class="player-card">
-          <canvas id="weekThreeBankersChart" style="max-height:400px; width:100%;"></canvas>
+          <canvas id="weekThreeBankersChart" style="max-height:420px; width:100%;"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Week Two Picks continues below as in your file -->
-  </main>
+    <!-- Division 1 & 2 Week Two Picks -->
+    <div class="tables-grid">
+      <div class="card">
+        <h3 class="sub-title">Division 1 — Week Two Picks</h3>
+        <!-- Player cards -->
+      </div>
+      <div class="card">
+        <h3 class="sub-title">Division 2 — Week Two Picks</h3>
+        <!-- Player cards -->
+      </div>
+    </div>
 
-  <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- Division 1 & 2 Week One Picks -->
+    <div class="tables-grid">
+      <div class="card">
+        <h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
+        <!-- Player cards -->
+      </div>
+      <div class="card">
+        <h3 class="sub-title">Division 2 — Week One Picks (Recap)</h3>
+        <!-- Player cards -->
+      </div>
+    </div>
+  </main>
 
   <footer class="site-footer">
       <p>&copy; 2025 King of the Pundits. All rights reserved.</p>
@@ -127,57 +157,48 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const backToTopButton = document.getElementById('backToTop');
-      if (backToTopButton) {
-        window.addEventListener('scroll', function() {
-          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopButton.style.display = "block";
-          } else {
-            backToTopButton.style.display = "none";
-          }
-        });
-        backToTopButton.addEventListener('click', function() {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      // Week Three Bankers chart
-      const weekThreeTables = [...document.querySelectorAll("h3.sub-title")]
-        .filter(h3 => h3.textContent.includes("Week Three Picks"))
-        .map(h3 => h3.parentElement);
+      const weekThreeHeaders = Array.from(document.querySelectorAll('h3.sub-title'))
+        .filter(h => /Week Three Picks/.test(h.textContent));
 
       const counts = {};
-      weekThreeTables.forEach(div => {
-        div.querySelectorAll("table.pick-table tbody tr").forEach(row => {
-          const type = row.querySelector(".pick-type")?.textContent.trim();
-          const matchup = row.cells[1]?.textContent.trim();
-          if (!type || !matchup) return;
+      weekThreeHeaders.forEach(h => {
+        const card = h.closest('.card');
+        if (!card) return;
+        card.querySelectorAll('table.pick-table tbody tr').forEach(row => {
+          const typeEl = row.querySelector('.pick-type');
+          const matchupCell = row.cells[1];
+          if (!typeEl || !matchupCell) return;
+          const type = typeEl.textContent.trim();
+          const matchup = matchupCell.textContent.trim();
           if (!counts[matchup]) counts[matchup] = { H: 0, A: 0, D: 0 };
-          counts[matchup][type]++;
+          if (['H','A','D'].includes(type)) counts[matchup][type]++;
         });
       });
 
-      const labels = Object.keys(counts).map(l => l.replace(" vs ", " v "));
-      const homeData = Object.keys(counts).map(l => counts[l].H);
-      const awayData = Object.keys(counts).map(l => counts[l].A);
-      const drawData = Object.keys(counts).map(l => counts[l].D);
+      const fixtures = Object.keys(counts);
+      if (fixtures.length === 0) return;
 
-      const ctx = document.getElementById("weekThreeBankersChart").getContext("2d");
-      new Chart(ctx, {
-        type: "bar",
+      const labels = fixtures.map(k => k.replace(' vs ', ' v '));
+      const homeData = fixtures.map(k => counts[k].H);
+      const awayData = fixtures.map(k => counts[k].A);
+      const drawData = fixtures.map(k => counts[k].D);
+
+      new Chart(document.getElementById('weekThreeBankersChart').getContext('2d'), {
+        type: 'bar',
         data: {
           labels: labels,
           datasets: [
-            { label: "Home Wins", data: homeData, backgroundColor: "#10b981" },
-            { label: "Away Wins", data: awayData, backgroundColor: "#3b82f6" },
-            { label: "Draws", data: drawData, backgroundColor: "#f59e0b" }
+            { label: 'Home Wins', data: homeData, backgroundColor: '#10b981' },
+            { label: 'Away Wins', data: awayData, backgroundColor: '#3b82f6' },
+            { label: 'Draws', data: drawData, backgroundColor: '#f59e0b' }
           ]
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
-            legend: { position: "top" },
-            title: { display: true, text: "Most Picked Results — Week 3" }
+            legend: { position: 'top' },
+            title: { display: true, text: 'Most Picked Results — Week 3' }
           },
           scales: {
             x: { stacked: true, ticks: { autoSkip: false, maxRotation: 60, minRotation: 30 } },
