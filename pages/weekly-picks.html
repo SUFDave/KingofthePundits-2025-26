@@ -98,7 +98,7 @@
 
   .chart-container {
     position: relative;
-    height: 400px;
+    height: 500px;
     width: 100%;
     padding: 1rem;
   }
@@ -122,12 +122,24 @@
   }
 
   .banker-rank {
-    background: #10b981;
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 700;
+  }
+  
+  .banker-rank.home-win {
+    background: #10b981;
+  }
+  
+  .banker-rank.away-win {
+    background: #ef4444;
+  }
+
+  .bankers-description {
+    color: #e5e7eb;
+    margin-bottom: 1.5rem;
   }
   </style>
 
@@ -240,13 +252,13 @@
       <div class="card">
         <h3 class="sub-title">Week Three Team Selection Analytics</h3>
         <div class="chart-container">
-          <canvas id="teamPicksChart" width="400" height="200"></canvas>
+          <canvas id="horizontalChart" width="900" height="600"></canvas>
         </div>
       </div>
       
       <div class="card">
         <h3 class="sub-title">Week Three Bankers</h3>
-        <p style="margin-bottom: 1.5rem;">Best performing teams from Week 3 picks based on current 2025-26 season form</p>
+        <p class="bankers-description">Best performing teams from Week 3 picks based on current 2025-26 season form</p>
         <ul class="bankers-list">
           <li>
             <span>Liverpool</span>
@@ -424,76 +436,119 @@
         });
       }
 
-      // Create chart using vanilla JavaScript instead of Chart.js
-      const canvas = document.getElementById('teamPicksChart');
-      if (canvas) {
+      // Horizontal Bar Chart
+      const canvas = document.getElementById('horizontalChart');
+      if (canvas && canvas.getContext) {
         const ctx = canvas.getContext('2d');
-        const width = canvas.width = 800;
-        const height = canvas.height = 400;
         
-        // Chart data
-        const teams = ['Arsenal', 'Crystal Palace', 'West Brom', 'Gillingham', 'Newcastle', 'Swindon', 'Liverpool', 'Leicester', 'Chelsea', 'Tottenham'];
-        const homeWins = [2, 2, 1, 1, 1, 1, 0, 0, 0, 0];
-        const awayWins = [0, 0, 0, 0, 0, 0, 2, 2, 2, 1];
-        const draws = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        // Data for Week 3 picks
+        const teams = [
+          'Arsenal', 'Crystal Palace', 'West Brom', 'Gillingham', 
+          'Newcastle', 'Swindon', 'Liverpool', 'Leicester', 
+          'Chelsea', 'Tottenham', 'Orient/Bolton', 'Wrexham/QPR'
+        ];
+        const homeWins = [2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0];
+        const awayWins = [0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 0, 0];
+        const draws = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2];
         
-        // Chart dimensions
-        const padding = 60;
-        const chartWidth = width - (padding * 2);
-        const chartHeight = height - (padding * 2);
-        const barWidth = chartWidth / teams.length;
+        const canvasWidth = 900;
+        const canvasHeight = 600;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        
+        const margin = { top: 60, right: 60, bottom: 60, left: 180 };
+        const chartWidth = canvasWidth - margin.left - margin.right;
+        const chartHeight = canvasHeight - margin.top - margin.bottom;
+        const barHeight = chartHeight / teams.length * 0.8;
+        const barSpacing = chartHeight / teams.length * 0.2;
         const maxValue = 3;
         
         // Clear canvas
         ctx.fillStyle = '#374151';
-        ctx.fillRect(0, 0, width, height);
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
         
-        // Draw bars
+        // Draw legend
+        ctx.fillStyle = '#10b981';
+        ctx.fillRect(margin.left, 20, 16, 16);
+        ctx.fillStyle = '#ef4444';
+        ctx.fillRect(margin.left + 120, 20, 16, 16);
+        ctx.fillStyle = '#eab308';
+        ctx.fillRect(margin.left + 240, 20, 16, 16);
+        
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '14px Inter';
+        ctx.textAlign = 'left';
+        ctx.fillText('Home Wins', margin.left + 20, 32);
+        ctx.fillText('Away Wins', margin.left + 140, 32);
+        ctx.fillText('Draws', margin.left + 260, 32);
+        
+        // Draw horizontal bars for each team
         teams.forEach((team, i) => {
-          const x = padding + (i * barWidth);
-          const homeHeight = (homeWins[i] / maxValue) * chartHeight;
-          const awayHeight = (awayWins[i] / maxValue) * chartHeight;
-          const drawHeight = (draws[i] / maxValue) * chartHeight;
+          const y = margin.top + (i * (barHeight + barSpacing));
           
-          // Home wins (green)
-          ctx.fillStyle = '#10b981';
-          ctx.fillRect(x + 5, padding + chartHeight - homeHeight, barWidth/3 - 2, homeHeight);
-          
-          // Away wins (blue)
-          ctx.fillStyle = '#3b82f6';
-          ctx.fillRect(x + barWidth/3 + 3, padding + chartHeight - awayHeight, barWidth/3 - 2, awayHeight);
-          
-          // Draws (orange)
-          ctx.fillStyle = '#f59e0b';
-          ctx.fillRect(x + 2*barWidth/3 + 1, padding + chartHeight - drawHeight, barWidth/3 - 2, drawHeight);
-          
-          // Team labels
+          // Team name
           ctx.fillStyle = '#e5e7eb';
-          ctx.font = '10px Inter';
-          ctx.save();
-          ctx.translate(x + barWidth/2, height - 20);
-          ctx.rotate(-Math.PI/4);
+          ctx.font = '13px Inter';
           ctx.textAlign = 'right';
-          ctx.fillText(team, 0, 0);
-          ctx.restore();
+          ctx.textBaseline = 'middle';
+          ctx.fillText(team, margin.left - 15, y + barHeight/2);
+          
+          // Home wins bar (green)
+          if (homeWins[i] > 0) {
+            const width = (homeWins[i] / maxValue) * chartWidth;
+            ctx.fillStyle = '#10b981';
+            ctx.fillRect(margin.left, y, width, barHeight/3 - 3);
+            
+            // Value label
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '11px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText(homeWins[i].toString(), margin.left + width/2, y + (barHeight/3)/2);
+          }
+          
+          // Away wins bar (red)
+          if (awayWins[i] > 0) {
+            const width = (awayWins[i] / maxValue) * chartWidth;
+            ctx.fillStyle = '#ef4444';
+            ctx.fillRect(margin.left, y + barHeight/3, width, barHeight/3 - 3);
+            
+            // Value label
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '11px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText(awayWins[i].toString(), margin.left + width/2, y + barHeight/3 + (barHeight/3)/2);
+          }
+          
+          // Draws bar (yellow)
+          if (draws[i] > 0) {
+            const width = (draws[i] / maxValue) * chartWidth;
+            ctx.fillStyle = '#eab308';
+            ctx.fillRect(margin.left, y + (barHeight/3)*2, width, barHeight/3 - 3);
+            
+            // Value label
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '11px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText(draws[i].toString(), margin.left + width/2, y + (barHeight/3)*2 + (barHeight/3)/2);
+          }
         });
         
-        // Legend
-        ctx.fillStyle = '#10b981';
-        ctx.fillRect(padding, 20, 15, 15);
-        ctx.fillStyle = '#e5e7eb';
-        ctx.font = '12px Inter';
-        ctx.fillText('Home Wins', padding + 20, 32);
-        
-        ctx.fillStyle = '#3b82f6';
-        ctx.fillRect(padding + 100, 20, 15, 15);
-        ctx.fillStyle = '#e5e7eb';
-        ctx.fillText('Away Wins', padding + 120, 32);
-        
-        ctx.fillStyle = '#f59e0b';
-        ctx.fillRect(padding + 200, 20, 15, 15);
-        ctx.fillStyle = '#e5e7eb';
-        ctx.fillText('Draws', padding + 220, 32);
+        // Grid lines
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= maxValue; i++) {
+          const x = margin.left + (i / maxValue) * chartWidth;
+          ctx.beginPath();
+          ctx.moveTo(x, margin.top);
+          ctx.lineTo(x, margin.top + chartHeight);
+          ctx.stroke();
+          
+          // Scale numbers
+          ctx.fillStyle = '#9ca3af';
+          ctx.font = '12px Inter';
+          ctx.textAlign = 'center';
+          ctx.fillText(i.toString(), x, canvasHeight - 20);
+        }
       }
     });
   </script>
