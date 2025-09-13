@@ -98,7 +98,7 @@
 
   .chart-container {
     position: relative;
-    height: 400px;
+    height: 450px;
     width: 100%;
     padding: 1rem;
     box-sizing: border-box;
@@ -132,6 +132,22 @@
   .banker-rank.away-win { background-color: #3b82f6; }
   .banker-rank.home-win { background-color: #10b981; }
   .banker-rank.draw { background-color: #f59e0b; }
+  
+  .treble-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #d1d5db;
+  }
+  .treble-info strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
   </style>
 
   <div class="container">
@@ -263,6 +279,9 @@
             <span class="banker-rank draw">Draw (67%)</span>
           </li>
         </ul>
+        <div class="treble-info">
+          The 3 Banker selections would return <strong>6.86/1 for the Treble</strong>, which is a return of <strong>£39.30</strong> from a <strong>£5.00</strong> bet.
+        </div>
       </div>
     </div>
 
@@ -431,7 +450,6 @@
         const ctx = canvas.getContext('2d');
         const parent = canvas.parentElement;
         
-        // Make canvas responsive
         canvas.width = parent.clientWidth;
         canvas.height = parent.clientHeight;
         
@@ -442,81 +460,85 @@
         const draws =    [0, 0, 0, 0, 0, 2, 2];
         
         // Chart dimensions and styling
-        const padding = 60;
-        const chartWidth = canvas.width - padding * 2;
-        const chartHeight = canvas.height - padding * 2;
-        const groupWidth = chartWidth / teams.length;
-        const barMargin = 4;
-        const barWidth = (groupWidth - barMargin * 2) / 3;
-        const maxValue = 3; 
+        const topPadding = 50;
+        const bottomPadding = 40;
+        const leftPadding = 100;
+        const rightPadding = 20;
+
+        const chartWidth = canvas.width - leftPadding - rightPadding;
+        const chartHeight = canvas.height - topPadding - bottomPadding;
+        
+        const groupHeight = chartHeight / teams.length;
+        const barMargin = 5;
+        const barHeight = (groupHeight - barMargin * 2) / 3;
+        const maxValue = 2; 
 
         // Clear canvas
         ctx.fillStyle = '#1f2937'; // bg-gray-800
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Draw Y-Axis labels and gridlines
+        // Draw X-Axis labels and gridlines
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
         ctx.fillStyle = '#9ca3af'; // text-gray-400
         ctx.font = '12px Inter';
-        ctx.textAlign = 'right';
-
+        ctx.textAlign = 'center';
+        
         for (let i = 0; i <= maxValue; i++) {
-            const y = padding + chartHeight - (i / maxValue) * chartHeight;
-            ctx.fillText(i, padding - 10, y + 4);
+            const x = leftPadding + (i / maxValue) * chartWidth;
+            ctx.fillText(i, x, canvas.height - bottomPadding + 20);
             ctx.beginPath();
-            ctx.moveTo(padding, y);
-            ctx.lineTo(padding + chartWidth, y);
+            ctx.moveTo(x, topPadding);
+            ctx.lineTo(x, topPadding + chartHeight);
             ctx.stroke();
         }
         
-        // Draw bars and team labels
+        // Draw bars and team labels (Y-Axis)
         teams.forEach((team, i) => {
-          const groupX = padding + (i * groupWidth);
+          const groupY = topPadding + (i * groupHeight);
           
-          const homeHeight = (homeWins[i] / maxValue) * chartHeight;
-          const awayHeight = (awayWins[i] / maxValue) * chartHeight;
-          const drawHeight = (draws[i] / maxValue) * chartHeight;
+          // Team Label
+          ctx.fillStyle = '#e5e7eb'; // text-gray-200
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          ctx.font = 'bold 12px Inter';
+          ctx.fillText(team, leftPadding - 10, groupY + groupHeight / 2);
+          
+          const homeWidth = (homeWins[i] / maxValue) * chartWidth;
+          const awayWidth = (awayWins[i] / maxValue) * chartWidth;
+          const drawWidth = (draws[i] / maxValue) * chartWidth;
           
           // Home wins (green)
           ctx.fillStyle = '#10b981';
-          ctx.fillRect(groupX + barMargin, padding + chartHeight - homeHeight, barWidth, homeHeight);
+          ctx.fillRect(leftPadding, groupY + barMargin, homeWidth, barHeight);
           
           // Away wins (blue)
           ctx.fillStyle = '#3b82f6';
-          ctx.fillRect(groupX + barMargin + barWidth, padding + chartHeight - awayHeight, barWidth, awayHeight);
+          ctx.fillRect(leftPadding, groupY + barMargin + barHeight, awayWidth, barHeight);
           
           // Draws (orange)
           ctx.fillStyle = '#f59e0b';
-          ctx.fillRect(groupX + barMargin + barWidth * 2, padding + chartHeight - drawHeight, barWidth, drawHeight);
-          
-          // Team labels
-          ctx.fillStyle = '#e5e7eb'; // text-gray-200
-          ctx.font = '12px Inter';
-          ctx.save();
-          ctx.translate(groupX + groupWidth / 2, canvas.height - padding + 15);
-          ctx.rotate(-Math.PI / 4);
-          ctx.textAlign = 'right';
-          ctx.fillText(team, 0, 0);
-          ctx.restore();
+          ctx.fillRect(leftPadding, groupY + barMargin + barHeight * 2, drawWidth, barHeight);
         });
         
         // Legend
         ctx.textAlign = 'left';
-        ctx.fillStyle = '#10b981';
-        ctx.fillRect(padding, 15, 12, 12);
-        ctx.fillStyle = '#e5e7eb';
+        ctx.textBaseline = 'alphabetic';
         ctx.font = '12px Inter';
-        ctx.fillText('Home Wins', padding + 20, 25);
+
+        ctx.fillStyle = '#10b981';
+        ctx.fillRect(leftPadding, 15, 12, 12);
+        ctx.fillStyle = '#e5e7eb';
+        ctx.fillText('Home Wins', leftPadding + 20, 25);
         
         ctx.fillStyle = '#3b82f6';
-        ctx.fillRect(padding + 110, 15, 12, 12);
+        ctx.fillRect(leftPadding + 110, 15, 12, 12);
         ctx.fillStyle = '#e5e7eb';
-        ctx.fillText('Away Wins', padding + 130, 25);
+        ctx.fillText('Away Wins', leftPadding + 130, 25);
         
         ctx.fillStyle = '#f59e0b';
-        ctx.fillRect(padding + 220, 15, 12, 12);
+        ctx.fillRect(leftPadding + 220, 15, 12, 12);
         ctx.fillStyle = '#e5e7eb';
-        ctx.fillText('Draws', padding + 240, 25);
+        ctx.fillText('Draws', leftPadding + 240, 25);
       }
     });
   </script>
