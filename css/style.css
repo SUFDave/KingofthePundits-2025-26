@@ -143,7 +143,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* 4. HERO BANNER */
-.hero-banner { width: 100%; aspect-ratio: 16 / 7; max-height: 350px; border-radius: var(--border-radius); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: sticky; top: 90px; z-index: 99; }
+.hero-banner { 
+    width: 100%; 
+    aspect-ratio: 16 / 7; 
+    max-height: 350px; 
+    border-radius: var(--border-radius); 
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+    position: sticky; 
+    top: 90px; 
+    z-index: 99;
+    margin-top: 2rem; /* Added spacing above banner */
+}
 .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
 
 /* 5. MAIN CONTENT & CARDS */
