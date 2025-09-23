@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Weekly Picks â€" King of the Pundits 2025/26</title>
+<title>Weekly Picks — King of the Pundits 2025/26</title>
 <meta content="View current and previous weekly picks for all players in the King of the Pundits football prediction competition." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -41,7 +41,7 @@
 </button>
 <div id="menu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999;">
 <div style="position:fixed; top:0; right:0; width:280px; height:100%; background:#1f2937; transform:translateX(0); transition:transform 0.3s; box-shadow:-5px 0 25px rgba(0,0,0,0.3); border-left:1px solid rgba(255,255,255,0.1);">
-<button onclick="document.getElementById('menu').style.display='none'; document.body.style.overflow='auto';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#10b981'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#e5e7eb; font-size:2rem; cursor:pointer; padding:0.5rem; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:all 0.2s;">Ã—</button>
+<button onclick="document.getElementById('menu').style.display='none'; document.body.style.overflow='auto';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#10b981'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#e5e7eb; font-size:2rem; cursor:pointer; padding:0.5rem; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:all 0.2s;">×</button>
 <div style="padding:4rem 1rem 1rem;">
 <a href="../index.html" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'" onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;">Home</a>
 <a href="league-tables.html" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'" onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;">League Tables</a>
@@ -128,6 +128,70 @@
     color: #93c5fd;
     font-style: italic;
   }
+
+  .current-week {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .week-title {
+    color: #10b981;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .week-badge {
+    background: #10b981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .current-picks {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .current-pick-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #10b981;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .current-pick-type {
+    background: #10b981;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .current-pick-match {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+  }
   </style>
 <div class="container">
 <div class="hero-banner" role="banner">
@@ -136,18 +200,53 @@
 </div>
 <main class="container main-content">
 <h2 class="page-title">Weekly Picks</h2>
+
+<!-- Current Week 5 Picks Section -->
+<div class="current-week">
+<h3 class="week-title">
+<span class="week-badge">CURRENT</span>
+Week 5 — Division 1 Picks
+</h3>
+<p style="color: #d1d5db; margin-bottom: 1.5rem;">September 28-30, 2025</p>
+
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score pending-status">Picks Submitted</span></div>
+<div class="current-picks">
+<div class="current-pick-item">
+<div class="current-pick-type">H</div>
+<div class="current-pick-match">Manchester City vs Burnley</div>
+</div>
+<div class="current-pick-item">
+<div class="current-pick-type">A</div>
+<div class="current-pick-match">Crystal Palace vs Liverpool</div>
+</div>
+<div class="current-pick-item">
+<div class="current-pick-type">D</div>
+<div class="current-pick-match">AFC Wimbledon vs Wycombe</div>
+</div>
+</div>
+</div>
+
+<div style="padding: 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; margin-top: 1rem;">
+<p style="margin: 0; color: #93c5fd; text-align: center; font-style: italic;">
+<i class="fa-solid fa-clock" style="margin-right: 0.5rem;"></i>
+Waiting for picks from Mike, Dylan, and Rob
+</p>
+</div>
+</div>
+
 <div class="card picks-split">
 <div>
-<h3 class="sub-title">Division 1 Picking Order â€" Wk 5</h3>
+<h3 class="sub-title">Division 1 Picking Order — Wk 5</h3>
 <ol class="picking-order">
-<li>Davo</li>
+<li>Davo ✓</li>
 <li>Mike</li>
 <li>Dylan</li>
 <li>Rob</li>
 </ol>
 </div>
 <div>
-<h3 class="sub-title">Division 2 Picking Order â€" Wk 5</h3>
+<h3 class="sub-title">Division 2 Picking Order — Wk 5</h3>
 <ol class="picking-order">
 <li>Ben</li>
 <li>Dave K</li>
@@ -156,9 +255,10 @@
 </ol>
 </div>
 </div>
+
 <div class="tables-grid">
 <div class="card">
-<h3 class="sub-title">Division 1 â€" Week Four Picks (FINAL)</h3>
+<h3 class="sub-title">Division 1 — Week Four Picks (FINAL)</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Rob</span><span class="player-score">4pts</span></div>
 <table class="pick-table"><tbody>
@@ -193,7 +293,7 @@
 </div>
 </div>
 <div class="card">
-<h3 class="sub-title">Division 2 â€" Week Four Picks (FINAL)</h3>
+<h3 class="sub-title">Division 2 — Week Four Picks (FINAL)</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Myles</span><span class="player-score">3pts</span></div>
 <table class="pick-table"><tbody>
@@ -230,7 +330,7 @@
 </div>
 <div class="tables-grid">
 <div class="card">
-<h3 class="sub-title">Division 1 â€" Week Three Picks (FINAL)</h3>
+<h3 class="sub-title">Division 1 — Week Three Picks (FINAL)</h3>
 <div class="player-card"><div class="player-header"><span class="player-name">Rob</span><span class="player-score">4pts</span></div><table class="pick-table">
 <tbody>
 <tr><td><span class="pick-type home">H</span></td><td>Gillingham vs Notts County</td><td>1-0</td><td class="points-won">1pt</td></tr>
@@ -264,7 +364,7 @@
 </div>
 </div>
 <div class="card">
-<h3 class="sub-title">Division 2 â€" Week Three Picks (FINAL)</h3>
+<h3 class="sub-title">Division 2 — Week Three Picks (FINAL)</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Ben</span><span class="player-score">4pts</span></div>
 <table class="pick-table"><tbody>
@@ -300,20 +400,20 @@
 </div>
 </div>
 <div class="tables-grid">
-<div class="card"><h3 class="sub-title">Week Four Results Summary</h3><p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 4.</p><div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;"><h4 style="margin: 0 0 1rem 0; color: #10b981;">ðŸ† Week 4 Champions</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: Rob (4pts)</p><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Dave K (6pts)</p></div><div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;"><h4 style="margin: 0 0 1rem 0; color: #f59e0b;">ðŸ"Š Week 4 Statistics</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">â€¢ Total Points Awarded: 22pts across both divisions</p></div></div><div class="card">
+<div class="card"><h3 class="sub-title">Week Four Results Summary</h3><p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 4.</p><div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;"><h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 4 Champions</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: Rob (4pts)</p><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Dave K (6pts)</p></div><div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;"><h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 4 Statistics</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">• Total Points Awarded: 22pts across both divisions</p></div></div><div class="card">
 <h3 class="sub-title">Week Three Results Summary</h3>
 <p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 3.</p>
 <div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;">
-<h4 style="margin: 0 0 1rem 0; color: #10b981;">ðŸ† Week 3 Champions</h4>
-<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 1:</strong> Rob (4pts) with Gillingham H âœ… and Leyton Orient/Bolton D âœ…</p>
-<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 2:</strong> Ben (4pts) with Newcastle H âœ… and Charlton/Millwall D âœ…</p>
+<h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 3 Champions</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 1:</strong> Rob (4pts) with Gillingham H ✓ and Leyton Orient/Bolton D ✓</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 2:</strong> Ben (4pts) with Newcastle H ✓ and Charlton/Millwall D ✓</p>
 </div>
 <div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;">
-<h4 style="margin: 0 0 1rem 0; color: #f59e0b;">ðŸ"Š Week 3 Statistics</h4>
-<p style="margin: 0.5rem 0; color: #e5e7eb;">â€¢ <strong>Success Rate:</strong> 9/24 correct predictions (37.5%)</p>
-<p style="margin: 0.5rem 0; color: #e5e7eb;">â€¢ <strong>Best Performing Picks:</strong> Home wins (5/8 correct)</p>
-<p style="margin: 0.5rem 0; color: #e5e7eb;">â€¢ <strong>Surprise Results:</strong> Derby beating West Brom away, QPR thrashing Wrexham</p>
-<p style="margin: 0.5rem 0; color: #e5e7eb;">â€¢ <strong>Total Points Awarded:</strong> 18pts across both divisions</p>
+<h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 3 Statistics</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Success Rate:</strong> 9/24 correct predictions (37.5%)</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Best Performing Picks:</strong> Home wins (5/8 correct)</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Surprise Results:</strong> Derby beating West Brom away, QPR thrashing Wrexham</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Total Points Awarded:</strong> 18pts across both divisions</p>
 </div>
 </div>
 <div class="card">
@@ -322,15 +422,15 @@
 <ul class="bankers-list">
 <li>
 <span>Arsenal 3-0 Nottingham Forest</span>
-<span class="banker-rank home-win">HOME âœ…</span>
+<span class="banker-rank home-win">HOME ✓</span>
 </li>
 <li>
 <span>Liverpool 1-0 Burnley (95')</span>
-<span class="banker-rank away-win">AWAY âœ…</span>
+<span class="banker-rank away-win">AWAY ✓</span>
 </li>
 <li>
 <span>Leyton Orient 1-1 Bolton</span>
-<span class="banker-rank draw">DRAW âœ…</span>
+<span class="banker-rank draw">DRAW ✓</span>
 </li>
 <li>
 <span>Man City 3-0 Man Utd</span>
@@ -348,7 +448,7 @@
 </div>
 <div class="tables-grid">
 <div class="card">
-<h3 class="sub-title">Division 1 â€" Week Two Picks</h3>
+<h3 class="sub-title">Division 1 — Week Two Picks</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Mike</span><span class="player-score">1pt</span></div>
 <table class="pick-table"><tbody>
@@ -379,7 +479,7 @@
 </div>
 </div>
 <div class="card">
-<h3 class="sub-title">Division 2 â€" Week Two Picks</h3>
+<h3 class="sub-title">Division 2 — Week Two Picks</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Dave K</span><span class="player-score">3pts</span></div>
 <table class="pick-table"><tbody>
@@ -416,7 +516,7 @@
 </div>
 <div class="tables-grid">
 <div class="card">
-<h3 class="sub-title">Division 1 â€" Week One Picks (Recap)</h3>
+<h3 class="sub-title">Division 1 — Week One Picks (Recap)</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Davo</span><span class="player-score">6pts</span></div>
 <table class="pick-table"><tbody>
@@ -443,7 +543,7 @@
 </div>
 </div>
 <div class="card">
-<h3 class="sub-title">Division 2 â€" Week One Picks (Recap)</h3>
+<h3 class="sub-title">Division 2 — Week One Picks (Recap)</h3>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Ben</span><span class="player-score">3pts</span></div>
 <table class="pick-table"><tbody>
@@ -481,7 +581,7 @@
 </main>
 <button class="back-to-top" id="backToTop" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <footer class="site-footer">
-<p>Â© 2025 King of the Pundits. All rights reserved.</p>
+<p>© 2025 King of the Pundits. All rights reserved.</p>
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
