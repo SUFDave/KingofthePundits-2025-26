@@ -129,69 +129,7 @@
     font-style: italic;
   }
 
-  .current-week {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-    border: 2px solid rgba(16, 185, 129, 0.3);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
 
-  .week-title {
-    color: #10b981;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .week-badge {
-    background: #10b981;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .current-picks {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .current-pick-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border-radius: 8px;
-    border-left: 4px solid #10b981;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .current-pick-type {
-    background: #10b981;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .current-pick-match {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-  }
   </style>
 <div class="container">
 <div class="hero-banner" role="banner">
@@ -201,37 +139,50 @@
 <main class="container main-content">
 <h2 class="page-title">Weekly Picks</h2>
 
-<!-- Current Week 5 Picks Section -->
-<div class="current-week">
-<h3 class="week-title">
-<span class="week-badge">CURRENT</span>
-Week 5 — Division 1 Picks
-</h3>
-<p style="color: #d1d5db; margin-bottom: 1.5rem;">September 28-30, 2025</p>
-
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 — Week Five Picks (CURRENT)</h3>
+<p style="font-size: 0.875rem; color: #10b981; margin-top: -0.75rem; margin-bottom: 1rem; font-weight: 600;">September 26-29, 2025</p>
 <div class="player-card">
 <div class="player-header"><span class="player-name">Davo</span><span class="player-score pending-status">Picks Submitted</span></div>
-<div class="current-picks">
-<div class="current-pick-item">
-<div class="current-pick-type">H</div>
-<div class="current-pick-match">Manchester City vs Burnley</div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Manchester City vs Burnley</td><td>-</td><td class="pending-status">TBD</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Crystal Palace vs Liverpool</td><td>-</td><td class="pending-status">TBD</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>AFC Wimbledon vs Wycombe</td><td>-</td><td class="pending-status">TBD</td></tr>
+</tbody></table>
 </div>
-<div class="current-pick-item">
-<div class="current-pick-type">A</div>
-<div class="current-pick-match">Crystal Palace vs Liverpool</div>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Mike</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
 </div>
-<div class="current-pick-item">
-<div class="current-pick-type">D</div>
-<div class="current-pick-match">AFC Wimbledon vs Wycombe</div>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Dylan</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
+</div>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Rob</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
 </div>
 </div>
+<div class="card">
+<h3 class="sub-title">Division 2 — Week Five Picks (CURRENT)</h3>
+<p style="font-size: 0.875rem; color: #10b981; margin-top: -0.75rem; margin-bottom: 1rem; font-weight: 600;">September 26-29, 2025</p>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Ben</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
 </div>
-
-<div style="padding: 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; margin-top: 1rem;">
-<p style="margin: 0; color: #93c5fd; text-align: center; font-style: italic;">
-<i class="fa-solid fa-clock" style="margin-right: 0.5rem;"></i>
-Waiting for picks from Mike, Dylan, and Rob
-</p>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Dave K</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
+</div>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Alex</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
+</div>
+<div class="player-card pending-picks">
+<div class="player-header"><span class="player-name">Myles</span><span class="pending-status">Awaiting Picks</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#93c5fd">Picks pending...</td></tr></tbody></table>
+</div>
 </div>
 </div>
 
