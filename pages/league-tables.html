@@ -185,7 +185,7 @@
                 </td>
                 <td>5pts</td> <td>15pts</td>
               </tr>
-              <tr class="expanded hidden" id="davek-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 5 (correct: 2)</li><li>Away Wins: 5 (correct: 2)</li><li>Draws: 5 (correct: 3)</li><li>Success Rate: 47%</li></ul></td></tr>
+              <tr class="expanded hidden" id="davek-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 5 (correct: 2)</li><li>Away Wins: 5 (correct: 2)</li><li>Draws: 5 (correct: 3)</li><li>Full House Six Pointers: 1</li><li>Success Rate: 47%</li></ul></td></tr>
               <tr>
                 <td class="pos">2</td>
                 <td class="player">
@@ -195,7 +195,7 @@
                 </td>
                 <td>1pt</td> <td>13pts</td>
               </tr>
-              <tr class="expanded hidden" id="ben-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 5 (correct: 5)</li><li>Away Wins: 4 (correct: 1)</li><li>Draws: 4 (correct: 2)</li><li>Success Rate: 62%</li></ul></td></tr>
+              <tr class="expanded hidden" id="ben-stats"><td colspan="4"><ul class="small-list"><li>Home Wins: 5 (correct: 5)</li><li>Away Wins: 5 (correct: 1)</li><li>Draws: 5 (correct: 2)</li><li>Success Rate: 53%</li></ul></td></tr>
                <tr>
                 <td class="pos">3</td>
                 <td class="player">
@@ -222,6 +222,316 @@
       </div>
     </div>
     
+    <!-- Specialist Statistics Card -->
+    <style>
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .stat-card {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      
+      .stat-card.home {
+        border-top: 4px solid #10b981;
+      }
+      
+      .stat-card.away {
+        border-top: 4px solid #3b82f6;
+      }
+      
+      .stat-card.draw {
+        border-top: 4px solid #f59e0b;
+      }
+      
+      .stat-card.special {
+        border-top: 4px solid #8b5cf6;
+      }
+      
+      .stat-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      
+      .stat-icon.home {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+      }
+      
+      .stat-icon.away {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+      }
+      
+      .stat-icon.draw {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+      }
+      
+      .stat-icon.special {
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        color: white;
+      }
+      
+      .stat-title {
+        flex: 1;
+      }
+      
+      .stat-title h3 {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .stat-title p {
+        color: #94a3b8;
+        font-size: 0.875rem;
+      }
+      
+      .stat-content {
+        color: white;
+      }
+      
+      .champion {
+        background: rgba(16, 185, 129, 0.1);
+        border: 2px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .champion-name {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #10b981;
+        margin-bottom: 0.5rem;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .champion-stat {
+        font-size: 1.25rem;
+        color: #e5e7eb;
+        font-weight: 600;
+      }
+      
+      .champion-detail {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+      }
+      
+      .runner-up {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      
+      .runner-up-title {
+        color: #3b82f6;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .runner-up-content {
+        color: #e5e7eb;
+        font-size: 0.95rem;
+      }
+      
+      .tied-badge {
+        display: inline-block;
+        background: #8b5cf6;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 0.5rem;
+      }
+      
+      .specialist-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+      }
+      
+      .specialist-header h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .specialist-header p {
+        color: #94a3b8;
+        font-size: 1rem;
+      }
+    </style>
+    
+    <article class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
+      <div class="specialist-header">
+        <h2>🏆 Specialist Statistics</h2>
+        <p>The Masters of Each Prediction Category</p>
+      </div>
+      
+      <div class="stats-grid">
+        <!-- Home Win Specialists -->
+        <div class="stat-card home">
+          <div class="stat-header">
+            <div class="stat-icon home">H</div>
+            <div class="stat-title">
+              <h3>Home Win Specialists</h3>
+              <p>Masters of the banker bet</p>
+            </div>
+          </div>
+          <div class="stat-content">
+            <div class="champion">
+              <div class="champion-name">DAVO & BEN <span class="tied-badge">TIED</span></div>
+              <div class="champion-stat">100% Success Rate</div>
+              <div class="champion-detail">Perfect record: 5 picks, 5 correct</div>
+            </div>
+            <div class="runner-up">
+              <div class="runner-up-title">Next Best</div>
+              <div class="runner-up-content">
+                <strong>Dylan, Mike, Dave K, Alex, Myles</strong> - All 40% (2/5 correct)<br>
+                <strong>Rob</strong> - 33% (1/3 correct, Weeks 3-5 only)
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Away Win Specialists -->
+        <div class="stat-card away">
+          <div class="stat-header">
+            <div class="stat-icon away">A</div>
+            <div class="stat-title">
+              <h3>Away Win Specialists</h3>
+              <p>The bold risk-takers</p>
+            </div>
+          </div>
+          <div class="stat-content">
+            <div class="champion">
+              <div class="champion-name">DYLAN & ALEX <span class="tied-badge">TIED</span></div>
+              <div class="champion-stat">60% Success Rate</div>
+              <div class="champion-detail">Elite performance: 3/5 correct</div>
+            </div>
+            <div class="runner-up">
+              <div class="runner-up-title">Next Best</div>
+              <div class="runner-up-content">
+                <strong>Mike & Dave K</strong> - Both 40% (2/5 correct)<br>
+                <strong>Struggling:</strong> Myles 0% (0/5), Rob 0% (0/3)
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Draw Specialists -->
+        <div class="stat-card draw">
+          <div class="stat-header">
+            <div class="stat-icon draw">D</div>
+            <div class="stat-title">
+              <h3>Draw Specialists</h3>
+              <p>Hunting the valuable 3-pointers</p>
+            </div>
+          </div>
+          <div class="stat-content">
+            <div class="champion">
+              <div class="champion-name">ROB</div>
+              <div class="champion-stat">67% Success Rate</div>
+              <div class="champion-detail">Exceptional timing: 2/3 correct (Weeks 3-5 only)</div>
+            </div>
+            <div class="runner-up">
+              <div class="runner-up-title">Next Best</div>
+              <div class="runner-up-content">
+                <strong>Dave K & Myles</strong> - Both 60% (3/5 correct)<br>
+                <strong>Best overall volume:</strong> Dave K & Myles (3 correct draws each)<br>
+                <strong>Ben</strong> - 40% (2/5 correct)
+              </div>
+            </div>
+            <div class="runner-up" style="margin-top: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">
+              <div class="runner-up-title" style="color: #ef4444;">Draw Desert</div>
+              <div class="runner-up-content">
+                <strong>Dylan & Mike</strong> - 0% success (0/5 correct each)
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Full House -->
+        <div class="stat-card special">
+          <div class="stat-header">
+            <div class="stat-icon special">⭐</div>
+            <div class="stat-title">
+              <h3>Full House Six Pointers</h3>
+              <p>The ultimate achievement</p>
+            </div>
+          </div>
+          <div class="stat-content">
+            <div class="champion">
+              <div class="champion-name">DAVO & DAVE K <span class="tied-badge">ELITE CLUB</span></div>
+              <div class="champion-stat">1 Full House Each</div>
+              <div class="champion-detail">
+                <strong>Davo - Week 1 Masterclass:</strong><br>
+                ✓ Arsenal 5-0 Leeds (H)<br>
+                ✓ Newcastle 2-3 Liverpool (A)<br>
+                ✓ Swansea 1-1 Watford (D)<br><br>
+                <strong>Dave K - Week 4 Perfection:</strong><br>
+                ✓ Walsall 4-2 Tranmere (H)<br>
+                ✓ Newport 1-3 Gillingham (A)<br>
+                ✓ Bromley 2-2 Chesterfield (D)
+              </div>
+            </div>
+            <div class="runner-up">
+              <div class="runner-up-title">The Elite Club</div>
+              <div class="runner-up-content">
+                Only <strong>2 players</strong> out of 8 have achieved a Full House this season. The rarest accomplishment in King of the Pundits - can anyone join them?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
       
@@ -229,13 +539,13 @@
       <p><strong>Davo</strong> remains at the summit of Division One with 10 points, though his lead continues to shrink after another modest Week 5 yielding just 1 point. <strong>Dylan</strong> is the week's big winner, claiming 3 points to surge into second place with 8 points total, while <strong>Rob</strong> drops to third on 7 points after a scoreless Week 5. <strong>Mike</strong> picked up 2 valuable points to reach 6 points, keeping himself within striking distance. The division remains highly competitive with just 4 points separating first from fourth.</p>
       
       <h4>Division 2: Dave K Storms to the Top!</h4>
-      <p>Week 5 brought a seismic shift in Division Two as <strong>Dave K</strong> delivered a sensational 5-point performance to leap from second into first place with an impressive 15 points total. His consistency is paying dividends, particularly with his draw predictions. <strong>Ben</strong> slips to second on 13 points after managing just 1 point this week, but maintains the best success rate in the competition at 62%. <strong>Alex</strong> and <strong>Myles</strong> are locked together on 11 points in third and fourth place respectively, with Myles' solid 4-point week keeping him in contention.</p>
+      <p>Week 5 brought a seismic shift in Division Two as <strong>Dave K</strong> delivered a sensational 5-point performance to leap from second into first place with an impressive 15 points total. His consistency is paying dividends, particularly with his draw predictions. <strong>Ben</strong> slips to second on 13 points after managing just 1 point this week, but maintains an excellent 53% success rate - still among the best in the competition. <strong>Alex</strong> and <strong>Myles</strong> are locked together on 11 points in third and fourth place respectively, with Myles' solid 4-point week keeping him in contention.</p>
       
       <h4>Week 5 Highlights</h4>
       <p>Week 5 belonged to <strong>Dylan</strong> and <strong>Dave K</strong>, the joint top scorers with 3 and 5 points respectively. Dylan's success came from combining a home win with a crucial away win, while Dave K's masterclass included an away win and a 3-point draw. The week proved particularly tough for Rob, who failed to score despite three picks, highlighting the unpredictable nature of this season's results. Meanwhile, <strong>Myles</strong> continued his excellent draw-picking form with another successful 3-pointer.</p>
       
       <h4>Statistical Insights</h4>
-      <p>After five weeks, <strong>Ben</strong> remains the competition's most consistent performer with a 62% success rate, though his Week 5 struggles have cost him top spot. <strong>Dave K</strong> and <strong>Davo</strong> both sit on 47% success rates but with very different profiles - Dave K excelling at draws while Davo dominates home wins with a perfect 5/5 record. Away wins continue to be the most challenging category, with only Dylan showing real proficiency (3/5 correct). Draw predictions are emerging as the key battleground, with the 3-point rewards often deciding weekly winners. The competition remains wide open in both divisions heading into Week 6.</p>
+      <p>After five weeks, <strong>Ben</strong> remains one of the competition's most consistent performers with a 53% success rate, though his Week 5 struggles have cost him top spot. <strong>Dave K</strong> and <strong>Davo</strong> both sit on 47% success rates but with very different profiles - Dave K excelling at draws while Davo dominates home wins with a perfect 5/5 record. Away wins continue to be the most challenging category, with only Dylan showing real proficiency (3/5 correct). Draw predictions are emerging as the key battleground, with the 3-point rewards often deciding weekly winners. The competition remains wide open in both divisions heading into Week 6.</p>
     </article>
   </main>
 
