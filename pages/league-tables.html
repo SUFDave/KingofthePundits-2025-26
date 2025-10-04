@@ -425,6 +425,139 @@
         color: #94a3b8;
         font-size: 0.9rem;
       }
+      
+      /* Strategic Recommendations Styles */
+      .recommendation-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      @media (max-width: 768px) {
+        .recommendation-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .player-recommendation {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+      }
+      
+      .player-recommendation:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: rgba(16, 185, 129, 0.3);
+      }
+      
+      .player-rec-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .player-rec-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #10b981;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .player-rec-rate {
+        background: rgba(16, 185, 129, 0.2);
+        color: #10b981;
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      
+      .rec-section {
+        margin-bottom: 1rem;
+      }
+      
+      .rec-section:last-child {
+        margin-bottom: 0;
+      }
+      
+      .rec-label {
+        color: #94a3b8;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .rec-badges {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      
+      .rec-badge {
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      
+      .rec-badge.strength {
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #10b981;
+      }
+      
+      .rec-badge.strength.home {
+        background: rgba(16, 185, 129, 0.2);
+        border-color: rgba(16, 185, 129, 0.4);
+        color: #10b981;
+      }
+      
+      .rec-badge.strength.away {
+        background: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.4);
+        color: #3b82f6;
+      }
+      
+      .rec-badge.strength.draw {
+        background: rgba(245, 158, 11, 0.2);
+        border-color: rgba(245, 158, 11, 0.4);
+        color: #f59e0b;
+      }
+      
+      .rec-badge.weakness {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+      }
+      
+      .rec-advice {
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 6px;
+        padding: 0.75rem;
+        color: #e5e7eb;
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      
+      .rec-advice strong {
+        color: #a78bfa;
+        font-weight: 700;
+      }
     </style>
     
     <article class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -545,6 +678,214 @@
               <div class="runner-up-content">
                 Only <strong>2 players</strong> out of 8 have achieved a Full House this season. The rarest accomplishment in King of the Pundits - can anyone join them?
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <!-- Strategic Recommendations Card -->
+    <article class="card" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(255, 255, 255, 0.15);">
+      <div class="specialist-header" style="padding: 1.5rem 0 1rem;">
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 1.75rem; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.35rem; background: linear-gradient(135deg, #f59e0b 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          🎯 Strategic Recommendations
+        </h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">Data-driven pick suggestions based on performance analysis</p>
+      </div>
+      
+      <div class="recommendation-grid">
+        <!-- Division 1 Players -->
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Davo</div>
+            <div class="player-rec-rate">47% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength home">🏠 Home Wins (100%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">✈️ Away (20%)</span>
+              <span class="rec-badge weakness">🤝 Draws (20%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Perfect home record suggests banking on strong home favorites. Consider relegation battles where home advantage is critical.
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Dylan</div>
+            <div class="player-rec-rate">33% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength away">✈️ Away Wins (60%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">🤝 Draws (0%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Elite away win radar - target form teams playing away to struggling opposition. Avoid draw predictions entirely.
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Rob</div>
+            <div class="player-rec-rate">33% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength draw">🤝 Draws (67%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">✈️ Away (0%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Draw specialist with exceptional timing. Focus on evenly-matched lower league encounters. Avoid away picks.
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Mike</div>
+            <div class="player-rec-rate">27% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength">📊 Balanced H/A (40%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">🤝 Draws (0%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Equal home/away success suggests focusing on decisive matches. Completely avoid draws - chase definitive results.
+            </div>
+          </div>
+        </div>
+        
+        <!-- Division 2 Players -->
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Dave K</div>
+            <div class="player-rec-rate">47% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength draw">🤝 Draws (60%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">🏠 Home (40%)</span>
+              <span class="rec-badge weakness">✈️ Away (40%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Division leader with draw mastery. Target tight Championship/League One matches. Full House achiever - trust the instincts.
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Ben</div>
+            <div class="player-rec-rate">53% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength home">🏠 Home Wins (100%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">✈️ Away (20%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Highest overall success rate with perfect home picks. Double down on home banker bets. Moderate draw success (40%).
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Alex</div>
+            <div class="player-rec-rate">40% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength away">✈️ Away Wins (60%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">🤝 Draws (20%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Elite away win identification matches Dylan's 60% rate. Hunt form teams on the road. Minimize draw exposure.
+            </div>
+          </div>
+        </div>
+        
+        <div class="player-recommendation">
+          <div class="player-rec-header">
+            <div class="player-rec-name">Myles</div>
+            <div class="player-rec-rate">33% Success</div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Strengths</div>
+            <div class="rec-badges">
+              <span class="rec-badge strength draw">🤝 Draws (60%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-label">Weaknesses</div>
+            <div class="rec-badges">
+              <span class="rec-badge weakness">✈️ Away (0%)</span>
+            </div>
+          </div>
+          <div class="rec-section">
+            <div class="rec-advice">
+              <strong>Strategy:</strong> Strong draw reader - 3 correct from 5 picks. Target stalemates in tight leagues. Never pick away wins (0/5 record).
             </div>
           </div>
         </div>
