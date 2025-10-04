@@ -892,6 +892,290 @@
       </div>
     </article>
     
+    <!-- Banker Picks of the Week Card -->
+    <article class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); border: 2px solid rgba(139, 92, 246, 0.3);">
+      <div class="specialist-header" style="padding: 1.5rem 0 1rem;">
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 1.75rem; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.35rem; background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          💎 Banker Picks of the Week
+        </h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">Top 5 statistically strongest selections for Week 6</p>
+      </div>
+      
+      <style>
+        .banker-picks-grid {
+          display: grid;
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+        
+        .banker-pick-card {
+          background: rgba(30, 41, 59, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          padding: 1.25rem;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .banker-pick-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: linear-gradient(180deg, #8b5cf6 0%, #ec4899 100%);
+        }
+        
+        .banker-pick-card:hover {
+          transform: translateX(5px);
+          box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+          border-color: rgba(139, 92, 246, 0.5);
+        }
+        
+        .banker-rank-badge {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 1.1rem;
+          box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+        }
+        
+        .banker-match {
+          font-family: 'Oswald', sans-serif;
+          font-size: 1.3rem;
+          color: white;
+          margin-bottom: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding-right: 50px;
+        }
+        
+        .banker-prediction {
+          display: inline-block;
+          padding: 0.35rem 0.85rem;
+          border-radius: 6px;
+          font-weight: 700;
+          font-size: 0.85rem;
+          margin-bottom: 0.75rem;
+        }
+        
+        .banker-prediction.home {
+          background: rgba(16, 185, 129, 0.2);
+          border: 1px solid rgba(16, 185, 129, 0.5);
+          color: #10b981;
+        }
+        
+        .banker-prediction.away {
+          background: rgba(59, 130, 246, 0.2);
+          border: 1px solid rgba(59, 130, 246, 0.5);
+          color: #3b82f6;
+        }
+        
+        .banker-prediction.draw {
+          background: rgba(245, 158, 11, 0.2);
+          border: 1px solid rgba(245, 158, 11, 0.5);
+          color: #f59e0b;
+        }
+        
+        .banker-meta {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 0.75rem;
+          flex-wrap: wrap;
+        }
+        
+        .banker-expert {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #a78bfa;
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+        
+        .banker-expert-icon {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(139, 92, 246, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.7rem;
+        }
+        
+        .banker-confidence {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        
+        .confidence-bar {
+          width: 120px;
+          height: 8px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        
+        .confidence-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+          border-radius: 10px;
+          transition: width 0.3s ease;
+        }
+        
+        .confidence-text {
+          color: #e5e7eb;
+          font-size: 0.85rem;
+          font-weight: 700;
+        }
+        
+        .banker-rationale {
+          background: rgba(139, 92, 246, 0.1);
+          border: 1px solid rgba(139, 92, 246, 0.2);
+          border-radius: 6px;
+          padding: 0.75rem;
+          color: #e5e7eb;
+          font-size: 0.85rem;
+          line-height: 1.5;
+        }
+        
+        .banker-rationale strong {
+          color: #c4b5fd;
+        }
+      </style>
+      
+      <div class="banker-picks-grid">
+        <!-- Pick #1 -->
+        <div class="banker-pick-card">
+          <div class="banker-rank-badge">1</div>
+          <div class="banker-match">Newcastle Utd vs Nottingham Forest</div>
+          <div class="banker-prediction home">HOME WIN</div>
+          <div class="banker-meta">
+            <div class="banker-expert">
+              <div class="banker-expert-icon">D</div>
+              <span>Davo's Pick</span>
+            </div>
+            <div class="banker-confidence">
+              <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100%"></div>
+              </div>
+              <span class="confidence-text">100%</span>
+            </div>
+          </div>
+          <div class="banker-rationale">
+            <strong>Rationale:</strong> Davo has a perfect 5/5 home win record. His home predictions have been flawless all season, making this the strongest statistical pick of the week.
+          </div>
+        </div>
+        
+        <!-- Pick #2 -->
+        <div class="banker-pick-card">
+          <div class="banker-rank-badge">2</div>
+          <div class="banner-match">Lincoln City vs Exeter City</div>
+          <div class="banker-prediction home">HOME WIN</div>
+          <div class="banker-meta">
+            <div class="banker-expert">
+              <div class="banker-expert-icon">B</div>
+              <span>Ben's Pick</span>
+            </div>
+            <div class="banker-confidence">
+              <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100%"></div>
+              </div>
+              <span class="confidence-text">100%</span>
+            </div>
+          </div>
+          <div class="banker-rationale">
+            <strong>Rationale:</strong> Ben matches Davo with a perfect 5/5 home win success rate. His 53% overall success rate is the highest in the competition.
+          </div>
+        </div>
+        
+        <!-- Pick #3 -->
+        <div class="banker-pick-card">
+          <div class="banker-rank-badge">3</div>
+          <div class="banker-match">Salford vs Grimsby</div>
+          <div class="banker-prediction draw">DRAW</div>
+          <div class="banker-meta">
+            <div class="banker-expert">
+              <div class="banker-expert-icon">R</div>
+              <span>Rob's Pick</span>
+            </div>
+            <div class="banker-confidence">
+              <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 67%"></div>
+              </div>
+              <span class="confidence-text">67%</span>
+            </div>
+          </div>
+          <div class="banker-rationale">
+            <strong>Rationale:</strong> Rob is the draw specialist with 67% accuracy (2/3). Lower league encounters like this suit his exceptional timing for stalemates.
+          </div>
+        </div>
+        
+        <!-- Pick #4 -->
+        <div class="banker-pick-card">
+          <div class="banker-rank-badge">4</div>
+          <div class="banker-match">Portsmouth vs Middlesbrough</div>
+          <div class="banker-prediction away">AWAY WIN</div>
+          <div class="banker-meta">
+            <div class="banker-expert">
+              <div class="banker-expert-icon">D</div>
+              <span>Dylan's Pick</span>
+            </div>
+            <div class="banker-confidence">
+              <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60%"></div>
+              </div>
+              <span class="confidence-text">60%</span>
+            </div>
+          </div>
+          <div class="banker-rationale">
+            <strong>Rationale:</strong> Dylan leads all players in away win success at 60% (3/5). His radar for form teams on the road has been elite.
+          </div>
+        </div>
+        
+        <!-- Pick #5 -->
+        <div class="banker-pick-card">
+          <div class="banker-rank-badge">5</div>
+          <div class="banker-match">Wycombe vs Barnsley</div>
+          <div class="banker-prediction away">AWAY WIN</div>
+          <div class="banker-meta">
+            <div class="banker-expert">
+              <div class="banker-expert-icon">A</div>
+              <span>Alex's Pick</span>
+            </div>
+            <div class="banker-confidence">
+              <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60%"></div>
+              </div>
+              <span class="confidence-text">60%</span>
+            </div>
+          </div>
+          <div class="banker-rationale">
+            <strong>Rationale:</strong> Alex matches Dylan's elite 60% away win success rate (3/5). His ability to identify form teams on the road has been consistently strong.
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px;">
+        <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+          <strong style="color: #c4b5fd;">Methodology:</strong> Picks are ranked by combining the player's historical success rate in the specific category (H/A/D) with their overall form. These represent where proven specialists are operating in their areas of strength.
+        </p>
+      </div>
+    </article>
+    
     <article class="card">
       <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
       
