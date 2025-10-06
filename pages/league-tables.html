@@ -1,4 +1,116 @@
-<div class="tables-grid">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>League Tables – King of the Pundits 2025/26</title>
+  <meta name="description" content="Current league standings for both divisions in the King of the Pundits football prediction competition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- RESPONSIVE Navigation - Works on Desktop AND Mobile -->
+  <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        <h1 style="color: white; margin: 0; font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;">
+            King of the Pundits 
+            <span style="color: #10b981; font-weight: 300; opacity: 0.8;">2025/26</span>
+        </h1>
+        
+        <!-- DESKTOP Navigation (hidden on mobile) -->
+        <nav style="display: none;" class="desktop-nav">
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center;">
+                <li style="margin-left: 1.5rem;">
+                    <a href="../index.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Home</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="league-tables.html" style="color: #ffffff; padding-bottom: 5px; border-bottom: 2px solid #10b981; font-weight: 600; text-decoration: none;">League Tables</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="weekly-picks.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">Weekly Picks</a>
+                </li>
+                <li style="margin-left: 1.5rem;">
+                    <a href="about.html" style="color: #e5e7eb; padding-bottom: 5px; border-bottom: 2px solid transparent; text-decoration: none; transition: all 0.2s;"
+                       onmouseover="this.style.color='#10b981'; this.style.borderBottomColor='#10b981';"
+                       onmouseout="this.style.color='#e5e7eb'; this.style.borderBottomColor='transparent';">About</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- MOBILE Navigation (hidden on desktop) -->
+        <nav style="display: none;" class="mobile-nav">
+            <button onclick="document.getElementById('menu').style.display='block'; document.body.style.overflow='hidden';" 
+                    style="display: block; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 16px; font-family: inherit;"
+                    onmouseover="this.style.backgroundColor='#059669'" 
+                    onmouseout="this.style.backgroundColor='#10b981'">
+                <i class="fa-solid fa-bars"></i> <span style="margin-left: 0.5rem;">Menu</span>
+            </button>
+            
+            <div id="menu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999;">
+                <div style="position:fixed; top:0; right:0; width:280px; height:100%; background:#1f2937; transform:translateX(0); transition:transform 0.3s; box-shadow:-5px 0 25px rgba(0,0,0,0.3); border-left:1px solid rgba(255,255,255,0.1);">
+                    
+                    <button onclick="document.getElementById('menu').style.display='none'; document.body.style.overflow='auto';" 
+                            style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#e5e7eb; font-size:2rem; cursor:pointer; padding:0.5rem; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:all 0.2s;"
+                            onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#10b981'" 
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'">×</button>
+                    
+                    <div style="padding:4rem 1rem 1rem;">
+                        <a href="../index.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Home</a>
+                        
+                        <a href="league-tables.html" 
+                           style="color:#10b981; background-color:rgba(16,185,129,0.2); border-color:#10b981; font-weight:600; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid; margin-bottom:0.75rem;">League Tables</a>
+                        
+                        <a href="weekly-picks.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">Weekly Picks</a>
+                        
+                        <a href="about.html" 
+                           style="color:#e5e7eb; display:block; padding:1rem; text-decoration:none; border-radius:8px; border:1px solid transparent; margin-bottom:0.75rem; transition:all 0.2s;"
+                           onmouseover="this.style.backgroundColor='rgba(16,185,129,0.1)'; this.style.borderColor='#10b981'" 
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+  </header>
+
+  <!-- CSS to show/hide appropriate navigation -->
+  <style>
+  /* Desktop: Show desktop nav, hide mobile nav */
+  @media (min-width: 768px) {
+      .desktop-nav { display: block !important; }
+      .mobile-nav { display: none !important; }
+  }
+
+  /* Mobile: Show mobile nav, hide desktop nav */
+  @media (max-width: 767px) {
+      .desktop-nav { display: none !important; }
+      .mobile-nav { display: block !important; }
+  }
+  </style>
+
+  <div class="container">
+      <div class="hero-banner" role="banner">
+          <img src="../images/kingofthepundits-new-banner.webp" alt="King of the Pundits stadium banner with a football and a crown">
+      </div>
+  </div>
+
+  <main class="container main-content">
+    <h2 class="page-title">League Tables</h2>
+
+    <div class="tables-grid">
       <div class="card">
         <h3 class="division-title">Division One</h3>
         <div class="table-wrap">
@@ -109,3 +221,62 @@
         </div>
       </div>
     </div>
+    
+    <article class="card">
+      <h3 class="card-title"><i class="fa-solid fa-chart-line"></i> In-depth Analysis</h3>
+      
+      <h4>Division 1: Historic 4-Way Tie Shakes Up the Table</h4>
+      <p>Week 6 delivered unprecedented drama as all four Division One competitors scored exactly 3 points each - the first 4-way tie in King of the Pundits history! <strong>Davo</strong> extends his lead to 13 points despite the shared spoils, maintaining his perfect home record with Newcastle's victory and adding a crucial away win as Coventry demolished Sheffield Wednesday 5-0. <strong>Dylan</strong> climbs to 11 points in second place, finally breaking his draw duck with Derby's 1-1 stalemate against Southampton. <strong>Rob</strong> reaches double figures with 10 points, combining a Cardiff home win with his first away success of the season. <strong>Mike</strong> sits on 9 points in fourth but is showing dangerous form with improved balance - nailing both home and away picks this week. The division remains incredibly tight with just 4 points separating first from fourth.</p>
+      
+      <h4>Division 2: Dave K Extends Lead as Battle Intensifies</h4>
+      <p>While <strong>Dave K</strong> adds another point to reach 16 points and maintain top spot, the real story is <strong>Alex's</strong> sensational 4-point haul that propels him into a second-place tie with Ben on 15 points. Alex's draw mastery continues to shine with Port Vale's goalless encounter, proving his tactical nous in the most difficult category. <strong>Ben</strong> managed 2 points despite missing his home pick for the first time this season, showing vulnerability but remaining in the hunt. <strong>Myles</strong> picked up 3 valuable points including his first away win of the season as Tottenham won at Leeds, moving to 14 points and keeping pressure on the leaders. The division is now extraordinarily tight with just 2 points separating first from fourth - anyone's game!</p>
+      
+      <h4>Week 6 Highlights</h4>
+      <p>Week 6 will be remembered for its historic 4-way tie in Division One, but <strong>Alex</strong> emerged as the week's overall champion with 4 points, demonstrating why his 44% success rate makes him a genuine title contender. The weekend saw <strong>Davo</strong> cement his status as the only player with a perfect home record (6/6), while <strong>Rob</strong> finally broke his away win drought with Swindon's victory at Newport. <strong>Mike's</strong> double strike (home and away) signals a dangerous surge in form that could propel him up the table. Perhaps most remarkably, six different players scored 3 or more points - the most competitive week yet!</p>
+      
+      <h4>Statistical Insights</h4>
+      <p>After six weeks, <strong>Davo</strong> and <strong>Ben</strong> both boast 50% success rates, the highest in the competition, though with contrasting profiles - Davo's immaculate home record versus Ben's more balanced approach. <strong>Davo's</strong> perfect 6/6 home streak is now the season's most remarkable achievement, standing alone after Ben's Lincoln miss. Away wins remain a three-way battle between <strong>Dylan, Alex, and Mike</strong>, all at 50% success. The draw category shows a fascinating three-way deadlock at 50% between <strong>Rob, Dave K, and Myles</strong>, making this the season's most competitive prediction type. <strong>Mike</strong> remains the only player unable to predict a draw after six attempts - a statistical anomaly that must break soon! With both divisions separated by minimal margins, tactical adjustments and specialist expertise will be crucial as we approach the quarter-season mark.</p>
+    </article>
+  </main>
+
+  <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <footer class="site-footer">
+<p>© 2025 King of the Pundits. All rights reserved.</p>
+<p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">
+Site created and developed by <strong>David P Edwards</strong>, founder and organizer of King of the Pundits.
+</p>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+
+      // Stat toggle functionality (existing functionality preserved)
+      document.querySelectorAll('.stat-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const targetId = button.getAttribute('data-target');
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          const targetRow = document.getElementById(targetId);
+          button.setAttribute('aria-expanded', String(!isExpanded));
+          targetRow.classList.toggle('hidden');
+        });
+      });
+
+      // Back to top functionality
+      if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
