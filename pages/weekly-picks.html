@@ -7,10 +7,9 @@
 <meta content="View current and previous weekly picks for all players in the King of the Pundits football prediction competition." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <link href="../css/style.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </head>
 <body>
 <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
@@ -54,1058 +53,167 @@
 </div>
 </header>
 <style>
+  /* Desktop: Show desktop nav, hide mobile nav */
   @media (min-width: 768px) {
       .desktop-nav { display: block !important; }
       .mobile-nav { display: none !important; }
   }
+
+  /* Mobile: Show mobile nav, hide desktop nav */
   @media (max-width: 767px) {
       .desktop-nav { display: none !important; }
       .mobile-nav { display: block !important; }
-  }
-
-  /* BOLD & ENERGETIC DESIGN STYLES */
-  .bold-header {
-    position: relative;
-    overflow: hidden;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #9333ea 0%, #db2777 50%, #dc2626 100%);
-    padding: 2px;
-    margin-bottom: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.25);
-  }
-
-  .bold-header-inner {
-    background: #0f172a;
-    border-radius: 22px;
-    padding: 2rem;
-  }
-
-  .bold-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .bold-title {
-    font-size: 3rem;
-    font-weight: 900;
-    color: white;
-    margin: 0.5rem 0;
-    letter-spacing: -0.025em;
-  }
-
-  .bold-title-accent {
-    background: linear-gradient(135deg, #c084fc, #f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .bold-player-card {
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
-
-  .bold-player-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #9333ea, #db2777);
-    border-radius: 16px;
-    opacity: 0.2;
-    filter: blur(20px);
-  }
-
-  .bold-player-card-inner {
-    position: relative;
-    background: #0f172a;
-    border-radius: 16px;
-    border: 2px solid #1e293b;
-    overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .bold-player-card-inner:hover {
-    border-color: #334155;
-    transform: translateY(-2px);
-  }
-
-  .bold-player-header {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    padding: 1.5rem;
-    border-bottom: 2px solid rgba(147, 51, 234, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .bold-player-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .bold-avatar {
-    position: relative;
-  }
-
-  .bold-avatar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
-    border-radius: 12px;
-    filter: blur(8px);
-  }
-
-  .bold-avatar-inner {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.3);
-  }
-
-  .bold-avatar-text {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: white;
-  }
-
-  .bold-player-name {
-    font-size: 1.875rem;
-    font-weight: 900;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
-    margin: 0;
-  }
-
-  .bold-player-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-  }
-
-  .bold-status-dot {
-    width: 8px;
-    height: 8px;
-    background: #10b981;
-    border-radius: 50%;
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .5; }
-  }
-
-  .bold-status-text {
-    color: #10b981;
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .bold-points-box {
-    background: #1e293b;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    text-align: center;
-  }
-
-  .bold-points-label {
-    color: #94a3b8;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-  }
-
-  .bold-points-value {
-    color: white;
-    font-size: 2rem;
-    font-weight: 900;
-  }
-
-  .bold-picks-container {
-    padding: 1.5rem;
-  }
-
-  .bold-pick-item {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-
-  .bold-pick-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .bold-pick-item:hover::before {
-    opacity: 1;
-  }
-
-  .bold-pick-item.home::before {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
-  }
-
-  .bold-pick-item.away::before {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
-  }
-
-  .bold-pick-item.draw::before {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
-  }
-
-  .bold-pick-inner {
-    position: relative;
-    background: #1e293b;
-    border-radius: 12px;
-    padding: 1.25rem;
-    border: 1px solid #334155;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  .bold-pick-item:hover .bold-pick-inner {
-    border-color: #475569;
-  }
-
-  .bold-pick-badge {
-    width: 64px;
-    height: 64px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-  }
-
-  .bold-pick-badge.home {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
-  }
-
-  .bold-pick-badge.away {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-    color: white;
-  }
-
-  .bold-pick-badge.draw {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-  }
-
-  .bold-pick-type {
-    font-size: 1.5rem;
-  }
-
-  .bold-pick-points {
-    font-size: 0.75rem;
-    opacity: 0.9;
-  }
-
-  .bold-pick-details {
-    flex: 1;
-  }
-
-  .bold-pick-match {
-    color: white;
-    font-weight: 700;
-    font-size: 1.125rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .bold-pick-description {
-    color: #94a3b8;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .bold-pick-score-box {
-    text-align: center;
-    background: #0f172a;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-  }
-
-  .bold-pick-score-label {
-    color: #64748b;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
-
-  .bold-pick-score {
-    color: #e2e8f0;
-    font-family: 'Courier New', monospace;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  .bold-pick-result {
-    color: #10b981;
-    font-weight: 700;
-    font-size: 0.875rem;
-    padding: 0.25rem 0.75rem;
-    background: rgba(16, 185, 129, 0.1);
-    border-radius: 6px;
-  }
-
-  .bold-pick-result.lost {
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
-  }
-
-  /* Chart Container */
-  .chart-card {
-    background: #0f172a;
-    border-radius: 16px;
-    border: 2px solid #1e293b;
-    padding: 2rem;
-    margin-top: 2rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-  }
-
-  .chart-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 1.5rem;
-    text-align: center;
   }
 
   .chart-container {
     position: relative;
     height: 450px;
     width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
   }
-</style>
 
+  .bankers-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .bankers-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .banker-rank {
+    color: white;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  .banker-rank.away-win { background-color: #3b82f6; }
+  .banker-rank.home-win { background-color: #10b981; }
+  .banker-rank.draw { background-color: #f59e0b; }
+  
+  .treble-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #d1d5db;
+  }
+  .treble-info strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .pending-picks {
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .pending-status {
+    color: #93c5fd;
+    font-style: italic;
+  }
+
+
+  </style>
 <div class="container">
 <div class="hero-banner" role="banner">
 <img alt="King of the Pundits stadium banner with a football and a crown" src="../images/kingofthepundits-new-banner.webp"/>
 </div>
 </div>
-
 <main class="container main-content">
 <h2 class="page-title">Weekly Picks</h2>
 
-<!-- WEEK SIX - CURRENT -->
-<div class="bold-header">
-  <div class="bold-header-inner">
-    <div style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <div class="bold-badge">
-          <i class="fa-solid fa-trophy"></i>
-          CURRENT WEEK
-        </div>
-        <h1 class="bold-title">
-          WEEK <span class="bold-title-accent">SIX</span>
-        </h1>
-        <p style="color: #94a3b8; font-size: 1.125rem; margin: 0;">Division 1 & 2 • October 3-6, 2025</p>
-      </div>
-      <div style="text-align: right;">
-        <div style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.5rem;">COMPLETION STATUS</div>
-        <div style="font-size: 2.5rem; font-weight: 900; color: white;">8<span style="color: #a855f7;">/</span>8</div>
-        <div style="color: #10b981; font-size: 0.875rem; font-weight: 700; text-transform: uppercase;">COMPLETE</div>
-      </div>
-    </div>
-  </div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week Six Picks (FINAL)</h3>
+<p style="font-size: 0.875rem; color: #10b981; margin-top: -0.75rem; margin-bottom: 1rem; font-weight: 600;">October 3-6, 2025</p>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs West Ham Utd</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brentford vs Manchester City</td><td>0-1</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Everton vs Crystal Palace</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Lincoln City vs Exeter City</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Portsmouth vs Middlesbrough</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Derby County vs Southampton</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Rob</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Cardiff City vs Leyton Orient</td><td>4-3</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Newport County vs Swindon Town</td><td>0-1</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Salford vs Grimsby</td><td>0-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Newcastle Utd vs Nottingham Forest</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Sheffield Wednesday vs Coventry</td><td>0-5</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bristol City vs QPR</td><td>1-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week Six Picks (FINAL)</h3>
+<p style="font-size: 0.875rem; color: #10b981; margin-top: -0.75rem; margin-bottom: 1rem; font-weight: 600;">October 3-6, 2025</p>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs West Ham Utd</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Chelsea vs Liverpool</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bournemouth vs Fulham</td><td>3-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">4pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Stevenage vs Luton Town</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Wycombe vs Barnsley</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Port Vale vs Northampton</td><td>0-0</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Aston Villa vs Burnley</td><td>2-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Leeds Utd vs Tottenham</td><td>1-2</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Portsmouth vs Middlesbrough</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Lincoln vs Exeter City</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Sheffield Wednesday vs Coventry</td><td>0-5</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Manchester Utd vs Sunderland</td><td>2-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
 </div>
 
-<h3 style="color: #a855f7; font-size: 1.5rem; font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 1 – Week Six
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Mike</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Arsenal vs West Ham Utd</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Brentford vs Manchester City</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Everton vs Crystal Palace</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dylan</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Lincoln City vs Exeter City</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Portsmouth vs Middlesbrough</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Derby County vs Southampton</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">R</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Rob</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Cardiff City vs Leyton Orient</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">4-3</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Newport County vs Swindon Town</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Salford vs Grimsby</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Davo</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Newcastle Utd vs Nottingham Forest</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Sheffield Wednesday vs Coventry</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-5</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Bristol City vs QPR</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DIVISION 1 STATISTICS CHART -->
-<div class="chart-card">
-  <h3 class="chart-title">📊 Division 1 - Season Statistics (Weeks 1-6)</h3>
-  <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
-    Cumulative correct predictions across all match types
-  </p>
-  <div class="chart-container">
-    <canvas id="div1Week6Chart"></canvas>
-  </div>
-  <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-    <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
-      <strong>Key Insight:</strong> Davo leads with a perfect 6/6 home record, while Mike & Dylan share the away wins lead at 3/6
-    </p>
-  </div>
-</div>
-
-<h3 style="color: #ec4899; font-size: 1.5rem; font-weight: 900; margin: 3rem 0 1.5rem 0; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 2 – Week Six
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">DK</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dave K</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">1pt</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Arsenal vs West Ham Utd</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Chelsea vs Liverpool</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Bournemouth vs Fulham</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">A</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Alex</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">4pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Stevenage vs Luton Town</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Wycombe vs Barnsley</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Port Vale vs Northampton</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-0</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Myles</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Aston Villa vs Burnley</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Leeds Utd vs Tottenham</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-2</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Portsmouth vs Middlesbrough</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">B</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Ben</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">2pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Lincoln vs Exeter City</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Sheffield Wednesday vs Coventry</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-5</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Manchester Utd vs Sunderland</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DIVISION 2 STATISTICS CHART -->
-<div class="chart-card">
-  <h3 class="chart-title">📊 Division 2 - Season Statistics (Weeks 1-6)</h3>
-  <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
-    Cumulative correct predictions across all match types
-  </p>
-  <div class="chart-container">
-    <canvas id="div2Week6Chart"></canvas>
-  </div>
-  <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-    <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
-      <strong>Key Insight:</strong> Ben dominates home wins with 5/6, while Alex leads away predictions at 3/6. Draw mastery split between Dave K & Myles at 3/6
-    </p>
-  </div>
-</div>
-
-<!-- Week Six Summary -->
-<div class="card picks-split" style="margin-top: 3rem;">
+<div class="card picks-split">
 <div>
 <h3 class="sub-title">Division 1 Picking Order – Wk 6</h3>
 <ol class="picking-order">
@@ -1126,658 +234,7 @@
 </div>
 </div>
 
-<!-- WEEK THREE -->
-<div class="bold-header" style="margin-top: 4rem;">
-  <div class="bold-header-inner">
-    <div style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <div class="bold-badge">
-          <i class="fa-solid fa-check-circle"></i>
-          COMPLETE
-        </div>
-        <h1 class="bold-title">
-          WEEK <span class="bold-title-accent">THREE</span>
-        </h1>
-        <p style="color: #94a3b8; font-size: 1.125rem; margin: 0;">Rob's Debut • Results & Analysis</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 style="color: #a855f7; font-size: 1.5rem; font-weight: 900; margin: 1.5rem 0; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 1 – Week Three
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">R</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Rob</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Debut Week Winner!</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">4pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Gillingham vs Notts County</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Oxford vs Leicester City</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Leyton Orient vs Bolton</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dylan</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">2pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">West Brom vs Derby County</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Burnley vs Liverpool</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Ipswich vs Sheffield United</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">5-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Mike</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">2pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Crystal Palace vs Sunderland</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">West Ham vs Tottenham</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-3</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Wrexham vs Queens Park Rangers</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-3</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Davo</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">1pt</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Arsenal vs Nottingham Forest</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Brentford vs Chelsea</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Sheffield Wednesday vs Bristol City</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-3</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 style="color: #ec4899; font-size: 1.5rem; font-weight: 900; margin: 3rem 0 1.5rem 0; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 2 – Week Three
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">B</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Ben</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Week 3 Winner</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">4pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Newcastle Utd vs Wolves</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Oxford Utd vs Leicester City</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Charlton vs Millwall</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">A</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Alex</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Arsenal vs Nottingham Forest</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Burnley vs Liverpool</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Wrexham vs Queens Park Rangers</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-3</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Myles</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Crystal Palace vs Sunderland</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Ipswich vs Sheffield United</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">5-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Leyton Orient vs Bolton</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">DK</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dave K</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">1pt</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Swindon vs Harrogate</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-1</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Brentford vs Chelsea</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Man City vs Man Utd</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Continue with remaining Week 3, 2, and 1 players, plus original summary sections -->
-<!-- Note: Due to length, keeping original table format sections for Weeks 3, 2, 1 below -->
+<div class="tables-grid">
 <div class="card">
 <h3 class="sub-title">Week Six Results Summary</h3>
 <p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 6.</p>
@@ -1795,665 +252,418 @@
 </div>
 </div>
 
-<!-- Keep all previous weeks below with original styling -->
-<div style="margin-top: 4rem;">
-
-<!-- WEEK FIVE -->
-<div class="bold-header" style="margin-top: 3rem;">
-  <div class="bold-header-inner">
-    <div style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <div class="bold-badge">
-          <i class="fa-solid fa-check-circle"></i>
-          COMPLETE
-        </div>
-        <h1 class="bold-title">
-          WEEK <span class="bold-title-accent">FIVE</span>
-        </h1>
-        <p style="color: #94a3b8; font-size: 1.125rem; margin: 0;">Results & Analysis</p>
-      </div>
-    </div>
-  </div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week Five Picks (FINAL)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Bradford vs Blackpool</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Leyton Orient vs Stevenage</td><td>2-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Fleetwood vs Colchester</td><td>4-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Tottenham vs Wolves</td><td>1-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Newcastle Utd vs Arsenal</td><td>1-2</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Chelsea vs Brighton</td><td>1-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Manchester City vs Burnley</td><td>5-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Crystal Palace vs Liverpool</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>AFC Wimbledon vs Wycombe</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Rob</span><span class="player-score">0pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Gillingham vs Harrogate</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Southampton vs Middlesbrough</td><td>1-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Crawley vs Barrow</td><td>1-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week Five Picks (FINAL)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">5pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Gillingham vs Harrogate</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Accrington vs Walsall</td><td>1-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Oldham vs Barnet</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">4pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Aston Villa vs Fulham</td><td>3-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>West Brom vs Leicester</td><td>1-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Preston vs Bristol City</td><td>0-0</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Bradford City vs Blackpool</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Leyton Orient vs Stevenage</td><td>2-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Swindon vs Bromley</td><td>2-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Manchester City vs Burnley</td><td>5-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Crystal Palace vs Liverpool</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Newcastle Utd vs Arsenal</td><td>1-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
 </div>
 
-<h3 style="color: #a855f7; font-size: 1.5rem; font-weight: 900; margin: 1.5rem 0; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 1 – Week Five
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dylan</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Week 5 Winner</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Bradford vs Blackpool</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Leyton Orient vs Stevenage</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-3</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Fleetwood vs Colchester</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">4-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Week Five Results Summary</h3>
+<p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 5.</p>
+<div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;">
+<h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 5 Champions</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: Dylan (3pts)</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Dave K (5pts)</p>
+</div>
+<div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;">
+<h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 5 Statistics</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• Total Points Awarded: 19pts across both divisions</p>
+</div>
+</div>
 </div>
 
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Mike</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">2pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Tottenham vs Wolves</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Newcastle Utd vs Arsenal</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-2</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Chelsea vs Brighton</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-3</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week Four Picks (FINAL)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Rob</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Bristol City vs Oxford</td><td>1-3</td><td class="points-won">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Blackpool vs Barnsley</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bromley vs Chesterfield</td><td>2-2</td><td class="points-won">3pts</td></tr>
+</tbody></table>
 </div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">D</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Davo</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">1pt</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Manchester City vs Burnley</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">5-1</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Crystal Palace vs Liverpool</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">AFC Wimbledon vs Wycombe</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Liverpool vs Everton</td><td>2-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Manchester Utd vs Chelsea</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Derby vs Preston</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
 </div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">R</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Rob</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">0pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Gillingham vs Harrogate</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Southampton vs Middlesbrough</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Crawley vs Barrow</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">0pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Wolves vs Leeds Utd</td><td>1-3</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Middlesbrough vs West Brom</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Sheff Utd vs Charlton</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
 </div>
-
-<h3 style="color: #ec4899; font-size: 1.5rem; font-weight: 900; margin: 3rem 0 1.5rem 0; text-transform: uppercase;">
-  <i class="fa-solid fa-star"></i> Division 2 – Week Five
-</h3>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">DK</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Dave K</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Week 5 Winner</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">5pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Gillingham vs Harrogate</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Accrington vs Walsall</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-3</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Oldham vs Barnet</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Huddersfield vs Burton</td><td>0-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Newport vs Gillingham</td><td>1-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Wigan vs Bolton</td><td>1-4</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
 </div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">M</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Myles</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">4pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Aston Villa vs Fulham</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">3-1</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">West Brom vs Leicester</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Preston vs Bristol City</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">0-0</div>
-          </div>
-          <div class="bold-pick-result">3pts</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">A</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Alex</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">3pts</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Bradford City vs Blackpool</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-0</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Leyton Orient vs Stevenage</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-3</div>
-          </div>
-          <div class="bold-pick-result">2pts</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Swindon vs Bromley</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-0</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week Four Picks (FINAL)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Leicester vs Coventry</td><td>0-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Man United vs Chelsea</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Burnley vs Nottingham Forest</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
 </div>
-
-<div class="bold-player-card">
-  <div class="bold-player-card-inner">
-    <div class="bold-player-header">
-      <div class="bold-player-info">
-        <div class="bold-avatar">
-          <div class="bold-avatar-inner">
-            <span class="bold-avatar-text">B</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="bold-player-name">Ben</h3>
-          <div class="bold-player-status">
-            <div class="bold-status-dot"></div>
-            <span class="bold-status-text">Complete</span>
-          </div>
-        </div>
-      </div>
-      <div class="bold-points-box">
-        <div class="bold-points-label">Points</div>
-        <div class="bold-points-value">1pt</div>
-      </div>
-    </div>
-    <div class="bold-picks-container">
-      <div class="bold-pick-item home">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge home">
-            <div class="bold-pick-type">H</div>
-            <div class="bold-pick-points">1pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Manchester City vs Burnley</div>
-            <div class="bold-pick-description">🏠 Home Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">5-1</div>
-          </div>
-          <div class="bold-pick-result">1pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item away">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge away">
-            <div class="bold-pick-type">A</div>
-            <div class="bold-pick-points">2pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Crystal Palace vs Liverpool</div>
-            <div class="bold-pick-description">✈️ Away Win</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">2-1</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-      <div class="bold-pick-item draw">
-        <div class="bold-pick-inner">
-          <div class="bold-pick-badge draw">
-            <div class="bold-pick-type">D</div>
-            <div class="bold-pick-points">3pt</div>
-          </div>
-          <div class="bold-pick-details">
-            <div class="bold-pick-match">Newcastle Utd vs Arsenal</div>
-            <div class="bold-pick-description">🤝 Draw</div>
-          </div>
-          <div class="bold-pick-score-box">
-            <div class="bold-pick-score-label">Score</div>
-            <div class="bold-pick-score">1-2</div>
-          </div>
-          <div class="bold-pick-result lost">0pt</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">4pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Middlesbrough vs West Brom</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>QPR vs Stoke</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Arsenal vs City</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
 </div>
-
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">6pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Walsall vs Tranmere</td><td>4-2</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Newport vs Gillingham</td><td>1-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bromley vs Chesterfield</td><td>2-2</td><td class="points-won">3pts</td></tr>
+</tbody></table>
 </div>
-
-<!-- Continue with remaining weeks in original style... -->
-
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Bristol vs Oxford</td><td>1-3</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>West Ham vs Crystal Palace</td><td>1-2</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Fulham vs Brentford</td><td>3-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week Three Picks (FINAL)</h3>
+<div class="player-card"><div class="player-header"><span class="player-name">Rob</span><span class="player-score">4pts</span></div><table class="pick-table">
+<tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Gillingham vs Notts County</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Oxford vs Leicester City</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Leyton Orient vs Bolton</td><td>1-1</td><td class="points-won">3pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>West Brom vs Derby County</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Burnley vs Liverpool</td><td>0-1</td><td class="points-won">2pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Ipswich vs Sheffield United</td><td>5-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">2pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Crystal Palace vs Sunderland</td><td>0-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>West Ham vs Tottenham</td><td>0-3</td><td class="points-won">2pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Wrexham vs Queens Park Rangers</td><td>1-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Nottingham Forest</td><td>3-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brentford vs Chelsea</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Sheffield Wednesday vs Bristol City</td><td>0-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week Three Picks (FINAL)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">4pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Newcastle Utd vs Wolves</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Leicester City</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Charlton vs Millwall</td><td>1-1</td><td class="points-won">3pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Nottingham Forest</td><td>3-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Burnley vs Liverpool</td><td>0-1</td><td class="points-won">2pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Wrexham vs Queens Park Rangers</td><td>1-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Crystal Palace vs Sunderland</td><td>0-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Ipswich vs Sheffield United</td><td>5-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Leyton Orient vs Bolton</td><td>1-1</td><td class="points-won">3pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Swindon vs Harrogate</td><td>3-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brentford vs Chelsea</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Man City vs Man Utd</td><td>3-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="tables-grid">
+<div class="card"><h3 class="sub-title">Week Four Results Summary</h3><p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 4.</p><div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;"><h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 4 Champions</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: Rob (3pts)</p><p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Dave K (6pts)</p></div><div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;"><h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 4 Statistics</h4><p style="margin: 0.5rem 0; color: #e5e7eb;">• Total Points Awarded: 21pts across both divisions</p></div></div><div class="card">
+<h3 class="sub-title">Week Three Results Summary</h3>
+<p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 3.</p>
+<div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;">
+<h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 3 Champions</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 1:</strong> Rob (4pts) with Gillingham H ✓ and Leyton Orient/Bolton D ✓</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;"><strong>Division 2:</strong> Ben (4pts) with Newcastle H ✓ and Charlton/Millwall D ✓</p>
+</div>
+<div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;">
+<h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 3 Statistics</h4>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Success Rate:</strong> 9/24 correct predictions (37.5%)</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Best Performing Picks:</strong> Home wins (5/8 correct)</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Surprise Results:</strong> Derby beating West Brom away, QPR thrashing Wrexham</p>
+<p style="margin: 0.5rem 0; color: #e5e7eb;">• <strong>Total Points Awarded:</strong> 18pts across both divisions</p>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Week Three Major Results</h3>
+<p style="margin-bottom: 1.5rem;">Key match outcomes that determined this week's winners and losers.</p>
+<ul class="bankers-list">
+<li>
+<span>Arsenal 3-0 Nottingham Forest</span>
+<span class="banker-rank home-win">HOME ✓</span>
+</li>
+<li>
+<span>Liverpool 1-0 Burnley (95')</span>
+<span class="banker-rank away-win">AWAY ✓</span>
+</li>
+<li>
+<span>Leyton Orient 1-1 Bolton</span>
+<span class="banker-rank draw">DRAW ✓</span>
+</li>
+<li>
+<span>Man City 3-0 Man Utd</span>
+<span class="banker-rank home-win">SHOCK!</span>
+</li>
+<li>
+<span>Ipswich 5-0 Sheffield United</span>
+<span class="banker-rank home-win">ROUT!</span>
+</li>
+</ul>
+<div class="treble-info">
+<strong>Week 3 Highlight:</strong> Salah's 95th-minute penalty gave Liverpool the win at Burnley, securing crucial points for Dylan and Alex who backed the away win.
+        </div>
+</div>
+</div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week Two Picks</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Manchester Utd vs Burnley</td><td>3-2</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Coventry</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Liverpool vs Arsenal</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">0pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Nottingham Forest vs West Ham</td><td>0-3</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brighton vs Manchester City</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bristol City vs Hull City</td><td>4-1</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Cardiff City vs Plymouth</td><td>4-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Leeds Utd vs Newcastle Utd</td><td>0-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Blackburn Rovers vs Norwich City</td><td>0-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Rob</span><span class="player-score">Not yet active</span></div>
+<table class="pick-table"><tbody><tr><td colspan="4" style="text-align:center;padding:1.5rem;color:#9ca3af">Rob joins from Week 3 onwards</td></tr></tbody></table>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week Two Picks</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Nottingham Forest vs West Ham Utd</td><td>0-3</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Liverpool vs Arsenal</td><td>1-0</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Leeds Utd vs Newcastle Utd</td><td>0-0</td><td class="points-won">3pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">0pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Tottenham Hotspur vs Bournemouth</td><td>0-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Oxford Utd vs Coventry City</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Wolves vs Everton</td><td>2-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Leicester City vs Birmingham City</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Watford vs Southampton</td><td>2-2</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Manchester Utd vs Burnley</td><td>3-2</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Chelsea vs Fulham</td><td>2-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brighton vs Manchester City</td><td>2-1</td><td class="points-lost">0pt</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Aston Villa vs Crystal Palace</td><td>0-3</td><td class="points-lost">0pt</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="tables-grid">
+<div class="card">
+<h3 class="sub-title">Division 1 – Week One Picks (Recap)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Davo</span><span class="player-score">6pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Leeds Utd</td><td>5-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Newcastle vs Liverpool</td><td>2-3</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Swansea City vs Watford</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Mike</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Birmingham vs Oxford Utd</td><td>1-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Brentford vs Aston Villa</td><td>1-0</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Sheffield Utd vs Millwall</td><td>0-1</td><td class="points-lost">0pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dylan</span><span class="player-score">1pt</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Coventry City vs QPR</td><td>7-1</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Everton vs Brighton</td><td>2-0</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Burnley vs Sunderland</td><td>2-0</td><td class="points-lost">0pts</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="card">
+<h3 class="sub-title">Division 2 – Week One Picks (Recap)</h3>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Ben</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Arsenal vs Leeds Utd</td><td>6-0</td><td class="points-won">1pt</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Crawley vs Tranmere Rovers</td><td>0-2</td><td class="points-won">2pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Preston NE vs Ipswich Town</td><td>1-0</td><td class="points-lost">0pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Dave K</span><span class="player-score">0pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Manchester City vs Tottenham</td><td>0-2</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Burnley vs Sunderland</td><td>2-0</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Bournemouth vs Wolves</td><td>1-0</td><td class="points-lost">0pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Alex</span><span class="player-score">3pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Fulham vs Manchester United</td><td>1-1</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Wrexham vs Sheffield Wednesday</td><td>2-2</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Crystal Palace vs Nottm Forest</td><td>1-1</td><td class="points-won">3pts</td></tr>
+</tbody></table>
+</div>
+<div class="player-card">
+<div class="player-header"><span class="player-name">Myles</span><span class="player-score">0pts</span></div>
+<table class="pick-table"><tbody>
+<tr><td><span class="pick-type home">H</span></td><td>Southampton vs Stoke City</td><td>1-2</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type away">A</span></td><td>Fulham vs Manchester United</td><td>Void</td><td class="points-lost">0pts</td></tr>
+<tr><td><span class="pick-type draw">D</span></td><td>Hull City vs Blackburn Rovers</td><td>0-3</td><td class="points-lost">0pts</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
 </main>
-
 <button class="back-to-top" id="backToTop" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <footer class="site-footer">
 <p>© 2025 King of the Pundits. All rights reserved.</p>
@@ -2461,224 +671,23 @@
 Site created and developed by <strong>David P Edwards</strong>, founder and organizer of King of the Pundits.
 </p>
 </footer>
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const backToTopButton = document.getElementById('backToTop');
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
 
-  if (backToTopButton) {
-    window.addEventListener('scroll', function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopButton.style.display = "block";
-      } else {
-        backToTopButton.style.display = "none";
+      if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
       }
     });
-    backToTopButton.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Division 1 Season Statistics Chart (Horizontal)
-  const div1Ctx = document.getElementById('div1Week6Chart');
-  if (div1Ctx) {
-    new Chart(div1Ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Davo', 'Dylan', 'Rob', 'Mike'],
-        datasets: [
-          {
-            label: 'Home Wins (Correct)',
-            data: [6, 2, 2, 3],
-            backgroundColor: 'rgba(16, 185, 129, 0.9)',
-            borderColor: 'rgba(16, 185, 129, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Away Wins (Correct)',
-            data: [2, 3, 1, 3],
-            backgroundColor: 'rgba(59, 130, 246, 0.9)',
-            borderColor: 'rgba(59, 130, 246, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Draws (Correct)',
-            data: [1, 1, 2, 0],
-            backgroundColor: 'rgba(245, 158, 11, 0.9)',
-            borderColor: 'rgba(245, 158, 11, 1)',
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#e2e8f0',
-              font: {
-                size: 13,
-                weight: 'bold'
-              },
-              padding: 15
-            }
-          },
-          title: {
-            display: true,
-            text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
-            color: '#ffffff',
-            font: {
-              size: 14,
-              weight: 'bold'
-            },
-            padding: {
-              bottom: 20
-            }
-          }
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            max: 6,
-            ticks: {
-              stepSize: 1,
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            },
-            grid: {
-              color: 'rgba(255, 255, 255, 0.1)'
-            },
-            title: {
-              display: true,
-              text: 'Correct Predictions',
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            }
-          },
-          y: {
-            ticks: {
-              color: '#e2e8f0',
-              font: {
-                size: 14,
-                weight: 'bold'
-              }
-            },
-            grid: {
-              display: false
-            }
-          }
-        }
-      }
-    });
-  }
-
-  // Division 2 Season Statistics Chart (Horizontal)
-  const div2Ctx = document.getElementById('div2Week6Chart');
-  if (div2Ctx) {
-    new Chart(div2Ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Dave K', 'Ben', 'Alex', 'Myles'],
-        datasets: [
-          {
-            label: 'Home Wins (Correct)',
-            data: [3, 5, 3, 3],
-            backgroundColor: 'rgba(16, 185, 129, 0.9)',
-            borderColor: 'rgba(16, 185, 129, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Away Wins (Correct)',
-            data: [2, 2, 3, 1],
-            backgroundColor: 'rgba(59, 130, 246, 0.9)',
-            borderColor: 'rgba(59, 130, 246, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Draws (Correct)',
-            data: [3, 2, 2, 3],
-            backgroundColor: 'rgba(245, 158, 11, 0.9)',
-            borderColor: 'rgba(245, 158, 11, 1)',
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#e2e8f0',
-              font: {
-                size: 13,
-                weight: 'bold'
-              },
-              padding: 15
-            }
-          },
-          title: {
-            display: true,
-            text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
-            color: '#ffffff',
-            font: {
-              size: 14,
-              weight: 'bold'
-            },
-            padding: {
-              bottom: 20
-            }
-          }
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            max: 6,
-            ticks: {
-              stepSize: 1,
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            },
-            grid: {
-              color: 'rgba(255, 255, 255, 0.1)'
-            },
-            title: {
-              display: true,
-              text: 'Correct Predictions',
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            }
-          },
-          y: {
-            ticks: {
-              color: '#e2e8f0',
-              font: {
-                size: 14,
-                weight: 'bold'
-              }
-            },
-            grid: {
-              display: false
-            }
-          }
-        }
-      }
-    });
-  }
-});
-</script>
+  </script>
 </body>
 </html>
