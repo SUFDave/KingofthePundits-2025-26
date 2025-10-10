@@ -68,42 +68,23 @@
 
   .chart-container {
     position: relative;
-    height: 320px;
+    height: 380px;
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
   }
 
-  .chart-card {
-    background: #0f172a;
-    border-radius: 16px;
-    border: 2px solid #1e293b;
-    padding: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    height: 100%;
+  .stats-chart-card {
     display: flex;
     flex-direction: column;
   }
 
-  .chart-title {
-    font-size: 1.2rem;
+  .stats-chart-card .sub-title {
+    font-size: 1.25rem;
     font-weight: 900;
     color: white;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     text-align: center;
-  }
-
-  .results-chart-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    align-items: start;
-  }
-  
-  .results-chart-grid .card,
-  .results-chart-grid .chart-card {
-    height: 100%;
   }
 
   .bankers-list {
@@ -162,13 +143,13 @@
   }
 
   /* Scroll Animation Styles */
-  .chart-card {
+  .stats-chart-card {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
   }
 
-  .chart-card.animate-in {
+  .stats-chart-card.animate-in {
     opacity: 1;
     transform: translateY(0);
   }
@@ -189,35 +170,9 @@
   }
 
   /* Responsive chart height */
-  @media (max-width: 992px) {
-    .results-chart-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    .chart-container {
-      height: 380px;
-    }
-    .results-chart-grid .card,
-    .results-chart-grid .chart-card {
-      height: auto;
-    }
-  }
-  
   @media (max-width: 768px) {
     .chart-container {
-      height: 360px;
-    }
-    .chart-title {
-      font-size: 1.1rem;
-    }
-    .chart-card {
-      padding: 1rem;
-    }
-    .chart-card p {
-      font-size: 0.7rem !important;
-    }
-    .chart-card strong {
-      font-size: 0.7rem;
+      height: 420px;
     }
   }
 </style>
@@ -326,7 +281,7 @@
 </div>
 
 <!-- WEEK 6 RESULTS SUMMARY AND STATISTICS CHART SIDE BY SIDE -->
-<div class="results-chart-grid">
+<div class="tables-grid">
   <div class="card">
     <h3 class="sub-title">Week Six Results Summary</h3>
     <p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 6.</p>
@@ -344,16 +299,16 @@
   </div>
 
   <!-- COMBINED DIVISIONS STATISTICS CHART -->
-  <div class="chart-card" id="combinedChart">
-    <h3 class="chart-title">📊 Season Statistics (Weeks 1-6)</h3>
-    <p style="text-align: center; color: #94a3b8; margin-bottom: 0.5rem; font-size: 0.8rem;">
+  <div class="card stats-chart-card" id="combinedChart">
+    <h3 class="sub-title">📊 Season Statistics (Weeks 1-6)</h3>
+    <p style="text-align: center; color: #94a3b8; margin-top: -0.75rem; margin-bottom: 1rem; font-size: 0.875rem;">
       Cumulative correct predictions - Both Divisions
     </p>
     <div class="chart-container" style="flex: 1;">
       <canvas id="seasonStatsChart"></canvas>
     </div>
-    <div style="margin-top: 0.75rem; padding: 0.6rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-      <p style="color: #10b981; font-size: 0.75rem; margin: 0; text-align: center; line-height: 1.3;">
+    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+      <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center; line-height: 1.5;">
         <strong>Key Insights:</strong> Davo (6/6 home) & Ben (5/6 home) lead • Dylan, Mike & Alex excel away (3/6) • Dave K & Myles master draws (3/6)
       </p>
     </div>
