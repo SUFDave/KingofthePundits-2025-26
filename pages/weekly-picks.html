@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <link href="../css/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </head>
 <body>
 <header style="background: rgba(17, 24, 39, 0.8); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
@@ -73,6 +74,23 @@
     box-sizing: border-box;
   }
 
+  .chart-card {
+    background: #0f172a;
+    border-radius: 16px;
+    border: 2px solid #1e293b;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+
+  .chart-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
   .bankers-list {
     list-style: none;
     padding: 0;
@@ -127,9 +145,7 @@
     color: #93c5fd;
     font-style: italic;
   }
-
-
-  </style>
+</style>
 <div class="container">
 <div class="hero-banner" role="banner">
 <img alt="King of the Pundits stadium banner with a football and a crown" src="../images/kingofthepundits-new-banner.webp"/>
@@ -232,6 +248,38 @@
 <li>Ben ✓</li>
 </ol>
 </div>
+</div>
+
+<!-- DIVISION 1 STATISTICS CHART -->
+<div class="chart-card">
+  <h3 class="chart-title">📊 Division 1 - Season Statistics (Weeks 1-6)</h3>
+  <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
+    Cumulative correct predictions across all match types
+  </p>
+  <div class="chart-container">
+    <canvas id="div1Week6Chart"></canvas>
+  </div>
+  <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+    <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
+      <strong>Key Insight:</strong> Davo leads with a perfect 6/6 home record, while Mike & Dylan share the away wins lead at 3/6
+    </p>
+  </div>
+</div>
+
+<!-- DIVISION 2 STATISTICS CHART -->
+<div class="chart-card">
+  <h3 class="chart-title">📊 Division 2 - Season Statistics (Weeks 1-6)</h3>
+  <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
+    Cumulative correct predictions across all match types
+  </p>
+  <div class="chart-container">
+    <canvas id="div2Week6Chart"></canvas>
+  </div>
+  <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+    <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
+      <strong>Key Insight:</strong> Ben dominates home wins with 5/6, while Alex leads away predictions at 3/6. Draw mastery split between Dave K & Myles at 3/6
+    </p>
+  </div>
 </div>
 
 <div class="tables-grid">
@@ -672,22 +720,222 @@ Site created and developed by <strong>David P Edwards</strong>, founder and orga
 </p>
 </footer>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const backToTopButton = document.getElementById('backToTop');
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.getElementById('backToTop');
 
-      if (backToTopButton) {
-        window.addEventListener('scroll', function() {
-          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopButton.style.display = "block";
-          } else {
-            backToTopButton.style.display = "none";
-          }
-        });
-        backToTopButton.addEventListener('click', function() {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+  if (backToTopButton) {
+    window.addEventListener('scroll', function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
       }
     });
-  </script>
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Division 1 Season Statistics Chart (Horizontal)
+  const div1Ctx = document.getElementById('div1Week6Chart');
+  if (div1Ctx) {
+    new Chart(div1Ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Davo', 'Dylan', 'Rob', 'Mike'],
+        datasets: [
+          {
+            label: 'Home Wins (Correct)',
+            data: [6, 2, 2, 3],
+            backgroundColor: 'rgba(16, 185, 129, 0.9)',
+            borderColor: 'rgba(16, 185, 129, 1)',
+            borderWidth: 2
+          },
+          {
+            label: 'Away Wins (Correct)',
+            data: [2, 3, 1, 3],
+            backgroundColor: 'rgba(59, 130, 246, 0.9)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 2
+          },
+          {
+            label: 'Draws (Correct)',
+            data: [1, 1, 2, 0],
+            backgroundColor: 'rgba(245, 158, 11, 0.9)',
+            borderColor: 'rgba(245, 158, 11, 1)',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#e2e8f0',
+              font: {
+                size: 13,
+                weight: 'bold'
+              },
+              padding: 15
+            }
+          },
+          title: {
+            display: true,
+            text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
+            color: '#ffffff',
+            font: {
+              size: 14,
+              weight: 'bold'
+            },
+            padding: {
+              bottom: 20
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 6,
+            ticks: {
+              stepSize: 1,
+              color: '#94a3b8',
+              font: {
+                weight: 'bold'
+              }
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            title: {
+              display: true,
+              text: 'Correct Predictions',
+              color: '#94a3b8',
+              font: {
+                weight: 'bold'
+              }
+            }
+          },
+          y: {
+            ticks: {
+              color: '#e2e8f0',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Division 2 Season Statistics Chart (Horizontal)
+  const div2Ctx = document.getElementById('div2Week6Chart');
+  if (div2Ctx) {
+    new Chart(div2Ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Dave K', 'Ben', 'Alex', 'Myles'],
+        datasets: [
+          {
+            label: 'Home Wins (Correct)',
+            data: [3, 5, 3, 3],
+            backgroundColor: 'rgba(16, 185, 129, 0.9)',
+            borderColor: 'rgba(16, 185, 129, 1)',
+            borderWidth: 2
+          },
+          {
+            label: 'Away Wins (Correct)',
+            data: [2, 2, 3, 1],
+            backgroundColor: 'rgba(59, 130, 246, 0.9)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 2
+          },
+          {
+            label: 'Draws (Correct)',
+            data: [3, 2, 2, 3],
+            backgroundColor: 'rgba(245, 158, 11, 0.9)',
+            borderColor: 'rgba(245, 158, 11, 1)',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#e2e8f0',
+              font: {
+                size: 13,
+                weight: 'bold'
+              },
+              padding: 15
+            }
+          },
+          title: {
+            display: true,
+            text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
+            color: '#ffffff',
+            font: {
+              size: 14,
+              weight: 'bold'
+            },
+            padding: {
+              bottom: 20
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 6,
+            ticks: {
+              stepSize: 1,
+              color: '#94a3b8',
+              font: {
+                weight: 'bold'
+              }
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            title: {
+              display: true,
+              text: 'Correct Predictions',
+              color: '#94a3b8',
+              font: {
+                weight: 'bold'
+              }
+            }
+          },
+          y: {
+            ticks: {
+              color: '#e2e8f0',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
