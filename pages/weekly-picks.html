@@ -54,37 +54,13 @@
 </div>
 </header>
 <style>
-  /* Desktop: Show desktop nav, hide mobile nav */
   @media (min-width: 768px) {
       .desktop-nav { display: block !important; }
       .mobile-nav { display: none !important; }
   }
-
-  /* Mobile: Show mobile nav, hide desktop nav */
   @media (max-width: 767px) {
       .desktop-nav { display: none !important; }
       .mobile-nav { display: block !important; }
-  }
-
-  .chart-container {
-    position: relative;
-    height: 380px;
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
-  }
-
-  .stats-chart-card {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stats-chart-card .sub-title {
-    font-size: 1.25rem;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 0.75rem;
-    text-align: center;
   }
 
   .bankers-list {
@@ -140,40 +116,6 @@
   .pending-status {
     color: #93c5fd;
     font-style: italic;
-  }
-
-  /* Scroll Animation Styles */
-  .stats-chart-card {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-
-  .stats-chart-card.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .chart-reveal {
-    animation: chartReveal 1.5s ease-out forwards;
-  }
-
-  @keyframes chartReveal {
-    from {
-      opacity: 0;
-      transform: scale(0.95) translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  /* Responsive chart height */
-  @media (max-width: 768px) {
-    .chart-container {
-      height: 420px;
-    }
   }
 </style>
 <div class="container">
@@ -280,38 +222,31 @@
 </div>
 </div>
 
-<!-- WEEK 6 RESULTS SUMMARY AND STATISTICS CHART SIDE BY SIDE -->
-<div class="tables-grid">
-  <div class="card">
-    <h3 class="sub-title">Week Six Results Summary</h3>
-    <p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 6.</p>
-    <div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;">
-      <h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 6 Champions</h4>
-      <p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: 4-WAY TIE - Mike, Dylan, Rob, Davo (3pts each)</p>
-      <p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Alex (4pts)</p>
-    </div>
-    <div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;">
-      <h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 6 Statistics</h4>
-      <p style="margin: 0.5rem 0; color: #e5e7eb;">• Total Points Awarded: 23pts across both divisions</p>
-      <p style="margin: 0.5rem 0; color: #e5e7eb;">• Historic 4-way tie in Division 1 - unprecedented!</p>
-      <p style="margin: 0.5rem 0; color: #e5e7eb;">• Alex's draw mastery continues with Port Vale stalemate</p>
-    </div>
+<!-- WEEK 6 RESULTS SUMMARY -->
+<div class="card">
+  <h3 class="sub-title">Week Six Results Summary</h3>
+  <p style="font-size: 0.875rem; color: #e5e7eb; margin-top: -0.75rem; margin-bottom: 1rem;">Final scores and success rate analysis for Week 6.</p>
+  <div style="padding: 1rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; margin-bottom: 1rem;">
+    <h4 style="margin: 0 0 1rem 0; color: #10b981;">🏆 Week 6 Champions</h4>
+    <p style="margin: 0.5rem 0; color: #e5e7eb;">Division 1: 4-WAY TIE - Mike, Dylan, Rob, Davo (3pts each)</p>
+    <p style="margin: 0.5rem 0; color: #e5e7eb;">Division 2: Alex (4pts)</p>
   </div>
+  <div style="padding: 1rem; background: rgba(31, 41, 55, 0.3); border-radius: 8px;">
+    <h4 style="margin: 0 0 1rem 0; color: #f59e0b;">📊 Week 6 Statistics</h4>
+    <p style="margin: 0.5rem 0; color: #e5e7eb;">• Total Points Awarded: 23pts across both divisions</p>
+    <p style="margin: 0.5rem 0; color: #e5e7eb;">• Historic 4-way tie in Division 1 - unprecedented!</p>
+    <p style="margin: 0.5rem 0; color: #e5e7eb;">• Alex's draw mastery continues with Port Vale stalemate</p>
+  </div>
+</div>
 
-  <!-- COMBINED DIVISIONS STATISTICS CHART -->
-  <div class="card stats-chart-card" id="combinedChart">
-    <h3 class="sub-title">📊 Season Statistics (Weeks 1-6)</h3>
-    <p style="text-align: center; color: #94a3b8; margin-top: -0.75rem; margin-bottom: 1rem; font-size: 0.875rem;">
-      Cumulative correct predictions - Both Divisions
-    </p>
-    <div class="chart-container" style="flex: 1;">
-      <canvas id="seasonStatsChart"></canvas>
-    </div>
-    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-      <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center; line-height: 1.5;">
-        <strong>Key Insights:</strong> Davo (6/6 home) & Ben (5/6 home) lead • Dylan, Mike & Alex excel away (3/6) • Dave K & Myles master draws (3/6)
-      </p>
-    </div>
+<!-- FULL WIDTH PROFESSIONAL STATISTICS CHART -->
+<div class="card">
+  <h3 class="sub-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">📊 Season Statistics - All Players (Weeks 1-6)</h3>
+  <p style="text-align: center; color: #94a3b8; margin-bottom: 2rem; font-size: 1rem; font-weight: 500;">
+    Cumulative Correct Predictions • Division 1 & Division 2
+  </p>
+  <div style="position: relative; height: 700px; width: 100%; padding: 1rem; box-sizing: border-box;">
+    <canvas id="seasonStatsChart"></canvas>
   </div>
 </div>
 
@@ -751,49 +686,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Intersection Observer for Chart Animation
-  const chartCard = document.getElementById('combinedChart');
-  
-  const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
-  const chartObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        // Trigger chart animation after card animates in
-        setTimeout(() => {
-          const canvas = entry.target.querySelector('canvas');
-          if (canvas) {
-            canvas.classList.add('chart-reveal');
-          }
-        }, 300);
-      }
-    });
-  }, observerOptions);
-
-  if (chartCard) {
-    chartObserver.observe(chartCard);
-  }
-
-  // Combined Season Statistics Chart (Both Divisions)
+  // Combined Season Statistics Chart - ALL 8 PLAYERS
   const statsCtx = document.getElementById('seasonStatsChart');
   if (statsCtx) {
     new Chart(statsCtx, {
       type: 'bar',
       data: {
         labels: [
-          'Davo (D1)', 
-          'Dylan (D1)', 
-          'Rob (D1)', 
-          'Mike (D1)',
-          '―――――――',  // Visual separator
-          'Dave K (D2)', 
-          'Ben (D2)', 
-          'Alex (D2)', 
-          'Myles (D2)'
+          'Davo', 
+          'Dylan', 
+          'Rob', 
+          'Mike',
+          '―――――',
+          'Dave K', 
+          'Ben', 
+          'Alex', 
+          'Myles'
         ],
         datasets: [
           {
@@ -824,15 +732,8 @@ document.addEventListener('DOMContentLoaded', function() {
         responsive: true,
         maintainAspectRatio: false,
         animation: {
-          duration: 2000,
-          easing: 'easeOutQuart',
-          delay: (context) => {
-            let delay = 0;
-            if (context.type === 'data' && context.mode === 'default') {
-              delay = context.dataIndex * 80;
-            }
-            return delay;
-          }
+          duration: 1800,
+          easing: 'easeOutQuart'
         },
         plugins: {
           legend: {
@@ -840,22 +741,37 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: {
               color: '#e2e8f0',
               font: {
-                size: 11,
+                size: 14,
                 weight: 'bold'
               },
-              padding: 10,
-              boxWidth: 15,
-              boxHeight: 15
+              padding: 20,
+              boxWidth: 20,
+              boxHeight: 20
             }
           },
           title: {
             display: false
           },
           tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(17, 24, 39, 0.95)',
+            titleColor: '#ffffff',
+            bodyColor: '#e5e7eb',
+            borderColor: '#10b981',
+            borderWidth: 1,
+            padding: 12,
+            titleFont: {
+              size: 14,
+              weight: 'bold'
+            },
+            bodyFont: {
+              size: 13
+            },
             callbacks: {
               title: function(context) {
                 let label = context[0].label;
-                return label.replace(' (D1)', ' - Division 1').replace(' (D2)', ' - Division 2');
+                if (label === '―――――') return '';
+                return label + ' - Correct Predictions';
               }
             }
           }
@@ -868,20 +784,24 @@ document.addEventListener('DOMContentLoaded', function() {
               stepSize: 1,
               color: '#94a3b8',
               font: {
-                size: 10,
+                size: 13,
                 weight: 'bold'
               }
             },
             grid: {
-              color: 'rgba(255, 255, 255, 0.1)'
+              color: 'rgba(255, 255, 255, 0.1)',
+              drawBorder: false
             },
             title: {
               display: true,
-              text: 'Correct Predictions',
-              color: '#94a3b8',
+              text: 'Correct Predictions (out of 6 attempts)',
+              color: '#ffffff',
               font: {
-                size: 11,
+                size: 14,
                 weight: 'bold'
+              },
+              padding: {
+                top: 15
               }
             }
           },
@@ -890,13 +810,14 @@ document.addEventListener('DOMContentLoaded', function() {
               color: function(context) {
                 const index = context.index;
                 if (index === 4) return '#6b7280'; // Separator
-                if (index < 4) return '#a855f7'; // Division 1
-                return '#ec4899'; // Division 2
+                if (index < 4) return '#a855f7'; // Division 1 - Purple
+                return '#ec4899'; // Division 2 - Pink
               },
               font: {
-                size: 11,
+                size: 15,
                 weight: 'bold'
-              }
+              },
+              padding: 8
             },
             grid: {
               display: false
