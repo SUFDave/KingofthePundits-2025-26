@@ -145,6 +145,33 @@
     color: #93c5fd;
     font-style: italic;
   }
+
+  /* Scroll Animation Styles */
+  .chart-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  .chart-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .chart-reveal {
+    animation: chartReveal 1.5s ease-out forwards;
+  }
+
+  @keyframes chartReveal {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
 </style>
 <div class="container">
 <div class="hero-banner" role="banner">
@@ -250,34 +277,18 @@
 </div>
 </div>
 
-<!-- DIVISION 1 STATISTICS CHART -->
-<div class="chart-card">
-  <h3 class="chart-title">📊 Division 1 - Season Statistics (Weeks 1-6)</h3>
+<!-- COMBINED DIVISIONS STATISTICS CHART -->
+<div class="chart-card" id="combinedChart">
+  <h3 class="chart-title">📊 Season Statistics - Both Divisions (Weeks 1-6)</h3>
   <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
     Cumulative correct predictions across all match types
   </p>
   <div class="chart-container">
-    <canvas id="div1Week6Chart"></canvas>
+    <canvas id="seasonStatsChart"></canvas>
   </div>
   <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
     <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
-      <strong>Key Insight:</strong> Davo leads with a perfect 6/6 home record, while Mike & Dylan share the away wins lead at 3/6
-    </p>
-  </div>
-</div>
-
-<!-- DIVISION 2 STATISTICS CHART -->
-<div class="chart-card">
-  <h3 class="chart-title">📊 Division 2 - Season Statistics (Weeks 1-6)</h3>
-  <p style="text-align: center; color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
-    Cumulative correct predictions across all match types
-  </p>
-  <div class="chart-container">
-    <canvas id="div2Week6Chart"></canvas>
-  </div>
-  <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-    <p style="color: #10b981; font-size: 0.875rem; margin: 0; text-align: center;">
-      <strong>Key Insight:</strong> Ben dominates home wins with 5/6, while Alex leads away predictions at 3/6. Draw mastery split between Dave K & Myles at 3/6
+      <strong>Key Insights:</strong> Davo & Ben lead home wins with 6/6 and 5/6 respectively • Dylan, Mike & Alex excel at away wins (3/6) • Dave K & Myles master the draws (3/6)
     </p>
   </div>
 </div>
@@ -736,131 +747,68 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Division 1 Season Statistics Chart (Horizontal)
-  const div1Ctx = document.getElementById('div1Week6Chart');
-  if (div1Ctx) {
-    new Chart(div1Ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Davo', 'Dylan', 'Rob', 'Mike'],
-        datasets: [
-          {
-            label: 'Home Wins (Correct)',
-            data: [6, 2, 2, 3],
-            backgroundColor: 'rgba(16, 185, 129, 0.9)',
-            borderColor: 'rgba(16, 185, 129, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Away Wins (Correct)',
-            data: [2, 3, 1, 3],
-            backgroundColor: 'rgba(59, 130, 246, 0.9)',
-            borderColor: 'rgba(59, 130, 246, 1)',
-            borderWidth: 2
-          },
-          {
-            label: 'Draws (Correct)',
-            data: [1, 1, 2, 0],
-            backgroundColor: 'rgba(245, 158, 11, 0.9)',
-            borderColor: 'rgba(245, 158, 11, 1)',
-            borderWidth: 2
+  // Intersection Observer for Chart Animation
+  const chartCard = document.getElementById('combinedChart');
+  
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        // Trigger chart animation after card animates in
+        setTimeout(() => {
+          const canvas = entry.target.querySelector('canvas');
+          if (canvas) {
+            canvas.classList.add('chart-reveal');
           }
-        ]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#e2e8f0',
-              font: {
-                size: 13,
-                weight: 'bold'
-              },
-              padding: 15
-            }
-          },
-          title: {
-            display: true,
-            text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
-            color: '#ffffff',
-            font: {
-              size: 14,
-              weight: 'bold'
-            },
-            padding: {
-              bottom: 20
-            }
-          }
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            max: 6,
-            ticks: {
-              stepSize: 1,
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            },
-            grid: {
-              color: 'rgba(255, 255, 255, 0.1)'
-            },
-            title: {
-              display: true,
-              text: 'Correct Predictions',
-              color: '#94a3b8',
-              font: {
-                weight: 'bold'
-              }
-            }
-          },
-          y: {
-            ticks: {
-              color: '#e2e8f0',
-              font: {
-                size: 14,
-                weight: 'bold'
-              }
-            },
-            grid: {
-              display: false
-            }
-          }
-        }
+        }, 300);
       }
     });
+  }, observerOptions);
+
+  if (chartCard) {
+    chartObserver.observe(chartCard);
   }
 
-  // Division 2 Season Statistics Chart (Horizontal)
-  const div2Ctx = document.getElementById('div2Week6Chart');
-  if (div2Ctx) {
-    new Chart(div2Ctx, {
+  // Combined Season Statistics Chart (Both Divisions)
+  const statsCtx = document.getElementById('seasonStatsChart');
+  if (statsCtx) {
+    new Chart(statsCtx, {
       type: 'bar',
       data: {
-        labels: ['Dave K', 'Ben', 'Alex', 'Myles'],
+        labels: [
+          'Davo (D1)', 
+          'Dylan (D1)', 
+          'Rob (D1)', 
+          'Mike (D1)',
+          '―――――――',  // Visual separator
+          'Dave K (D2)', 
+          'Ben (D2)', 
+          'Alex (D2)', 
+          'Myles (D2)'
+        ],
         datasets: [
           {
             label: 'Home Wins (Correct)',
-            data: [3, 5, 3, 3],
+            data: [6, 2, 2, 3, null, 3, 5, 3, 3],
             backgroundColor: 'rgba(16, 185, 129, 0.9)',
             borderColor: 'rgba(16, 185, 129, 1)',
             borderWidth: 2
           },
           {
             label: 'Away Wins (Correct)',
-            data: [2, 2, 3, 1],
+            data: [2, 3, 1, 3, null, 2, 2, 3, 1],
             backgroundColor: 'rgba(59, 130, 246, 0.9)',
             borderColor: 'rgba(59, 130, 246, 1)',
             borderWidth: 2
           },
           {
             label: 'Draws (Correct)',
-            data: [3, 2, 2, 3],
+            data: [1, 1, 2, 0, null, 3, 2, 2, 3],
             backgroundColor: 'rgba(245, 158, 11, 0.9)',
             borderColor: 'rgba(245, 158, 11, 1)',
             borderWidth: 2
@@ -871,6 +819,17 @@ document.addEventListener('DOMContentLoaded', function() {
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+        animation: {
+          duration: 2000,
+          easing: 'easeOutQuart',
+          delay: (context) => {
+            let delay = 0;
+            if (context.type === 'data' && context.mode === 'default') {
+              delay = context.dataIndex * 100;
+            }
+            return delay;
+          }
+        },
         plugins: {
           legend: {
             position: 'bottom',
@@ -888,11 +847,20 @@ document.addEventListener('DOMContentLoaded', function() {
             text: 'Season Statistics: Weeks 1-6 (Correct Predictions)',
             color: '#ffffff',
             font: {
-              size: 14,
+              size: 16,
               weight: 'bold'
             },
             padding: {
               bottom: 20
+            }
+          },
+          tooltip: {
+            callbacks: {
+              title: function(context) {
+                let label = context[0].label;
+                // Remove division label for cleaner tooltip
+                return label.replace(' (D1)', ' - Division 1').replace(' (D2)', ' - Division 2');
+              }
             }
           }
         },
@@ -915,15 +883,22 @@ document.addEventListener('DOMContentLoaded', function() {
               text: 'Correct Predictions',
               color: '#94a3b8',
               font: {
+                size: 13,
                 weight: 'bold'
               }
             }
           },
           y: {
             ticks: {
-              color: '#e2e8f0',
+              color: function(context) {
+                // Color code by division
+                const index = context.index;
+                if (index === 4) return '#6b7280'; // Separator line
+                if (index < 4) return '#a855f7'; // Division 1 (purple)
+                return '#ec4899'; // Division 2 (pink)
+              },
               font: {
-                size: 14,
+                size: 13,
                 weight: 'bold'
               }
             },
