@@ -99,10 +99,10 @@
     position: relative;
     overflow: hidden;
     border-radius: 24px;
-    background: linear-gradient(135deg, #9333ea 0%, #db2777 50%, #dc2626 100%);
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
     padding: 2px;
     margin-bottom: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
   }
 
   .bold-hero-inner {
@@ -116,7 +116,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: linear-gradient(135deg, #059669, #10b981);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
@@ -142,7 +142,7 @@
   }
 
   .bold-hero-accent {
-    background: linear-gradient(135deg, #c084fc, #f472b6);
+    background: linear-gradient(135deg, #10b981, #34d399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -165,7 +165,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #9333ea, #db2777);
+    background: linear-gradient(135deg, #059669, #10b981);
     border-radius: 16px;
     opacity: 0.15;
     filter: blur(20px);
@@ -198,7 +198,7 @@
   }
 
   .bold-section-title i {
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: linear-gradient(135deg, #10b981, #34d399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -234,7 +234,7 @@
 
   .bold-stat {
     display: inline-block;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: linear-gradient(135deg, #059669, #10b981);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 6px;
@@ -242,12 +242,18 @@
     font-size: 0.95rem;
   }
 
-  /* Video Grid */
+  /* Video Grid - 2x2 Layout */
   .video-grid-bold {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-top: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .video-grid-bold {
+      grid-template-columns: 1fr;
+    }
   }
 
   .video-card {
@@ -327,7 +333,7 @@
           WELCOME TO <span class="bold-hero-accent">KING OF THE PUNDITS</span>
         </h1>
         <p class="bold-hero-text">
-          Eight skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything. After six electrifying weeks, <strong style="color: #10b981;">Davo</strong> extends his Division One lead to 13 points with his immaculate home record still intact, while <strong style="color: #ec4899;">Dave K</strong> maintains his grip on Division Two with 16 points!
+          Eight skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything. After six electrifying weeks, <strong style="color: #10b981;">Davo</strong> extends his Division One lead to 13 points with his immaculate home record still intact, while <strong style="color: #34d399;">Dave K</strong> maintains his grip on Division Two with 16 points!
         </p>
       </div>
     </div>
@@ -365,7 +371,7 @@
         </div>
 
         <div class="bold-highlight-item">
-          <strong style="color: #ec4899;">Myles</strong> picked up 3 valuable points including his first away win of the season as Tottenham triumphed at Leeds. He sits on <span class="bold-stat">14 POINTS</span>, just 2 behind the Division Two leaders.
+          <strong style="color: #34d399;">Myles</strong> picked up 3 valuable points including his first away win of the season as Tottenham triumphed at Leeds. He sits on <span class="bold-stat">14 POINTS</span>, just 2 behind the Division Two leaders.
         </div>
 
         <div class="bold-highlight-item">
@@ -382,12 +388,12 @@
           PREVIOUS RESULTS
         </h2>
         
-        <h3 style="color: #a855f7; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">Week Five Recap</h3>
+        <h3 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">Week Five Recap</h3>
         <p class="bold-text">
           Week Five saw <strong style="color: #10b981;">Dave K</strong> deliver a masterclass with 5 crucial points to seize the Division Two summit, while <strong style="color: #10b981;">Dylan</strong> claimed 3 points to surge into second place in Division One. The weekend featured several Premier League upsets including Crystal Palace's stunning 2-1 victory over Liverpool and Arsenal edging Newcastle 2-1 in a thriller.
         </p>
 
-        <h3 style="color: #ec4899; font-size: 1.25rem; font-weight: 800; margin: 2rem 0 1rem 0;">Week Four Recap</h3>
+        <h3 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin: 2rem 0 1rem 0;">Week Four Recap</h3>
         <p class="bold-text">
           Week Four proved to be another game-changing round that reshaped both divisions. <strong style="color: #10b981;">Dave K</strong> delivered a spectacular <span class="bold-stat">6-POINT FULL HOUSE</span> to leap into second place, while <strong style="color: #10b981;">Rob</strong> added 3 points to maintain pressure at the top of Division One.
         </p>
