@@ -87,6 +87,41 @@
     .bold-header-inner {
       padding: 1.5rem !important;
     }
+    /* CRITICAL MOBILE FIXES FOR PICK CARDS */
+    .bold-pick-inner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1rem !important;
+      padding: 1rem !important;
+    }
+    .bold-pick-details {
+      width: 100% !important;
+      order: 2 !important;
+    }
+    .bold-pick-score-box {
+      width: 100% !important;
+      padding: 0.75rem 1rem !important;
+      order: 3 !important;
+    }
+    .bold-pick-result {
+      align-self: flex-start !important;
+      order: 4 !important;
+    }
+    .bold-pick-badge {
+      order: 1 !important;
+    }
+    .bold-player-header {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1rem !important;
+    }
+    .bold-points-box {
+      width: 100% !important;
+      padding: 0.75rem 1.5rem !important;
+    }
+    .bold-picks-container {
+      padding: 1rem !important;
+    }
   }
 
   .bold-header {
@@ -978,14 +1013,14 @@
         <div>
           <h3 class="bold-player-name">Dave K</h3>
           <div class="bold-player-status">
-            <div class="bold-status-dot pending"></div>
-            <span class="bold-status-text pending">Pending</span>
+            <div class="bold-status-dot"></div>
+            <span class="bold-status-text">Picks Submitted</span>
           </div>
         </div>
       </div>
       <div class="bold-points-box">
         <div class="bold-points-label">Status</div>
-        <div class="bold-points-value" style="font-size: 1.25rem; color: #64748b;">-</div>
+        <div class="bold-points-value" style="font-size: 1.25rem; color: #3b82f6;">TBD</div>
       </div>
     </div>
     <div class="bold-picks-container">
@@ -996,14 +1031,14 @@
             <div class="bold-pick-points">1pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Arsenal vs Crystal Palace</div>
             <div class="bold-pick-description">🏠 Home Win</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
       <div class="bold-pick-item away">
@@ -1013,14 +1048,14 @@
             <div class="bold-pick-points">2pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Aston Villa vs Manchester City</div>
             <div class="bold-pick-description">✈️ Away Win</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
       <div class="bold-pick-item draw">
@@ -1030,14 +1065,14 @@
             <div class="bold-pick-points">3pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Leeds Utd vs West Ham</div>
             <div class="bold-pick-description">🤝 Draw</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
     </div>
@@ -1056,14 +1091,14 @@
         <div>
           <h3 class="bold-player-name">Alex</h3>
           <div class="bold-player-status">
-            <div class="bold-status-dot pending"></div>
-            <span class="bold-status-text pending">Pending</span>
+            <div class="bold-status-dot"></div>
+            <span class="bold-status-text">Picks Submitted</span>
           </div>
         </div>
       </div>
       <div class="bold-points-box">
         <div class="bold-points-label">Status</div>
-        <div class="bold-points-value" style="font-size: 1.25rem; color: #64748b;">-</div>
+        <div class="bold-points-value" style="font-size: 1.25rem; color: #3b82f6;">TBD</div>
       </div>
     </div>
     <div class="bold-picks-container">
@@ -1074,14 +1109,14 @@
             <div class="bold-pick-points">1pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Coventry vs Watford</div>
             <div class="bold-pick-description">🏠 Home Win</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
       <div class="bold-pick-item away">
@@ -1091,14 +1126,14 @@
             <div class="bold-pick-points">2pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Cheltenham vs Walsall</div>
             <div class="bold-pick-description">✈️ Away Win</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
       <div class="bold-pick-item draw">
@@ -1108,14 +1143,14 @@
             <div class="bold-pick-points">3pt</div>
           </div>
           <div class="bold-pick-details">
-            <div class="bold-pick-match">-</div>
+            <div class="bold-pick-match">Charlton vs Hull City</div>
             <div class="bold-pick-description">🤝 Draw</div>
           </div>
           <div class="bold-pick-score-box">
             <div class="bold-pick-score-label">Score</div>
             <div class="bold-pick-score">-</div>
           </div>
-          <div class="bold-pick-result pending">-</div>
+          <div class="bold-pick-result pending">TBD</div>
         </div>
       </div>
     </div>
