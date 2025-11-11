@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>King of the Pundits – Season 2025/26</title>
-  <meta name="description" content="Official app for the King of the Pundits football competition – league tables, weekly picks and highlights." />
+  <title>King of the Pundits â€“ Season 2025/26</title>
+  <meta name="description" content="Official app for the King of the Pundits football competition â€“ league tables, weekly picks and highlights." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
                     <button onclick="document.getElementById('menu').style.display='none'; document.body.style.overflow='auto';" 
                             style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#e5e7eb; font-size:2rem; cursor:pointer; padding:0.5rem; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; transition:all 0.2s;"
                             onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#10b981'" 
-                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'">×</button>
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e5e7eb'">Ã—</button>
                     
                     <div style="padding:4rem 1rem 1rem;">
                         <a href="index.html" 
@@ -99,23 +99,24 @@
     position: relative;
     overflow: hidden;
     border-radius: 24px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
-    padding: 3px;
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+    padding: 2px;
     margin-bottom: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
   }
 
   .bold-hero-inner {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    border-radius: 21px;
+    background: #0f172a;
+    border-radius: 22px;
     padding: 3rem 2rem;
+    text-align: center;
   }
 
   .bold-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: linear-gradient(135deg, #059669, #10b981);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
@@ -129,9 +130,15 @@
     font-size: 2.5rem;
     font-weight: 900;
     color: white;
-    margin: 0.5rem 0 1rem 0;
-    line-height: 1.2;
+    margin: 1rem 0;
     letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 769px) {
+    .bold-hero-title {
+      font-size: 3.5rem;
+    }
   }
 
   .bold-hero-accent {
@@ -142,10 +149,11 @@
   }
 
   .bold-hero-text {
-    color: #cbd5e1;
+    color: #94a3b8;
     font-size: 1.125rem;
+    max-width: 800px;
+    margin: 0 auto;
     line-height: 1.7;
-    margin: 0;
   }
 
   .bold-section {
@@ -153,21 +161,37 @@
     margin-bottom: 2rem;
   }
 
+  .bold-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #059669, #10b981);
+    border-radius: 16px;
+    opacity: 0.15;
+    filter: blur(20px);
+    z-index: -1;
+  }
+
   .bold-section-inner {
+    position: relative;
     background: #0f172a;
     border-radius: 16px;
     border: 2px solid #1e293b;
     padding: 2rem;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .bold-section-inner:hover {
+    border-color: #334155;
+    transform: translateY(-2px);
   }
 
   .bold-section-title {
     font-size: 1.75rem;
     font-weight: 900;
     color: white;
-    margin: 0 0 1.5rem 0;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -196,7 +220,7 @@
   }
 
   .bold-highlight-item::before {
-    content: '▶';
+    content: 'â–¶';
     color: #10b981;
     margin-right: 1rem;
     font-size: 0.75rem;
@@ -309,7 +333,7 @@
           WELCOME TO <span class="bold-hero-accent">KING OF THE PUNDITS</span>
         </h1>
         <p class="bold-hero-text">
-          Eight skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything. After eight dramatic weeks, <strong style="color: #10b981;">Dylan</strong> has surged to the top of Division One with 17 points, while <strong style="color: #34d399;">Dave K</strong> maintains his slender Division Two lead with 22 points in what's shaping up to be the tightest title race in competition history!
+          Eight skilled competitors battle across two divisions in a 30-week war of wits, where every pick counts and pride is everything. After nine electrifying weeks, <strong style="color: #10b981;">Dylan</strong> holds a commanding 3-point lead in Division One with 19 points, while <strong style="color: #34d399;">Ben</strong> has seized the Division Two crown with 25 points after a title-defining performance!
         </p>
       </div>
     </div>
@@ -319,83 +343,39 @@
       <div class="bold-section-inner">
         <h2 class="bold-section-title">
           <i class="fa-solid fa-newspaper"></i>
-          WEEK EIGHT RESULTS
+          WEEK NINE RESULTS
         </h2>
         
         <div class="bold-highlight-item">
-          Week Eight delivered a seismic shift in Division One as <strong style="color: #10b981;">Dylan</strong> seized the summit with a commanding <span class="bold-stat">3-POINT PERFORMANCE</span> to reach 17 points! His crucial Reading 1-1 Doncaster draw prediction - worth the maximum 3 points - proved to be the week's most decisive result, propelling him past Davo into first place.
+          Week Nine produced the moment of the season - <strong style="color: #10b981;">Mike</strong> delivered a sensational <span class="bold-stat">FULL HOUSE SIX-POINTER</span>, perfectly predicting Chelsea 3-0 Wolves, Stoke 0-1 Coventry, and the crucial Tottenham 2-2 Manchester United draw to rocket from fourth to joint-second place!
         </div>
 
         <div class="bold-highlight-item">
-          In Division Two, <strong style="color: #34d399;">Alex</strong> stole the show with a sensational <span class="bold-stat">4-POINT MASTERCLASS</span>, combining Coventry's 3-1 home win with the Charlton 1-1 Hull City draw to rocket into third place with 20 points. This was the highest-scoring performance of Week Eight across both divisions!
+          <strong style="color: #10b981;">Ben</strong> seized the Division Two crown with a commanding <span class="bold-stat">4-POINT PERFORMANCE</span>, overtaking Dave K with Middlesbrough's 2-1 win over Birmingham and the vital Crystal Palace 0-0 Brighton draw. His 56% success rate now leads the entire competition!
         </div>
 
         <div class="bold-highlight-item">
-          <strong style="color: #10b981;">Ben</strong> delivered another clinical 3-point week in Division Two, nailing both Bristol City's 1-0 home victory over Birmingham and the crucial Portsmouth 0-1 Stoke away result. This lifts him to 21 points - just 1 point behind leader Dave K in the tightest title race imaginable!
+          <strong style="color: #10b981;">Dylan</strong> maintains his Division One summit with <span class="bold-stat">19 POINTS</span> after Newport County's thrilling 2-4 defeat to Walsall delivered 2 crucial away points, extending his lead to 3 points over his chasers.
         </div>
 
         <div class="bold-highlight-item">
-          The weekend's biggest upset came at Stamford Bridge where <strong>Sunderland stunned Chelsea 2-1</strong> in an extraordinary turnaround! The Championship leaders' victory caught both Davo and Myles completely off guard, costing them valuable home win points and derailing their weeks entirely.
+          <strong style="color: #10b981;">Dave K</strong> slips to second place in Division Two on <span class="bold-stat">23 POINTS</span> despite Chelsea's 3-0 home win, as the Sunderland 2-2 Arsenal draw and Brentford's 3-1 victory over Newcastle shattered his predictions.
         </div>
 
         <div class="bold-highlight-item">
-          <strong style="color: #f59e0b;">Davo endures nightmare zero-point week!</strong> After leading Division One with 15 points, Davo missed all three predictions - the Chelsea upset, Bromley's 2-1 home win over MK Dons, and Portsmouth's away loss to Stoke. This scoreless performance sees him drop to second place, now 2 points behind Dylan.
+          <strong style="color: #10b981;">Davo</strong> matches Mike on 16 points in joint-second after Bolton's dominant <span class="bold-stat">4-0 DEMOLITION</span> of Port Vale, though his draw predictions continue to elude him with zero correct from nine attempts.
         </div>
 
         <div class="bold-highlight-item">
-          Both division races are absolutely electrifying! Division One sees <strong style="color: #10b981;">Dylan</strong> lead with 17 points, but just <span class="bold-stat">7 POINTS</span> separate first from fourth. Division Two is even tighter with the top three (Dave K 22pts, Ben 21pts, Alex 20pts) separated by a mere <span class="bold-stat">2 POINTS</span> - this title is anyone's for the taking!
+          <strong style="color: #34d399;">Alex</strong> surges into contention with <span class="bold-stat">22 POINTS</span>, just one behind Dave K, after Newport's 2-4 loss to Walsall delivered a crucial away point to keep the Division Two title race wide open!
         </div>
-      </div>
-    </div>
 
-    <!-- VIDEO HIGHLIGHTS -->
-    <div class="bold-section">
-      <div class="bold-section-inner">
-        <h2 class="bold-section-title">
-          <i class="fa-solid fa-video"></i>
-          WEEK EIGHT FEATURED HIGHLIGHTS
-        </h2>
-        
-        <div class="video-grid-bold">
-          <div class="video-card">
-            <div class="video-wrap-bold">
-              <iframe src="https://www.youtube.com/embed/1SyPzNvLgQ0?si=qFl92jy-3oNgrDCT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption-bold">
-              <strong>Arsenal 1-0 Crystal Palace</strong>
-              Gunners edge Palace in tight encounter
-            </p>
-          </div>
+        <div class="bold-highlight-item">
+          <strong style="color: #34d399;">Myles</strong> endures a nightmare scoreless week, remaining on <span class="bold-stat">15 POINTS</span> as all three predictions missed - the Tottenham 2-2 draw particularly painful after backing a home win.
+        </div>
 
-          <div class="video-card">
-            <div class="video-wrap-bold">
-              <iframe src="https://www.youtube.com/embed/a5NePbb3hGw?si=3nkmsWNdpHqq5Xpt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption-bold">
-              <strong>Chelsea 1-2 Sunderland</strong>
-              Shock upset at Stamford Bridge!
-            </p>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrap-bold">
-              <iframe src="https://www.youtube.com/embed/AIWlkTZEfHc?si=koDRYHshFD5WridE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption-bold">
-              <strong>Aston Villa 1-0 Manchester City</strong>
-              Villa stun the champions at home
-            </p>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrap-bold">
-              <iframe src="https://www.youtube.com/embed/rm1K9HEulwo?si=XtcIua3YcLEd1GIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption-bold">
-              <strong>Coventry 3-1 Watford</strong>
-              Sky Blues cruise to comfortable victory
-            </p>
-          </div>
+        <div class="bold-highlight-item">
+          Both divisions promise thrilling championship battles - Dylan holds a 3-point cushion in Division One while Division Two's top three are separated by just <span class="bold-stat">3 POINTS</span>!
         </div>
       </div>
     </div>
@@ -408,20 +388,71 @@
           PREVIOUS RESULTS
         </h2>
         
-        <h3 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">Week Seven Recap</h3>
+        <h3 style="color: #10b981; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">Week Eight Recap</h3>
         <p class="bold-text">
-          Week Seven delivered absolute fireworks as <strong style="color: #10b981;">Dave K</strong> produced a commanding <span class="bold-stat">5-POINT PERFORMANCE</span> to extend his Division Two lead to 21 points. His masterful draw prediction on the Crystal Palace vs Bournemouth thriller (3-3) secured him the maximum 3 points. Meanwhile, <strong style="color: #34d399;">Dylan</strong> claimed Division One honors with 3 crucial points, correctly calling both Coventry's home victory and Arsenal's away triumph at Fulham.
+          Week Eight saw <strong style="color: #10b981;">Dylan</strong> claim his third consecutive week at the Division One summit with 3 points courtesy of Reading's 1-1 draw with Doncaster, while <strong style="color: #10b981;">Ben</strong> delivered another 3-point performance to surge within one point of Dave K. <strong style="color: #34d399;">Alex</strong> produced the performance of the week with a stunning 4-point haul featuring Coventry's 3-1 home win and the Charlton 1-1 Hull draw, catapulting into third place.
         </p>
 
-        <h3 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin: 2rem 0 1rem 0;">Week Six Recap</h3>
+        <h3 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin: 2rem 0 1rem 0;">Week Seven Recap</h3>
         <p class="bold-text">
-          Week Six delivered the most dramatic result in King of the Pundits history - an unprecedented <span class="bold-stat">4-WAY TIE</span> in Division One as Mike, Dylan, Rob, and Davo all scored exactly 3 points! Meanwhile, <strong style="color: #10b981;">Alex</strong> claimed Division Two honors with 4 points, featuring his signature draw mastery on the Port Vale stalemate.
+          Week Seven proved pivotal as <strong style="color: #10b981;">Dave K</strong> delivered a sensational <span class="bold-stat">5-POINT MASTERCLASS</span> to seize the Division Two lead, while <strong style="color: #10b981;">Dylan</strong> added 3 crucial points to claim the Division One summit for the first time. The weekend featured Chelsea's dominant 3-0 away victory at Nottingham Forest and a thrilling 3-3 draw between Crystal Palace and Bournemouth that rewarded Dave K's tactical acumen.
         </p>
+      </div>
+    </div>
 
-        <h3 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin: 2rem 0 1rem 0;">Week Five Recap</h3>
-        <p class="bold-text">
-          Week Five saw <strong style="color: #10b981;">Dave K</strong> deliver a masterclass with 5 crucial points to seize the Division Two summit, while <strong style="color: #10b981;">Dylan</strong> claimed 3 points to surge into second place in Division One. The weekend featured several Premier League upsets including Crystal Palace's stunning 2-1 victory over Liverpool and Arsenal edging Newcastle 2-1 in a thriller.
+    <!-- VIDEO HIGHLIGHTS -->
+    <div class="bold-section">
+      <div class="bold-section-inner">
+        <h2 class="bold-section-title">
+          <i class="fa-solid fa-video"></i>
+          WEEK NINE MATCH HIGHLIGHTS
+        </h2>
+        
+        <p class="bold-text" style="margin-bottom: 1.5rem;">
+          Relive the drama from Week Nine's most crucial matches, featuring Mike's historic Full House predictions and the thrilling encounters that shaped both division races!
         </p>
+        
+        <div class="video-grid-bold">
+          <div class="video-card">
+            <div class="video-wrap-bold">
+              <iframe src="https://www.youtube.com/embed/ybIUzETrRpw?si=w2BNbCSkBmkE416J" title="Chelsea vs Wolves" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption-bold">
+              <strong>Chelsea 3-0 Wolves</strong>
+              Blues cruise to victory as Garnacho stars
+            </p>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap-bold">
+              <iframe src="https://www.youtube.com/embed/JDtEr-VSDyc?si=Wu6sBXfLH0zonPds" title="Tottenham vs Manchester United" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption-bold">
+              <strong>Tottenham 2-2 Manchester United</strong>
+              De Ligt's 96th minute equalizer salvages draw
+            </p>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap-bold">
+              <iframe src="https://www.youtube.com/embed/4Uj6HiJ6se4?si=hPvGF4b9E1y3XMQL" title="Crystal Palace vs Brighton" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption-bold">
+              <strong>Crystal Palace 0-0 Brighton</strong>
+              Goalless derby delivers crucial 3 points for Ben
+            </p>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap-bold">
+              <iframe src="https://www.youtube.com/embed/i7C6ihyzCHE?si=-oeo3Zk06bTUYkOE" title="Sunderland vs Arsenal" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption-bold">
+              <strong>Sunderland 2-2 Arsenal</strong>
+              Dramatic draw that upset Davo and Dave K's predictions
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -436,47 +467,35 @@
         <p class="bold-text">
           Welcome to the 2025/26 season of King of the Pundits! With 30 action-packed weeks ahead, our competitors are locked in a fierce battle for bragging rights and the ultimate prize.
         </p>
-        
-        <p class="bold-text">
-          <strong>The Format:</strong> Eight players compete across two divisions, making three weekly predictions: one Home Win (1pt), one Away Win (2pts), and one Draw (3pts). Nail all three for a glorious 6-point full house!
-        </p>
 
-        <p class="bold-text">
-          <strong>Current Standings After Week 8:</strong>
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; border-radius: 12px; padding: 1rem;">
-            <h4 style="color: #10b981; margin: 0 0 0.75rem 0; font-size: 1.1rem;">Division One</h4>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥇 Dylan - 17pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥈 Davo - 15pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥉 Rob - 12pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">4th Mike - 10pts</p>
-          </div>
-
-          <div style="background: rgba(52, 211, 153, 0.1); border: 1px solid #34d399; border-radius: 12px; padding: 1rem;">
-            <h4 style="color: #34d399; margin: 0 0 0.75rem 0; font-size: 1.1rem;">Division Two</h4>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥇 Dave K - 22pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥈 Ben - 21pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">🥉 Alex - 20pts</p>
-            <p style="margin: 0.25rem 0; color: #e5e7eb;">4th Myles - 15pts</p>
-          </div>
+        <div class="bold-highlight-item">
+          The season lasts for <span class="bold-stat">30 WEEKS</span>, where eight pundits compete across two divisions in the ultimate test of football knowledge and prediction prowess.
         </div>
 
-        <p class="bold-text" style="margin-top: 1.5rem;">
-          <strong>The Stakes:</strong> £16 weekly prize pool (£8 betting fund, £8 end-of-season pot). With 22 weeks remaining, there's still everything to play for!
-        </p>
+        <div class="bold-highlight-item">
+          The scoring system rewards bold predictions: <span class="bold-stat">Home Win = 1pt</span>, <span class="bold-stat">Away Win = 2pts</span>, <span class="bold-stat">Draw = 3pts</span>. The rarest and most valuable outcome is correctly predicting a draw.
+        </div>
+
+        <div class="bold-highlight-item">
+          After nine weeks of intense competition, we've witnessed historic moments including <strong style="color: #10b981;">Mike's sensational Full House</strong> - the second of the competition - and <strong style="color: #34d399;">Ben's title-defining performance</strong> that saw him seize the Division Two crown from Dave K!.
+        </div>
+
+        <div class="bold-highlight-item">
+          With <span class="bold-stat">Â£2 PER WEEK</span> entry fees, the prize fund continues to grow. Total prize money is split equally between the Betting Fund and End of Season Prize Fund.
+        </div>
+
+        <div class="bold-highlight-item">
+          Current form suggests this could be the most competitive season yet! <strong style="color: #10b981;">Ben's phenomenal 56% success rate</strong> leads the competition, while both divisions promise thrilling championship battles in the 21 weeks remaining!
+        </div>
       </div>
     </div>
 
   </main>
 
-  <button class="back-to-top" id="backToTop" title="Back to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+  <button id="backToTop" class="back-to-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <footer class="site-footer">
-    <p>© 2025 King of the Pundits. All rights reserved.</p>
+    <p>Â© 2025 King of the Pundits. All rights reserved.</p>
     <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">
       Site created and developed by <strong>David P Edwards</strong>, founder and organizer of King of the Pundits.
     </p>
@@ -485,7 +504,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backToTopButton = document.getElementById('backToTop');
-      
+
       if (backToTopButton) {
         window.addEventListener('scroll', function() {
           if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -494,16 +513,11 @@
             backToTopButton.style.display = "none";
           }
         });
-        
         backToTopButton.addEventListener('click', function() {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
     });
   </script>
-
 </body>
 </html>
